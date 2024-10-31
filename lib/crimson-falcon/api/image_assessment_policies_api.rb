@@ -37,7 +37,7 @@ module Falcon
       @api_client = api_client
     end
     # Create Image Assessment policies
-    # @param body [ModelsCreatePolicyRequest]
+    # @param body [ModelsCreatePolicyRequest] 
     # @param [Hash] opts the optional parameters
     # @return [ModelsPolicyEntityResponse]
     def create_policies(body, opts = {})
@@ -46,7 +46,7 @@ module Falcon
     end
 
     # Create Image Assessment policies
-    # @param body [ModelsCreatePolicyRequest]
+    # @param body [ModelsCreatePolicyRequest] 
     # @param [Hash] opts the optional parameters
     # @return [Array<(ModelsPolicyEntityResponse, Integer, Hash)>] ModelsPolicyEntityResponse data, response status code and response headers
     def create_policies_with_http_info(body, opts = {})
@@ -70,7 +70,7 @@ module Falcon
       # HTTP header 'Content-Type'
       content_type = @api_client.select_header_content_type(['application/json'])
       if !content_type.nil?
-        header_params['Content-Type'] = content_type
+          header_params['Content-Type'] = content_type
       end
 
       # form parameters
@@ -103,7 +103,7 @@ module Falcon
     end
 
     # Create Image Assessment Policy Group entities
-    # @param body [ModelsCreateImageGroupRequest]
+    # @param body [ModelsCreateImageGroupRequest] 
     # @param [Hash] opts the optional parameters
     # @return [ModelsPolicyGroupEntityResponse]
     def create_policy_groups(body, opts = {})
@@ -112,7 +112,7 @@ module Falcon
     end
 
     # Create Image Assessment Policy Group entities
-    # @param body [ModelsCreateImageGroupRequest]
+    # @param body [ModelsCreateImageGroupRequest] 
     # @param [Hash] opts the optional parameters
     # @return [Array<(ModelsPolicyGroupEntityResponse, Integer, Hash)>] ModelsPolicyGroupEntityResponse data, response status code and response headers
     def create_policy_groups_with_http_info(body, opts = {})
@@ -136,7 +136,7 @@ module Falcon
       # HTTP header 'Content-Type'
       content_type = @api_client.select_header_content_type(['application/json'])
       if !content_type.nil?
-        header_params['Content-Type'] = content_type
+          header_params['Content-Type'] = content_type
       end
 
       # form parameters
@@ -459,7 +459,7 @@ module Falcon
 
     # Update Image Assessment Policy entities
     # @param id [String] Image Assessment Policy entity UUID
-    # @param body [ModelsPatchPolicyRequest]
+    # @param body [ModelsPatchPolicyRequest] 
     # @param [Hash] opts the optional parameters
     # @return [ModelsPolicyEntityResponse]
     def update_policies(id, body, opts = {})
@@ -469,7 +469,7 @@ module Falcon
 
     # Update Image Assessment Policy entities
     # @param id [String] Image Assessment Policy entity UUID
-    # @param body [ModelsPatchPolicyRequest]
+    # @param body [ModelsPatchPolicyRequest] 
     # @param [Hash] opts the optional parameters
     # @return [Array<(ModelsPolicyEntityResponse, Integer, Hash)>] ModelsPolicyEntityResponse data, response status code and response headers
     def update_policies_with_http_info(id, body, opts = {})
@@ -498,7 +498,7 @@ module Falcon
       # HTTP header 'Content-Type'
       content_type = @api_client.select_header_content_type(['application/json'])
       if !content_type.nil?
-        header_params['Content-Type'] = content_type
+          header_params['Content-Type'] = content_type
       end
 
       # form parameters
@@ -531,7 +531,7 @@ module Falcon
     end
 
     # Update Image Assessment Policy Exclusion entities
-    # @param body [ModelsUpdateExclusionsRequest]
+    # @param body [ModelsUpdateExclusionsRequest] 
     # @param [Hash] opts the optional parameters
     # @return [ModelsPolicyExclusionEntityResponse]
     def update_policy_exclusions(body, opts = {})
@@ -540,7 +540,7 @@ module Falcon
     end
 
     # Update Image Assessment Policy Exclusion entities
-    # @param body [ModelsUpdateExclusionsRequest]
+    # @param body [ModelsUpdateExclusionsRequest] 
     # @param [Hash] opts the optional parameters
     # @return [Array<(ModelsPolicyExclusionEntityResponse, Integer, Hash)>] ModelsPolicyExclusionEntityResponse data, response status code and response headers
     def update_policy_exclusions_with_http_info(body, opts = {})
@@ -564,7 +564,7 @@ module Falcon
       # HTTP header 'Content-Type'
       content_type = @api_client.select_header_content_type(['application/json'])
       if !content_type.nil?
-        header_params['Content-Type'] = content_type
+          header_params['Content-Type'] = content_type
       end
 
       # form parameters
@@ -598,7 +598,7 @@ module Falcon
 
     # Update Image Assessment Policy Group entities
     # @param id [String] Policy Image Group entity UUID
-    # @param body [ModelsPatchImageGroupRequest]
+    # @param body [ModelsPatchImageGroupRequest] 
     # @param [Hash] opts the optional parameters
     # @return [ModelsPolicyGroupEntityResponse]
     def update_policy_groups(id, body, opts = {})
@@ -608,7 +608,7 @@ module Falcon
 
     # Update Image Assessment Policy Group entities
     # @param id [String] Policy Image Group entity UUID
-    # @param body [ModelsPatchImageGroupRequest]
+    # @param body [ModelsPatchImageGroupRequest] 
     # @param [Hash] opts the optional parameters
     # @return [Array<(ModelsPolicyGroupEntityResponse, Integer, Hash)>] ModelsPolicyGroupEntityResponse data, response status code and response headers
     def update_policy_groups_with_http_info(id, body, opts = {})
@@ -637,7 +637,7 @@ module Falcon
       # HTTP header 'Content-Type'
       content_type = @api_client.select_header_content_type(['application/json'])
       if !content_type.nil?
-        header_params['Content-Type'] = content_type
+          header_params['Content-Type'] = content_type
       end
 
       # form parameters
@@ -670,7 +670,7 @@ module Falcon
     end
 
     # Update Image Assessment Policy precedence
-    # @param body [ModelsAPIPrecedenceRequest]
+    # @param body [ModelsAPIPrecedenceRequest] 
     # @param [Hash] opts the optional parameters
     # @return [ModelsPolicyEntityResponse]
     def update_policy_precedence(body, opts = {})
@@ -679,7 +679,7 @@ module Falcon
     end
 
     # Update Image Assessment Policy precedence
-    # @param body [ModelsAPIPrecedenceRequest]
+    # @param body [ModelsAPIPrecedenceRequest] 
     # @param [Hash] opts the optional parameters
     # @return [Array<(ModelsPolicyEntityResponse, Integer, Hash)>] ModelsPolicyEntityResponse data, response status code and response headers
     def update_policy_precedence_with_http_info(body, opts = {})
@@ -703,7 +703,7 @@ module Falcon
       # HTTP header 'Content-Type'
       content_type = @api_client.select_header_content_type(['application/json'])
       if !content_type.nil?
-        header_params['Content-Type'] = content_type
+          header_params['Content-Type'] = content_type
       end
 
       # form parameters

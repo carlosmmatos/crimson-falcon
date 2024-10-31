@@ -11,6 +11,7 @@
 | **end_timestamp** | **Time** | Timestamp of when the execution completed. Only present when status is an end state. | [optional] |
 | **execution_id** | **String** | Unique id generated for the execution. |  |
 | **loops** | [**Array&lt;ExecutionsLoopResult&gt;**](ExecutionsLoopResult.md) | Details for the results of each loop in the workflow definition. |  |
+| **output** | **Object** | Output from this workflow execution | [optional] |
 | **retryable** | **Boolean** | A boolean value indicating whether the failed workflow execution is retryable |  |
 | **start_timestamp** | **Time** | Timestamp of when the execution first started. |  |
 | **status** | **String** | Overall status for the execution. |  |
@@ -29,6 +30,7 @@ instance = Falcon::ExecutionsExecutionResult.new(
   end_timestamp: null,
   execution_id: null,
   loops: null,
+  output: null,
   retryable: null,
   start_timestamp: null,
   status: null,

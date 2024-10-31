@@ -32,6 +32,9 @@ require 'time'
 
 module Falcon
   class SadomainCreateRuleRequestV1
+    # Monitor only for breach data. Must be accompanied by breach_monitoring_enabled:true.
+    attr_accessor :breach_monitor_only
+
     # Whether to monitor for breach data. Available only for `Company Domains` and `Email addresses` rule topics. When enabled, ownership of the monitored domains or emails is required
     attr_accessor :breach_monitoring_enabled
 
@@ -40,6 +43,9 @@ module Falcon
 
     # The name of a given rule
     attr_accessor :name
+
+    # If the rule was generated based on a template, the id of the template
+    attr_accessor :originating_template_id
 
     # The permissions for a given rule which specifies the rule's access by other users. Possible values: [`public`, `private`]
     attr_accessor :permissions
@@ -56,9 +62,11 @@ module Falcon
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
+        :'breach_monitor_only' => :'breach_monitor_only',
         :'breach_monitoring_enabled' => :'breach_monitoring_enabled',
         :'filter' => :'filter',
         :'name' => :'name',
+        :'originating_template_id' => :'originating_template_id',
         :'permissions' => :'permissions',
         :'priority' => :'priority',
         :'substring_matching_enabled' => :'substring_matching_enabled',
@@ -74,9 +82,11 @@ module Falcon
     # Attribute type mapping.
     def self.openapi_types
       {
+        :'breach_monitor_only' => :'Boolean',
         :'breach_monitoring_enabled' => :'Boolean',
         :'filter' => :'String',
         :'name' => :'String',
+        :'originating_template_id' => :'String',
         :'permissions' => :'String',
         :'priority' => :'String',
         :'substring_matching_enabled' => :'Boolean',
@@ -105,6 +115,10 @@ module Falcon
         h[k.to_sym] = v
       }
 
+      if attributes.key?(:'breach_monitor_only')
+        self.breach_monitor_only = attributes[:'breach_monitor_only']
+      end
+
       if attributes.key?(:'breach_monitoring_enabled')
         self.breach_monitoring_enabled = attributes[:'breach_monitoring_enabled']
       end
@@ -115,6 +129,10 @@ module Falcon
 
       if attributes.key?(:'name')
         self.name = attributes[:'name']
+      end
+
+      if attributes.key?(:'originating_template_id')
+        self.originating_template_id = attributes[:'originating_template_id']
       end
 
       if attributes.key?(:'permissions')
@@ -138,6 +156,10 @@ module Falcon
     # @return Array for valid properties with the reasons
     def list_invalid_properties
       invalid_properties = Array.new
+      if @breach_monitor_only.nil?
+        invalid_properties.push('invalid value for "breach_monitor_only", breach_monitor_only cannot be nil.')
+      end
+
       if @breach_monitoring_enabled.nil?
         invalid_properties.push('invalid value for "breach_monitoring_enabled", breach_monitoring_enabled cannot be nil.')
       end
@@ -148,6 +170,10 @@ module Falcon
 
       if @name.nil?
         invalid_properties.push('invalid value for "name", name cannot be nil.')
+      end
+
+      if @originating_template_id.nil?
+        invalid_properties.push('invalid value for "originating_template_id", originating_template_id cannot be nil.')
       end
 
       if @permissions.nil?
@@ -172,9 +198,11 @@ module Falcon
     # Check to see if the all the properties in the model are valid
     # @return true if the model is valid
     def valid?
+      return false if @breach_monitor_only.nil?
       return false if @breach_monitoring_enabled.nil?
       return false if @filter.nil?
       return false if @name.nil?
+      return false if @originating_template_id.nil?
       return false if @permissions.nil?
       return false if @priority.nil?
       return false if @substring_matching_enabled.nil?
@@ -187,9 +215,11 @@ module Falcon
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
+          breach_monitor_only == o.breach_monitor_only &&
           breach_monitoring_enabled == o.breach_monitoring_enabled &&
           filter == o.filter &&
           name == o.name &&
+          originating_template_id == o.originating_template_id &&
           permissions == o.permissions &&
           priority == o.priority &&
           substring_matching_enabled == o.substring_matching_enabled &&
@@ -205,7 +235,7 @@ module Falcon
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [breach_monitoring_enabled, filter, name, permissions, priority, substring_matching_enabled, topic].hash
+      [breach_monitor_only, breach_monitoring_enabled, filter, name, originating_template_id, permissions, priority, substring_matching_enabled, topic].hash
     end
 
     # Builds the object from hash
@@ -326,5 +356,7 @@ module Falcon
         value
       end
     end
+
   end
+
 end

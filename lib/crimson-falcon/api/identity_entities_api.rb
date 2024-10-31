@@ -37,7 +37,7 @@ module Falcon
       @api_client = api_client
     end
     # Get sensor aggregates as specified via json in request body.
-    # @param body [MsaAggregateQueryRequest]
+    # @param body [MsaAggregateQueryRequest] 
     # @param [Hash] opts the optional parameters
     # @return [MsaAggregatesResponse]
     def get_sensor_aggregates(body, opts = {})
@@ -46,7 +46,7 @@ module Falcon
     end
 
     # Get sensor aggregates as specified via json in request body.
-    # @param body [MsaAggregateQueryRequest]
+    # @param body [MsaAggregateQueryRequest] 
     # @param [Hash] opts the optional parameters
     # @return [Array<(MsaAggregatesResponse, Integer, Hash)>] MsaAggregatesResponse data, response status code and response headers
     def get_sensor_aggregates_with_http_info(body, opts = {})
@@ -70,7 +70,7 @@ module Falcon
       # HTTP header 'Content-Type'
       content_type = @api_client.select_header_content_type(['application/json'])
       if !content_type.nil?
-        header_params['Content-Type'] = content_type
+          header_params['Content-Type'] = content_type
       end
 
       # form parameters
@@ -103,7 +103,7 @@ module Falcon
     end
 
     # Get details on one or more sensors by providing device IDs in a POST body. Supports up to a maximum of 5000 IDs.
-    # @param body [MsaIdsRequest]
+    # @param body [MsaIdsRequest] 
     # @param [Hash] opts the optional parameters
     # @return [ApiSensorDetailsResponseSwagger]
     def get_sensor_details(body, opts = {})
@@ -112,7 +112,7 @@ module Falcon
     end
 
     # Get details on one or more sensors by providing device IDs in a POST body. Supports up to a maximum of 5000 IDs.
-    # @param body [MsaIdsRequest]
+    # @param body [MsaIdsRequest] 
     # @param [Hash] opts the optional parameters
     # @return [Array<(ApiSensorDetailsResponseSwagger, Integer, Hash)>] ApiSensorDetailsResponseSwagger data, response status code and response headers
     def get_sensor_details_with_http_info(body, opts = {})
@@ -136,7 +136,7 @@ module Falcon
       # HTTP header 'Content-Type'
       content_type = @api_client.select_header_content_type(['application/json'])
       if !content_type.nil?
-        header_params['Content-Type'] = content_type
+          header_params['Content-Type'] = content_type
       end
 
       # form parameters

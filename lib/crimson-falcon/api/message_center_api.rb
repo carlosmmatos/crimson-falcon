@@ -37,7 +37,7 @@ module Falcon
       @api_client = api_client
     end
     # Retrieve aggregate case values based on the matched filter
-    # @param body [Array<MsaAggregateQueryRequest>]
+    # @param body [Array<MsaAggregateQueryRequest>] 
     # @param [Hash] opts the optional parameters
     # @return [MsaAggregatesResponse]
     def aggregate_cases(body, opts = {})
@@ -46,7 +46,7 @@ module Falcon
     end
 
     # Retrieve aggregate case values based on the matched filter
-    # @param body [Array<MsaAggregateQueryRequest>]
+    # @param body [Array<MsaAggregateQueryRequest>] 
     # @param [Hash] opts the optional parameters
     # @return [Array<(MsaAggregatesResponse, Integer, Hash)>] MsaAggregatesResponse data, response status code and response headers
     def aggregate_cases_with_http_info(body, opts = {})
@@ -70,7 +70,7 @@ module Falcon
       # HTTP header 'Content-Type'
       content_type = @api_client.select_header_content_type(['application/json'])
       if !content_type.nil?
-        header_params['Content-Type'] = content_type
+          header_params['Content-Type'] = content_type
       end
 
       # form parameters
@@ -103,7 +103,7 @@ module Falcon
     end
 
     # Add an activity to case. Only activities of type comment are allowed via API
-    # @param body [DomainActivityCreationRequest]
+    # @param body [DomainActivityCreationRequest] 
     # @param [Hash] opts the optional parameters
     # @return [MsaspecResponseFields]
     def case_add_activity(body, opts = {})
@@ -112,7 +112,7 @@ module Falcon
     end
 
     # Add an activity to case. Only activities of type comment are allowed via API
-    # @param body [DomainActivityCreationRequest]
+    # @param body [DomainActivityCreationRequest] 
     # @param [Hash] opts the optional parameters
     # @return [Array<(MsaspecResponseFields, Integer, Hash)>] MsaspecResponseFields data, response status code and response headers
     def case_add_activity_with_http_info(body, opts = {})
@@ -136,7 +136,7 @@ module Falcon
       # HTTP header 'Content-Type'
       content_type = @api_client.select_header_content_type(['application/json'])
       if !content_type.nil?
-        header_params['Content-Type'] = content_type
+          header_params['Content-Type'] = content_type
       end
 
       # form parameters
@@ -216,7 +216,7 @@ module Falcon
       # HTTP header 'Content-Type'
       content_type = @api_client.select_header_content_type(['multipart/form-data'])
       if !content_type.nil?
-        header_params['Content-Type'] = content_type
+          header_params['Content-Type'] = content_type
       end
 
       # form parameters
@@ -314,7 +314,7 @@ module Falcon
     end
 
     # create a new case
-    # @param body [DomainCaseCreationRequest]
+    # @param body [DomainCaseCreationRequest] 
     # @param [Hash] opts the optional parameters
     # @return [MsaReplyAffectedEntities]
     def create_case(body, opts = {})
@@ -323,7 +323,7 @@ module Falcon
     end
 
     # create a new case
-    # @param body [DomainCaseCreationRequest]
+    # @param body [DomainCaseCreationRequest] 
     # @param [Hash] opts the optional parameters
     # @return [Array<(MsaReplyAffectedEntities, Integer, Hash)>] MsaReplyAffectedEntities data, response status code and response headers
     def create_case_with_http_info(body, opts = {})
@@ -347,7 +347,7 @@ module Falcon
       # HTTP header 'Content-Type'
       content_type = @api_client.select_header_content_type(['application/json'])
       if !content_type.nil?
-        header_params['Content-Type'] = content_type
+          header_params['Content-Type'] = content_type
       end
 
       # form parameters
@@ -380,7 +380,7 @@ module Falcon
     end
 
     # create a new case
-    # @param body [DomainCaseCreationRequestV2]
+    # @param body [DomainCaseCreationRequestV2] 
     # @param [Hash] opts the optional parameters
     # @return [MsaReplyAffectedEntities]
     def create_case_v2(body, opts = {})
@@ -389,7 +389,7 @@ module Falcon
     end
 
     # create a new case
-    # @param body [DomainCaseCreationRequestV2]
+    # @param body [DomainCaseCreationRequestV2] 
     # @param [Hash] opts the optional parameters
     # @return [Array<(MsaReplyAffectedEntities, Integer, Hash)>] MsaReplyAffectedEntities data, response status code and response headers
     def create_case_v2_with_http_info(body, opts = {})
@@ -413,7 +413,7 @@ module Falcon
       # HTTP header 'Content-Type'
       content_type = @api_client.select_header_content_type(['application/json'])
       if !content_type.nil?
-        header_params['Content-Type'] = content_type
+          header_params['Content-Type'] = content_type
       end
 
       # form parameters
@@ -446,7 +446,7 @@ module Falcon
     end
 
     # Retrieve activities for given id's
-    # @param body [MsaIdsRequest]
+    # @param body [MsaIdsRequest] 
     # @param [Hash] opts the optional parameters
     # @return [ApiMessageCenterActivityResponse]
     def get_case_activity_by_ids(body, opts = {})
@@ -455,7 +455,7 @@ module Falcon
     end
 
     # Retrieve activities for given id&#39;s
-    # @param body [MsaIdsRequest]
+    # @param body [MsaIdsRequest] 
     # @param [Hash] opts the optional parameters
     # @return [Array<(ApiMessageCenterActivityResponse, Integer, Hash)>] ApiMessageCenterActivityResponse data, response status code and response headers
     def get_case_activity_by_ids_with_http_info(body, opts = {})
@@ -479,7 +479,7 @@ module Falcon
       # HTTP header 'Content-Type'
       content_type = @api_client.select_header_content_type(['application/json'])
       if !content_type.nil?
-        header_params['Content-Type'] = content_type
+          header_params['Content-Type'] = content_type
       end
 
       # form parameters
@@ -512,7 +512,7 @@ module Falcon
     end
 
     # Retrieve message center cases
-    # @param body [MsaIdsRequest]
+    # @param body [MsaIdsRequest] 
     # @param [Hash] opts the optional parameters
     # @return [ApiMessageCenterCasesResponse]
     def get_case_entities_by_ids(body, opts = {})
@@ -521,7 +521,7 @@ module Falcon
     end
 
     # Retrieve message center cases
-    # @param body [MsaIdsRequest]
+    # @param body [MsaIdsRequest] 
     # @param [Hash] opts the optional parameters
     # @return [Array<(ApiMessageCenterCasesResponse, Integer, Hash)>] ApiMessageCenterCasesResponse data, response status code and response headers
     def get_case_entities_by_ids_with_http_info(body, opts = {})
@@ -545,7 +545,7 @@ module Falcon
       # HTTP header 'Content-Type'
       content_type = @api_client.select_header_content_type(['application/json'])
       if !content_type.nil?
-        header_params['Content-Type'] = content_type
+          header_params['Content-Type'] = content_type
       end
 
       # form parameters
@@ -678,7 +678,7 @@ module Falcon
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: MessageCenterApi.query_cases_ids_by_filter ...'
       end
-      allowable_values = ["case.id.asc", "case.id.desc"]
+      allowable_values = ["case.created_time.asc", "case.created_time.desc"]
       if @api_client.config.client_side_validation && opts[:'sort'] && !allowable_values.include?(opts[:'sort'])
         fail ArgumentError, "invalid value for \"sort\", must be one of #{allowable_values}"
       end

@@ -1,13 +1,34 @@
 # Falcon::KubernetesProtectionApi
 
-All URIs are relative to *https://api.crowdstrike.com*
+All URIs are relative to *https://api.us-2.crowdstrike.com*
 
 | Method | HTTP request | Description |
 | ------ | ------------ | ----------- |
+| [**cluster_combined**](KubernetesProtectionApi.md#cluster_combined) | **GET** /container-security/combined/clusters/v1 | Retrieve kubernetes clusters identified by the provided filter criteria |
+| [**cluster_count**](KubernetesProtectionApi.md#cluster_count) | **GET** /container-security/aggregates/clusters/count/v1 | Retrieve cluster counts |
+| [**cluster_enrichment**](KubernetesProtectionApi.md#cluster_enrichment) | **GET** /container-security/aggregates/enrichment/clusters/entities/v1 | Retrieve cluster enrichment data |
+| [**clusters_by_date_range_count**](KubernetesProtectionApi.md#clusters_by_date_range_count) | **GET** /container-security/aggregates/clusters/count-by-date/v1 | Retrieve clusters by date range counts |
+| [**clusters_by_kubernetes_version_count**](KubernetesProtectionApi.md#clusters_by_kubernetes_version_count) | **GET** /container-security/aggregates/clusters/count-by-kubernetes-version/v1 | Bucket clusters by kubernetes version |
+| [**clusters_by_status_count**](KubernetesProtectionApi.md#clusters_by_status_count) | **GET** /container-security/aggregates/clusters/count-by-status/v1 | Bucket clusters by status |
+| [**container_combined**](KubernetesProtectionApi.md#container_combined) | **GET** /container-security/combined/containers/v1 | Retrieve containers identified by the provided filter criteria |
+| [**container_count**](KubernetesProtectionApi.md#container_count) | **GET** /container-security/aggregates/containers/count/v1 | Retrieve container counts |
+| [**container_count_by_registry**](KubernetesProtectionApi.md#container_count_by_registry) | **GET** /container-security/aggregates/containers/count-by-registry/v1 | Retrieve top container image registries |
+| [**container_enrichment**](KubernetesProtectionApi.md#container_enrichment) | **GET** /container-security/aggregates/enrichment/containers/entities/v1 | Retrieve container enrichment data |
+| [**container_image_detections_count_by_date**](KubernetesProtectionApi.md#container_image_detections_count_by_date) | **GET** /container-security/aggregates/containers/image-detections-count-by-date/v1 | Retrieve count of image assessment detections on running containers over a period of time |
+| [**container_images_by_most_used**](KubernetesProtectionApi.md#container_images_by_most_used) | **GET** /container-security/aggregates/images/most-used/v1 | Bucket container by image-digest |
+| [**container_images_by_state**](KubernetesProtectionApi.md#container_images_by_state) | **GET** /container-security/aggregates/containers/images-by-state/v1 | Retrieve count of image states running on containers |
+| [**container_vulnerabilities_by_severity_count**](KubernetesProtectionApi.md#container_vulnerabilities_by_severity_count) | **GET** /container-security/aggregates/containers/vulnerability-count-by-severity/v1 | Retrieve container vulnerabilities by severity counts |
+| [**containers_by_date_range_count**](KubernetesProtectionApi.md#containers_by_date_range_count) | **GET** /container-security/aggregates/containers/count-by-date/v1 | Retrieve containers by date range counts |
+| [**containers_sensor_coverage**](KubernetesProtectionApi.md#containers_sensor_coverage) | **GET** /container-security/aggregates/containers/sensor-coverage/v1 | Bucket containers by agent type and calculate sensor coverage |
 | [**create_aws_account**](KubernetesProtectionApi.md#create_aws_account) | **POST** /kubernetes-protection/entities/accounts/aws/v1 | Creates a new AWS account in our system for a customer and generates the installation script |
 | [**create_azure_subscription**](KubernetesProtectionApi.md#create_azure_subscription) | **POST** /kubernetes-protection/entities/accounts/azure/v1 | Creates a new Azure Subscription in our system |
 | [**delete_aws_accounts_mixin0**](KubernetesProtectionApi.md#delete_aws_accounts_mixin0) | **DELETE** /kubernetes-protection/entities/accounts/aws/v1 | Delete AWS accounts. |
 | [**delete_azure_subscription**](KubernetesProtectionApi.md#delete_azure_subscription) | **DELETE** /kubernetes-protection/entities/accounts/azure/v1 | Deletes a new Azure Subscription in our system |
+| [**deployment_combined**](KubernetesProtectionApi.md#deployment_combined) | **GET** /container-security/combined/deployments/v1 | Retrieve kubernetes deployments identified by the provided filter criteria |
+| [**deployment_count**](KubernetesProtectionApi.md#deployment_count) | **GET** /container-security/aggregates/deployments/count/v1 | Retrieve deployment counts |
+| [**deployment_enrichment**](KubernetesProtectionApi.md#deployment_enrichment) | **GET** /container-security/aggregates/enrichment/deployments/entities/v1 | Retrieve deployment enrichment data |
+| [**deployments_by_date_range_count**](KubernetesProtectionApi.md#deployments_by_date_range_count) | **GET** /container-security/aggregates/deployments/count-by-date/v1 | Retrieve deployments by date range counts |
+| [**distinct_container_image_count**](KubernetesProtectionApi.md#distinct_container_image_count) | **GET** /container-security/aggregates/images/count-by-distinct/v1 | Retrieve count of distinct images running on containers |
 | [**find_containers_by_container_run_time_version**](KubernetesProtectionApi.md#find_containers_by_container_run_time_version) | **GET** /container-security/aggregates/containers/find-by-runtimeversion/v1 | Retrieve containers by container_runtime_version |
 | [**find_containers_count_affected_by_zero_day_vulnerabilities**](KubernetesProtectionApi.md#find_containers_count_affected_by_zero_day_vulnerabilities) | **GET** /container-security/aggregates/containers/count-by-zero-day/v1 | Retrieve containers count affected by zero day vulnerabilities |
 | [**get_aws_accounts_mixin0**](KubernetesProtectionApi.md#get_aws_accounts_mixin0) | **GET** /kubernetes-protection/entities/accounts/aws/v1 | Provides a list of AWS accounts. |
@@ -20,49 +41,1179 @@ All URIs are relative to *https://api.crowdstrike.com*
 | [**get_locations**](KubernetesProtectionApi.md#get_locations) | **GET** /kubernetes-protection/entities/cloud-locations/v1 | Provides the cloud locations acknowledged by the Kubernetes Protection service |
 | [**get_static_scripts**](KubernetesProtectionApi.md#get_static_scripts) | **GET** /kubernetes-protection/entities/gen/scripts/v1 | Gets static bash scripts that are used during registration |
 | [**group_containers_by_managed**](KubernetesProtectionApi.md#group_containers_by_managed) | **GET** /container-security/aggregates/containers/group-by-managed/v1 | Group the containers by Managed |
+| [**kubernetes_iom_by_date_range**](KubernetesProtectionApi.md#kubernetes_iom_by_date_range) | **GET** /container-security/aggregates/kubernetes-ioms/count-by-date/v1 | Returns the count of Kubernetes IOMs by the date. by default it&#39;s for 7 days. |
+| [**kubernetes_iom_count**](KubernetesProtectionApi.md#kubernetes_iom_count) | **GET** /container-security/aggregates/kubernetes-ioms/count/v1 | Returns the total count of Kubernetes IOMs over the past seven days |
+| [**kubernetes_iom_entities**](KubernetesProtectionApi.md#kubernetes_iom_entities) | **GET** /container-security/entities/kubernetes-ioms/v1 | Retrieve Kubernetes IOM entities identified by the provided IDs |
+| [**kubernetes_iom_entities_combined**](KubernetesProtectionApi.md#kubernetes_iom_entities_combined) | **GET** /container-security/combined/kubernetes-ioms/v1 | Search Kubernetes IOM by the provided search criteria |
 | [**list_azure_accounts**](KubernetesProtectionApi.md#list_azure_accounts) | **GET** /kubernetes-protection/entities/accounts/azure/v1 | Provides the azure subscriptions registered to Kubernetes Protection |
+| [**node_combined**](KubernetesProtectionApi.md#node_combined) | **GET** /container-security/combined/nodes/v1 | Retrieve kubernetes nodes identified by the provided filter criteria |
+| [**node_enrichment**](KubernetesProtectionApi.md#node_enrichment) | **GET** /container-security/aggregates/enrichment/nodes/entities/v1 | Retrieve node enrichment data |
+| [**nodes_by_cloud_count**](KubernetesProtectionApi.md#nodes_by_cloud_count) | **GET** /container-security/aggregates/nodes/count-by-cloud/v1 | Bucket nodes by cloud providers |
+| [**nodes_by_container_engine_version_count**](KubernetesProtectionApi.md#nodes_by_container_engine_version_count) | **GET** /container-security/aggregates/nodes/count-by-container-engine-version/v1 | Bucket nodes by their container engine version |
+| [**nodes_by_date_range_count**](KubernetesProtectionApi.md#nodes_by_date_range_count) | **GET** /container-security/aggregates/nodes/count-by-date/v1 | Retrieve nodes by date range counts |
 | [**patch_azure_service_principal**](KubernetesProtectionApi.md#patch_azure_service_principal) | **PATCH** /kubernetes-protection/entities/service-principal/azure/v1 | Adds the client ID for the given tenant ID to our system |
-| [**read_cluster_combined**](KubernetesProtectionApi.md#read_cluster_combined) | **GET** /container-security/combined/clusters/v1 | Retrieve kubernetes clusters identified by the provided filter criteria |
-| [**read_cluster_count**](KubernetesProtectionApi.md#read_cluster_count) | **GET** /container-security/aggregates/clusters/count/v1 | Retrieve cluster counts |
-| [**read_cluster_enrichment**](KubernetesProtectionApi.md#read_cluster_enrichment) | **GET** /container-security/aggregates/enrichment/clusters/entities/v1 | Retrieve cluster enrichment data |
-| [**read_clusters_by_date_range_count**](KubernetesProtectionApi.md#read_clusters_by_date_range_count) | **GET** /container-security/aggregates/clusters/count-by-date/v1 | Retrieve clusters by date range counts |
-| [**read_clusters_by_kubernetes_version_count**](KubernetesProtectionApi.md#read_clusters_by_kubernetes_version_count) | **GET** /container-security/aggregates/clusters/count-by-kubernetes-version/v1 | Bucket clusters by kubernetes version |
-| [**read_clusters_by_status_count**](KubernetesProtectionApi.md#read_clusters_by_status_count) | **GET** /container-security/aggregates/clusters/count-by-status/v1 | Bucket clusters by status |
-| [**read_container_combined**](KubernetesProtectionApi.md#read_container_combined) | **GET** /container-security/combined/containers/v1 | Retrieve containers identified by the provided filter criteria |
-| [**read_container_count**](KubernetesProtectionApi.md#read_container_count) | **GET** /container-security/aggregates/containers/count/v1 | Retrieve container counts |
-| [**read_container_count_by_registry**](KubernetesProtectionApi.md#read_container_count_by_registry) | **GET** /container-security/aggregates/containers/count-by-registry/v1 | Retrieve top container image registries |
-| [**read_container_enrichment**](KubernetesProtectionApi.md#read_container_enrichment) | **GET** /container-security/aggregates/enrichment/containers/entities/v1 | Retrieve container enrichment data |
-| [**read_container_image_detections_count_by_date**](KubernetesProtectionApi.md#read_container_image_detections_count_by_date) | **GET** /container-security/aggregates/containers/image-detections-count-by-date/v1 | Retrieve count of image assessment detections on running containers over a period of time |
-| [**read_container_images_by_most_used**](KubernetesProtectionApi.md#read_container_images_by_most_used) | **GET** /container-security/aggregates/images/most-used/v1 | Bucket container by image-digest |
-| [**read_container_images_by_state**](KubernetesProtectionApi.md#read_container_images_by_state) | **GET** /container-security/aggregates/containers/images-by-state/v1 | Retrieve count of image states running on containers |
-| [**read_container_vulnerabilities_by_severity_count**](KubernetesProtectionApi.md#read_container_vulnerabilities_by_severity_count) | **GET** /container-security/aggregates/containers/vulnerability-count-by-severity/v1 | Retrieve container vulnerabilities by severity counts |
-| [**read_containers_by_date_range_count**](KubernetesProtectionApi.md#read_containers_by_date_range_count) | **GET** /container-security/aggregates/containers/count-by-date/v1 | Retrieve containers by date range counts |
-| [**read_containers_sensor_coverage**](KubernetesProtectionApi.md#read_containers_sensor_coverage) | **GET** /container-security/aggregates/containers/sensor-coverage/v1 | Bucket containers by agent type and calculate sensor coverage |
-| [**read_deployment_combined**](KubernetesProtectionApi.md#read_deployment_combined) | **GET** /container-security/combined/deployments/v1 | Retrieve kubernetes deployments identified by the provided filter criteria |
-| [**read_deployment_count**](KubernetesProtectionApi.md#read_deployment_count) | **GET** /container-security/aggregates/deployments/count/v1 | Retrieve deployment counts |
-| [**read_deployment_enrichment**](KubernetesProtectionApi.md#read_deployment_enrichment) | **GET** /container-security/aggregates/enrichment/deployments/entities/v1 | Retrieve deployment enrichment data |
-| [**read_deployments_by_date_range_count**](KubernetesProtectionApi.md#read_deployments_by_date_range_count) | **GET** /container-security/aggregates/deployments/count-by-date/v1 | Retrieve deployments by date range counts |
-| [**read_distinct_container_image_count**](KubernetesProtectionApi.md#read_distinct_container_image_count) | **GET** /container-security/aggregates/images/count-by-distinct/v1 | Retrieve count of distinct images running on containers |
-| [**read_kubernetes_iom_by_date_range**](KubernetesProtectionApi.md#read_kubernetes_iom_by_date_range) | **GET** /container-security/aggregates/kubernetes-ioms/count-by-date/v1 | Returns the count of Kubernetes IOMs by the date. by default it&#39;s for 7 days. |
-| [**read_kubernetes_iom_count**](KubernetesProtectionApi.md#read_kubernetes_iom_count) | **GET** /container-security/aggregates/kubernetes-ioms/count/v1 | Returns the total count of Kubernetes IOMs over the past seven days |
-| [**read_kubernetes_iom_entities**](KubernetesProtectionApi.md#read_kubernetes_iom_entities) | **GET** /container-security/entities/kubernetes-ioms/v1 | Retrieve Kubernetes IOM entities identified by the provided IDs |
-| [**read_node_combined**](KubernetesProtectionApi.md#read_node_combined) | **GET** /container-security/combined/nodes/v1 | Retrieve kubernetes nodes identified by the provided filter criteria |
+| [**pod_combined**](KubernetesProtectionApi.md#pod_combined) | **GET** /container-security/combined/pods/v1 | Retrieve kubernetes pods identified by the provided filter criteria |
+| [**pod_count**](KubernetesProtectionApi.md#pod_count) | **GET** /container-security/aggregates/pods/count/v1 | Retrieve pod counts |
+| [**pod_enrichment**](KubernetesProtectionApi.md#pod_enrichment) | **GET** /container-security/aggregates/enrichment/pods/entities/v1 | Retrieve pod enrichment data |
+| [**pods_by_date_range_count**](KubernetesProtectionApi.md#pods_by_date_range_count) | **GET** /container-security/aggregates/pods/count-by-date/v1 | Retrieve pods by date range counts |
+| [**query_kubernetes_ioms**](KubernetesProtectionApi.md#query_kubernetes_ioms) | **GET** /container-security/queries/kubernetes-ioms/v1 | Search Kubernetes IOMs by the provided search criteria. this endpoint returns a list of Kubernetes IOM UUIDs matching the query |
+| [**read_namespace_count**](KubernetesProtectionApi.md#read_namespace_count) | **GET** /container-security/aggregates/namespaces/count/v1 | Retrieve namespace counts |
+| [**read_namespaces_by_date_range_count**](KubernetesProtectionApi.md#read_namespaces_by_date_range_count) | **GET** /container-security/aggregates/namespaces/count-by-date/v1 | Retrieve namespaces by date range counts |
 | [**read_node_count**](KubernetesProtectionApi.md#read_node_count) | **GET** /container-security/aggregates/nodes/count/v1 | Retrieve node counts |
-| [**read_node_enrichment**](KubernetesProtectionApi.md#read_node_enrichment) | **GET** /container-security/aggregates/enrichment/nodes/entities/v1 | Retrieve node enrichment data |
-| [**read_nodes_by_cloud_count**](KubernetesProtectionApi.md#read_nodes_by_cloud_count) | **GET** /container-security/aggregates/nodes/count-by-cloud/v1 | Bucket nodes by cloud providers |
-| [**read_nodes_by_container_engine_version_count**](KubernetesProtectionApi.md#read_nodes_by_container_engine_version_count) | **GET** /container-security/aggregates/nodes/count-by-container-engine-version/v1 | Bucket nodes by their container engine version |
-| [**read_nodes_by_date_range_count**](KubernetesProtectionApi.md#read_nodes_by_date_range_count) | **GET** /container-security/aggregates/nodes/count-by-date/v1 | Retrieve nodes by date range counts |
-| [**read_pod_combined**](KubernetesProtectionApi.md#read_pod_combined) | **GET** /container-security/combined/pods/v1 | Retrieve kubernetes pods identified by the provided filter criteria |
-| [**read_pod_count**](KubernetesProtectionApi.md#read_pod_count) | **GET** /container-security/aggregates/pods/count/v1 | Retrieve pod counts |
-| [**read_pod_enrichment**](KubernetesProtectionApi.md#read_pod_enrichment) | **GET** /container-security/aggregates/enrichment/pods/entities/v1 | Retrieve pod enrichment data |
-| [**read_pods_by_date_range_count**](KubernetesProtectionApi.md#read_pods_by_date_range_count) | **GET** /container-security/aggregates/pods/count-by-date/v1 | Retrieve pods by date range counts |
-| [**read_running_container_images**](KubernetesProtectionApi.md#read_running_container_images) | **GET** /container-security/combined/container-images/v1 | Retrieve images on running containers |
-| [**read_vulnerable_container_image_count**](KubernetesProtectionApi.md#read_vulnerable_container_image_count) | **GET** /container-security/aggregates/containers/count-vulnerable-images/v1 | Retrieve count of vulnerable images running on containers |
 | [**regenerate_api_key**](KubernetesProtectionApi.md#regenerate_api_key) | **POST** /kubernetes-protection/entities/integration/api-key/v1 | Regenerate API key for docker registry integrations |
-| [**search_and_read_kubernetes_iom_entities**](KubernetesProtectionApi.md#search_and_read_kubernetes_iom_entities) | **GET** /container-security/combined/kubernetes-ioms/v1 | Search Kubernetes IOM by the provided search criteria |
-| [**search_kubernetes_ioms**](KubernetesProtectionApi.md#search_kubernetes_ioms) | **GET** /container-security/queries/kubernetes-ioms/v1 | Search Kubernetes IOMs by the provided search criteria. this endpoint returns a list of Kubernetes IOM UUIDs matching the query |
+| [**running_container_images**](KubernetesProtectionApi.md#running_container_images) | **GET** /container-security/combined/container-images/v1 | Retrieve images on running containers |
 | [**trigger_scan**](KubernetesProtectionApi.md#trigger_scan) | **POST** /kubernetes-protection/entities/scan/trigger/v1 | Triggers a dry run or a full scan of a customer&#39;s kubernetes footprint |
 | [**update_aws_account**](KubernetesProtectionApi.md#update_aws_account) | **PATCH** /kubernetes-protection/entities/accounts/aws/v1 | Updates the AWS account per the query parameters provided |
+| [**vulnerable_container_image_count**](KubernetesProtectionApi.md#vulnerable_container_image_count) | **GET** /container-security/aggregates/containers/count-vulnerable-images/v1 | Retrieve count of vulnerable images running on containers |
+
+
+## cluster_combined
+
+> <ModelsClusterEntityResponse> cluster_combined(opts)
+
+Retrieve kubernetes clusters identified by the provided filter criteria
+
+### Examples
+
+```ruby
+require 'time'
+require 'crimson-falcon'
+
+# Setup authorization
+Falcon.configure do |config|
+  config.client_id = "Your_Client_ID"
+  config.client_secret = "Your_Client_Secret"
+  config.cloud = "us-1" # or "us-2", "eu-1", "us-gov1"
+end
+
+api_instance = Falcon::KubernetesProtectionApi.new
+opts = {
+  filter: 'filter_example', # String | Search Kubernetes clusters using a query in Falcon Query Language (FQL). Supported filters:  access,agent_id,agent_status,agent_type,cid,cloud_account_id,cloud_name,cloud_region,cloud_service,cluster_id,cluster_name,cluster_status,container_count,iar_coverage,kac_agent_id,kubernetes_version,last_seen,management_status,node_count,pod_count,tags
+  limit: 56, # Integer | The upper-bound on the number of records to retrieve.
+  offset: 56, # Integer | The offset from where to begin.
+  sort: 'sort_example' # String | Field to sort results by
+}
+
+begin
+  # Retrieve kubernetes clusters identified by the provided filter criteria
+  result = api_instance.cluster_combined(opts)
+  p result
+rescue Falcon::ApiError => e
+  puts "Error when calling KubernetesProtectionApi->cluster_combined: #{e}"
+end
+```
+
+#### Using the cluster_combined_with_http_info variant
+
+This returns an Array which contains the response data, status code and headers.
+
+> <Array(<ModelsClusterEntityResponse>, Integer, Hash)> cluster_combined_with_http_info(opts)
+
+```ruby
+begin
+  # Retrieve kubernetes clusters identified by the provided filter criteria
+  data, status_code, headers = api_instance.cluster_combined_with_http_info(opts)
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => <ModelsClusterEntityResponse>
+rescue Falcon::ApiError => e
+  puts "Error when calling KubernetesProtectionApi->cluster_combined_with_http_info: #{e}"
+end
+```
+
+### Parameters
+
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **filter** | **String** | Search Kubernetes clusters using a query in Falcon Query Language (FQL). Supported filters:  access,agent_id,agent_status,agent_type,cid,cloud_account_id,cloud_name,cloud_region,cloud_service,cluster_id,cluster_name,cluster_status,container_count,iar_coverage,kac_agent_id,kubernetes_version,last_seen,management_status,node_count,pod_count,tags | [optional] |
+| **limit** | **Integer** | The upper-bound on the number of records to retrieve. | [optional] |
+| **offset** | **Integer** | The offset from where to begin. | [optional] |
+| **sort** | **String** | Field to sort results by | [optional] |
+
+### Return type
+
+[**ModelsClusterEntityResponse**](ModelsClusterEntityResponse.md)
+
+### Authorization
+
+**oauth2**
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+
+## cluster_count
+
+> <CommonCountResponse> cluster_count(opts)
+
+Retrieve cluster counts
+
+### Examples
+
+```ruby
+require 'time'
+require 'crimson-falcon'
+
+# Setup authorization
+Falcon.configure do |config|
+  config.client_id = "Your_Client_ID"
+  config.client_secret = "Your_Client_Secret"
+  config.cloud = "us-1" # or "us-2", "eu-1", "us-gov1"
+end
+
+api_instance = Falcon::KubernetesProtectionApi.new
+opts = {
+  filter: 'filter_example' # String | Retrieve count of Kubernetes clusters that match a query in Falcon Query Language (FQL). Supported filters:  access,agent_id,agent_status,agent_type,cid,cloud_account_id,cloud_name,cloud_region,cloud_service,cluster_id,cluster_name,cluster_status,container_count,iar_coverage,kac_agent_id,kubernetes_version,last_seen,management_status,node_count,pod_count,tags
+}
+
+begin
+  # Retrieve cluster counts
+  result = api_instance.cluster_count(opts)
+  p result
+rescue Falcon::ApiError => e
+  puts "Error when calling KubernetesProtectionApi->cluster_count: #{e}"
+end
+```
+
+#### Using the cluster_count_with_http_info variant
+
+This returns an Array which contains the response data, status code and headers.
+
+> <Array(<CommonCountResponse>, Integer, Hash)> cluster_count_with_http_info(opts)
+
+```ruby
+begin
+  # Retrieve cluster counts
+  data, status_code, headers = api_instance.cluster_count_with_http_info(opts)
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => <CommonCountResponse>
+rescue Falcon::ApiError => e
+  puts "Error when calling KubernetesProtectionApi->cluster_count_with_http_info: #{e}"
+end
+```
+
+### Parameters
+
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **filter** | **String** | Retrieve count of Kubernetes clusters that match a query in Falcon Query Language (FQL). Supported filters:  access,agent_id,agent_status,agent_type,cid,cloud_account_id,cloud_name,cloud_region,cloud_service,cluster_id,cluster_name,cluster_status,container_count,iar_coverage,kac_agent_id,kubernetes_version,last_seen,management_status,node_count,pod_count,tags | [optional] |
+
+### Return type
+
+[**CommonCountResponse**](CommonCountResponse.md)
+
+### Authorization
+
+**oauth2**
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+
+## cluster_enrichment
+
+> <K8sassetsClusterEnrichmentResponse> cluster_enrichment(cluster_id, opts)
+
+Retrieve cluster enrichment data
+
+### Examples
+
+```ruby
+require 'time'
+require 'crimson-falcon'
+
+# Setup authorization
+Falcon.configure do |config|
+  config.client_id = "Your_Client_ID"
+  config.client_secret = "Your_Client_Secret"
+  config.cloud = "us-1" # or "us-2", "eu-1", "us-gov1"
+end
+
+api_instance = Falcon::KubernetesProtectionApi.new
+cluster_id = ['inner_example'] # Array<String> | One or more cluster ids for which to retrieve enrichment info
+opts = {
+  filter: 'filter_example' # String | Supported filters:  last_seen
+}
+
+begin
+  # Retrieve cluster enrichment data
+  result = api_instance.cluster_enrichment(cluster_id, opts)
+  p result
+rescue Falcon::ApiError => e
+  puts "Error when calling KubernetesProtectionApi->cluster_enrichment: #{e}"
+end
+```
+
+#### Using the cluster_enrichment_with_http_info variant
+
+This returns an Array which contains the response data, status code and headers.
+
+> <Array(<K8sassetsClusterEnrichmentResponse>, Integer, Hash)> cluster_enrichment_with_http_info(cluster_id, opts)
+
+```ruby
+begin
+  # Retrieve cluster enrichment data
+  data, status_code, headers = api_instance.cluster_enrichment_with_http_info(cluster_id, opts)
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => <K8sassetsClusterEnrichmentResponse>
+rescue Falcon::ApiError => e
+  puts "Error when calling KubernetesProtectionApi->cluster_enrichment_with_http_info: #{e}"
+end
+```
+
+### Parameters
+
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **cluster_id** | [**Array&lt;String&gt;**](String.md) | One or more cluster ids for which to retrieve enrichment info |  |
+| **filter** | **String** | Supported filters:  last_seen | [optional] |
+
+### Return type
+
+[**K8sassetsClusterEnrichmentResponse**](K8sassetsClusterEnrichmentResponse.md)
+
+### Authorization
+
+**oauth2**
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+
+## clusters_by_date_range_count
+
+> <ModelsAggregateValuesByFieldResponse> clusters_by_date_range_count
+
+Retrieve clusters by date range counts
+
+### Examples
+
+```ruby
+require 'time'
+require 'crimson-falcon'
+
+# Setup authorization
+Falcon.configure do |config|
+  config.client_id = "Your_Client_ID"
+  config.client_secret = "Your_Client_Secret"
+  config.cloud = "us-1" # or "us-2", "eu-1", "us-gov1"
+end
+
+api_instance = Falcon::KubernetesProtectionApi.new
+
+begin
+  # Retrieve clusters by date range counts
+  result = api_instance.clusters_by_date_range_count
+  p result
+rescue Falcon::ApiError => e
+  puts "Error when calling KubernetesProtectionApi->clusters_by_date_range_count: #{e}"
+end
+```
+
+#### Using the clusters_by_date_range_count_with_http_info variant
+
+This returns an Array which contains the response data, status code and headers.
+
+> <Array(<ModelsAggregateValuesByFieldResponse>, Integer, Hash)> clusters_by_date_range_count_with_http_info
+
+```ruby
+begin
+  # Retrieve clusters by date range counts
+  data, status_code, headers = api_instance.clusters_by_date_range_count_with_http_info
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => <ModelsAggregateValuesByFieldResponse>
+rescue Falcon::ApiError => e
+  puts "Error when calling KubernetesProtectionApi->clusters_by_date_range_count_with_http_info: #{e}"
+end
+```
+
+### Parameters
+
+This endpoint does not need any parameter.
+
+### Return type
+
+[**ModelsAggregateValuesByFieldResponse**](ModelsAggregateValuesByFieldResponse.md)
+
+### Authorization
+
+**oauth2**
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+
+## clusters_by_kubernetes_version_count
+
+> <ModelsAggregateValuesByFieldResponse> clusters_by_kubernetes_version_count(opts)
+
+Bucket clusters by kubernetes version
+
+### Examples
+
+```ruby
+require 'time'
+require 'crimson-falcon'
+
+# Setup authorization
+Falcon.configure do |config|
+  config.client_id = "Your_Client_ID"
+  config.client_secret = "Your_Client_Secret"
+  config.cloud = "us-1" # or "us-2", "eu-1", "us-gov1"
+end
+
+api_instance = Falcon::KubernetesProtectionApi.new
+opts = {
+  filter: 'filter_example' # String | Retrieve count of Kubernetes clusters that match a query in Falcon Query Language (FQL). Supported filters:  access,agent_id,agent_status,agent_type,cid,cloud_account_id,cloud_name,cloud_region,cloud_service,cluster_id,cluster_name,cluster_status,container_count,iar_coverage,kac_agent_id,kubernetes_version,last_seen,management_status,node_count,pod_count,tags
+}
+
+begin
+  # Bucket clusters by kubernetes version
+  result = api_instance.clusters_by_kubernetes_version_count(opts)
+  p result
+rescue Falcon::ApiError => e
+  puts "Error when calling KubernetesProtectionApi->clusters_by_kubernetes_version_count: #{e}"
+end
+```
+
+#### Using the clusters_by_kubernetes_version_count_with_http_info variant
+
+This returns an Array which contains the response data, status code and headers.
+
+> <Array(<ModelsAggregateValuesByFieldResponse>, Integer, Hash)> clusters_by_kubernetes_version_count_with_http_info(opts)
+
+```ruby
+begin
+  # Bucket clusters by kubernetes version
+  data, status_code, headers = api_instance.clusters_by_kubernetes_version_count_with_http_info(opts)
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => <ModelsAggregateValuesByFieldResponse>
+rescue Falcon::ApiError => e
+  puts "Error when calling KubernetesProtectionApi->clusters_by_kubernetes_version_count_with_http_info: #{e}"
+end
+```
+
+### Parameters
+
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **filter** | **String** | Retrieve count of Kubernetes clusters that match a query in Falcon Query Language (FQL). Supported filters:  access,agent_id,agent_status,agent_type,cid,cloud_account_id,cloud_name,cloud_region,cloud_service,cluster_id,cluster_name,cluster_status,container_count,iar_coverage,kac_agent_id,kubernetes_version,last_seen,management_status,node_count,pod_count,tags | [optional] |
+
+### Return type
+
+[**ModelsAggregateValuesByFieldResponse**](ModelsAggregateValuesByFieldResponse.md)
+
+### Authorization
+
+**oauth2**
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+
+## clusters_by_status_count
+
+> <ModelsAggregateValuesByFieldResponse> clusters_by_status_count(opts)
+
+Bucket clusters by status
+
+### Examples
+
+```ruby
+require 'time'
+require 'crimson-falcon'
+
+# Setup authorization
+Falcon.configure do |config|
+  config.client_id = "Your_Client_ID"
+  config.client_secret = "Your_Client_Secret"
+  config.cloud = "us-1" # or "us-2", "eu-1", "us-gov1"
+end
+
+api_instance = Falcon::KubernetesProtectionApi.new
+opts = {
+  filter: 'filter_example' # String | Retrieve count of Kubernetes clusters that match a query in Falcon Query Language (FQL). Supported filters:  access,agent_id,agent_status,agent_type,cid,cloud_account_id,cloud_name,cloud_region,cloud_service,cluster_id,cluster_name,cluster_status,container_count,iar_coverage,kac_agent_id,kubernetes_version,last_seen,management_status,node_count,pod_count,tags
+}
+
+begin
+  # Bucket clusters by status
+  result = api_instance.clusters_by_status_count(opts)
+  p result
+rescue Falcon::ApiError => e
+  puts "Error when calling KubernetesProtectionApi->clusters_by_status_count: #{e}"
+end
+```
+
+#### Using the clusters_by_status_count_with_http_info variant
+
+This returns an Array which contains the response data, status code and headers.
+
+> <Array(<ModelsAggregateValuesByFieldResponse>, Integer, Hash)> clusters_by_status_count_with_http_info(opts)
+
+```ruby
+begin
+  # Bucket clusters by status
+  data, status_code, headers = api_instance.clusters_by_status_count_with_http_info(opts)
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => <ModelsAggregateValuesByFieldResponse>
+rescue Falcon::ApiError => e
+  puts "Error when calling KubernetesProtectionApi->clusters_by_status_count_with_http_info: #{e}"
+end
+```
+
+### Parameters
+
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **filter** | **String** | Retrieve count of Kubernetes clusters that match a query in Falcon Query Language (FQL). Supported filters:  access,agent_id,agent_status,agent_type,cid,cloud_account_id,cloud_name,cloud_region,cloud_service,cluster_id,cluster_name,cluster_status,container_count,iar_coverage,kac_agent_id,kubernetes_version,last_seen,management_status,node_count,pod_count,tags | [optional] |
+
+### Return type
+
+[**ModelsAggregateValuesByFieldResponse**](ModelsAggregateValuesByFieldResponse.md)
+
+### Authorization
+
+**oauth2**
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+
+## container_combined
+
+> <ModelsContainerEntityResponse> container_combined(opts)
+
+Retrieve containers identified by the provided filter criteria
+
+### Examples
+
+```ruby
+require 'time'
+require 'crimson-falcon'
+
+# Setup authorization
+Falcon.configure do |config|
+  config.client_id = "Your_Client_ID"
+  config.client_secret = "Your_Client_Secret"
+  config.cloud = "us-1" # or "us-2", "eu-1", "us-gov1"
+end
+
+api_instance = Falcon::KubernetesProtectionApi.new
+opts = {
+  filter: 'filter_example', # String | Search Kubernetes containers using a query in Falcon Query Language (FQL). Supported filters:  agent_id,agent_type,allow_privilege_escalation,cid,cloud_account_id,cloud_name,cloud_region,cloud_service,cluster_id,cluster_name,container_id,container_image_id,container_name,cve_id,detection_name,first_seen,image_detection_count,image_digest,image_has_been_assessed,image_id,image_registry,image_repository,image_tag,image_vulnerability_count,insecure_mount_source,insecure_mount_type,insecure_propagation_mode,interactive_mode,ipv4,ipv6,kac_agent_id,labels,last_seen,namespace,node_name,node_uid,package_name_version,pod_id,pod_name,port,privileged,root_write_access,run_as_root_group,run_as_root_user,running_status
+  limit: 56, # Integer | The upper-bound on the number of records to retrieve.
+  offset: 56, # Integer | The offset from where to begin.
+  sort: 'sort_example' # String | Field to sort results by
+}
+
+begin
+  # Retrieve containers identified by the provided filter criteria
+  result = api_instance.container_combined(opts)
+  p result
+rescue Falcon::ApiError => e
+  puts "Error when calling KubernetesProtectionApi->container_combined: #{e}"
+end
+```
+
+#### Using the container_combined_with_http_info variant
+
+This returns an Array which contains the response data, status code and headers.
+
+> <Array(<ModelsContainerEntityResponse>, Integer, Hash)> container_combined_with_http_info(opts)
+
+```ruby
+begin
+  # Retrieve containers identified by the provided filter criteria
+  data, status_code, headers = api_instance.container_combined_with_http_info(opts)
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => <ModelsContainerEntityResponse>
+rescue Falcon::ApiError => e
+  puts "Error when calling KubernetesProtectionApi->container_combined_with_http_info: #{e}"
+end
+```
+
+### Parameters
+
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **filter** | **String** | Search Kubernetes containers using a query in Falcon Query Language (FQL). Supported filters:  agent_id,agent_type,allow_privilege_escalation,cid,cloud_account_id,cloud_name,cloud_region,cloud_service,cluster_id,cluster_name,container_id,container_image_id,container_name,cve_id,detection_name,first_seen,image_detection_count,image_digest,image_has_been_assessed,image_id,image_registry,image_repository,image_tag,image_vulnerability_count,insecure_mount_source,insecure_mount_type,insecure_propagation_mode,interactive_mode,ipv4,ipv6,kac_agent_id,labels,last_seen,namespace,node_name,node_uid,package_name_version,pod_id,pod_name,port,privileged,root_write_access,run_as_root_group,run_as_root_user,running_status | [optional] |
+| **limit** | **Integer** | The upper-bound on the number of records to retrieve. | [optional] |
+| **offset** | **Integer** | The offset from where to begin. | [optional] |
+| **sort** | **String** | Field to sort results by | [optional] |
+
+### Return type
+
+[**ModelsContainerEntityResponse**](ModelsContainerEntityResponse.md)
+
+### Authorization
+
+**oauth2**
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+
+## container_count
+
+> <CommonCountResponse> container_count(opts)
+
+Retrieve container counts
+
+### Examples
+
+```ruby
+require 'time'
+require 'crimson-falcon'
+
+# Setup authorization
+Falcon.configure do |config|
+  config.client_id = "Your_Client_ID"
+  config.client_secret = "Your_Client_Secret"
+  config.cloud = "us-1" # or "us-2", "eu-1", "us-gov1"
+end
+
+api_instance = Falcon::KubernetesProtectionApi.new
+opts = {
+  filter: 'filter_example' # String | Retrieve count of Kubernetes containers that match a query in Falcon Query Language (FQL). Supported filters:  agent_id,agent_type,allow_privilege_escalation,cid,cloud_account_id,cloud_name,cloud_region,cloud_service,cluster_id,cluster_name,container_id,container_image_id,container_name,cve_id,detection_name,first_seen,image_detection_count,image_digest,image_has_been_assessed,image_id,image_registry,image_repository,image_tag,image_vulnerability_count,insecure_mount_source,insecure_mount_type,insecure_propagation_mode,interactive_mode,ipv4,ipv6,kac_agent_id,labels,last_seen,namespace,node_name,node_uid,package_name_version,pod_id,pod_name,port,privileged,root_write_access,run_as_root_group,run_as_root_user,running_status
+}
+
+begin
+  # Retrieve container counts
+  result = api_instance.container_count(opts)
+  p result
+rescue Falcon::ApiError => e
+  puts "Error when calling KubernetesProtectionApi->container_count: #{e}"
+end
+```
+
+#### Using the container_count_with_http_info variant
+
+This returns an Array which contains the response data, status code and headers.
+
+> <Array(<CommonCountResponse>, Integer, Hash)> container_count_with_http_info(opts)
+
+```ruby
+begin
+  # Retrieve container counts
+  data, status_code, headers = api_instance.container_count_with_http_info(opts)
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => <CommonCountResponse>
+rescue Falcon::ApiError => e
+  puts "Error when calling KubernetesProtectionApi->container_count_with_http_info: #{e}"
+end
+```
+
+### Parameters
+
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **filter** | **String** | Retrieve count of Kubernetes containers that match a query in Falcon Query Language (FQL). Supported filters:  agent_id,agent_type,allow_privilege_escalation,cid,cloud_account_id,cloud_name,cloud_region,cloud_service,cluster_id,cluster_name,container_id,container_image_id,container_name,cve_id,detection_name,first_seen,image_detection_count,image_digest,image_has_been_assessed,image_id,image_registry,image_repository,image_tag,image_vulnerability_count,insecure_mount_source,insecure_mount_type,insecure_propagation_mode,interactive_mode,ipv4,ipv6,kac_agent_id,labels,last_seen,namespace,node_name,node_uid,package_name_version,pod_id,pod_name,port,privileged,root_write_access,run_as_root_group,run_as_root_user,running_status | [optional] |
+
+### Return type
+
+[**CommonCountResponse**](CommonCountResponse.md)
+
+### Authorization
+
+**oauth2**
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+
+## container_count_by_registry
+
+> <ModelsAPIFilterResponse> container_count_by_registry(opts)
+
+Retrieve top container image registries
+
+### Examples
+
+```ruby
+require 'time'
+require 'crimson-falcon'
+
+# Setup authorization
+Falcon.configure do |config|
+  config.client_id = "Your_Client_ID"
+  config.client_secret = "Your_Client_Secret"
+  config.cloud = "us-1" # or "us-2", "eu-1", "us-gov1"
+end
+
+api_instance = Falcon::KubernetesProtectionApi.new
+opts = {
+  under_assessment: true, # Boolean | (true/false) whether to return registries under assessment or not under assessment. If not  provided all registries are considered
+  limit: 56 # Integer | The upper-bound on the number of records to retrieve.
+}
+
+begin
+  # Retrieve top container image registries
+  result = api_instance.container_count_by_registry(opts)
+  p result
+rescue Falcon::ApiError => e
+  puts "Error when calling KubernetesProtectionApi->container_count_by_registry: #{e}"
+end
+```
+
+#### Using the container_count_by_registry_with_http_info variant
+
+This returns an Array which contains the response data, status code and headers.
+
+> <Array(<ModelsAPIFilterResponse>, Integer, Hash)> container_count_by_registry_with_http_info(opts)
+
+```ruby
+begin
+  # Retrieve top container image registries
+  data, status_code, headers = api_instance.container_count_by_registry_with_http_info(opts)
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => <ModelsAPIFilterResponse>
+rescue Falcon::ApiError => e
+  puts "Error when calling KubernetesProtectionApi->container_count_by_registry_with_http_info: #{e}"
+end
+```
+
+### Parameters
+
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **under_assessment** | **Boolean** | (true/false) whether to return registries under assessment or not under assessment. If not  provided all registries are considered | [optional] |
+| **limit** | **Integer** | The upper-bound on the number of records to retrieve. | [optional] |
+
+### Return type
+
+[**ModelsAPIFilterResponse**](ModelsAPIFilterResponse.md)
+
+### Authorization
+
+**oauth2**
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+
+## container_enrichment
+
+> <K8sassetsContainerEnrichmentResponse> container_enrichment(container_id, opts)
+
+Retrieve container enrichment data
+
+### Examples
+
+```ruby
+require 'time'
+require 'crimson-falcon'
+
+# Setup authorization
+Falcon.configure do |config|
+  config.client_id = "Your_Client_ID"
+  config.client_secret = "Your_Client_Secret"
+  config.cloud = "us-1" # or "us-2", "eu-1", "us-gov1"
+end
+
+api_instance = Falcon::KubernetesProtectionApi.new
+container_id = ['inner_example'] # Array<String> | One or more container ids for which to retrieve enrichment info
+opts = {
+  filter: 'filter_example' # String | Supported filters:  last_seen
+}
+
+begin
+  # Retrieve container enrichment data
+  result = api_instance.container_enrichment(container_id, opts)
+  p result
+rescue Falcon::ApiError => e
+  puts "Error when calling KubernetesProtectionApi->container_enrichment: #{e}"
+end
+```
+
+#### Using the container_enrichment_with_http_info variant
+
+This returns an Array which contains the response data, status code and headers.
+
+> <Array(<K8sassetsContainerEnrichmentResponse>, Integer, Hash)> container_enrichment_with_http_info(container_id, opts)
+
+```ruby
+begin
+  # Retrieve container enrichment data
+  data, status_code, headers = api_instance.container_enrichment_with_http_info(container_id, opts)
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => <K8sassetsContainerEnrichmentResponse>
+rescue Falcon::ApiError => e
+  puts "Error when calling KubernetesProtectionApi->container_enrichment_with_http_info: #{e}"
+end
+```
+
+### Parameters
+
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **container_id** | [**Array&lt;String&gt;**](String.md) | One or more container ids for which to retrieve enrichment info |  |
+| **filter** | **String** | Supported filters:  last_seen | [optional] |
+
+### Return type
+
+[**K8sassetsContainerEnrichmentResponse**](K8sassetsContainerEnrichmentResponse.md)
+
+### Authorization
+
+**oauth2**
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+
+## container_image_detections_count_by_date
+
+> <ModelsAPIFilterResponse> container_image_detections_count_by_date(opts)
+
+Retrieve count of image assessment detections on running containers over a period of time
+
+### Examples
+
+```ruby
+require 'time'
+require 'crimson-falcon'
+
+# Setup authorization
+Falcon.configure do |config|
+  config.client_id = "Your_Client_ID"
+  config.client_secret = "Your_Client_Secret"
+  config.cloud = "us-1" # or "us-2", "eu-1", "us-gov1"
+end
+
+api_instance = Falcon::KubernetesProtectionApi.new
+opts = {
+  filter: 'filter_example' # String | Retrieve count of Kubernetes containers that match a query in Falcon Query Language (FQL). Supported filters:  agent_id,agent_type,allow_privilege_escalation,cid,cloud_account_id,cloud_name,cloud_region,cloud_service,cluster_id,cluster_name,container_id,container_image_id,container_name,cve_id,detection_name,first_seen,image_detection_count,image_digest,image_has_been_assessed,image_id,image_registry,image_repository,image_tag,image_vulnerability_count,insecure_mount_source,insecure_mount_type,insecure_propagation_mode,interactive_mode,ipv4,ipv6,kac_agent_id,labels,last_seen,namespace,node_name,node_uid,package_name_version,pod_id,pod_name,port,privileged,root_write_access,run_as_root_group,run_as_root_user,running_status
+}
+
+begin
+  # Retrieve count of image assessment detections on running containers over a period of time
+  result = api_instance.container_image_detections_count_by_date(opts)
+  p result
+rescue Falcon::ApiError => e
+  puts "Error when calling KubernetesProtectionApi->container_image_detections_count_by_date: #{e}"
+end
+```
+
+#### Using the container_image_detections_count_by_date_with_http_info variant
+
+This returns an Array which contains the response data, status code and headers.
+
+> <Array(<ModelsAPIFilterResponse>, Integer, Hash)> container_image_detections_count_by_date_with_http_info(opts)
+
+```ruby
+begin
+  # Retrieve count of image assessment detections on running containers over a period of time
+  data, status_code, headers = api_instance.container_image_detections_count_by_date_with_http_info(opts)
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => <ModelsAPIFilterResponse>
+rescue Falcon::ApiError => e
+  puts "Error when calling KubernetesProtectionApi->container_image_detections_count_by_date_with_http_info: #{e}"
+end
+```
+
+### Parameters
+
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **filter** | **String** | Retrieve count of Kubernetes containers that match a query in Falcon Query Language (FQL). Supported filters:  agent_id,agent_type,allow_privilege_escalation,cid,cloud_account_id,cloud_name,cloud_region,cloud_service,cluster_id,cluster_name,container_id,container_image_id,container_name,cve_id,detection_name,first_seen,image_detection_count,image_digest,image_has_been_assessed,image_id,image_registry,image_repository,image_tag,image_vulnerability_count,insecure_mount_source,insecure_mount_type,insecure_propagation_mode,interactive_mode,ipv4,ipv6,kac_agent_id,labels,last_seen,namespace,node_name,node_uid,package_name_version,pod_id,pod_name,port,privileged,root_write_access,run_as_root_group,run_as_root_user,running_status | [optional] |
+
+### Return type
+
+[**ModelsAPIFilterResponse**](ModelsAPIFilterResponse.md)
+
+### Authorization
+
+**oauth2**
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+
+## container_images_by_most_used
+
+> <ModelsAggregateValuesByFieldResponse> container_images_by_most_used(opts)
+
+Bucket container by image-digest
+
+### Examples
+
+```ruby
+require 'time'
+require 'crimson-falcon'
+
+# Setup authorization
+Falcon.configure do |config|
+  config.client_id = "Your_Client_ID"
+  config.client_secret = "Your_Client_Secret"
+  config.cloud = "us-1" # or "us-2", "eu-1", "us-gov1"
+end
+
+api_instance = Falcon::KubernetesProtectionApi.new
+opts = {
+  filter: 'filter_example' # String | Retrieve count of Kubernetes containers that match a query in Falcon Query Language (FQL). Supported filters:  agent_id,agent_type,allow_privilege_escalation,cid,cloud_account_id,cloud_name,cloud_region,cloud_service,cluster_id,cluster_name,container_id,container_image_id,container_name,cve_id,detection_name,first_seen,image_detection_count,image_digest,image_has_been_assessed,image_id,image_registry,image_repository,image_tag,image_vulnerability_count,insecure_mount_source,insecure_mount_type,insecure_propagation_mode,interactive_mode,ipv4,ipv6,kac_agent_id,labels,last_seen,namespace,node_name,node_uid,package_name_version,pod_id,pod_name,port,privileged,root_write_access,run_as_root_group,run_as_root_user,running_status
+}
+
+begin
+  # Bucket container by image-digest
+  result = api_instance.container_images_by_most_used(opts)
+  p result
+rescue Falcon::ApiError => e
+  puts "Error when calling KubernetesProtectionApi->container_images_by_most_used: #{e}"
+end
+```
+
+#### Using the container_images_by_most_used_with_http_info variant
+
+This returns an Array which contains the response data, status code and headers.
+
+> <Array(<ModelsAggregateValuesByFieldResponse>, Integer, Hash)> container_images_by_most_used_with_http_info(opts)
+
+```ruby
+begin
+  # Bucket container by image-digest
+  data, status_code, headers = api_instance.container_images_by_most_used_with_http_info(opts)
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => <ModelsAggregateValuesByFieldResponse>
+rescue Falcon::ApiError => e
+  puts "Error when calling KubernetesProtectionApi->container_images_by_most_used_with_http_info: #{e}"
+end
+```
+
+### Parameters
+
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **filter** | **String** | Retrieve count of Kubernetes containers that match a query in Falcon Query Language (FQL). Supported filters:  agent_id,agent_type,allow_privilege_escalation,cid,cloud_account_id,cloud_name,cloud_region,cloud_service,cluster_id,cluster_name,container_id,container_image_id,container_name,cve_id,detection_name,first_seen,image_detection_count,image_digest,image_has_been_assessed,image_id,image_registry,image_repository,image_tag,image_vulnerability_count,insecure_mount_source,insecure_mount_type,insecure_propagation_mode,interactive_mode,ipv4,ipv6,kac_agent_id,labels,last_seen,namespace,node_name,node_uid,package_name_version,pod_id,pod_name,port,privileged,root_write_access,run_as_root_group,run_as_root_user,running_status | [optional] |
+
+### Return type
+
+[**ModelsAggregateValuesByFieldResponse**](ModelsAggregateValuesByFieldResponse.md)
+
+### Authorization
+
+**oauth2**
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+
+## container_images_by_state
+
+> <ModelsAPIFilterResponse> container_images_by_state(opts)
+
+Retrieve count of image states running on containers
+
+### Examples
+
+```ruby
+require 'time'
+require 'crimson-falcon'
+
+# Setup authorization
+Falcon.configure do |config|
+  config.client_id = "Your_Client_ID"
+  config.client_secret = "Your_Client_Secret"
+  config.cloud = "us-1" # or "us-2", "eu-1", "us-gov1"
+end
+
+api_instance = Falcon::KubernetesProtectionApi.new
+opts = {
+  filter: 'filter_example' # String | Filter using a query in Falcon Query Language (FQL). Supported filters: cid
+}
+
+begin
+  # Retrieve count of image states running on containers
+  result = api_instance.container_images_by_state(opts)
+  p result
+rescue Falcon::ApiError => e
+  puts "Error when calling KubernetesProtectionApi->container_images_by_state: #{e}"
+end
+```
+
+#### Using the container_images_by_state_with_http_info variant
+
+This returns an Array which contains the response data, status code and headers.
+
+> <Array(<ModelsAPIFilterResponse>, Integer, Hash)> container_images_by_state_with_http_info(opts)
+
+```ruby
+begin
+  # Retrieve count of image states running on containers
+  data, status_code, headers = api_instance.container_images_by_state_with_http_info(opts)
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => <ModelsAPIFilterResponse>
+rescue Falcon::ApiError => e
+  puts "Error when calling KubernetesProtectionApi->container_images_by_state_with_http_info: #{e}"
+end
+```
+
+### Parameters
+
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **filter** | **String** | Filter using a query in Falcon Query Language (FQL). Supported filters: cid | [optional] |
+
+### Return type
+
+[**ModelsAPIFilterResponse**](ModelsAPIFilterResponse.md)
+
+### Authorization
+
+**oauth2**
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+
+## container_vulnerabilities_by_severity_count
+
+> <ModelsAggregateValuesByFieldResponse> container_vulnerabilities_by_severity_count(opts)
+
+Retrieve container vulnerabilities by severity counts
+
+### Examples
+
+```ruby
+require 'time'
+require 'crimson-falcon'
+
+# Setup authorization
+Falcon.configure do |config|
+  config.client_id = "Your_Client_ID"
+  config.client_secret = "Your_Client_Secret"
+  config.cloud = "us-1" # or "us-2", "eu-1", "us-gov1"
+end
+
+api_instance = Falcon::KubernetesProtectionApi.new
+opts = {
+  filter: 'filter_example' # String | Get vulnerabilities count by severity for container using a query in Falcon Query Language (FQL). Supported filters:  agent_id,agent_type,allow_privilege_escalation,cid,cloud_account_id,cloud_name,cloud_region,cloud_service,cluster_id,cluster_name,container_id,container_image_id,container_name,cve_id,detection_name,first_seen,image_detection_count,image_digest,image_has_been_assessed,image_id,image_registry,image_repository,image_tag,image_vulnerability_count,insecure_mount_source,insecure_mount_type,insecure_propagation_mode,interactive_mode,ipv4,ipv6,kac_agent_id,labels,last_seen,namespace,node_name,node_uid,package_name_version,pod_id,pod_name,port,privileged,root_write_access,run_as_root_group,run_as_root_user,running_status
+}
+
+begin
+  # Retrieve container vulnerabilities by severity counts
+  result = api_instance.container_vulnerabilities_by_severity_count(opts)
+  p result
+rescue Falcon::ApiError => e
+  puts "Error when calling KubernetesProtectionApi->container_vulnerabilities_by_severity_count: #{e}"
+end
+```
+
+#### Using the container_vulnerabilities_by_severity_count_with_http_info variant
+
+This returns an Array which contains the response data, status code and headers.
+
+> <Array(<ModelsAggregateValuesByFieldResponse>, Integer, Hash)> container_vulnerabilities_by_severity_count_with_http_info(opts)
+
+```ruby
+begin
+  # Retrieve container vulnerabilities by severity counts
+  data, status_code, headers = api_instance.container_vulnerabilities_by_severity_count_with_http_info(opts)
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => <ModelsAggregateValuesByFieldResponse>
+rescue Falcon::ApiError => e
+  puts "Error when calling KubernetesProtectionApi->container_vulnerabilities_by_severity_count_with_http_info: #{e}"
+end
+```
+
+### Parameters
+
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **filter** | **String** | Get vulnerabilities count by severity for container using a query in Falcon Query Language (FQL). Supported filters:  agent_id,agent_type,allow_privilege_escalation,cid,cloud_account_id,cloud_name,cloud_region,cloud_service,cluster_id,cluster_name,container_id,container_image_id,container_name,cve_id,detection_name,first_seen,image_detection_count,image_digest,image_has_been_assessed,image_id,image_registry,image_repository,image_tag,image_vulnerability_count,insecure_mount_source,insecure_mount_type,insecure_propagation_mode,interactive_mode,ipv4,ipv6,kac_agent_id,labels,last_seen,namespace,node_name,node_uid,package_name_version,pod_id,pod_name,port,privileged,root_write_access,run_as_root_group,run_as_root_user,running_status | [optional] |
+
+### Return type
+
+[**ModelsAggregateValuesByFieldResponse**](ModelsAggregateValuesByFieldResponse.md)
+
+### Authorization
+
+**oauth2**
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+
+## containers_by_date_range_count
+
+> <ModelsAggregateValuesByFieldResponse> containers_by_date_range_count(opts)
+
+Retrieve containers by date range counts
+
+### Examples
+
+```ruby
+require 'time'
+require 'crimson-falcon'
+
+# Setup authorization
+Falcon.configure do |config|
+  config.client_id = "Your_Client_ID"
+  config.client_secret = "Your_Client_Secret"
+  config.cloud = "us-1" # or "us-2", "eu-1", "us-gov1"
+end
+
+api_instance = Falcon::KubernetesProtectionApi.new
+opts = {
+  filter: 'filter_example' # String | Get container counts using a query in Falcon Query Language (FQL). Supported filters:  agent_id,agent_type,allow_privilege_escalation,cid,cloud_account_id,cloud_name,cloud_region,cloud_service,cluster_id,cluster_name,container_id,container_image_id,container_name,cve_id,detection_name,first_seen,image_detection_count,image_digest,image_has_been_assessed,image_id,image_registry,image_repository,image_tag,image_vulnerability_count,insecure_mount_source,insecure_mount_type,insecure_propagation_mode,interactive_mode,ipv4,ipv6,kac_agent_id,labels,last_seen,namespace,node_name,node_uid,package_name_version,pod_id,pod_name,port,privileged,root_write_access,run_as_root_group,run_as_root_user,running_status
+}
+
+begin
+  # Retrieve containers by date range counts
+  result = api_instance.containers_by_date_range_count(opts)
+  p result
+rescue Falcon::ApiError => e
+  puts "Error when calling KubernetesProtectionApi->containers_by_date_range_count: #{e}"
+end
+```
+
+#### Using the containers_by_date_range_count_with_http_info variant
+
+This returns an Array which contains the response data, status code and headers.
+
+> <Array(<ModelsAggregateValuesByFieldResponse>, Integer, Hash)> containers_by_date_range_count_with_http_info(opts)
+
+```ruby
+begin
+  # Retrieve containers by date range counts
+  data, status_code, headers = api_instance.containers_by_date_range_count_with_http_info(opts)
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => <ModelsAggregateValuesByFieldResponse>
+rescue Falcon::ApiError => e
+  puts "Error when calling KubernetesProtectionApi->containers_by_date_range_count_with_http_info: #{e}"
+end
+```
+
+### Parameters
+
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **filter** | **String** | Get container counts using a query in Falcon Query Language (FQL). Supported filters:  agent_id,agent_type,allow_privilege_escalation,cid,cloud_account_id,cloud_name,cloud_region,cloud_service,cluster_id,cluster_name,container_id,container_image_id,container_name,cve_id,detection_name,first_seen,image_detection_count,image_digest,image_has_been_assessed,image_id,image_registry,image_repository,image_tag,image_vulnerability_count,insecure_mount_source,insecure_mount_type,insecure_propagation_mode,interactive_mode,ipv4,ipv6,kac_agent_id,labels,last_seen,namespace,node_name,node_uid,package_name_version,pod_id,pod_name,port,privileged,root_write_access,run_as_root_group,run_as_root_user,running_status | [optional] |
+
+### Return type
+
+[**ModelsAggregateValuesByFieldResponse**](ModelsAggregateValuesByFieldResponse.md)
+
+### Authorization
+
+**oauth2**
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+
+## containers_sensor_coverage
+
+> <ModelsAggregateValuesByFieldResponse> containers_sensor_coverage(opts)
+
+Bucket containers by agent type and calculate sensor coverage
+
+### Examples
+
+```ruby
+require 'time'
+require 'crimson-falcon'
+
+# Setup authorization
+Falcon.configure do |config|
+  config.client_id = "Your_Client_ID"
+  config.client_secret = "Your_Client_Secret"
+  config.cloud = "us-1" # or "us-2", "eu-1", "us-gov1"
+end
+
+api_instance = Falcon::KubernetesProtectionApi.new
+opts = {
+  filter: 'filter_example' # String | Retrieve count of Kubernetes containers that match a query in Falcon Query Language (FQL). Supported filters:  agent_id,agent_type,allow_privilege_escalation,cid,cloud_account_id,cloud_name,cloud_region,cloud_service,cluster_id,cluster_name,container_id,container_image_id,container_name,cve_id,detection_name,first_seen,image_detection_count,image_digest,image_has_been_assessed,image_id,image_registry,image_repository,image_tag,image_vulnerability_count,insecure_mount_source,insecure_mount_type,insecure_propagation_mode,interactive_mode,ipv4,ipv6,kac_agent_id,labels,last_seen,namespace,node_name,node_uid,package_name_version,pod_id,pod_name,port,privileged,root_write_access,run_as_root_group,run_as_root_user,running_status
+}
+
+begin
+  # Bucket containers by agent type and calculate sensor coverage
+  result = api_instance.containers_sensor_coverage(opts)
+  p result
+rescue Falcon::ApiError => e
+  puts "Error when calling KubernetesProtectionApi->containers_sensor_coverage: #{e}"
+end
+```
+
+#### Using the containers_sensor_coverage_with_http_info variant
+
+This returns an Array which contains the response data, status code and headers.
+
+> <Array(<ModelsAggregateValuesByFieldResponse>, Integer, Hash)> containers_sensor_coverage_with_http_info(opts)
+
+```ruby
+begin
+  # Bucket containers by agent type and calculate sensor coverage
+  data, status_code, headers = api_instance.containers_sensor_coverage_with_http_info(opts)
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => <ModelsAggregateValuesByFieldResponse>
+rescue Falcon::ApiError => e
+  puts "Error when calling KubernetesProtectionApi->containers_sensor_coverage_with_http_info: #{e}"
+end
+```
+
+### Parameters
+
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **filter** | **String** | Retrieve count of Kubernetes containers that match a query in Falcon Query Language (FQL). Supported filters:  agent_id,agent_type,allow_privilege_escalation,cid,cloud_account_id,cloud_name,cloud_region,cloud_service,cluster_id,cluster_name,container_id,container_image_id,container_name,cve_id,detection_name,first_seen,image_detection_count,image_digest,image_has_been_assessed,image_id,image_registry,image_repository,image_tag,image_vulnerability_count,insecure_mount_source,insecure_mount_type,insecure_propagation_mode,interactive_mode,ipv4,ipv6,kac_agent_id,labels,last_seen,namespace,node_name,node_uid,package_name_version,pod_id,pod_name,port,privileged,root_write_access,run_as_root_group,run_as_root_user,running_status | [optional] |
+
+### Return type
+
+[**ModelsAggregateValuesByFieldResponse**](ModelsAggregateValuesByFieldResponse.md)
+
+### Authorization
+
+**oauth2**
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
 
 
 ## create_aws_account
@@ -205,7 +1356,7 @@ end
 
 ## delete_aws_accounts_mixin0
 
-> <MsaspecMetaInfo> delete_aws_accounts_mixin0(ids)
+> <MsaMetaInfo> delete_aws_accounts_mixin0(ids)
 
 Delete AWS accounts.
 
@@ -238,7 +1389,7 @@ end
 
 This returns an Array which contains the response data, status code and headers.
 
-> <Array(<MsaspecMetaInfo>, Integer, Hash)> delete_aws_accounts_mixin0_with_http_info(ids)
+> <Array(<MsaMetaInfo>, Integer, Hash)> delete_aws_accounts_mixin0_with_http_info(ids)
 
 ```ruby
 begin
@@ -246,7 +1397,7 @@ begin
   data, status_code, headers = api_instance.delete_aws_accounts_mixin0_with_http_info(ids)
   p status_code # => 2xx
   p headers # => { ... }
-  p data # => <MsaspecMetaInfo>
+  p data # => <MsaMetaInfo>
 rescue Falcon::ApiError => e
   puts "Error when calling KubernetesProtectionApi->delete_aws_accounts_mixin0_with_http_info: #{e}"
 end
@@ -260,7 +1411,7 @@ end
 
 ### Return type
 
-[**MsaspecMetaInfo**](MsaspecMetaInfo.md)
+[**MsaMetaInfo**](MsaMetaInfo.md)
 
 ### Authorization
 
@@ -343,6 +1494,364 @@ end
 - **Accept**: application/json
 
 
+## deployment_combined
+
+> <ModelsDeploymentEntityResponse> deployment_combined(opts)
+
+Retrieve kubernetes deployments identified by the provided filter criteria
+
+### Examples
+
+```ruby
+require 'time'
+require 'crimson-falcon'
+
+# Setup authorization
+Falcon.configure do |config|
+  config.client_id = "Your_Client_ID"
+  config.client_secret = "Your_Client_Secret"
+  config.cloud = "us-1" # or "us-2", "eu-1", "us-gov1"
+end
+
+api_instance = Falcon::KubernetesProtectionApi.new
+opts = {
+  filter: 'filter_example', # String | Search Kubernetes deployments using a query in Falcon Query Language (FQL). Supported filters:  agent_id,agent_type,annotations_list,cid,cloud_account_id,cloud_name,cloud_region,cloud_service,cluster_id,cluster_name,deployment_id,deployment_name,deployment_status,first_seen,kac_agent_id,last_seen,namespace,pod_count,resource_status
+  limit: 56, # Integer | The upper-bound on the number of records to retrieve.
+  offset: 56, # Integer | The offset from where to begin.
+  sort: 'sort_example' # String | Field to sort results by
+}
+
+begin
+  # Retrieve kubernetes deployments identified by the provided filter criteria
+  result = api_instance.deployment_combined(opts)
+  p result
+rescue Falcon::ApiError => e
+  puts "Error when calling KubernetesProtectionApi->deployment_combined: #{e}"
+end
+```
+
+#### Using the deployment_combined_with_http_info variant
+
+This returns an Array which contains the response data, status code and headers.
+
+> <Array(<ModelsDeploymentEntityResponse>, Integer, Hash)> deployment_combined_with_http_info(opts)
+
+```ruby
+begin
+  # Retrieve kubernetes deployments identified by the provided filter criteria
+  data, status_code, headers = api_instance.deployment_combined_with_http_info(opts)
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => <ModelsDeploymentEntityResponse>
+rescue Falcon::ApiError => e
+  puts "Error when calling KubernetesProtectionApi->deployment_combined_with_http_info: #{e}"
+end
+```
+
+### Parameters
+
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **filter** | **String** | Search Kubernetes deployments using a query in Falcon Query Language (FQL). Supported filters:  agent_id,agent_type,annotations_list,cid,cloud_account_id,cloud_name,cloud_region,cloud_service,cluster_id,cluster_name,deployment_id,deployment_name,deployment_status,first_seen,kac_agent_id,last_seen,namespace,pod_count,resource_status | [optional] |
+| **limit** | **Integer** | The upper-bound on the number of records to retrieve. | [optional] |
+| **offset** | **Integer** | The offset from where to begin. | [optional] |
+| **sort** | **String** | Field to sort results by | [optional] |
+
+### Return type
+
+[**ModelsDeploymentEntityResponse**](ModelsDeploymentEntityResponse.md)
+
+### Authorization
+
+**oauth2**
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+
+## deployment_count
+
+> <CommonCountResponse> deployment_count(opts)
+
+Retrieve deployment counts
+
+### Examples
+
+```ruby
+require 'time'
+require 'crimson-falcon'
+
+# Setup authorization
+Falcon.configure do |config|
+  config.client_id = "Your_Client_ID"
+  config.client_secret = "Your_Client_Secret"
+  config.cloud = "us-1" # or "us-2", "eu-1", "us-gov1"
+end
+
+api_instance = Falcon::KubernetesProtectionApi.new
+opts = {
+  filter: 'filter_example' # String | Retrieve count of Kubernetes deployments that match a query in Falcon Query Language (FQL). Supported filters:  agent_id,agent_type,annotations_list,cid,cloud_account_id,cloud_name,cloud_region,cloud_service,cluster_id,cluster_name,deployment_id,deployment_name,deployment_status,first_seen,kac_agent_id,last_seen,namespace,pod_count,resource_status
+}
+
+begin
+  # Retrieve deployment counts
+  result = api_instance.deployment_count(opts)
+  p result
+rescue Falcon::ApiError => e
+  puts "Error when calling KubernetesProtectionApi->deployment_count: #{e}"
+end
+```
+
+#### Using the deployment_count_with_http_info variant
+
+This returns an Array which contains the response data, status code and headers.
+
+> <Array(<CommonCountResponse>, Integer, Hash)> deployment_count_with_http_info(opts)
+
+```ruby
+begin
+  # Retrieve deployment counts
+  data, status_code, headers = api_instance.deployment_count_with_http_info(opts)
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => <CommonCountResponse>
+rescue Falcon::ApiError => e
+  puts "Error when calling KubernetesProtectionApi->deployment_count_with_http_info: #{e}"
+end
+```
+
+### Parameters
+
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **filter** | **String** | Retrieve count of Kubernetes deployments that match a query in Falcon Query Language (FQL). Supported filters:  agent_id,agent_type,annotations_list,cid,cloud_account_id,cloud_name,cloud_region,cloud_service,cluster_id,cluster_name,deployment_id,deployment_name,deployment_status,first_seen,kac_agent_id,last_seen,namespace,pod_count,resource_status | [optional] |
+
+### Return type
+
+[**CommonCountResponse**](CommonCountResponse.md)
+
+### Authorization
+
+**oauth2**
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+
+## deployment_enrichment
+
+> <K8sassetsDeploymentEnrichmentResponse> deployment_enrichment(deployment_id, opts)
+
+Retrieve deployment enrichment data
+
+### Examples
+
+```ruby
+require 'time'
+require 'crimson-falcon'
+
+# Setup authorization
+Falcon.configure do |config|
+  config.client_id = "Your_Client_ID"
+  config.client_secret = "Your_Client_Secret"
+  config.cloud = "us-1" # or "us-2", "eu-1", "us-gov1"
+end
+
+api_instance = Falcon::KubernetesProtectionApi.new
+deployment_id = ['inner_example'] # Array<String> | One or more deployment ids for which to retrieve enrichment info
+opts = {
+  filter: 'filter_example' # String | Supported filters:  last_seen
+}
+
+begin
+  # Retrieve deployment enrichment data
+  result = api_instance.deployment_enrichment(deployment_id, opts)
+  p result
+rescue Falcon::ApiError => e
+  puts "Error when calling KubernetesProtectionApi->deployment_enrichment: #{e}"
+end
+```
+
+#### Using the deployment_enrichment_with_http_info variant
+
+This returns an Array which contains the response data, status code and headers.
+
+> <Array(<K8sassetsDeploymentEnrichmentResponse>, Integer, Hash)> deployment_enrichment_with_http_info(deployment_id, opts)
+
+```ruby
+begin
+  # Retrieve deployment enrichment data
+  data, status_code, headers = api_instance.deployment_enrichment_with_http_info(deployment_id, opts)
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => <K8sassetsDeploymentEnrichmentResponse>
+rescue Falcon::ApiError => e
+  puts "Error when calling KubernetesProtectionApi->deployment_enrichment_with_http_info: #{e}"
+end
+```
+
+### Parameters
+
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **deployment_id** | [**Array&lt;String&gt;**](String.md) | One or more deployment ids for which to retrieve enrichment info |  |
+| **filter** | **String** | Supported filters:  last_seen | [optional] |
+
+### Return type
+
+[**K8sassetsDeploymentEnrichmentResponse**](K8sassetsDeploymentEnrichmentResponse.md)
+
+### Authorization
+
+**oauth2**
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+
+## deployments_by_date_range_count
+
+> <ModelsAggregateValuesByFieldResponse> deployments_by_date_range_count
+
+Retrieve deployments by date range counts
+
+### Examples
+
+```ruby
+require 'time'
+require 'crimson-falcon'
+
+# Setup authorization
+Falcon.configure do |config|
+  config.client_id = "Your_Client_ID"
+  config.client_secret = "Your_Client_Secret"
+  config.cloud = "us-1" # or "us-2", "eu-1", "us-gov1"
+end
+
+api_instance = Falcon::KubernetesProtectionApi.new
+
+begin
+  # Retrieve deployments by date range counts
+  result = api_instance.deployments_by_date_range_count
+  p result
+rescue Falcon::ApiError => e
+  puts "Error when calling KubernetesProtectionApi->deployments_by_date_range_count: #{e}"
+end
+```
+
+#### Using the deployments_by_date_range_count_with_http_info variant
+
+This returns an Array which contains the response data, status code and headers.
+
+> <Array(<ModelsAggregateValuesByFieldResponse>, Integer, Hash)> deployments_by_date_range_count_with_http_info
+
+```ruby
+begin
+  # Retrieve deployments by date range counts
+  data, status_code, headers = api_instance.deployments_by_date_range_count_with_http_info
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => <ModelsAggregateValuesByFieldResponse>
+rescue Falcon::ApiError => e
+  puts "Error when calling KubernetesProtectionApi->deployments_by_date_range_count_with_http_info: #{e}"
+end
+```
+
+### Parameters
+
+This endpoint does not need any parameter.
+
+### Return type
+
+[**ModelsAggregateValuesByFieldResponse**](ModelsAggregateValuesByFieldResponse.md)
+
+### Authorization
+
+**oauth2**
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+
+## distinct_container_image_count
+
+> <ModelsAPIFilterResponse> distinct_container_image_count(opts)
+
+Retrieve count of distinct images running on containers
+
+### Examples
+
+```ruby
+require 'time'
+require 'crimson-falcon'
+
+# Setup authorization
+Falcon.configure do |config|
+  config.client_id = "Your_Client_ID"
+  config.client_secret = "Your_Client_Secret"
+  config.cloud = "us-1" # or "us-2", "eu-1", "us-gov1"
+end
+
+api_instance = Falcon::KubernetesProtectionApi.new
+opts = {
+  filter: 'filter_example' # String | Search Kubernetes containers using a query in Falcon Query Language (FQL). Supported filters:  agent_id,agent_type,allow_privilege_escalation,cid,cloud_account_id,cloud_name,cloud_region,cloud_service,cluster_id,cluster_name,container_id,container_image_id,container_name,cve_id,detection_name,first_seen,image_detection_count,image_digest,image_has_been_assessed,image_id,image_registry,image_repository,image_tag,image_vulnerability_count,insecure_mount_source,insecure_mount_type,insecure_propagation_mode,interactive_mode,ipv4,ipv6,kac_agent_id,labels,last_seen,namespace,node_name,node_uid,package_name_version,pod_id,pod_name,port,privileged,root_write_access,run_as_root_group,run_as_root_user,running_status
+}
+
+begin
+  # Retrieve count of distinct images running on containers
+  result = api_instance.distinct_container_image_count(opts)
+  p result
+rescue Falcon::ApiError => e
+  puts "Error when calling KubernetesProtectionApi->distinct_container_image_count: #{e}"
+end
+```
+
+#### Using the distinct_container_image_count_with_http_info variant
+
+This returns an Array which contains the response data, status code and headers.
+
+> <Array(<ModelsAPIFilterResponse>, Integer, Hash)> distinct_container_image_count_with_http_info(opts)
+
+```ruby
+begin
+  # Retrieve count of distinct images running on containers
+  data, status_code, headers = api_instance.distinct_container_image_count_with_http_info(opts)
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => <ModelsAPIFilterResponse>
+rescue Falcon::ApiError => e
+  puts "Error when calling KubernetesProtectionApi->distinct_container_image_count_with_http_info: #{e}"
+end
+```
+
+### Parameters
+
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **filter** | **String** | Search Kubernetes containers using a query in Falcon Query Language (FQL). Supported filters:  agent_id,agent_type,allow_privilege_escalation,cid,cloud_account_id,cloud_name,cloud_region,cloud_service,cluster_id,cluster_name,container_id,container_image_id,container_name,cve_id,detection_name,first_seen,image_detection_count,image_digest,image_has_been_assessed,image_id,image_registry,image_repository,image_tag,image_vulnerability_count,insecure_mount_source,insecure_mount_type,insecure_propagation_mode,interactive_mode,ipv4,ipv6,kac_agent_id,labels,last_seen,namespace,node_name,node_uid,package_name_version,pod_id,pod_name,port,privileged,root_write_access,run_as_root_group,run_as_root_user,running_status | [optional] |
+
+### Return type
+
+[**ModelsAPIFilterResponse**](ModelsAPIFilterResponse.md)
+
+### Authorization
+
+**oauth2**
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+
 ## find_containers_by_container_run_time_version
 
 > <ModelsContainerRuntimePivotResponse> find_containers_by_container_run_time_version(opts)
@@ -367,7 +1876,7 @@ opts = {
   limit: 56, # Integer | The upper-bound on the number of container records to retrieve.
   offset: 56, # Integer | It is used to get the offset
   sort: 'sort_example', # String | Field to sort results by
-  filter: 'filter_example' # String | Retrieve count of Kubernetes containers that match a query in Falcon Query Language (FQL). Supported filters:  agent_id,agent_type,allow_privilege_escalation,cid,cloud_account_id,cloud_name,cloud_region,cluster_id,cluster_name,container_id,container_name,cve_id,detection_name,first_seen,image_detection_count,image_digest,image_has_been_assessed,image_id,image_registry,image_repository,image_tag,image_vulnerability_count,insecure_mount_source,insecure_mount_type,insecure_propagation_mode,interactive_mode,ipv4,ipv6,labels,last_seen,namespace,node_name,node_uid,package_name_version,pod_id,pod_name,port,privileged,root_write_access,run_as_root_group,run_as_root_user,running_status
+  filter: 'filter_example' # String | Retrieve count of Kubernetes containers that match a query in Falcon Query Language (FQL). Supported filters:  agent_id,agent_type,allow_privilege_escalation,cid,cloud_account_id,cloud_name,cloud_region,cloud_service,cluster_id,cluster_name,container_id,container_image_id,container_name,cve_id,detection_name,first_seen,image_detection_count,image_digest,image_has_been_assessed,image_id,image_registry,image_repository,image_tag,image_vulnerability_count,insecure_mount_source,insecure_mount_type,insecure_propagation_mode,interactive_mode,ipv4,ipv6,kac_agent_id,labels,last_seen,namespace,node_name,node_uid,package_name_version,pod_id,pod_name,port,privileged,root_write_access,run_as_root_group,run_as_root_user,running_status
 }
 
 begin
@@ -404,7 +1913,7 @@ end
 | **limit** | **Integer** | The upper-bound on the number of container records to retrieve. | [optional] |
 | **offset** | **Integer** | It is used to get the offset | [optional] |
 | **sort** | **String** | Field to sort results by | [optional] |
-| **filter** | **String** | Retrieve count of Kubernetes containers that match a query in Falcon Query Language (FQL). Supported filters:  agent_id,agent_type,allow_privilege_escalation,cid,cloud_account_id,cloud_name,cloud_region,cluster_id,cluster_name,container_id,container_name,cve_id,detection_name,first_seen,image_detection_count,image_digest,image_has_been_assessed,image_id,image_registry,image_repository,image_tag,image_vulnerability_count,insecure_mount_source,insecure_mount_type,insecure_propagation_mode,interactive_mode,ipv4,ipv6,labels,last_seen,namespace,node_name,node_uid,package_name_version,pod_id,pod_name,port,privileged,root_write_access,run_as_root_group,run_as_root_user,running_status | [optional] |
+| **filter** | **String** | Retrieve count of Kubernetes containers that match a query in Falcon Query Language (FQL). Supported filters:  agent_id,agent_type,allow_privilege_escalation,cid,cloud_account_id,cloud_name,cloud_region,cloud_service,cluster_id,cluster_name,container_id,container_image_id,container_name,cve_id,detection_name,first_seen,image_detection_count,image_digest,image_has_been_assessed,image_id,image_registry,image_repository,image_tag,image_vulnerability_count,insecure_mount_source,insecure_mount_type,insecure_propagation_mode,interactive_mode,ipv4,ipv6,kac_agent_id,labels,last_seen,namespace,node_name,node_uid,package_name_version,pod_id,pod_name,port,privileged,root_write_access,run_as_root_group,run_as_root_user,running_status | [optional] |
 
 ### Return type
 
@@ -1024,7 +2533,7 @@ end
 ### HTTP request headers
 
 - **Content-Type**: Not defined
-- **Accept**: application/yaml
+- **Accept**: application/yaml, application/json
 
 
 ## get_locations
@@ -1185,7 +2694,7 @@ end
 
 api_instance = Falcon::KubernetesProtectionApi.new
 opts = {
-  filter: 'filter_example' # String | Retrieve count of Kubernetes containers that match a query in Falcon Query Language (FQL). Supported filters:  agent_id,allow_privilege_escalation,cid,cloud_account_id,cloud_name,cloud_region,cluster_id,cluster_name,container_id,container_name,cve_id,detection_name,first_seen,image_detection_count,image_digest,image_has_been_assessed,image_id,image_registry,image_repository,image_tag,image_vulnerability_count,insecure_mount_source,insecure_mount_type,insecure_propagation_mode,interactive_mode,ipv4,ipv6,labels,last_seen,namespace,node_name,node_uid,pod_id,pod_name,port,privileged,root_write_access,run_as_root_group,run_as_root_user,running_status
+  filter: 'filter_example' # String | Retrieve count of Kubernetes containers that match a query in Falcon Query Language (FQL). Supported filters:  agent_id,allow_privilege_escalation,cid,cloud_account_id,cloud_name,cloud_region,cloud_service,cluster_id,cluster_name,container_id,container_image_id,container_name,cve_id,detection_name,first_seen,image_detection_count,image_digest,image_has_been_assessed,image_id,image_registry,image_repository,image_tag,image_vulnerability_count,insecure_mount_source,insecure_mount_type,insecure_propagation_mode,interactive_mode,ipv4,ipv6,kac_agent_id,labels,last_seen,namespace,node_name,node_uid,pod_id,pod_name,port,privileged,root_write_access,run_as_root_group,run_as_root_user,running_status
 }
 
 begin
@@ -1219,11 +2728,301 @@ end
 
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
-| **filter** | **String** | Retrieve count of Kubernetes containers that match a query in Falcon Query Language (FQL). Supported filters:  agent_id,allow_privilege_escalation,cid,cloud_account_id,cloud_name,cloud_region,cluster_id,cluster_name,container_id,container_name,cve_id,detection_name,first_seen,image_detection_count,image_digest,image_has_been_assessed,image_id,image_registry,image_repository,image_tag,image_vulnerability_count,insecure_mount_source,insecure_mount_type,insecure_propagation_mode,interactive_mode,ipv4,ipv6,labels,last_seen,namespace,node_name,node_uid,pod_id,pod_name,port,privileged,root_write_access,run_as_root_group,run_as_root_user,running_status | [optional] |
+| **filter** | **String** | Retrieve count of Kubernetes containers that match a query in Falcon Query Language (FQL). Supported filters:  agent_id,allow_privilege_escalation,cid,cloud_account_id,cloud_name,cloud_region,cloud_service,cluster_id,cluster_name,container_id,container_image_id,container_name,cve_id,detection_name,first_seen,image_detection_count,image_digest,image_has_been_assessed,image_id,image_registry,image_repository,image_tag,image_vulnerability_count,insecure_mount_source,insecure_mount_type,insecure_propagation_mode,interactive_mode,ipv4,ipv6,kac_agent_id,labels,last_seen,namespace,node_name,node_uid,pod_id,pod_name,port,privileged,root_write_access,run_as_root_group,run_as_root_user,running_status | [optional] |
 
 ### Return type
 
 [**ModelsContainerCoverageResponseEntity**](ModelsContainerCoverageResponseEntity.md)
+
+### Authorization
+
+**oauth2**
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+
+## kubernetes_iom_by_date_range
+
+> <K8siomsKubernetesIOMFieldValue> kubernetes_iom_by_date_range(opts)
+
+Returns the count of Kubernetes IOMs by the date. by default it's for 7 days.
+
+### Examples
+
+```ruby
+require 'time'
+require 'crimson-falcon'
+
+# Setup authorization
+Falcon.configure do |config|
+  config.client_id = "Your_Client_ID"
+  config.client_secret = "Your_Client_Secret"
+  config.cloud = "us-1" # or "us-2", "eu-1", "us-gov1"
+end
+
+api_instance = Falcon::KubernetesProtectionApi.new
+opts = {
+  filter: 'filter_example' # String | Filter images using a query in Falcon Query Language (FQL). Supported filters: cid,created_timestamp,detect_timestamp,prevented,severity
+}
+
+begin
+  # Returns the count of Kubernetes IOMs by the date. by default it's for 7 days.
+  result = api_instance.kubernetes_iom_by_date_range(opts)
+  p result
+rescue Falcon::ApiError => e
+  puts "Error when calling KubernetesProtectionApi->kubernetes_iom_by_date_range: #{e}"
+end
+```
+
+#### Using the kubernetes_iom_by_date_range_with_http_info variant
+
+This returns an Array which contains the response data, status code and headers.
+
+> <Array(<K8siomsKubernetesIOMFieldValue>, Integer, Hash)> kubernetes_iom_by_date_range_with_http_info(opts)
+
+```ruby
+begin
+  # Returns the count of Kubernetes IOMs by the date. by default it's for 7 days.
+  data, status_code, headers = api_instance.kubernetes_iom_by_date_range_with_http_info(opts)
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => <K8siomsKubernetesIOMFieldValue>
+rescue Falcon::ApiError => e
+  puts "Error when calling KubernetesProtectionApi->kubernetes_iom_by_date_range_with_http_info: #{e}"
+end
+```
+
+### Parameters
+
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **filter** | **String** | Filter images using a query in Falcon Query Language (FQL). Supported filters: cid,created_timestamp,detect_timestamp,prevented,severity | [optional] |
+
+### Return type
+
+[**K8siomsKubernetesIOMFieldValue**](K8siomsKubernetesIOMFieldValue.md)
+
+### Authorization
+
+**oauth2**
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+
+## kubernetes_iom_count
+
+> <K8siomsKubernetesIOMCountValue> kubernetes_iom_count(opts)
+
+Returns the total count of Kubernetes IOMs over the past seven days
+
+### Examples
+
+```ruby
+require 'time'
+require 'crimson-falcon'
+
+# Setup authorization
+Falcon.configure do |config|
+  config.client_id = "Your_Client_ID"
+  config.client_secret = "Your_Client_Secret"
+  config.cloud = "us-1" # or "us-2", "eu-1", "us-gov1"
+end
+
+api_instance = Falcon::KubernetesProtectionApi.new
+opts = {
+  filter: 'filter_example' # String | Filter images using a query in Falcon Query Language (FQL). Supported filters: cid,created_timestamp,detect_timestamp,prevented,severity
+}
+
+begin
+  # Returns the total count of Kubernetes IOMs over the past seven days
+  result = api_instance.kubernetes_iom_count(opts)
+  p result
+rescue Falcon::ApiError => e
+  puts "Error when calling KubernetesProtectionApi->kubernetes_iom_count: #{e}"
+end
+```
+
+#### Using the kubernetes_iom_count_with_http_info variant
+
+This returns an Array which contains the response data, status code and headers.
+
+> <Array(<K8siomsKubernetesIOMCountValue>, Integer, Hash)> kubernetes_iom_count_with_http_info(opts)
+
+```ruby
+begin
+  # Returns the total count of Kubernetes IOMs over the past seven days
+  data, status_code, headers = api_instance.kubernetes_iom_count_with_http_info(opts)
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => <K8siomsKubernetesIOMCountValue>
+rescue Falcon::ApiError => e
+  puts "Error when calling KubernetesProtectionApi->kubernetes_iom_count_with_http_info: #{e}"
+end
+```
+
+### Parameters
+
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **filter** | **String** | Filter images using a query in Falcon Query Language (FQL). Supported filters: cid,created_timestamp,detect_timestamp,prevented,severity | [optional] |
+
+### Return type
+
+[**K8siomsKubernetesIOMCountValue**](K8siomsKubernetesIOMCountValue.md)
+
+### Authorization
+
+**oauth2**
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+
+## kubernetes_iom_entities
+
+> <K8siomsKubernetesIOMEntityResponse> kubernetes_iom_entities(opts)
+
+Retrieve Kubernetes IOM entities identified by the provided IDs
+
+### Examples
+
+```ruby
+require 'time'
+require 'crimson-falcon'
+
+# Setup authorization
+Falcon.configure do |config|
+  config.client_id = "Your_Client_ID"
+  config.client_secret = "Your_Client_Secret"
+  config.cloud = "us-1" # or "us-2", "eu-1", "us-gov1"
+end
+
+api_instance = Falcon::KubernetesProtectionApi.new
+opts = {
+  ids: ['inner_example'] # Array<String> | Search Kubernetes IOMs by ids - The maximum amount is 100 IDs
+}
+
+begin
+  # Retrieve Kubernetes IOM entities identified by the provided IDs
+  result = api_instance.kubernetes_iom_entities(opts)
+  p result
+rescue Falcon::ApiError => e
+  puts "Error when calling KubernetesProtectionApi->kubernetes_iom_entities: #{e}"
+end
+```
+
+#### Using the kubernetes_iom_entities_with_http_info variant
+
+This returns an Array which contains the response data, status code and headers.
+
+> <Array(<K8siomsKubernetesIOMEntityResponse>, Integer, Hash)> kubernetes_iom_entities_with_http_info(opts)
+
+```ruby
+begin
+  # Retrieve Kubernetes IOM entities identified by the provided IDs
+  data, status_code, headers = api_instance.kubernetes_iom_entities_with_http_info(opts)
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => <K8siomsKubernetesIOMEntityResponse>
+rescue Falcon::ApiError => e
+  puts "Error when calling KubernetesProtectionApi->kubernetes_iom_entities_with_http_info: #{e}"
+end
+```
+
+### Parameters
+
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **ids** | [**Array&lt;String&gt;**](String.md) | Search Kubernetes IOMs by ids - The maximum amount is 100 IDs | [optional] |
+
+### Return type
+
+[**K8siomsKubernetesIOMEntityResponse**](K8siomsKubernetesIOMEntityResponse.md)
+
+### Authorization
+
+**oauth2**
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+
+## kubernetes_iom_entities_combined
+
+> <K8siomsKubernetesIOMEntityResponse> kubernetes_iom_entities_combined(opts)
+
+Search Kubernetes IOM by the provided search criteria
+
+### Examples
+
+```ruby
+require 'time'
+require 'crimson-falcon'
+
+# Setup authorization
+Falcon.configure do |config|
+  config.client_id = "Your_Client_ID"
+  config.client_secret = "Your_Client_Secret"
+  config.cloud = "us-1" # or "us-2", "eu-1", "us-gov1"
+end
+
+api_instance = Falcon::KubernetesProtectionApi.new
+opts = {
+  filter: 'filter_example', # String | Search Kubernetes IOMs using a query in Falcon Query Language (FQL). Supported filters:  cid,cis_id,cluster_id,cluster_name,containers_impacted_count,containers_impacted_ids,detection_type,name,namespace,prevented,resource_id,resource_name,resource_type,severity
+  limit: 56, # Integer | The upper-bound on the number of records to retrieve.
+  offset: 56, # Integer | The offset from where to begin.
+  sort: 'sort_example' # String | The fields to sort the records on.
+}
+
+begin
+  # Search Kubernetes IOM by the provided search criteria
+  result = api_instance.kubernetes_iom_entities_combined(opts)
+  p result
+rescue Falcon::ApiError => e
+  puts "Error when calling KubernetesProtectionApi->kubernetes_iom_entities_combined: #{e}"
+end
+```
+
+#### Using the kubernetes_iom_entities_combined_with_http_info variant
+
+This returns an Array which contains the response data, status code and headers.
+
+> <Array(<K8siomsKubernetesIOMEntityResponse>, Integer, Hash)> kubernetes_iom_entities_combined_with_http_info(opts)
+
+```ruby
+begin
+  # Search Kubernetes IOM by the provided search criteria
+  data, status_code, headers = api_instance.kubernetes_iom_entities_combined_with_http_info(opts)
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => <K8siomsKubernetesIOMEntityResponse>
+rescue Falcon::ApiError => e
+  puts "Error when calling KubernetesProtectionApi->kubernetes_iom_entities_combined_with_http_info: #{e}"
+end
+```
+
+### Parameters
+
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **filter** | **String** | Search Kubernetes IOMs using a query in Falcon Query Language (FQL). Supported filters:  cid,cis_id,cluster_id,cluster_name,containers_impacted_count,containers_impacted_ids,detection_type,name,namespace,prevented,resource_id,resource_name,resource_type,severity | [optional] |
+| **limit** | **Integer** | The upper-bound on the number of records to retrieve. | [optional] |
+| **offset** | **Integer** | The offset from where to begin. | [optional] |
+| **sort** | **String** | The fields to sort the records on. | [optional] |
+
+### Return type
+
+[**K8siomsKubernetesIOMEntityResponse**](K8siomsKubernetesIOMEntityResponse.md)
 
 ### Authorization
 
@@ -1316,6 +3115,369 @@ end
 - **Accept**: application/json
 
 
+## node_combined
+
+> <ModelsNodeEntityResponse> node_combined(opts)
+
+Retrieve kubernetes nodes identified by the provided filter criteria
+
+### Examples
+
+```ruby
+require 'time'
+require 'crimson-falcon'
+
+# Setup authorization
+Falcon.configure do |config|
+  config.client_id = "Your_Client_ID"
+  config.client_secret = "Your_Client_Secret"
+  config.cloud = "us-1" # or "us-2", "eu-1", "us-gov1"
+end
+
+api_instance = Falcon::KubernetesProtectionApi.new
+opts = {
+  filter: 'filter_example', # String | Search Kubernetes nodes using a query in Falcon Query Language (FQL). Supported filters:  agent_id,agent_type,annotations_list,cid,cloud_account_id,cloud_name,cloud_region,cloud_service,cluster_id,cluster_name,container_count,container_runtime_version,first_seen,image_digest,ipv4,kac_agent_id,last_seen,linux_sensor_coverage,node_name,pod_count,resource_status
+  limit: 56, # Integer | The upper-bound on the number of records to retrieve.
+  offset: 56, # Integer | The offset from where to begin.
+  sort: 'sort_example' # String | Field to sort results by
+}
+
+begin
+  # Retrieve kubernetes nodes identified by the provided filter criteria
+  result = api_instance.node_combined(opts)
+  p result
+rescue Falcon::ApiError => e
+  puts "Error when calling KubernetesProtectionApi->node_combined: #{e}"
+end
+```
+
+#### Using the node_combined_with_http_info variant
+
+This returns an Array which contains the response data, status code and headers.
+
+> <Array(<ModelsNodeEntityResponse>, Integer, Hash)> node_combined_with_http_info(opts)
+
+```ruby
+begin
+  # Retrieve kubernetes nodes identified by the provided filter criteria
+  data, status_code, headers = api_instance.node_combined_with_http_info(opts)
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => <ModelsNodeEntityResponse>
+rescue Falcon::ApiError => e
+  puts "Error when calling KubernetesProtectionApi->node_combined_with_http_info: #{e}"
+end
+```
+
+### Parameters
+
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **filter** | **String** | Search Kubernetes nodes using a query in Falcon Query Language (FQL). Supported filters:  agent_id,agent_type,annotations_list,cid,cloud_account_id,cloud_name,cloud_region,cloud_service,cluster_id,cluster_name,container_count,container_runtime_version,first_seen,image_digest,ipv4,kac_agent_id,last_seen,linux_sensor_coverage,node_name,pod_count,resource_status | [optional] |
+| **limit** | **Integer** | The upper-bound on the number of records to retrieve. | [optional] |
+| **offset** | **Integer** | The offset from where to begin. | [optional] |
+| **sort** | **String** | Field to sort results by | [optional] |
+
+### Return type
+
+[**ModelsNodeEntityResponse**](ModelsNodeEntityResponse.md)
+
+### Authorization
+
+**oauth2**
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+
+## node_enrichment
+
+> <K8sassetsNodeEnrichmentResponse> node_enrichment(node_name, opts)
+
+Retrieve node enrichment data
+
+### Examples
+
+```ruby
+require 'time'
+require 'crimson-falcon'
+
+# Setup authorization
+Falcon.configure do |config|
+  config.client_id = "Your_Client_ID"
+  config.client_secret = "Your_Client_Secret"
+  config.cloud = "us-1" # or "us-2", "eu-1", "us-gov1"
+end
+
+api_instance = Falcon::KubernetesProtectionApi.new
+node_name = ['inner_example'] # Array<String> | One or more node names for which to retrieve enrichment info
+opts = {
+  filter: 'filter_example' # String | Supported filters:  last_seen
+}
+
+begin
+  # Retrieve node enrichment data
+  result = api_instance.node_enrichment(node_name, opts)
+  p result
+rescue Falcon::ApiError => e
+  puts "Error when calling KubernetesProtectionApi->node_enrichment: #{e}"
+end
+```
+
+#### Using the node_enrichment_with_http_info variant
+
+This returns an Array which contains the response data, status code and headers.
+
+> <Array(<K8sassetsNodeEnrichmentResponse>, Integer, Hash)> node_enrichment_with_http_info(node_name, opts)
+
+```ruby
+begin
+  # Retrieve node enrichment data
+  data, status_code, headers = api_instance.node_enrichment_with_http_info(node_name, opts)
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => <K8sassetsNodeEnrichmentResponse>
+rescue Falcon::ApiError => e
+  puts "Error when calling KubernetesProtectionApi->node_enrichment_with_http_info: #{e}"
+end
+```
+
+### Parameters
+
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **node_name** | [**Array&lt;String&gt;**](String.md) | One or more node names for which to retrieve enrichment info |  |
+| **filter** | **String** | Supported filters:  last_seen | [optional] |
+
+### Return type
+
+[**K8sassetsNodeEnrichmentResponse**](K8sassetsNodeEnrichmentResponse.md)
+
+### Authorization
+
+**oauth2**
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+
+## nodes_by_cloud_count
+
+> <ModelsAggregateValuesByFieldResponse> nodes_by_cloud_count(opts)
+
+Bucket nodes by cloud providers
+
+### Examples
+
+```ruby
+require 'time'
+require 'crimson-falcon'
+
+# Setup authorization
+Falcon.configure do |config|
+  config.client_id = "Your_Client_ID"
+  config.client_secret = "Your_Client_Secret"
+  config.cloud = "us-1" # or "us-2", "eu-1", "us-gov1"
+end
+
+api_instance = Falcon::KubernetesProtectionApi.new
+opts = {
+  filter: 'filter_example' # String | Search Kubernetes nodes using a query in Falcon Query Language (FQL). Supported filters:  agent_id,agent_type,annotations_list,cid,cloud_account_id,cloud_name,cloud_region,cloud_service,cluster_id,cluster_name,container_count,container_runtime_version,first_seen,image_digest,ipv4,kac_agent_id,last_seen,linux_sensor_coverage,node_name,pod_count,resource_status
+}
+
+begin
+  # Bucket nodes by cloud providers
+  result = api_instance.nodes_by_cloud_count(opts)
+  p result
+rescue Falcon::ApiError => e
+  puts "Error when calling KubernetesProtectionApi->nodes_by_cloud_count: #{e}"
+end
+```
+
+#### Using the nodes_by_cloud_count_with_http_info variant
+
+This returns an Array which contains the response data, status code and headers.
+
+> <Array(<ModelsAggregateValuesByFieldResponse>, Integer, Hash)> nodes_by_cloud_count_with_http_info(opts)
+
+```ruby
+begin
+  # Bucket nodes by cloud providers
+  data, status_code, headers = api_instance.nodes_by_cloud_count_with_http_info(opts)
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => <ModelsAggregateValuesByFieldResponse>
+rescue Falcon::ApiError => e
+  puts "Error when calling KubernetesProtectionApi->nodes_by_cloud_count_with_http_info: #{e}"
+end
+```
+
+### Parameters
+
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **filter** | **String** | Search Kubernetes nodes using a query in Falcon Query Language (FQL). Supported filters:  agent_id,agent_type,annotations_list,cid,cloud_account_id,cloud_name,cloud_region,cloud_service,cluster_id,cluster_name,container_count,container_runtime_version,first_seen,image_digest,ipv4,kac_agent_id,last_seen,linux_sensor_coverage,node_name,pod_count,resource_status | [optional] |
+
+### Return type
+
+[**ModelsAggregateValuesByFieldResponse**](ModelsAggregateValuesByFieldResponse.md)
+
+### Authorization
+
+**oauth2**
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+
+## nodes_by_container_engine_version_count
+
+> <ModelsAggregateValuesByFieldResponse> nodes_by_container_engine_version_count(opts)
+
+Bucket nodes by their container engine version
+
+### Examples
+
+```ruby
+require 'time'
+require 'crimson-falcon'
+
+# Setup authorization
+Falcon.configure do |config|
+  config.client_id = "Your_Client_ID"
+  config.client_secret = "Your_Client_Secret"
+  config.cloud = "us-1" # or "us-2", "eu-1", "us-gov1"
+end
+
+api_instance = Falcon::KubernetesProtectionApi.new
+opts = {
+  filter: 'filter_example' # String | Search Kubernetes nodes using a query in Falcon Query Language (FQL). Supported filters:  agent_id,agent_type,annotations_list,cid,cloud_account_id,cloud_name,cloud_region,cloud_service,cluster_id,cluster_name,container_count,container_runtime_version,first_seen,image_digest,ipv4,kac_agent_id,last_seen,linux_sensor_coverage,node_name,pod_count,resource_status
+}
+
+begin
+  # Bucket nodes by their container engine version
+  result = api_instance.nodes_by_container_engine_version_count(opts)
+  p result
+rescue Falcon::ApiError => e
+  puts "Error when calling KubernetesProtectionApi->nodes_by_container_engine_version_count: #{e}"
+end
+```
+
+#### Using the nodes_by_container_engine_version_count_with_http_info variant
+
+This returns an Array which contains the response data, status code and headers.
+
+> <Array(<ModelsAggregateValuesByFieldResponse>, Integer, Hash)> nodes_by_container_engine_version_count_with_http_info(opts)
+
+```ruby
+begin
+  # Bucket nodes by their container engine version
+  data, status_code, headers = api_instance.nodes_by_container_engine_version_count_with_http_info(opts)
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => <ModelsAggregateValuesByFieldResponse>
+rescue Falcon::ApiError => e
+  puts "Error when calling KubernetesProtectionApi->nodes_by_container_engine_version_count_with_http_info: #{e}"
+end
+```
+
+### Parameters
+
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **filter** | **String** | Search Kubernetes nodes using a query in Falcon Query Language (FQL). Supported filters:  agent_id,agent_type,annotations_list,cid,cloud_account_id,cloud_name,cloud_region,cloud_service,cluster_id,cluster_name,container_count,container_runtime_version,first_seen,image_digest,ipv4,kac_agent_id,last_seen,linux_sensor_coverage,node_name,pod_count,resource_status | [optional] |
+
+### Return type
+
+[**ModelsAggregateValuesByFieldResponse**](ModelsAggregateValuesByFieldResponse.md)
+
+### Authorization
+
+**oauth2**
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+
+## nodes_by_date_range_count
+
+> <ModelsAggregateValuesByFieldResponse> nodes_by_date_range_count(opts)
+
+Retrieve nodes by date range counts
+
+### Examples
+
+```ruby
+require 'time'
+require 'crimson-falcon'
+
+# Setup authorization
+Falcon.configure do |config|
+  config.client_id = "Your_Client_ID"
+  config.client_secret = "Your_Client_Secret"
+  config.cloud = "us-1" # or "us-2", "eu-1", "us-gov1"
+end
+
+api_instance = Falcon::KubernetesProtectionApi.new
+opts = {
+  filter: 'filter_example' # String | Search Kubernetes nodes using a query in Falcon Query Language (FQL). Supported filters:  agent_id,agent_type,annotations_list,cid,cloud_account_id,cloud_name,cloud_region,cloud_service,cluster_id,cluster_name,container_count,container_runtime_version,first_seen,image_digest,ipv4,kac_agent_id,last_seen,linux_sensor_coverage,node_name,pod_count,resource_status
+}
+
+begin
+  # Retrieve nodes by date range counts
+  result = api_instance.nodes_by_date_range_count(opts)
+  p result
+rescue Falcon::ApiError => e
+  puts "Error when calling KubernetesProtectionApi->nodes_by_date_range_count: #{e}"
+end
+```
+
+#### Using the nodes_by_date_range_count_with_http_info variant
+
+This returns an Array which contains the response data, status code and headers.
+
+> <Array(<ModelsAggregateValuesByFieldResponse>, Integer, Hash)> nodes_by_date_range_count_with_http_info(opts)
+
+```ruby
+begin
+  # Retrieve nodes by date range counts
+  data, status_code, headers = api_instance.nodes_by_date_range_count_with_http_info(opts)
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => <ModelsAggregateValuesByFieldResponse>
+rescue Falcon::ApiError => e
+  puts "Error when calling KubernetesProtectionApi->nodes_by_date_range_count_with_http_info: #{e}"
+end
+```
+
+### Parameters
+
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **filter** | **String** | Search Kubernetes nodes using a query in Falcon Query Language (FQL). Supported filters:  agent_id,agent_type,annotations_list,cid,cloud_account_id,cloud_name,cloud_region,cloud_service,cluster_id,cluster_name,container_count,container_runtime_version,first_seen,image_digest,ipv4,kac_agent_id,last_seen,linux_sensor_coverage,node_name,pod_count,resource_status | [optional] |
+
+### Return type
+
+[**ModelsAggregateValuesByFieldResponse**](ModelsAggregateValuesByFieldResponse.md)
+
+### Authorization
+
+**oauth2**
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+
 ## patch_azure_service_principal
 
 > <K8sregGetAzureTenantConfigResp> patch_azure_service_principal(id, client_id)
@@ -1387,11 +3549,11 @@ end
 - **Accept**: application/json
 
 
-## read_cluster_combined
+## pod_combined
 
-> <ModelsClusterEntityResponse> read_cluster_combined(opts)
+> <ModelsPodEntityResponse> pod_combined(opts)
 
-Retrieve kubernetes clusters identified by the provided filter criteria
+Retrieve kubernetes pods identified by the provided filter criteria
 
 ### Examples
 
@@ -1408,36 +3570,36 @@ end
 
 api_instance = Falcon::KubernetesProtectionApi.new
 opts = {
-  filter: 'filter_example', # String | Search Kubernetes clusters using a query in Falcon Query Language (FQL). Supported filters:  access,agent_status,cid,cloud_account_id,cloud_name,cloud_region,cluster_id,cluster_name,cluster_status,container_count,kubernetes_version,last_seen,management_status,node_count,pod_count,tags
+  filter: 'filter_example', # String | Search Kubernetes pods using a query in Falcon Query Language (FQL). Supported filters:  agent_id,agent_type,allow_privilege_escalation,annotations_list,cid,cloud_account_id,cloud_name,cloud_region,cloud_service,cluster_id,cluster_name,container_count,first_seen,ipv4,ipv6,kac_agent_id,labels,last_seen,namespace,node_name,node_uid,owner_id,owner_type,pod_external_id,pod_id,pod_name,port,privileged,resource_status,root_write_access,run_as_root_group,run_as_root_user
   limit: 56, # Integer | The upper-bound on the number of records to retrieve.
   offset: 56, # Integer | The offset from where to begin.
   sort: 'sort_example' # String | Field to sort results by
 }
 
 begin
-  # Retrieve kubernetes clusters identified by the provided filter criteria
-  result = api_instance.read_cluster_combined(opts)
+  # Retrieve kubernetes pods identified by the provided filter criteria
+  result = api_instance.pod_combined(opts)
   p result
 rescue Falcon::ApiError => e
-  puts "Error when calling KubernetesProtectionApi->read_cluster_combined: #{e}"
+  puts "Error when calling KubernetesProtectionApi->pod_combined: #{e}"
 end
 ```
 
-#### Using the read_cluster_combined_with_http_info variant
+#### Using the pod_combined_with_http_info variant
 
 This returns an Array which contains the response data, status code and headers.
 
-> <Array(<ModelsClusterEntityResponse>, Integer, Hash)> read_cluster_combined_with_http_info(opts)
+> <Array(<ModelsPodEntityResponse>, Integer, Hash)> pod_combined_with_http_info(opts)
 
 ```ruby
 begin
-  # Retrieve kubernetes clusters identified by the provided filter criteria
-  data, status_code, headers = api_instance.read_cluster_combined_with_http_info(opts)
+  # Retrieve kubernetes pods identified by the provided filter criteria
+  data, status_code, headers = api_instance.pod_combined_with_http_info(opts)
   p status_code # => 2xx
   p headers # => { ... }
-  p data # => <ModelsClusterEntityResponse>
+  p data # => <ModelsPodEntityResponse>
 rescue Falcon::ApiError => e
-  puts "Error when calling KubernetesProtectionApi->read_cluster_combined_with_http_info: #{e}"
+  puts "Error when calling KubernetesProtectionApi->pod_combined_with_http_info: #{e}"
 end
 ```
 
@@ -1445,14 +3607,14 @@ end
 
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
-| **filter** | **String** | Search Kubernetes clusters using a query in Falcon Query Language (FQL). Supported filters:  access,agent_status,cid,cloud_account_id,cloud_name,cloud_region,cluster_id,cluster_name,cluster_status,container_count,kubernetes_version,last_seen,management_status,node_count,pod_count,tags | [optional] |
+| **filter** | **String** | Search Kubernetes pods using a query in Falcon Query Language (FQL). Supported filters:  agent_id,agent_type,allow_privilege_escalation,annotations_list,cid,cloud_account_id,cloud_name,cloud_region,cloud_service,cluster_id,cluster_name,container_count,first_seen,ipv4,ipv6,kac_agent_id,labels,last_seen,namespace,node_name,node_uid,owner_id,owner_type,pod_external_id,pod_id,pod_name,port,privileged,resource_status,root_write_access,run_as_root_group,run_as_root_user | [optional] |
 | **limit** | **Integer** | The upper-bound on the number of records to retrieve. | [optional] |
 | **offset** | **Integer** | The offset from where to begin. | [optional] |
 | **sort** | **String** | Field to sort results by | [optional] |
 
 ### Return type
 
-[**ModelsClusterEntityResponse**](ModelsClusterEntityResponse.md)
+[**ModelsPodEntityResponse**](ModelsPodEntityResponse.md)
 
 ### Authorization
 
@@ -1464,11 +3626,11 @@ end
 - **Accept**: application/json
 
 
-## read_cluster_count
+## pod_count
 
-> <CommonCountResponse> read_cluster_count(opts)
+> <CommonCountResponse> pod_count(opts)
 
-Retrieve cluster counts
+Retrieve pod counts
 
 ### Examples
 
@@ -1485,33 +3647,33 @@ end
 
 api_instance = Falcon::KubernetesProtectionApi.new
 opts = {
-  filter: 'filter_example' # String | Retrieve count of Kubernetes clusters that match a query in Falcon Query Language (FQL). Supported filters:  access,agent_status,cid,cloud_account_id,cloud_name,cloud_region,cluster_id,cluster_name,cluster_status,container_count,kubernetes_version,last_seen,management_status,node_count,pod_count,tags
+  filter: 'filter_example' # String | Retrieve count of Kubernetes pods that match a query in Falcon Query Language (FQL). Supported filters:  agent_id,agent_type,allow_privilege_escalation,annotations_list,cid,cloud_account_id,cloud_name,cloud_region,cloud_service,cluster_id,cluster_name,container_count,first_seen,ipv4,ipv6,kac_agent_id,labels,last_seen,namespace,node_name,node_uid,owner_id,owner_type,pod_external_id,pod_id,pod_name,port,privileged,resource_status,root_write_access,run_as_root_group,run_as_root_user
 }
 
 begin
-  # Retrieve cluster counts
-  result = api_instance.read_cluster_count(opts)
+  # Retrieve pod counts
+  result = api_instance.pod_count(opts)
   p result
 rescue Falcon::ApiError => e
-  puts "Error when calling KubernetesProtectionApi->read_cluster_count: #{e}"
+  puts "Error when calling KubernetesProtectionApi->pod_count: #{e}"
 end
 ```
 
-#### Using the read_cluster_count_with_http_info variant
+#### Using the pod_count_with_http_info variant
 
 This returns an Array which contains the response data, status code and headers.
 
-> <Array(<CommonCountResponse>, Integer, Hash)> read_cluster_count_with_http_info(opts)
+> <Array(<CommonCountResponse>, Integer, Hash)> pod_count_with_http_info(opts)
 
 ```ruby
 begin
-  # Retrieve cluster counts
-  data, status_code, headers = api_instance.read_cluster_count_with_http_info(opts)
+  # Retrieve pod counts
+  data, status_code, headers = api_instance.pod_count_with_http_info(opts)
   p status_code # => 2xx
   p headers # => { ... }
   p data # => <CommonCountResponse>
 rescue Falcon::ApiError => e
-  puts "Error when calling KubernetesProtectionApi->read_cluster_count_with_http_info: #{e}"
+  puts "Error when calling KubernetesProtectionApi->pod_count_with_http_info: #{e}"
 end
 ```
 
@@ -1519,7 +3681,7 @@ end
 
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
-| **filter** | **String** | Retrieve count of Kubernetes clusters that match a query in Falcon Query Language (FQL). Supported filters:  access,agent_status,cid,cloud_account_id,cloud_name,cloud_region,cluster_id,cluster_name,cluster_status,container_count,kubernetes_version,last_seen,management_status,node_count,pod_count,tags | [optional] |
+| **filter** | **String** | Retrieve count of Kubernetes pods that match a query in Falcon Query Language (FQL). Supported filters:  agent_id,agent_type,allow_privilege_escalation,annotations_list,cid,cloud_account_id,cloud_name,cloud_region,cloud_service,cluster_id,cluster_name,container_count,first_seen,ipv4,ipv6,kac_agent_id,labels,last_seen,namespace,node_name,node_uid,owner_id,owner_type,pod_external_id,pod_id,pod_name,port,privileged,resource_status,root_write_access,run_as_root_group,run_as_root_user | [optional] |
 
 ### Return type
 
@@ -1535,11 +3697,11 @@ end
 - **Accept**: application/json
 
 
-## read_cluster_enrichment
+## pod_enrichment
 
-> <K8sassetsClusterEnrichmentResponse> read_cluster_enrichment(cluster_id, opts)
+> <K8sassetsPodEnrichmentResponse> pod_enrichment(pod_id, opts)
 
-Retrieve cluster enrichment data
+Retrieve pod enrichment data
 
 ### Examples
 
@@ -1555,35 +3717,35 @@ Falcon.configure do |config|
 end
 
 api_instance = Falcon::KubernetesProtectionApi.new
-cluster_id = ['inner_example'] # Array<String> | One or more cluster ids for which to retrieve enrichment info
+pod_id = ['inner_example'] # Array<String> | One or more pod ids for which to retrieve enrichment info
 opts = {
   filter: 'filter_example' # String | Supported filters:  last_seen
 }
 
 begin
-  # Retrieve cluster enrichment data
-  result = api_instance.read_cluster_enrichment(cluster_id, opts)
+  # Retrieve pod enrichment data
+  result = api_instance.pod_enrichment(pod_id, opts)
   p result
 rescue Falcon::ApiError => e
-  puts "Error when calling KubernetesProtectionApi->read_cluster_enrichment: #{e}"
+  puts "Error when calling KubernetesProtectionApi->pod_enrichment: #{e}"
 end
 ```
 
-#### Using the read_cluster_enrichment_with_http_info variant
+#### Using the pod_enrichment_with_http_info variant
 
 This returns an Array which contains the response data, status code and headers.
 
-> <Array(<K8sassetsClusterEnrichmentResponse>, Integer, Hash)> read_cluster_enrichment_with_http_info(cluster_id, opts)
+> <Array(<K8sassetsPodEnrichmentResponse>, Integer, Hash)> pod_enrichment_with_http_info(pod_id, opts)
 
 ```ruby
 begin
-  # Retrieve cluster enrichment data
-  data, status_code, headers = api_instance.read_cluster_enrichment_with_http_info(cluster_id, opts)
+  # Retrieve pod enrichment data
+  data, status_code, headers = api_instance.pod_enrichment_with_http_info(pod_id, opts)
   p status_code # => 2xx
   p headers # => { ... }
-  p data # => <K8sassetsClusterEnrichmentResponse>
+  p data # => <K8sassetsPodEnrichmentResponse>
 rescue Falcon::ApiError => e
-  puts "Error when calling KubernetesProtectionApi->read_cluster_enrichment_with_http_info: #{e}"
+  puts "Error when calling KubernetesProtectionApi->pod_enrichment_with_http_info: #{e}"
 end
 ```
 
@@ -1591,12 +3753,12 @@ end
 
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
-| **cluster_id** | [**Array&lt;String&gt;**](String.md) | One or more cluster ids for which to retrieve enrichment info |  |
+| **pod_id** | [**Array&lt;String&gt;**](String.md) | One or more pod ids for which to retrieve enrichment info |  |
 | **filter** | **String** | Supported filters:  last_seen | [optional] |
 
 ### Return type
 
-[**K8sassetsClusterEnrichmentResponse**](K8sassetsClusterEnrichmentResponse.md)
+[**K8sassetsPodEnrichmentResponse**](K8sassetsPodEnrichmentResponse.md)
 
 ### Authorization
 
@@ -1608,11 +3770,11 @@ end
 - **Accept**: application/json
 
 
-## read_clusters_by_date_range_count
+## pods_by_date_range_count
 
-> <ModelsAggregateValuesByFieldResponse> read_clusters_by_date_range_count
+> <ModelsAggregateValuesByFieldResponse> pods_by_date_range_count
 
-Retrieve clusters by date range counts
+Retrieve pods by date range counts
 
 ### Examples
 
@@ -1630,29 +3792,29 @@ end
 api_instance = Falcon::KubernetesProtectionApi.new
 
 begin
-  # Retrieve clusters by date range counts
-  result = api_instance.read_clusters_by_date_range_count
+  # Retrieve pods by date range counts
+  result = api_instance.pods_by_date_range_count
   p result
 rescue Falcon::ApiError => e
-  puts "Error when calling KubernetesProtectionApi->read_clusters_by_date_range_count: #{e}"
+  puts "Error when calling KubernetesProtectionApi->pods_by_date_range_count: #{e}"
 end
 ```
 
-#### Using the read_clusters_by_date_range_count_with_http_info variant
+#### Using the pods_by_date_range_count_with_http_info variant
 
 This returns an Array which contains the response data, status code and headers.
 
-> <Array(<ModelsAggregateValuesByFieldResponse>, Integer, Hash)> read_clusters_by_date_range_count_with_http_info
+> <Array(<ModelsAggregateValuesByFieldResponse>, Integer, Hash)> pods_by_date_range_count_with_http_info
 
 ```ruby
 begin
-  # Retrieve clusters by date range counts
-  data, status_code, headers = api_instance.read_clusters_by_date_range_count_with_http_info
+  # Retrieve pods by date range counts
+  data, status_code, headers = api_instance.pods_by_date_range_count_with_http_info
   p status_code # => 2xx
   p headers # => { ... }
   p data # => <ModelsAggregateValuesByFieldResponse>
 rescue Falcon::ApiError => e
-  puts "Error when calling KubernetesProtectionApi->read_clusters_by_date_range_count_with_http_info: #{e}"
+  puts "Error when calling KubernetesProtectionApi->pods_by_date_range_count_with_http_info: #{e}"
 end
 ```
 
@@ -1674,82 +3836,11 @@ This endpoint does not need any parameter.
 - **Accept**: application/json
 
 
-## read_clusters_by_kubernetes_version_count
+## query_kubernetes_ioms
 
-> <ModelsAggregateValuesByFieldResponse> read_clusters_by_kubernetes_version_count(opts)
+> <CommonGenericEntityResponseString> query_kubernetes_ioms(opts)
 
-Bucket clusters by kubernetes version
-
-### Examples
-
-```ruby
-require 'time'
-require 'crimson-falcon'
-
-# Setup authorization
-Falcon.configure do |config|
-  config.client_id = "Your_Client_ID"
-  config.client_secret = "Your_Client_Secret"
-  config.cloud = "us-1" # or "us-2", "eu-1", "us-gov1"
-end
-
-api_instance = Falcon::KubernetesProtectionApi.new
-opts = {
-  filter: 'filter_example' # String | Retrieve count of Kubernetes clusters that match a query in Falcon Query Language (FQL). Supported filters:  access,agent_status,cid,cloud_account_id,cloud_name,cloud_region,cluster_id,cluster_name,cluster_status,container_count,kubernetes_version,last_seen,management_status,node_count,pod_count,tags
-}
-
-begin
-  # Bucket clusters by kubernetes version
-  result = api_instance.read_clusters_by_kubernetes_version_count(opts)
-  p result
-rescue Falcon::ApiError => e
-  puts "Error when calling KubernetesProtectionApi->read_clusters_by_kubernetes_version_count: #{e}"
-end
-```
-
-#### Using the read_clusters_by_kubernetes_version_count_with_http_info variant
-
-This returns an Array which contains the response data, status code and headers.
-
-> <Array(<ModelsAggregateValuesByFieldResponse>, Integer, Hash)> read_clusters_by_kubernetes_version_count_with_http_info(opts)
-
-```ruby
-begin
-  # Bucket clusters by kubernetes version
-  data, status_code, headers = api_instance.read_clusters_by_kubernetes_version_count_with_http_info(opts)
-  p status_code # => 2xx
-  p headers # => { ... }
-  p data # => <ModelsAggregateValuesByFieldResponse>
-rescue Falcon::ApiError => e
-  puts "Error when calling KubernetesProtectionApi->read_clusters_by_kubernetes_version_count_with_http_info: #{e}"
-end
-```
-
-### Parameters
-
-| Name | Type | Description | Notes |
-| ---- | ---- | ----------- | ----- |
-| **filter** | **String** | Retrieve count of Kubernetes clusters that match a query in Falcon Query Language (FQL). Supported filters:  access,agent_status,cid,cloud_account_id,cloud_name,cloud_region,cluster_id,cluster_name,cluster_status,container_count,kubernetes_version,last_seen,management_status,node_count,pod_count,tags | [optional] |
-
-### Return type
-
-[**ModelsAggregateValuesByFieldResponse**](ModelsAggregateValuesByFieldResponse.md)
-
-### Authorization
-
-**oauth2**
-
-### HTTP request headers
-
-- **Content-Type**: Not defined
-- **Accept**: application/json
-
-
-## read_clusters_by_status_count
-
-> <ModelsAggregateValuesByFieldResponse> read_clusters_by_status_count(opts)
-
-Bucket clusters by status
+Search Kubernetes IOMs by the provided search criteria. this endpoint returns a list of Kubernetes IOM UUIDs matching the query
 
 ### Examples
 
@@ -1766,107 +3857,36 @@ end
 
 api_instance = Falcon::KubernetesProtectionApi.new
 opts = {
-  filter: 'filter_example' # String | Retrieve count of Kubernetes clusters that match a query in Falcon Query Language (FQL). Supported filters:  access,agent_status,cid,cloud_account_id,cloud_name,cloud_region,cluster_id,cluster_name,cluster_status,container_count,kubernetes_version,last_seen,management_status,node_count,pod_count,tags
-}
-
-begin
-  # Bucket clusters by status
-  result = api_instance.read_clusters_by_status_count(opts)
-  p result
-rescue Falcon::ApiError => e
-  puts "Error when calling KubernetesProtectionApi->read_clusters_by_status_count: #{e}"
-end
-```
-
-#### Using the read_clusters_by_status_count_with_http_info variant
-
-This returns an Array which contains the response data, status code and headers.
-
-> <Array(<ModelsAggregateValuesByFieldResponse>, Integer, Hash)> read_clusters_by_status_count_with_http_info(opts)
-
-```ruby
-begin
-  # Bucket clusters by status
-  data, status_code, headers = api_instance.read_clusters_by_status_count_with_http_info(opts)
-  p status_code # => 2xx
-  p headers # => { ... }
-  p data # => <ModelsAggregateValuesByFieldResponse>
-rescue Falcon::ApiError => e
-  puts "Error when calling KubernetesProtectionApi->read_clusters_by_status_count_with_http_info: #{e}"
-end
-```
-
-### Parameters
-
-| Name | Type | Description | Notes |
-| ---- | ---- | ----------- | ----- |
-| **filter** | **String** | Retrieve count of Kubernetes clusters that match a query in Falcon Query Language (FQL). Supported filters:  access,agent_status,cid,cloud_account_id,cloud_name,cloud_region,cluster_id,cluster_name,cluster_status,container_count,kubernetes_version,last_seen,management_status,node_count,pod_count,tags | [optional] |
-
-### Return type
-
-[**ModelsAggregateValuesByFieldResponse**](ModelsAggregateValuesByFieldResponse.md)
-
-### Authorization
-
-**oauth2**
-
-### HTTP request headers
-
-- **Content-Type**: Not defined
-- **Accept**: application/json
-
-
-## read_container_combined
-
-> <ModelsContainerEntityResponse> read_container_combined(opts)
-
-Retrieve containers identified by the provided filter criteria
-
-### Examples
-
-```ruby
-require 'time'
-require 'crimson-falcon'
-
-# Setup authorization
-Falcon.configure do |config|
-  config.client_id = "Your_Client_ID"
-  config.client_secret = "Your_Client_Secret"
-  config.cloud = "us-1" # or "us-2", "eu-1", "us-gov1"
-end
-
-api_instance = Falcon::KubernetesProtectionApi.new
-opts = {
-  filter: 'filter_example', # String | Search Kubernetes containers using a query in Falcon Query Language (FQL). Supported filters:  agent_id,agent_type,allow_privilege_escalation,cid,cloud_account_id,cloud_name,cloud_region,cluster_id,cluster_name,container_id,container_name,cve_id,detection_name,first_seen,image_detection_count,image_digest,image_has_been_assessed,image_id,image_registry,image_repository,image_tag,image_vulnerability_count,insecure_mount_source,insecure_mount_type,insecure_propagation_mode,interactive_mode,ipv4,ipv6,labels,last_seen,namespace,node_name,node_uid,package_name_version,pod_id,pod_name,port,privileged,root_write_access,run_as_root_group,run_as_root_user,running_status
+  filter: 'filter_example', # String | Search Kubernetes IOMs using a query in Falcon Query Language (FQL). Supported filters:  cid,cis_id,cluster_id,cluster_name,containers_impacted_count,containers_impacted_ids,detection_type,name,namespace,prevented,resource_id,resource_name,resource_type,severity
   limit: 56, # Integer | The upper-bound on the number of records to retrieve.
   offset: 56, # Integer | The offset from where to begin.
-  sort: 'sort_example' # String | Field to sort results by
+  sort: 'sort_example' # String | The fields to sort the records on.
 }
 
 begin
-  # Retrieve containers identified by the provided filter criteria
-  result = api_instance.read_container_combined(opts)
+  # Search Kubernetes IOMs by the provided search criteria. this endpoint returns a list of Kubernetes IOM UUIDs matching the query
+  result = api_instance.query_kubernetes_ioms(opts)
   p result
 rescue Falcon::ApiError => e
-  puts "Error when calling KubernetesProtectionApi->read_container_combined: #{e}"
+  puts "Error when calling KubernetesProtectionApi->query_kubernetes_ioms: #{e}"
 end
 ```
 
-#### Using the read_container_combined_with_http_info variant
+#### Using the query_kubernetes_ioms_with_http_info variant
 
 This returns an Array which contains the response data, status code and headers.
 
-> <Array(<ModelsContainerEntityResponse>, Integer, Hash)> read_container_combined_with_http_info(opts)
+> <Array(<CommonGenericEntityResponseString>, Integer, Hash)> query_kubernetes_ioms_with_http_info(opts)
 
 ```ruby
 begin
-  # Retrieve containers identified by the provided filter criteria
-  data, status_code, headers = api_instance.read_container_combined_with_http_info(opts)
+  # Search Kubernetes IOMs by the provided search criteria. this endpoint returns a list of Kubernetes IOM UUIDs matching the query
+  data, status_code, headers = api_instance.query_kubernetes_ioms_with_http_info(opts)
   p status_code # => 2xx
   p headers # => { ... }
-  p data # => <ModelsContainerEntityResponse>
+  p data # => <CommonGenericEntityResponseString>
 rescue Falcon::ApiError => e
-  puts "Error when calling KubernetesProtectionApi->read_container_combined_with_http_info: #{e}"
+  puts "Error when calling KubernetesProtectionApi->query_kubernetes_ioms_with_http_info: #{e}"
 end
 ```
 
@@ -1874,14 +3894,14 @@ end
 
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
-| **filter** | **String** | Search Kubernetes containers using a query in Falcon Query Language (FQL). Supported filters:  agent_id,agent_type,allow_privilege_escalation,cid,cloud_account_id,cloud_name,cloud_region,cluster_id,cluster_name,container_id,container_name,cve_id,detection_name,first_seen,image_detection_count,image_digest,image_has_been_assessed,image_id,image_registry,image_repository,image_tag,image_vulnerability_count,insecure_mount_source,insecure_mount_type,insecure_propagation_mode,interactive_mode,ipv4,ipv6,labels,last_seen,namespace,node_name,node_uid,package_name_version,pod_id,pod_name,port,privileged,root_write_access,run_as_root_group,run_as_root_user,running_status | [optional] |
+| **filter** | **String** | Search Kubernetes IOMs using a query in Falcon Query Language (FQL). Supported filters:  cid,cis_id,cluster_id,cluster_name,containers_impacted_count,containers_impacted_ids,detection_type,name,namespace,prevented,resource_id,resource_name,resource_type,severity | [optional] |
 | **limit** | **Integer** | The upper-bound on the number of records to retrieve. | [optional] |
 | **offset** | **Integer** | The offset from where to begin. | [optional] |
-| **sort** | **String** | Field to sort results by | [optional] |
+| **sort** | **String** | The fields to sort the records on. | [optional] |
 
 ### Return type
 
-[**ModelsContainerEntityResponse**](ModelsContainerEntityResponse.md)
+[**CommonGenericEntityResponseString**](CommonGenericEntityResponseString.md)
 
 ### Authorization
 
@@ -1893,11 +3913,11 @@ end
 - **Accept**: application/json
 
 
-## read_container_count
+## read_namespace_count
 
-> <CommonCountResponse> read_container_count(opts)
+> <CommonCountResponse> read_namespace_count(opts)
 
-Retrieve container counts
+Retrieve namespace counts
 
 ### Examples
 
@@ -1914,33 +3934,33 @@ end
 
 api_instance = Falcon::KubernetesProtectionApi.new
 opts = {
-  filter: 'filter_example' # String | Retrieve count of Kubernetes containers that match a query in Falcon Query Language (FQL). Supported filters:  agent_id,agent_type,allow_privilege_escalation,cid,cloud_account_id,cloud_name,cloud_region,cluster_id,cluster_name,container_id,container_name,cve_id,detection_name,first_seen,image_detection_count,image_digest,image_has_been_assessed,image_id,image_registry,image_repository,image_tag,image_vulnerability_count,insecure_mount_source,insecure_mount_type,insecure_propagation_mode,interactive_mode,ipv4,ipv6,labels,last_seen,namespace,node_name,node_uid,package_name_version,pod_id,pod_name,port,privileged,root_write_access,run_as_root_group,run_as_root_user,running_status
+  filter: 'filter_example' # String | Retrieve count of Kubernetes namespaces that match a query in Falcon Query Language (FQL). Supported filters:  agent_id,agent_type,annotations_list,cid,cloud_account_id,cloud_name,cloud_region,cloud_service,cluster_id,cluster_name,first_seen,kac_agent_id,last_seen,namespace_id,namespace_name,resource_status
 }
 
 begin
-  # Retrieve container counts
-  result = api_instance.read_container_count(opts)
+  # Retrieve namespace counts
+  result = api_instance.read_namespace_count(opts)
   p result
 rescue Falcon::ApiError => e
-  puts "Error when calling KubernetesProtectionApi->read_container_count: #{e}"
+  puts "Error when calling KubernetesProtectionApi->read_namespace_count: #{e}"
 end
 ```
 
-#### Using the read_container_count_with_http_info variant
+#### Using the read_namespace_count_with_http_info variant
 
 This returns an Array which contains the response data, status code and headers.
 
-> <Array(<CommonCountResponse>, Integer, Hash)> read_container_count_with_http_info(opts)
+> <Array(<CommonCountResponse>, Integer, Hash)> read_namespace_count_with_http_info(opts)
 
 ```ruby
 begin
-  # Retrieve container counts
-  data, status_code, headers = api_instance.read_container_count_with_http_info(opts)
+  # Retrieve namespace counts
+  data, status_code, headers = api_instance.read_namespace_count_with_http_info(opts)
   p status_code # => 2xx
   p headers # => { ... }
   p data # => <CommonCountResponse>
 rescue Falcon::ApiError => e
-  puts "Error when calling KubernetesProtectionApi->read_container_count_with_http_info: #{e}"
+  puts "Error when calling KubernetesProtectionApi->read_namespace_count_with_http_info: #{e}"
 end
 ```
 
@@ -1948,7 +3968,7 @@ end
 
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
-| **filter** | **String** | Retrieve count of Kubernetes containers that match a query in Falcon Query Language (FQL). Supported filters:  agent_id,agent_type,allow_privilege_escalation,cid,cloud_account_id,cloud_name,cloud_region,cluster_id,cluster_name,container_id,container_name,cve_id,detection_name,first_seen,image_detection_count,image_digest,image_has_been_assessed,image_id,image_registry,image_repository,image_tag,image_vulnerability_count,insecure_mount_source,insecure_mount_type,insecure_propagation_mode,interactive_mode,ipv4,ipv6,labels,last_seen,namespace,node_name,node_uid,package_name_version,pod_id,pod_name,port,privileged,root_write_access,run_as_root_group,run_as_root_user,running_status | [optional] |
+| **filter** | **String** | Retrieve count of Kubernetes namespaces that match a query in Falcon Query Language (FQL). Supported filters:  agent_id,agent_type,annotations_list,cid,cloud_account_id,cloud_name,cloud_region,cloud_service,cluster_id,cluster_name,first_seen,kac_agent_id,last_seen,namespace_id,namespace_name,resource_status | [optional] |
 
 ### Return type
 
@@ -1964,84 +3984,11 @@ end
 - **Accept**: application/json
 
 
-## read_container_count_by_registry
+## read_namespaces_by_date_range_count
 
-> <ModelsAPIFilterResponse> read_container_count_by_registry(opts)
+> <ModelsAggregateValuesByFieldResponse> read_namespaces_by_date_range_count
 
-Retrieve top container image registries
-
-### Examples
-
-```ruby
-require 'time'
-require 'crimson-falcon'
-
-# Setup authorization
-Falcon.configure do |config|
-  config.client_id = "Your_Client_ID"
-  config.client_secret = "Your_Client_Secret"
-  config.cloud = "us-1" # or "us-2", "eu-1", "us-gov1"
-end
-
-api_instance = Falcon::KubernetesProtectionApi.new
-opts = {
-  under_assessment: true, # Boolean | (true/false) whether to return registries under assessment or not under assessment. If not  provided all registries are considered
-  limit: 56 # Integer | The upper-bound on the number of records to retrieve.
-}
-
-begin
-  # Retrieve top container image registries
-  result = api_instance.read_container_count_by_registry(opts)
-  p result
-rescue Falcon::ApiError => e
-  puts "Error when calling KubernetesProtectionApi->read_container_count_by_registry: #{e}"
-end
-```
-
-#### Using the read_container_count_by_registry_with_http_info variant
-
-This returns an Array which contains the response data, status code and headers.
-
-> <Array(<ModelsAPIFilterResponse>, Integer, Hash)> read_container_count_by_registry_with_http_info(opts)
-
-```ruby
-begin
-  # Retrieve top container image registries
-  data, status_code, headers = api_instance.read_container_count_by_registry_with_http_info(opts)
-  p status_code # => 2xx
-  p headers # => { ... }
-  p data # => <ModelsAPIFilterResponse>
-rescue Falcon::ApiError => e
-  puts "Error when calling KubernetesProtectionApi->read_container_count_by_registry_with_http_info: #{e}"
-end
-```
-
-### Parameters
-
-| Name | Type | Description | Notes |
-| ---- | ---- | ----------- | ----- |
-| **under_assessment** | **Boolean** | (true/false) whether to return registries under assessment or not under assessment. If not  provided all registries are considered | [optional] |
-| **limit** | **Integer** | The upper-bound on the number of records to retrieve. | [optional] |
-
-### Return type
-
-[**ModelsAPIFilterResponse**](ModelsAPIFilterResponse.md)
-
-### Authorization
-
-**oauth2**
-
-### HTTP request headers
-
-- **Content-Type**: Not defined
-- **Accept**: application/json
-
-
-## read_container_enrichment
-
-> <K8sassetsContainerEnrichmentResponse> read_container_enrichment(container_id, opts)
-
-Retrieve container enrichment data
+Retrieve namespaces by date range counts
 
 ### Examples
 
@@ -2057,751 +4004,31 @@ Falcon.configure do |config|
 end
 
 api_instance = Falcon::KubernetesProtectionApi.new
-container_id = ['inner_example'] # Array<String> | One or more container ids for which to retrieve enrichment info
-opts = {
-  filter: 'filter_example' # String | Supported filters:  last_seen
-}
 
 begin
-  # Retrieve container enrichment data
-  result = api_instance.read_container_enrichment(container_id, opts)
+  # Retrieve namespaces by date range counts
+  result = api_instance.read_namespaces_by_date_range_count
   p result
 rescue Falcon::ApiError => e
-  puts "Error when calling KubernetesProtectionApi->read_container_enrichment: #{e}"
+  puts "Error when calling KubernetesProtectionApi->read_namespaces_by_date_range_count: #{e}"
 end
 ```
 
-#### Using the read_container_enrichment_with_http_info variant
+#### Using the read_namespaces_by_date_range_count_with_http_info variant
 
 This returns an Array which contains the response data, status code and headers.
 
-> <Array(<K8sassetsContainerEnrichmentResponse>, Integer, Hash)> read_container_enrichment_with_http_info(container_id, opts)
+> <Array(<ModelsAggregateValuesByFieldResponse>, Integer, Hash)> read_namespaces_by_date_range_count_with_http_info
 
 ```ruby
 begin
-  # Retrieve container enrichment data
-  data, status_code, headers = api_instance.read_container_enrichment_with_http_info(container_id, opts)
-  p status_code # => 2xx
-  p headers # => { ... }
-  p data # => <K8sassetsContainerEnrichmentResponse>
-rescue Falcon::ApiError => e
-  puts "Error when calling KubernetesProtectionApi->read_container_enrichment_with_http_info: #{e}"
-end
-```
-
-### Parameters
-
-| Name | Type | Description | Notes |
-| ---- | ---- | ----------- | ----- |
-| **container_id** | [**Array&lt;String&gt;**](String.md) | One or more container ids for which to retrieve enrichment info |  |
-| **filter** | **String** | Supported filters:  last_seen | [optional] |
-
-### Return type
-
-[**K8sassetsContainerEnrichmentResponse**](K8sassetsContainerEnrichmentResponse.md)
-
-### Authorization
-
-**oauth2**
-
-### HTTP request headers
-
-- **Content-Type**: Not defined
-- **Accept**: application/json
-
-
-## read_container_image_detections_count_by_date
-
-> <ModelsAPIFilterResponse> read_container_image_detections_count_by_date(opts)
-
-Retrieve count of image assessment detections on running containers over a period of time
-
-### Examples
-
-```ruby
-require 'time'
-require 'crimson-falcon'
-
-# Setup authorization
-Falcon.configure do |config|
-  config.client_id = "Your_Client_ID"
-  config.client_secret = "Your_Client_Secret"
-  config.cloud = "us-1" # or "us-2", "eu-1", "us-gov1"
-end
-
-api_instance = Falcon::KubernetesProtectionApi.new
-opts = {
-  filter: 'filter_example' # String | Retrieve count of Kubernetes containers that match a query in Falcon Query Language (FQL). Supported filters:  agent_id,agent_type,allow_privilege_escalation,cid,cloud_account_id,cloud_name,cloud_region,cluster_id,cluster_name,container_id,container_name,cve_id,detection_name,first_seen,image_detection_count,image_digest,image_has_been_assessed,image_id,image_registry,image_repository,image_tag,image_vulnerability_count,insecure_mount_source,insecure_mount_type,insecure_propagation_mode,interactive_mode,ipv4,ipv6,labels,last_seen,namespace,node_name,node_uid,package_name_version,pod_id,pod_name,port,privileged,root_write_access,run_as_root_group,run_as_root_user,running_status
-}
-
-begin
-  # Retrieve count of image assessment detections on running containers over a period of time
-  result = api_instance.read_container_image_detections_count_by_date(opts)
-  p result
-rescue Falcon::ApiError => e
-  puts "Error when calling KubernetesProtectionApi->read_container_image_detections_count_by_date: #{e}"
-end
-```
-
-#### Using the read_container_image_detections_count_by_date_with_http_info variant
-
-This returns an Array which contains the response data, status code and headers.
-
-> <Array(<ModelsAPIFilterResponse>, Integer, Hash)> read_container_image_detections_count_by_date_with_http_info(opts)
-
-```ruby
-begin
-  # Retrieve count of image assessment detections on running containers over a period of time
-  data, status_code, headers = api_instance.read_container_image_detections_count_by_date_with_http_info(opts)
-  p status_code # => 2xx
-  p headers # => { ... }
-  p data # => <ModelsAPIFilterResponse>
-rescue Falcon::ApiError => e
-  puts "Error when calling KubernetesProtectionApi->read_container_image_detections_count_by_date_with_http_info: #{e}"
-end
-```
-
-### Parameters
-
-| Name | Type | Description | Notes |
-| ---- | ---- | ----------- | ----- |
-| **filter** | **String** | Retrieve count of Kubernetes containers that match a query in Falcon Query Language (FQL). Supported filters:  agent_id,agent_type,allow_privilege_escalation,cid,cloud_account_id,cloud_name,cloud_region,cluster_id,cluster_name,container_id,container_name,cve_id,detection_name,first_seen,image_detection_count,image_digest,image_has_been_assessed,image_id,image_registry,image_repository,image_tag,image_vulnerability_count,insecure_mount_source,insecure_mount_type,insecure_propagation_mode,interactive_mode,ipv4,ipv6,labels,last_seen,namespace,node_name,node_uid,package_name_version,pod_id,pod_name,port,privileged,root_write_access,run_as_root_group,run_as_root_user,running_status | [optional] |
-
-### Return type
-
-[**ModelsAPIFilterResponse**](ModelsAPIFilterResponse.md)
-
-### Authorization
-
-**oauth2**
-
-### HTTP request headers
-
-- **Content-Type**: Not defined
-- **Accept**: application/json
-
-
-## read_container_images_by_most_used
-
-> <ModelsAggregateValuesByFieldResponse> read_container_images_by_most_used(opts)
-
-Bucket container by image-digest
-
-### Examples
-
-```ruby
-require 'time'
-require 'crimson-falcon'
-
-# Setup authorization
-Falcon.configure do |config|
-  config.client_id = "Your_Client_ID"
-  config.client_secret = "Your_Client_Secret"
-  config.cloud = "us-1" # or "us-2", "eu-1", "us-gov1"
-end
-
-api_instance = Falcon::KubernetesProtectionApi.new
-opts = {
-  filter: 'filter_example' # String | Retrieve count of Kubernetes containers that match a query in Falcon Query Language (FQL). Supported filters:  agent_id,agent_type,allow_privilege_escalation,cid,cloud_account_id,cloud_name,cloud_region,cluster_id,cluster_name,container_id,container_name,cve_id,detection_name,first_seen,image_detection_count,image_digest,image_has_been_assessed,image_id,image_registry,image_repository,image_tag,image_vulnerability_count,insecure_mount_source,insecure_mount_type,insecure_propagation_mode,interactive_mode,ipv4,ipv6,labels,last_seen,namespace,node_name,node_uid,package_name_version,pod_id,pod_name,port,privileged,root_write_access,run_as_root_group,run_as_root_user,running_status
-}
-
-begin
-  # Bucket container by image-digest
-  result = api_instance.read_container_images_by_most_used(opts)
-  p result
-rescue Falcon::ApiError => e
-  puts "Error when calling KubernetesProtectionApi->read_container_images_by_most_used: #{e}"
-end
-```
-
-#### Using the read_container_images_by_most_used_with_http_info variant
-
-This returns an Array which contains the response data, status code and headers.
-
-> <Array(<ModelsAggregateValuesByFieldResponse>, Integer, Hash)> read_container_images_by_most_used_with_http_info(opts)
-
-```ruby
-begin
-  # Bucket container by image-digest
-  data, status_code, headers = api_instance.read_container_images_by_most_used_with_http_info(opts)
+  # Retrieve namespaces by date range counts
+  data, status_code, headers = api_instance.read_namespaces_by_date_range_count_with_http_info
   p status_code # => 2xx
   p headers # => { ... }
   p data # => <ModelsAggregateValuesByFieldResponse>
 rescue Falcon::ApiError => e
-  puts "Error when calling KubernetesProtectionApi->read_container_images_by_most_used_with_http_info: #{e}"
-end
-```
-
-### Parameters
-
-| Name | Type | Description | Notes |
-| ---- | ---- | ----------- | ----- |
-| **filter** | **String** | Retrieve count of Kubernetes containers that match a query in Falcon Query Language (FQL). Supported filters:  agent_id,agent_type,allow_privilege_escalation,cid,cloud_account_id,cloud_name,cloud_region,cluster_id,cluster_name,container_id,container_name,cve_id,detection_name,first_seen,image_detection_count,image_digest,image_has_been_assessed,image_id,image_registry,image_repository,image_tag,image_vulnerability_count,insecure_mount_source,insecure_mount_type,insecure_propagation_mode,interactive_mode,ipv4,ipv6,labels,last_seen,namespace,node_name,node_uid,package_name_version,pod_id,pod_name,port,privileged,root_write_access,run_as_root_group,run_as_root_user,running_status | [optional] |
-
-### Return type
-
-[**ModelsAggregateValuesByFieldResponse**](ModelsAggregateValuesByFieldResponse.md)
-
-### Authorization
-
-**oauth2**
-
-### HTTP request headers
-
-- **Content-Type**: Not defined
-- **Accept**: application/json
-
-
-## read_container_images_by_state
-
-> <ModelsAPIFilterResponse> read_container_images_by_state(opts)
-
-Retrieve count of image states running on containers
-
-### Examples
-
-```ruby
-require 'time'
-require 'crimson-falcon'
-
-# Setup authorization
-Falcon.configure do |config|
-  config.client_id = "Your_Client_ID"
-  config.client_secret = "Your_Client_Secret"
-  config.cloud = "us-1" # or "us-2", "eu-1", "us-gov1"
-end
-
-api_instance = Falcon::KubernetesProtectionApi.new
-opts = {
-  filter: 'filter_example' # String | Filter using a query in Falcon Query Language (FQL). Supported filters: cid
-}
-
-begin
-  # Retrieve count of image states running on containers
-  result = api_instance.read_container_images_by_state(opts)
-  p result
-rescue Falcon::ApiError => e
-  puts "Error when calling KubernetesProtectionApi->read_container_images_by_state: #{e}"
-end
-```
-
-#### Using the read_container_images_by_state_with_http_info variant
-
-This returns an Array which contains the response data, status code and headers.
-
-> <Array(<ModelsAPIFilterResponse>, Integer, Hash)> read_container_images_by_state_with_http_info(opts)
-
-```ruby
-begin
-  # Retrieve count of image states running on containers
-  data, status_code, headers = api_instance.read_container_images_by_state_with_http_info(opts)
-  p status_code # => 2xx
-  p headers # => { ... }
-  p data # => <ModelsAPIFilterResponse>
-rescue Falcon::ApiError => e
-  puts "Error when calling KubernetesProtectionApi->read_container_images_by_state_with_http_info: #{e}"
-end
-```
-
-### Parameters
-
-| Name | Type | Description | Notes |
-| ---- | ---- | ----------- | ----- |
-| **filter** | **String** | Filter using a query in Falcon Query Language (FQL). Supported filters: cid | [optional] |
-
-### Return type
-
-[**ModelsAPIFilterResponse**](ModelsAPIFilterResponse.md)
-
-### Authorization
-
-**oauth2**
-
-### HTTP request headers
-
-- **Content-Type**: Not defined
-- **Accept**: application/json
-
-
-## read_container_vulnerabilities_by_severity_count
-
-> <ModelsAggregateValuesByFieldResponse> read_container_vulnerabilities_by_severity_count(opts)
-
-Retrieve container vulnerabilities by severity counts
-
-### Examples
-
-```ruby
-require 'time'
-require 'crimson-falcon'
-
-# Setup authorization
-Falcon.configure do |config|
-  config.client_id = "Your_Client_ID"
-  config.client_secret = "Your_Client_Secret"
-  config.cloud = "us-1" # or "us-2", "eu-1", "us-gov1"
-end
-
-api_instance = Falcon::KubernetesProtectionApi.new
-opts = {
-  filter: 'filter_example' # String | Get vulnerabilities count by severity for container using a query in Falcon Query Language (FQL). Supported filters:  agent_id,agent_type,allow_privilege_escalation,cid,cloud_account_id,cloud_name,cloud_region,cluster_id,cluster_name,container_id,container_name,cve_id,detection_name,first_seen,image_detection_count,image_digest,image_has_been_assessed,image_id,image_registry,image_repository,image_tag,image_vulnerability_count,insecure_mount_source,insecure_mount_type,insecure_propagation_mode,interactive_mode,ipv4,ipv6,labels,last_seen,namespace,node_name,node_uid,package_name_version,pod_id,pod_name,port,privileged,root_write_access,run_as_root_group,run_as_root_user,running_status
-}
-
-begin
-  # Retrieve container vulnerabilities by severity counts
-  result = api_instance.read_container_vulnerabilities_by_severity_count(opts)
-  p result
-rescue Falcon::ApiError => e
-  puts "Error when calling KubernetesProtectionApi->read_container_vulnerabilities_by_severity_count: #{e}"
-end
-```
-
-#### Using the read_container_vulnerabilities_by_severity_count_with_http_info variant
-
-This returns an Array which contains the response data, status code and headers.
-
-> <Array(<ModelsAggregateValuesByFieldResponse>, Integer, Hash)> read_container_vulnerabilities_by_severity_count_with_http_info(opts)
-
-```ruby
-begin
-  # Retrieve container vulnerabilities by severity counts
-  data, status_code, headers = api_instance.read_container_vulnerabilities_by_severity_count_with_http_info(opts)
-  p status_code # => 2xx
-  p headers # => { ... }
-  p data # => <ModelsAggregateValuesByFieldResponse>
-rescue Falcon::ApiError => e
-  puts "Error when calling KubernetesProtectionApi->read_container_vulnerabilities_by_severity_count_with_http_info: #{e}"
-end
-```
-
-### Parameters
-
-| Name | Type | Description | Notes |
-| ---- | ---- | ----------- | ----- |
-| **filter** | **String** | Get vulnerabilities count by severity for container using a query in Falcon Query Language (FQL). Supported filters:  agent_id,agent_type,allow_privilege_escalation,cid,cloud_account_id,cloud_name,cloud_region,cluster_id,cluster_name,container_id,container_name,cve_id,detection_name,first_seen,image_detection_count,image_digest,image_has_been_assessed,image_id,image_registry,image_repository,image_tag,image_vulnerability_count,insecure_mount_source,insecure_mount_type,insecure_propagation_mode,interactive_mode,ipv4,ipv6,labels,last_seen,namespace,node_name,node_uid,package_name_version,pod_id,pod_name,port,privileged,root_write_access,run_as_root_group,run_as_root_user,running_status | [optional] |
-
-### Return type
-
-[**ModelsAggregateValuesByFieldResponse**](ModelsAggregateValuesByFieldResponse.md)
-
-### Authorization
-
-**oauth2**
-
-### HTTP request headers
-
-- **Content-Type**: Not defined
-- **Accept**: application/json
-
-
-## read_containers_by_date_range_count
-
-> <ModelsAggregateValuesByFieldResponse> read_containers_by_date_range_count(opts)
-
-Retrieve containers by date range counts
-
-### Examples
-
-```ruby
-require 'time'
-require 'crimson-falcon'
-
-# Setup authorization
-Falcon.configure do |config|
-  config.client_id = "Your_Client_ID"
-  config.client_secret = "Your_Client_Secret"
-  config.cloud = "us-1" # or "us-2", "eu-1", "us-gov1"
-end
-
-api_instance = Falcon::KubernetesProtectionApi.new
-opts = {
-  filter: 'filter_example' # String | Get container counts using a query in Falcon Query Language (FQL). Supported filters:  agent_id,agent_type,allow_privilege_escalation,cid,cloud_account_id,cloud_name,cloud_region,cluster_id,cluster_name,container_id,container_name,cve_id,detection_name,first_seen,image_detection_count,image_digest,image_has_been_assessed,image_id,image_registry,image_repository,image_tag,image_vulnerability_count,insecure_mount_source,insecure_mount_type,insecure_propagation_mode,interactive_mode,ipv4,ipv6,labels,last_seen,namespace,node_name,node_uid,package_name_version,pod_id,pod_name,port,privileged,root_write_access,run_as_root_group,run_as_root_user,running_status
-}
-
-begin
-  # Retrieve containers by date range counts
-  result = api_instance.read_containers_by_date_range_count(opts)
-  p result
-rescue Falcon::ApiError => e
-  puts "Error when calling KubernetesProtectionApi->read_containers_by_date_range_count: #{e}"
-end
-```
-
-#### Using the read_containers_by_date_range_count_with_http_info variant
-
-This returns an Array which contains the response data, status code and headers.
-
-> <Array(<ModelsAggregateValuesByFieldResponse>, Integer, Hash)> read_containers_by_date_range_count_with_http_info(opts)
-
-```ruby
-begin
-  # Retrieve containers by date range counts
-  data, status_code, headers = api_instance.read_containers_by_date_range_count_with_http_info(opts)
-  p status_code # => 2xx
-  p headers # => { ... }
-  p data # => <ModelsAggregateValuesByFieldResponse>
-rescue Falcon::ApiError => e
-  puts "Error when calling KubernetesProtectionApi->read_containers_by_date_range_count_with_http_info: #{e}"
-end
-```
-
-### Parameters
-
-| Name | Type | Description | Notes |
-| ---- | ---- | ----------- | ----- |
-| **filter** | **String** | Get container counts using a query in Falcon Query Language (FQL). Supported filters:  agent_id,agent_type,allow_privilege_escalation,cid,cloud_account_id,cloud_name,cloud_region,cluster_id,cluster_name,container_id,container_name,cve_id,detection_name,first_seen,image_detection_count,image_digest,image_has_been_assessed,image_id,image_registry,image_repository,image_tag,image_vulnerability_count,insecure_mount_source,insecure_mount_type,insecure_propagation_mode,interactive_mode,ipv4,ipv6,labels,last_seen,namespace,node_name,node_uid,package_name_version,pod_id,pod_name,port,privileged,root_write_access,run_as_root_group,run_as_root_user,running_status | [optional] |
-
-### Return type
-
-[**ModelsAggregateValuesByFieldResponse**](ModelsAggregateValuesByFieldResponse.md)
-
-### Authorization
-
-**oauth2**
-
-### HTTP request headers
-
-- **Content-Type**: Not defined
-- **Accept**: application/json
-
-
-## read_containers_sensor_coverage
-
-> <ModelsAggregateValuesByFieldResponse> read_containers_sensor_coverage(opts)
-
-Bucket containers by agent type and calculate sensor coverage
-
-### Examples
-
-```ruby
-require 'time'
-require 'crimson-falcon'
-
-# Setup authorization
-Falcon.configure do |config|
-  config.client_id = "Your_Client_ID"
-  config.client_secret = "Your_Client_Secret"
-  config.cloud = "us-1" # or "us-2", "eu-1", "us-gov1"
-end
-
-api_instance = Falcon::KubernetesProtectionApi.new
-opts = {
-  filter: 'filter_example' # String | Retrieve count of Kubernetes containers that match a query in Falcon Query Language (FQL). Supported filters:  agent_id,agent_type,allow_privilege_escalation,cid,cloud_account_id,cloud_name,cloud_region,cluster_id,cluster_name,container_id,container_name,cve_id,detection_name,first_seen,image_detection_count,image_digest,image_has_been_assessed,image_id,image_registry,image_repository,image_tag,image_vulnerability_count,insecure_mount_source,insecure_mount_type,insecure_propagation_mode,interactive_mode,ipv4,ipv6,labels,last_seen,namespace,node_name,node_uid,package_name_version,pod_id,pod_name,port,privileged,root_write_access,run_as_root_group,run_as_root_user,running_status
-}
-
-begin
-  # Bucket containers by agent type and calculate sensor coverage
-  result = api_instance.read_containers_sensor_coverage(opts)
-  p result
-rescue Falcon::ApiError => e
-  puts "Error when calling KubernetesProtectionApi->read_containers_sensor_coverage: #{e}"
-end
-```
-
-#### Using the read_containers_sensor_coverage_with_http_info variant
-
-This returns an Array which contains the response data, status code and headers.
-
-> <Array(<ModelsAggregateValuesByFieldResponse>, Integer, Hash)> read_containers_sensor_coverage_with_http_info(opts)
-
-```ruby
-begin
-  # Bucket containers by agent type and calculate sensor coverage
-  data, status_code, headers = api_instance.read_containers_sensor_coverage_with_http_info(opts)
-  p status_code # => 2xx
-  p headers # => { ... }
-  p data # => <ModelsAggregateValuesByFieldResponse>
-rescue Falcon::ApiError => e
-  puts "Error when calling KubernetesProtectionApi->read_containers_sensor_coverage_with_http_info: #{e}"
-end
-```
-
-### Parameters
-
-| Name | Type | Description | Notes |
-| ---- | ---- | ----------- | ----- |
-| **filter** | **String** | Retrieve count of Kubernetes containers that match a query in Falcon Query Language (FQL). Supported filters:  agent_id,agent_type,allow_privilege_escalation,cid,cloud_account_id,cloud_name,cloud_region,cluster_id,cluster_name,container_id,container_name,cve_id,detection_name,first_seen,image_detection_count,image_digest,image_has_been_assessed,image_id,image_registry,image_repository,image_tag,image_vulnerability_count,insecure_mount_source,insecure_mount_type,insecure_propagation_mode,interactive_mode,ipv4,ipv6,labels,last_seen,namespace,node_name,node_uid,package_name_version,pod_id,pod_name,port,privileged,root_write_access,run_as_root_group,run_as_root_user,running_status | [optional] |
-
-### Return type
-
-[**ModelsAggregateValuesByFieldResponse**](ModelsAggregateValuesByFieldResponse.md)
-
-### Authorization
-
-**oauth2**
-
-### HTTP request headers
-
-- **Content-Type**: Not defined
-- **Accept**: application/json
-
-
-## read_deployment_combined
-
-> <ModelsDeploymentEntityResponse> read_deployment_combined(opts)
-
-Retrieve kubernetes deployments identified by the provided filter criteria
-
-### Examples
-
-```ruby
-require 'time'
-require 'crimson-falcon'
-
-# Setup authorization
-Falcon.configure do |config|
-  config.client_id = "Your_Client_ID"
-  config.client_secret = "Your_Client_Secret"
-  config.cloud = "us-1" # or "us-2", "eu-1", "us-gov1"
-end
-
-api_instance = Falcon::KubernetesProtectionApi.new
-opts = {
-  filter: 'filter_example', # String | Search Kubernetes deployments using a query in Falcon Query Language (FQL). Supported filters:  annotations_list,cid,cloud_account_id,cloud_name,cloud_region,cluster_id,cluster_name,deployment_id,deployment_name,first_seen,last_seen,namespace,pod_count
-  limit: 56, # Integer | The upper-bound on the number of records to retrieve.
-  offset: 56, # Integer | The offset from where to begin.
-  sort: 'sort_example' # String | Field to sort results by
-}
-
-begin
-  # Retrieve kubernetes deployments identified by the provided filter criteria
-  result = api_instance.read_deployment_combined(opts)
-  p result
-rescue Falcon::ApiError => e
-  puts "Error when calling KubernetesProtectionApi->read_deployment_combined: #{e}"
-end
-```
-
-#### Using the read_deployment_combined_with_http_info variant
-
-This returns an Array which contains the response data, status code and headers.
-
-> <Array(<ModelsDeploymentEntityResponse>, Integer, Hash)> read_deployment_combined_with_http_info(opts)
-
-```ruby
-begin
-  # Retrieve kubernetes deployments identified by the provided filter criteria
-  data, status_code, headers = api_instance.read_deployment_combined_with_http_info(opts)
-  p status_code # => 2xx
-  p headers # => { ... }
-  p data # => <ModelsDeploymentEntityResponse>
-rescue Falcon::ApiError => e
-  puts "Error when calling KubernetesProtectionApi->read_deployment_combined_with_http_info: #{e}"
-end
-```
-
-### Parameters
-
-| Name | Type | Description | Notes |
-| ---- | ---- | ----------- | ----- |
-| **filter** | **String** | Search Kubernetes deployments using a query in Falcon Query Language (FQL). Supported filters:  annotations_list,cid,cloud_account_id,cloud_name,cloud_region,cluster_id,cluster_name,deployment_id,deployment_name,first_seen,last_seen,namespace,pod_count | [optional] |
-| **limit** | **Integer** | The upper-bound on the number of records to retrieve. | [optional] |
-| **offset** | **Integer** | The offset from where to begin. | [optional] |
-| **sort** | **String** | Field to sort results by | [optional] |
-
-### Return type
-
-[**ModelsDeploymentEntityResponse**](ModelsDeploymentEntityResponse.md)
-
-### Authorization
-
-**oauth2**
-
-### HTTP request headers
-
-- **Content-Type**: Not defined
-- **Accept**: application/json
-
-
-## read_deployment_count
-
-> <CommonCountResponse> read_deployment_count(opts)
-
-Retrieve deployment counts
-
-### Examples
-
-```ruby
-require 'time'
-require 'crimson-falcon'
-
-# Setup authorization
-Falcon.configure do |config|
-  config.client_id = "Your_Client_ID"
-  config.client_secret = "Your_Client_Secret"
-  config.cloud = "us-1" # or "us-2", "eu-1", "us-gov1"
-end
-
-api_instance = Falcon::KubernetesProtectionApi.new
-opts = {
-  filter: 'filter_example' # String | Retrieve count of Kubernetes deployments that match a query in Falcon Query Language (FQL). Supported filters:  annotations_list,cid,cloud_account_id,cloud_name,cloud_region,cluster_id,cluster_name,deployment_id,deployment_name,first_seen,last_seen,namespace,pod_count
-}
-
-begin
-  # Retrieve deployment counts
-  result = api_instance.read_deployment_count(opts)
-  p result
-rescue Falcon::ApiError => e
-  puts "Error when calling KubernetesProtectionApi->read_deployment_count: #{e}"
-end
-```
-
-#### Using the read_deployment_count_with_http_info variant
-
-This returns an Array which contains the response data, status code and headers.
-
-> <Array(<CommonCountResponse>, Integer, Hash)> read_deployment_count_with_http_info(opts)
-
-```ruby
-begin
-  # Retrieve deployment counts
-  data, status_code, headers = api_instance.read_deployment_count_with_http_info(opts)
-  p status_code # => 2xx
-  p headers # => { ... }
-  p data # => <CommonCountResponse>
-rescue Falcon::ApiError => e
-  puts "Error when calling KubernetesProtectionApi->read_deployment_count_with_http_info: #{e}"
-end
-```
-
-### Parameters
-
-| Name | Type | Description | Notes |
-| ---- | ---- | ----------- | ----- |
-| **filter** | **String** | Retrieve count of Kubernetes deployments that match a query in Falcon Query Language (FQL). Supported filters:  annotations_list,cid,cloud_account_id,cloud_name,cloud_region,cluster_id,cluster_name,deployment_id,deployment_name,first_seen,last_seen,namespace,pod_count | [optional] |
-
-### Return type
-
-[**CommonCountResponse**](CommonCountResponse.md)
-
-### Authorization
-
-**oauth2**
-
-### HTTP request headers
-
-- **Content-Type**: Not defined
-- **Accept**: application/json
-
-
-## read_deployment_enrichment
-
-> <K8sassetsDeploymentEnrichmentResponse> read_deployment_enrichment(deployment_id, opts)
-
-Retrieve deployment enrichment data
-
-### Examples
-
-```ruby
-require 'time'
-require 'crimson-falcon'
-
-# Setup authorization
-Falcon.configure do |config|
-  config.client_id = "Your_Client_ID"
-  config.client_secret = "Your_Client_Secret"
-  config.cloud = "us-1" # or "us-2", "eu-1", "us-gov1"
-end
-
-api_instance = Falcon::KubernetesProtectionApi.new
-deployment_id = ['inner_example'] # Array<String> | One or more deployment ids for which to retrieve enrichment info
-opts = {
-  filter: 'filter_example' # String | Supported filters:  last_seen
-}
-
-begin
-  # Retrieve deployment enrichment data
-  result = api_instance.read_deployment_enrichment(deployment_id, opts)
-  p result
-rescue Falcon::ApiError => e
-  puts "Error when calling KubernetesProtectionApi->read_deployment_enrichment: #{e}"
-end
-```
-
-#### Using the read_deployment_enrichment_with_http_info variant
-
-This returns an Array which contains the response data, status code and headers.
-
-> <Array(<K8sassetsDeploymentEnrichmentResponse>, Integer, Hash)> read_deployment_enrichment_with_http_info(deployment_id, opts)
-
-```ruby
-begin
-  # Retrieve deployment enrichment data
-  data, status_code, headers = api_instance.read_deployment_enrichment_with_http_info(deployment_id, opts)
-  p status_code # => 2xx
-  p headers # => { ... }
-  p data # => <K8sassetsDeploymentEnrichmentResponse>
-rescue Falcon::ApiError => e
-  puts "Error when calling KubernetesProtectionApi->read_deployment_enrichment_with_http_info: #{e}"
-end
-```
-
-### Parameters
-
-| Name | Type | Description | Notes |
-| ---- | ---- | ----------- | ----- |
-| **deployment_id** | [**Array&lt;String&gt;**](String.md) | One or more deployment ids for which to retrieve enrichment info |  |
-| **filter** | **String** | Supported filters:  last_seen | [optional] |
-
-### Return type
-
-[**K8sassetsDeploymentEnrichmentResponse**](K8sassetsDeploymentEnrichmentResponse.md)
-
-### Authorization
-
-**oauth2**
-
-### HTTP request headers
-
-- **Content-Type**: Not defined
-- **Accept**: application/json
-
-
-## read_deployments_by_date_range_count
-
-> <ModelsAggregateValuesByFieldResponse> read_deployments_by_date_range_count
-
-Retrieve deployments by date range counts
-
-### Examples
-
-```ruby
-require 'time'
-require 'crimson-falcon'
-
-# Setup authorization
-Falcon.configure do |config|
-  config.client_id = "Your_Client_ID"
-  config.client_secret = "Your_Client_Secret"
-  config.cloud = "us-1" # or "us-2", "eu-1", "us-gov1"
-end
-
-api_instance = Falcon::KubernetesProtectionApi.new
-
-begin
-  # Retrieve deployments by date range counts
-  result = api_instance.read_deployments_by_date_range_count
-  p result
-rescue Falcon::ApiError => e
-  puts "Error when calling KubernetesProtectionApi->read_deployments_by_date_range_count: #{e}"
-end
-```
-
-#### Using the read_deployments_by_date_range_count_with_http_info variant
-
-This returns an Array which contains the response data, status code and headers.
-
-> <Array(<ModelsAggregateValuesByFieldResponse>, Integer, Hash)> read_deployments_by_date_range_count_with_http_info
-
-```ruby
-begin
-  # Retrieve deployments by date range counts
-  data, status_code, headers = api_instance.read_deployments_by_date_range_count_with_http_info
-  p status_code # => 2xx
-  p headers # => { ... }
-  p data # => <ModelsAggregateValuesByFieldResponse>
-rescue Falcon::ApiError => e
-  puts "Error when calling KubernetesProtectionApi->read_deployments_by_date_range_count_with_http_info: #{e}"
+  puts "Error when calling KubernetesProtectionApi->read_namespaces_by_date_range_count_with_http_info: #{e}"
 end
 ```
 
@@ -2812,367 +4039,6 @@ This endpoint does not need any parameter.
 ### Return type
 
 [**ModelsAggregateValuesByFieldResponse**](ModelsAggregateValuesByFieldResponse.md)
-
-### Authorization
-
-**oauth2**
-
-### HTTP request headers
-
-- **Content-Type**: Not defined
-- **Accept**: application/json
-
-
-## read_distinct_container_image_count
-
-> <ModelsAPIFilterResponse> read_distinct_container_image_count(opts)
-
-Retrieve count of distinct images running on containers
-
-### Examples
-
-```ruby
-require 'time'
-require 'crimson-falcon'
-
-# Setup authorization
-Falcon.configure do |config|
-  config.client_id = "Your_Client_ID"
-  config.client_secret = "Your_Client_Secret"
-  config.cloud = "us-1" # or "us-2", "eu-1", "us-gov1"
-end
-
-api_instance = Falcon::KubernetesProtectionApi.new
-opts = {
-  filter: 'filter_example' # String | Search Kubernetes containers using a query in Falcon Query Language (FQL). Supported filters:  agent_id,agent_type,allow_privilege_escalation,cid,cloud_account_id,cloud_name,cloud_region,cluster_id,cluster_name,container_id,container_name,cve_id,detection_name,first_seen,image_detection_count,image_digest,image_has_been_assessed,image_id,image_registry,image_repository,image_tag,image_vulnerability_count,insecure_mount_source,insecure_mount_type,insecure_propagation_mode,interactive_mode,ipv4,ipv6,labels,last_seen,namespace,node_name,node_uid,package_name_version,pod_id,pod_name,port,privileged,root_write_access,run_as_root_group,run_as_root_user,running_status
-}
-
-begin
-  # Retrieve count of distinct images running on containers
-  result = api_instance.read_distinct_container_image_count(opts)
-  p result
-rescue Falcon::ApiError => e
-  puts "Error when calling KubernetesProtectionApi->read_distinct_container_image_count: #{e}"
-end
-```
-
-#### Using the read_distinct_container_image_count_with_http_info variant
-
-This returns an Array which contains the response data, status code and headers.
-
-> <Array(<ModelsAPIFilterResponse>, Integer, Hash)> read_distinct_container_image_count_with_http_info(opts)
-
-```ruby
-begin
-  # Retrieve count of distinct images running on containers
-  data, status_code, headers = api_instance.read_distinct_container_image_count_with_http_info(opts)
-  p status_code # => 2xx
-  p headers # => { ... }
-  p data # => <ModelsAPIFilterResponse>
-rescue Falcon::ApiError => e
-  puts "Error when calling KubernetesProtectionApi->read_distinct_container_image_count_with_http_info: #{e}"
-end
-```
-
-### Parameters
-
-| Name | Type | Description | Notes |
-| ---- | ---- | ----------- | ----- |
-| **filter** | **String** | Search Kubernetes containers using a query in Falcon Query Language (FQL). Supported filters:  agent_id,agent_type,allow_privilege_escalation,cid,cloud_account_id,cloud_name,cloud_region,cluster_id,cluster_name,container_id,container_name,cve_id,detection_name,first_seen,image_detection_count,image_digest,image_has_been_assessed,image_id,image_registry,image_repository,image_tag,image_vulnerability_count,insecure_mount_source,insecure_mount_type,insecure_propagation_mode,interactive_mode,ipv4,ipv6,labels,last_seen,namespace,node_name,node_uid,package_name_version,pod_id,pod_name,port,privileged,root_write_access,run_as_root_group,run_as_root_user,running_status | [optional] |
-
-### Return type
-
-[**ModelsAPIFilterResponse**](ModelsAPIFilterResponse.md)
-
-### Authorization
-
-**oauth2**
-
-### HTTP request headers
-
-- **Content-Type**: Not defined
-- **Accept**: application/json
-
-
-## read_kubernetes_iom_by_date_range
-
-> <K8siomsKubernetesIOMFieldValue> read_kubernetes_iom_by_date_range(opts)
-
-Returns the count of Kubernetes IOMs by the date. by default it's for 7 days.
-
-### Examples
-
-```ruby
-require 'time'
-require 'crimson-falcon'
-
-# Setup authorization
-Falcon.configure do |config|
-  config.client_id = "Your_Client_ID"
-  config.client_secret = "Your_Client_Secret"
-  config.cloud = "us-1" # or "us-2", "eu-1", "us-gov1"
-end
-
-api_instance = Falcon::KubernetesProtectionApi.new
-opts = {
-  filter: 'filter_example' # String | Filter images using a query in Falcon Query Language (FQL). Supported filters: cid,created_timestamp,detect_timestamp,severity
-}
-
-begin
-  # Returns the count of Kubernetes IOMs by the date. by default it's for 7 days.
-  result = api_instance.read_kubernetes_iom_by_date_range(opts)
-  p result
-rescue Falcon::ApiError => e
-  puts "Error when calling KubernetesProtectionApi->read_kubernetes_iom_by_date_range: #{e}"
-end
-```
-
-#### Using the read_kubernetes_iom_by_date_range_with_http_info variant
-
-This returns an Array which contains the response data, status code and headers.
-
-> <Array(<K8siomsKubernetesIOMFieldValue>, Integer, Hash)> read_kubernetes_iom_by_date_range_with_http_info(opts)
-
-```ruby
-begin
-  # Returns the count of Kubernetes IOMs by the date. by default it's for 7 days.
-  data, status_code, headers = api_instance.read_kubernetes_iom_by_date_range_with_http_info(opts)
-  p status_code # => 2xx
-  p headers # => { ... }
-  p data # => <K8siomsKubernetesIOMFieldValue>
-rescue Falcon::ApiError => e
-  puts "Error when calling KubernetesProtectionApi->read_kubernetes_iom_by_date_range_with_http_info: #{e}"
-end
-```
-
-### Parameters
-
-| Name | Type | Description | Notes |
-| ---- | ---- | ----------- | ----- |
-| **filter** | **String** | Filter images using a query in Falcon Query Language (FQL). Supported filters: cid,created_timestamp,detect_timestamp,severity | [optional] |
-
-### Return type
-
-[**K8siomsKubernetesIOMFieldValue**](K8siomsKubernetesIOMFieldValue.md)
-
-### Authorization
-
-**oauth2**
-
-### HTTP request headers
-
-- **Content-Type**: Not defined
-- **Accept**: application/json
-
-
-## read_kubernetes_iom_count
-
-> <K8siomsKubernetesIOMCountValue> read_kubernetes_iom_count(opts)
-
-Returns the total count of Kubernetes IOMs over the past seven days
-
-### Examples
-
-```ruby
-require 'time'
-require 'crimson-falcon'
-
-# Setup authorization
-Falcon.configure do |config|
-  config.client_id = "Your_Client_ID"
-  config.client_secret = "Your_Client_Secret"
-  config.cloud = "us-1" # or "us-2", "eu-1", "us-gov1"
-end
-
-api_instance = Falcon::KubernetesProtectionApi.new
-opts = {
-  filter: 'filter_example' # String | Filter images using a query in Falcon Query Language (FQL). Supported filters: cid,created_timestamp,detect_timestamp,severity
-}
-
-begin
-  # Returns the total count of Kubernetes IOMs over the past seven days
-  result = api_instance.read_kubernetes_iom_count(opts)
-  p result
-rescue Falcon::ApiError => e
-  puts "Error when calling KubernetesProtectionApi->read_kubernetes_iom_count: #{e}"
-end
-```
-
-#### Using the read_kubernetes_iom_count_with_http_info variant
-
-This returns an Array which contains the response data, status code and headers.
-
-> <Array(<K8siomsKubernetesIOMCountValue>, Integer, Hash)> read_kubernetes_iom_count_with_http_info(opts)
-
-```ruby
-begin
-  # Returns the total count of Kubernetes IOMs over the past seven days
-  data, status_code, headers = api_instance.read_kubernetes_iom_count_with_http_info(opts)
-  p status_code # => 2xx
-  p headers # => { ... }
-  p data # => <K8siomsKubernetesIOMCountValue>
-rescue Falcon::ApiError => e
-  puts "Error when calling KubernetesProtectionApi->read_kubernetes_iom_count_with_http_info: #{e}"
-end
-```
-
-### Parameters
-
-| Name | Type | Description | Notes |
-| ---- | ---- | ----------- | ----- |
-| **filter** | **String** | Filter images using a query in Falcon Query Language (FQL). Supported filters: cid,created_timestamp,detect_timestamp,severity | [optional] |
-
-### Return type
-
-[**K8siomsKubernetesIOMCountValue**](K8siomsKubernetesIOMCountValue.md)
-
-### Authorization
-
-**oauth2**
-
-### HTTP request headers
-
-- **Content-Type**: Not defined
-- **Accept**: application/json
-
-
-## read_kubernetes_iom_entities
-
-> <K8siomsKubernetesIOMEntityResponse> read_kubernetes_iom_entities(opts)
-
-Retrieve Kubernetes IOM entities identified by the provided IDs
-
-### Examples
-
-```ruby
-require 'time'
-require 'crimson-falcon'
-
-# Setup authorization
-Falcon.configure do |config|
-  config.client_id = "Your_Client_ID"
-  config.client_secret = "Your_Client_Secret"
-  config.cloud = "us-1" # or "us-2", "eu-1", "us-gov1"
-end
-
-api_instance = Falcon::KubernetesProtectionApi.new
-opts = {
-  ids: ['inner_example'] # Array<String> | Search Kubernetes IOMs by ids - The maximum amount is 100 IDs
-}
-
-begin
-  # Retrieve Kubernetes IOM entities identified by the provided IDs
-  result = api_instance.read_kubernetes_iom_entities(opts)
-  p result
-rescue Falcon::ApiError => e
-  puts "Error when calling KubernetesProtectionApi->read_kubernetes_iom_entities: #{e}"
-end
-```
-
-#### Using the read_kubernetes_iom_entities_with_http_info variant
-
-This returns an Array which contains the response data, status code and headers.
-
-> <Array(<K8siomsKubernetesIOMEntityResponse>, Integer, Hash)> read_kubernetes_iom_entities_with_http_info(opts)
-
-```ruby
-begin
-  # Retrieve Kubernetes IOM entities identified by the provided IDs
-  data, status_code, headers = api_instance.read_kubernetes_iom_entities_with_http_info(opts)
-  p status_code # => 2xx
-  p headers # => { ... }
-  p data # => <K8siomsKubernetesIOMEntityResponse>
-rescue Falcon::ApiError => e
-  puts "Error when calling KubernetesProtectionApi->read_kubernetes_iom_entities_with_http_info: #{e}"
-end
-```
-
-### Parameters
-
-| Name | Type | Description | Notes |
-| ---- | ---- | ----------- | ----- |
-| **ids** | [**Array&lt;String&gt;**](String.md) | Search Kubernetes IOMs by ids - The maximum amount is 100 IDs | [optional] |
-
-### Return type
-
-[**K8siomsKubernetesIOMEntityResponse**](K8siomsKubernetesIOMEntityResponse.md)
-
-### Authorization
-
-**oauth2**
-
-### HTTP request headers
-
-- **Content-Type**: Not defined
-- **Accept**: application/json
-
-
-## read_node_combined
-
-> <ModelsNodeEntityResponse> read_node_combined(opts)
-
-Retrieve kubernetes nodes identified by the provided filter criteria
-
-### Examples
-
-```ruby
-require 'time'
-require 'crimson-falcon'
-
-# Setup authorization
-Falcon.configure do |config|
-  config.client_id = "Your_Client_ID"
-  config.client_secret = "Your_Client_Secret"
-  config.cloud = "us-1" # or "us-2", "eu-1", "us-gov1"
-end
-
-api_instance = Falcon::KubernetesProtectionApi.new
-opts = {
-  filter: 'filter_example', # String | Search Kubernetes nodes using a query in Falcon Query Language (FQL). Supported filters:  aid,annotations_list,cid,cloud_account_id,cloud_name,cloud_region,cluster_id,cluster_name,container_count,container_runtime_version,first_seen,image_digest,ipv4,last_seen,linux_sensor_coverage,node_name,pod_count
-  limit: 56, # Integer | The upper-bound on the number of records to retrieve.
-  offset: 56, # Integer | The offset from where to begin.
-  sort: 'sort_example' # String | Field to sort results by
-}
-
-begin
-  # Retrieve kubernetes nodes identified by the provided filter criteria
-  result = api_instance.read_node_combined(opts)
-  p result
-rescue Falcon::ApiError => e
-  puts "Error when calling KubernetesProtectionApi->read_node_combined: #{e}"
-end
-```
-
-#### Using the read_node_combined_with_http_info variant
-
-This returns an Array which contains the response data, status code and headers.
-
-> <Array(<ModelsNodeEntityResponse>, Integer, Hash)> read_node_combined_with_http_info(opts)
-
-```ruby
-begin
-  # Retrieve kubernetes nodes identified by the provided filter criteria
-  data, status_code, headers = api_instance.read_node_combined_with_http_info(opts)
-  p status_code # => 2xx
-  p headers # => { ... }
-  p data # => <ModelsNodeEntityResponse>
-rescue Falcon::ApiError => e
-  puts "Error when calling KubernetesProtectionApi->read_node_combined_with_http_info: #{e}"
-end
-```
-
-### Parameters
-
-| Name | Type | Description | Notes |
-| ---- | ---- | ----------- | ----- |
-| **filter** | **String** | Search Kubernetes nodes using a query in Falcon Query Language (FQL). Supported filters:  aid,annotations_list,cid,cloud_account_id,cloud_name,cloud_region,cluster_id,cluster_name,container_count,container_runtime_version,first_seen,image_digest,ipv4,last_seen,linux_sensor_coverage,node_name,pod_count | [optional] |
-| **limit** | **Integer** | The upper-bound on the number of records to retrieve. | [optional] |
-| **offset** | **Integer** | The offset from where to begin. | [optional] |
-| **sort** | **String** | Field to sort results by | [optional] |
-
-### Return type
-
-[**ModelsNodeEntityResponse**](ModelsNodeEntityResponse.md)
 
 ### Authorization
 
@@ -3205,7 +4071,7 @@ end
 
 api_instance = Falcon::KubernetesProtectionApi.new
 opts = {
-  filter: 'filter_example' # String | Retrieve count of Kubernetes nodes that match a query in Falcon Query Language (FQL). Supported filters:  aid,annotations_list,cid,cloud_account_id,cloud_name,cloud_region,cluster_id,cluster_name,container_count,container_runtime_version,first_seen,image_digest,ipv4,last_seen,linux_sensor_coverage,node_name,pod_count
+  filter: 'filter_example' # String | Retrieve count of Kubernetes nodes that match a query in Falcon Query Language (FQL). Supported filters:  agent_id,agent_type,annotations_list,cid,cloud_account_id,cloud_name,cloud_region,cloud_service,cluster_id,cluster_name,container_count,container_runtime_version,first_seen,image_digest,ipv4,kac_agent_id,last_seen,linux_sensor_coverage,node_name,pod_count,resource_status
 }
 
 begin
@@ -3239,732 +4105,11 @@ end
 
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
-| **filter** | **String** | Retrieve count of Kubernetes nodes that match a query in Falcon Query Language (FQL). Supported filters:  aid,annotations_list,cid,cloud_account_id,cloud_name,cloud_region,cluster_id,cluster_name,container_count,container_runtime_version,first_seen,image_digest,ipv4,last_seen,linux_sensor_coverage,node_name,pod_count | [optional] |
+| **filter** | **String** | Retrieve count of Kubernetes nodes that match a query in Falcon Query Language (FQL). Supported filters:  agent_id,agent_type,annotations_list,cid,cloud_account_id,cloud_name,cloud_region,cloud_service,cluster_id,cluster_name,container_count,container_runtime_version,first_seen,image_digest,ipv4,kac_agent_id,last_seen,linux_sensor_coverage,node_name,pod_count,resource_status | [optional] |
 
 ### Return type
 
 [**CommonCountResponse**](CommonCountResponse.md)
-
-### Authorization
-
-**oauth2**
-
-### HTTP request headers
-
-- **Content-Type**: Not defined
-- **Accept**: application/json
-
-
-## read_node_enrichment
-
-> <K8sassetsNodeEnrichmentResponse> read_node_enrichment(node_name, opts)
-
-Retrieve node enrichment data
-
-### Examples
-
-```ruby
-require 'time'
-require 'crimson-falcon'
-
-# Setup authorization
-Falcon.configure do |config|
-  config.client_id = "Your_Client_ID"
-  config.client_secret = "Your_Client_Secret"
-  config.cloud = "us-1" # or "us-2", "eu-1", "us-gov1"
-end
-
-api_instance = Falcon::KubernetesProtectionApi.new
-node_name = ['inner_example'] # Array<String> | One or more node names for which to retrieve enrichment info
-opts = {
-  filter: 'filter_example' # String | Supported filters:  last_seen
-}
-
-begin
-  # Retrieve node enrichment data
-  result = api_instance.read_node_enrichment(node_name, opts)
-  p result
-rescue Falcon::ApiError => e
-  puts "Error when calling KubernetesProtectionApi->read_node_enrichment: #{e}"
-end
-```
-
-#### Using the read_node_enrichment_with_http_info variant
-
-This returns an Array which contains the response data, status code and headers.
-
-> <Array(<K8sassetsNodeEnrichmentResponse>, Integer, Hash)> read_node_enrichment_with_http_info(node_name, opts)
-
-```ruby
-begin
-  # Retrieve node enrichment data
-  data, status_code, headers = api_instance.read_node_enrichment_with_http_info(node_name, opts)
-  p status_code # => 2xx
-  p headers # => { ... }
-  p data # => <K8sassetsNodeEnrichmentResponse>
-rescue Falcon::ApiError => e
-  puts "Error when calling KubernetesProtectionApi->read_node_enrichment_with_http_info: #{e}"
-end
-```
-
-### Parameters
-
-| Name | Type | Description | Notes |
-| ---- | ---- | ----------- | ----- |
-| **node_name** | [**Array&lt;String&gt;**](String.md) | One or more node names for which to retrieve enrichment info |  |
-| **filter** | **String** | Supported filters:  last_seen | [optional] |
-
-### Return type
-
-[**K8sassetsNodeEnrichmentResponse**](K8sassetsNodeEnrichmentResponse.md)
-
-### Authorization
-
-**oauth2**
-
-### HTTP request headers
-
-- **Content-Type**: Not defined
-- **Accept**: application/json
-
-
-## read_nodes_by_cloud_count
-
-> <ModelsAggregateValuesByFieldResponse> read_nodes_by_cloud_count(opts)
-
-Bucket nodes by cloud providers
-
-### Examples
-
-```ruby
-require 'time'
-require 'crimson-falcon'
-
-# Setup authorization
-Falcon.configure do |config|
-  config.client_id = "Your_Client_ID"
-  config.client_secret = "Your_Client_Secret"
-  config.cloud = "us-1" # or "us-2", "eu-1", "us-gov1"
-end
-
-api_instance = Falcon::KubernetesProtectionApi.new
-opts = {
-  filter: 'filter_example' # String | Search Kubernetes nodes using a query in Falcon Query Language (FQL). Supported filters:  aid,annotations_list,cid,cloud_account_id,cloud_name,cloud_region,cluster_id,cluster_name,container_count,container_runtime_version,first_seen,image_digest,ipv4,last_seen,linux_sensor_coverage,node_name,pod_count
-}
-
-begin
-  # Bucket nodes by cloud providers
-  result = api_instance.read_nodes_by_cloud_count(opts)
-  p result
-rescue Falcon::ApiError => e
-  puts "Error when calling KubernetesProtectionApi->read_nodes_by_cloud_count: #{e}"
-end
-```
-
-#### Using the read_nodes_by_cloud_count_with_http_info variant
-
-This returns an Array which contains the response data, status code and headers.
-
-> <Array(<ModelsAggregateValuesByFieldResponse>, Integer, Hash)> read_nodes_by_cloud_count_with_http_info(opts)
-
-```ruby
-begin
-  # Bucket nodes by cloud providers
-  data, status_code, headers = api_instance.read_nodes_by_cloud_count_with_http_info(opts)
-  p status_code # => 2xx
-  p headers # => { ... }
-  p data # => <ModelsAggregateValuesByFieldResponse>
-rescue Falcon::ApiError => e
-  puts "Error when calling KubernetesProtectionApi->read_nodes_by_cloud_count_with_http_info: #{e}"
-end
-```
-
-### Parameters
-
-| Name | Type | Description | Notes |
-| ---- | ---- | ----------- | ----- |
-| **filter** | **String** | Search Kubernetes nodes using a query in Falcon Query Language (FQL). Supported filters:  aid,annotations_list,cid,cloud_account_id,cloud_name,cloud_region,cluster_id,cluster_name,container_count,container_runtime_version,first_seen,image_digest,ipv4,last_seen,linux_sensor_coverage,node_name,pod_count | [optional] |
-
-### Return type
-
-[**ModelsAggregateValuesByFieldResponse**](ModelsAggregateValuesByFieldResponse.md)
-
-### Authorization
-
-**oauth2**
-
-### HTTP request headers
-
-- **Content-Type**: Not defined
-- **Accept**: application/json
-
-
-## read_nodes_by_container_engine_version_count
-
-> <ModelsAggregateValuesByFieldResponse> read_nodes_by_container_engine_version_count(opts)
-
-Bucket nodes by their container engine version
-
-### Examples
-
-```ruby
-require 'time'
-require 'crimson-falcon'
-
-# Setup authorization
-Falcon.configure do |config|
-  config.client_id = "Your_Client_ID"
-  config.client_secret = "Your_Client_Secret"
-  config.cloud = "us-1" # or "us-2", "eu-1", "us-gov1"
-end
-
-api_instance = Falcon::KubernetesProtectionApi.new
-opts = {
-  filter: 'filter_example' # String | Search Kubernetes nodes using a query in Falcon Query Language (FQL). Supported filters:  aid,annotations_list,cid,cloud_account_id,cloud_name,cloud_region,cluster_id,cluster_name,container_count,container_runtime_version,first_seen,image_digest,ipv4,last_seen,linux_sensor_coverage,node_name,pod_count
-}
-
-begin
-  # Bucket nodes by their container engine version
-  result = api_instance.read_nodes_by_container_engine_version_count(opts)
-  p result
-rescue Falcon::ApiError => e
-  puts "Error when calling KubernetesProtectionApi->read_nodes_by_container_engine_version_count: #{e}"
-end
-```
-
-#### Using the read_nodes_by_container_engine_version_count_with_http_info variant
-
-This returns an Array which contains the response data, status code and headers.
-
-> <Array(<ModelsAggregateValuesByFieldResponse>, Integer, Hash)> read_nodes_by_container_engine_version_count_with_http_info(opts)
-
-```ruby
-begin
-  # Bucket nodes by their container engine version
-  data, status_code, headers = api_instance.read_nodes_by_container_engine_version_count_with_http_info(opts)
-  p status_code # => 2xx
-  p headers # => { ... }
-  p data # => <ModelsAggregateValuesByFieldResponse>
-rescue Falcon::ApiError => e
-  puts "Error when calling KubernetesProtectionApi->read_nodes_by_container_engine_version_count_with_http_info: #{e}"
-end
-```
-
-### Parameters
-
-| Name | Type | Description | Notes |
-| ---- | ---- | ----------- | ----- |
-| **filter** | **String** | Search Kubernetes nodes using a query in Falcon Query Language (FQL). Supported filters:  aid,annotations_list,cid,cloud_account_id,cloud_name,cloud_region,cluster_id,cluster_name,container_count,container_runtime_version,first_seen,image_digest,ipv4,last_seen,linux_sensor_coverage,node_name,pod_count | [optional] |
-
-### Return type
-
-[**ModelsAggregateValuesByFieldResponse**](ModelsAggregateValuesByFieldResponse.md)
-
-### Authorization
-
-**oauth2**
-
-### HTTP request headers
-
-- **Content-Type**: Not defined
-- **Accept**: application/json
-
-
-## read_nodes_by_date_range_count
-
-> <ModelsAggregateValuesByFieldResponse> read_nodes_by_date_range_count(opts)
-
-Retrieve nodes by date range counts
-
-### Examples
-
-```ruby
-require 'time'
-require 'crimson-falcon'
-
-# Setup authorization
-Falcon.configure do |config|
-  config.client_id = "Your_Client_ID"
-  config.client_secret = "Your_Client_Secret"
-  config.cloud = "us-1" # or "us-2", "eu-1", "us-gov1"
-end
-
-api_instance = Falcon::KubernetesProtectionApi.new
-opts = {
-  filter: 'filter_example' # String | Search Kubernetes nodes using a query in Falcon Query Language (FQL). Supported filters:  aid,annotations_list,cid,cloud_account_id,cloud_name,cloud_region,cluster_id,cluster_name,container_count,container_runtime_version,first_seen,image_digest,ipv4,last_seen,linux_sensor_coverage,node_name,pod_count
-}
-
-begin
-  # Retrieve nodes by date range counts
-  result = api_instance.read_nodes_by_date_range_count(opts)
-  p result
-rescue Falcon::ApiError => e
-  puts "Error when calling KubernetesProtectionApi->read_nodes_by_date_range_count: #{e}"
-end
-```
-
-#### Using the read_nodes_by_date_range_count_with_http_info variant
-
-This returns an Array which contains the response data, status code and headers.
-
-> <Array(<ModelsAggregateValuesByFieldResponse>, Integer, Hash)> read_nodes_by_date_range_count_with_http_info(opts)
-
-```ruby
-begin
-  # Retrieve nodes by date range counts
-  data, status_code, headers = api_instance.read_nodes_by_date_range_count_with_http_info(opts)
-  p status_code # => 2xx
-  p headers # => { ... }
-  p data # => <ModelsAggregateValuesByFieldResponse>
-rescue Falcon::ApiError => e
-  puts "Error when calling KubernetesProtectionApi->read_nodes_by_date_range_count_with_http_info: #{e}"
-end
-```
-
-### Parameters
-
-| Name | Type | Description | Notes |
-| ---- | ---- | ----------- | ----- |
-| **filter** | **String** | Search Kubernetes nodes using a query in Falcon Query Language (FQL). Supported filters:  aid,annotations_list,cid,cloud_account_id,cloud_name,cloud_region,cluster_id,cluster_name,container_count,container_runtime_version,first_seen,image_digest,ipv4,last_seen,linux_sensor_coverage,node_name,pod_count | [optional] |
-
-### Return type
-
-[**ModelsAggregateValuesByFieldResponse**](ModelsAggregateValuesByFieldResponse.md)
-
-### Authorization
-
-**oauth2**
-
-### HTTP request headers
-
-- **Content-Type**: Not defined
-- **Accept**: application/json
-
-
-## read_pod_combined
-
-> <ModelsPodEntityResponse> read_pod_combined(opts)
-
-Retrieve kubernetes pods identified by the provided filter criteria
-
-### Examples
-
-```ruby
-require 'time'
-require 'crimson-falcon'
-
-# Setup authorization
-Falcon.configure do |config|
-  config.client_id = "Your_Client_ID"
-  config.client_secret = "Your_Client_Secret"
-  config.cloud = "us-1" # or "us-2", "eu-1", "us-gov1"
-end
-
-api_instance = Falcon::KubernetesProtectionApi.new
-opts = {
-  filter: 'filter_example', # String | Search Kubernetes pods using a query in Falcon Query Language (FQL). Supported filters:  agent_id,agent_type,allow_privilege_escalation,annotations_list,cid,cloud_account_id,cloud_name,cloud_region,cluster_id,cluster_name,container_count,ipv4,ipv6,labels,last_seen,namespace,node_name,node_uid,owner_id,owner_type,pod_external_id,pod_id,pod_name,port,privileged,root_write_access,run_as_root_group,run_as_root_user
-  limit: 56, # Integer | The upper-bound on the number of records to retrieve.
-  offset: 56, # Integer | The offset from where to begin.
-  sort: 'sort_example' # String | Field to sort results by
-}
-
-begin
-  # Retrieve kubernetes pods identified by the provided filter criteria
-  result = api_instance.read_pod_combined(opts)
-  p result
-rescue Falcon::ApiError => e
-  puts "Error when calling KubernetesProtectionApi->read_pod_combined: #{e}"
-end
-```
-
-#### Using the read_pod_combined_with_http_info variant
-
-This returns an Array which contains the response data, status code and headers.
-
-> <Array(<ModelsPodEntityResponse>, Integer, Hash)> read_pod_combined_with_http_info(opts)
-
-```ruby
-begin
-  # Retrieve kubernetes pods identified by the provided filter criteria
-  data, status_code, headers = api_instance.read_pod_combined_with_http_info(opts)
-  p status_code # => 2xx
-  p headers # => { ... }
-  p data # => <ModelsPodEntityResponse>
-rescue Falcon::ApiError => e
-  puts "Error when calling KubernetesProtectionApi->read_pod_combined_with_http_info: #{e}"
-end
-```
-
-### Parameters
-
-| Name | Type | Description | Notes |
-| ---- | ---- | ----------- | ----- |
-| **filter** | **String** | Search Kubernetes pods using a query in Falcon Query Language (FQL). Supported filters:  agent_id,agent_type,allow_privilege_escalation,annotations_list,cid,cloud_account_id,cloud_name,cloud_region,cluster_id,cluster_name,container_count,ipv4,ipv6,labels,last_seen,namespace,node_name,node_uid,owner_id,owner_type,pod_external_id,pod_id,pod_name,port,privileged,root_write_access,run_as_root_group,run_as_root_user | [optional] |
-| **limit** | **Integer** | The upper-bound on the number of records to retrieve. | [optional] |
-| **offset** | **Integer** | The offset from where to begin. | [optional] |
-| **sort** | **String** | Field to sort results by | [optional] |
-
-### Return type
-
-[**ModelsPodEntityResponse**](ModelsPodEntityResponse.md)
-
-### Authorization
-
-**oauth2**
-
-### HTTP request headers
-
-- **Content-Type**: Not defined
-- **Accept**: application/json
-
-
-## read_pod_count
-
-> <CommonCountResponse> read_pod_count(opts)
-
-Retrieve pod counts
-
-### Examples
-
-```ruby
-require 'time'
-require 'crimson-falcon'
-
-# Setup authorization
-Falcon.configure do |config|
-  config.client_id = "Your_Client_ID"
-  config.client_secret = "Your_Client_Secret"
-  config.cloud = "us-1" # or "us-2", "eu-1", "us-gov1"
-end
-
-api_instance = Falcon::KubernetesProtectionApi.new
-opts = {
-  filter: 'filter_example' # String | Retrieve count of Kubernetes pods that match a query in Falcon Query Language (FQL). Supported filters:  agent_id,agent_type,allow_privilege_escalation,annotations_list,cid,cloud_account_id,cloud_name,cloud_region,cluster_id,cluster_name,container_count,ipv4,ipv6,labels,last_seen,namespace,node_name,node_uid,owner_id,owner_type,pod_external_id,pod_id,pod_name,port,privileged,root_write_access,run_as_root_group,run_as_root_user
-}
-
-begin
-  # Retrieve pod counts
-  result = api_instance.read_pod_count(opts)
-  p result
-rescue Falcon::ApiError => e
-  puts "Error when calling KubernetesProtectionApi->read_pod_count: #{e}"
-end
-```
-
-#### Using the read_pod_count_with_http_info variant
-
-This returns an Array which contains the response data, status code and headers.
-
-> <Array(<CommonCountResponse>, Integer, Hash)> read_pod_count_with_http_info(opts)
-
-```ruby
-begin
-  # Retrieve pod counts
-  data, status_code, headers = api_instance.read_pod_count_with_http_info(opts)
-  p status_code # => 2xx
-  p headers # => { ... }
-  p data # => <CommonCountResponse>
-rescue Falcon::ApiError => e
-  puts "Error when calling KubernetesProtectionApi->read_pod_count_with_http_info: #{e}"
-end
-```
-
-### Parameters
-
-| Name | Type | Description | Notes |
-| ---- | ---- | ----------- | ----- |
-| **filter** | **String** | Retrieve count of Kubernetes pods that match a query in Falcon Query Language (FQL). Supported filters:  agent_id,agent_type,allow_privilege_escalation,annotations_list,cid,cloud_account_id,cloud_name,cloud_region,cluster_id,cluster_name,container_count,ipv4,ipv6,labels,last_seen,namespace,node_name,node_uid,owner_id,owner_type,pod_external_id,pod_id,pod_name,port,privileged,root_write_access,run_as_root_group,run_as_root_user | [optional] |
-
-### Return type
-
-[**CommonCountResponse**](CommonCountResponse.md)
-
-### Authorization
-
-**oauth2**
-
-### HTTP request headers
-
-- **Content-Type**: Not defined
-- **Accept**: application/json
-
-
-## read_pod_enrichment
-
-> <K8sassetsPodEnrichmentResponse> read_pod_enrichment(pod_id, opts)
-
-Retrieve pod enrichment data
-
-### Examples
-
-```ruby
-require 'time'
-require 'crimson-falcon'
-
-# Setup authorization
-Falcon.configure do |config|
-  config.client_id = "Your_Client_ID"
-  config.client_secret = "Your_Client_Secret"
-  config.cloud = "us-1" # or "us-2", "eu-1", "us-gov1"
-end
-
-api_instance = Falcon::KubernetesProtectionApi.new
-pod_id = ['inner_example'] # Array<String> | One or more pod ids for which to retrieve enrichment info
-opts = {
-  filter: 'filter_example' # String | Supported filters:  last_seen
-}
-
-begin
-  # Retrieve pod enrichment data
-  result = api_instance.read_pod_enrichment(pod_id, opts)
-  p result
-rescue Falcon::ApiError => e
-  puts "Error when calling KubernetesProtectionApi->read_pod_enrichment: #{e}"
-end
-```
-
-#### Using the read_pod_enrichment_with_http_info variant
-
-This returns an Array which contains the response data, status code and headers.
-
-> <Array(<K8sassetsPodEnrichmentResponse>, Integer, Hash)> read_pod_enrichment_with_http_info(pod_id, opts)
-
-```ruby
-begin
-  # Retrieve pod enrichment data
-  data, status_code, headers = api_instance.read_pod_enrichment_with_http_info(pod_id, opts)
-  p status_code # => 2xx
-  p headers # => { ... }
-  p data # => <K8sassetsPodEnrichmentResponse>
-rescue Falcon::ApiError => e
-  puts "Error when calling KubernetesProtectionApi->read_pod_enrichment_with_http_info: #{e}"
-end
-```
-
-### Parameters
-
-| Name | Type | Description | Notes |
-| ---- | ---- | ----------- | ----- |
-| **pod_id** | [**Array&lt;String&gt;**](String.md) | One or more pod ids for which to retrieve enrichment info |  |
-| **filter** | **String** | Supported filters:  last_seen | [optional] |
-
-### Return type
-
-[**K8sassetsPodEnrichmentResponse**](K8sassetsPodEnrichmentResponse.md)
-
-### Authorization
-
-**oauth2**
-
-### HTTP request headers
-
-- **Content-Type**: Not defined
-- **Accept**: application/json
-
-
-## read_pods_by_date_range_count
-
-> <ModelsAggregateValuesByFieldResponse> read_pods_by_date_range_count
-
-Retrieve pods by date range counts
-
-### Examples
-
-```ruby
-require 'time'
-require 'crimson-falcon'
-
-# Setup authorization
-Falcon.configure do |config|
-  config.client_id = "Your_Client_ID"
-  config.client_secret = "Your_Client_Secret"
-  config.cloud = "us-1" # or "us-2", "eu-1", "us-gov1"
-end
-
-api_instance = Falcon::KubernetesProtectionApi.new
-
-begin
-  # Retrieve pods by date range counts
-  result = api_instance.read_pods_by_date_range_count
-  p result
-rescue Falcon::ApiError => e
-  puts "Error when calling KubernetesProtectionApi->read_pods_by_date_range_count: #{e}"
-end
-```
-
-#### Using the read_pods_by_date_range_count_with_http_info variant
-
-This returns an Array which contains the response data, status code and headers.
-
-> <Array(<ModelsAggregateValuesByFieldResponse>, Integer, Hash)> read_pods_by_date_range_count_with_http_info
-
-```ruby
-begin
-  # Retrieve pods by date range counts
-  data, status_code, headers = api_instance.read_pods_by_date_range_count_with_http_info
-  p status_code # => 2xx
-  p headers # => { ... }
-  p data # => <ModelsAggregateValuesByFieldResponse>
-rescue Falcon::ApiError => e
-  puts "Error when calling KubernetesProtectionApi->read_pods_by_date_range_count_with_http_info: #{e}"
-end
-```
-
-### Parameters
-
-This endpoint does not need any parameter.
-
-### Return type
-
-[**ModelsAggregateValuesByFieldResponse**](ModelsAggregateValuesByFieldResponse.md)
-
-### Authorization
-
-**oauth2**
-
-### HTTP request headers
-
-- **Content-Type**: Not defined
-- **Accept**: application/json
-
-
-## read_running_container_images
-
-> <ModelsContainerImage> read_running_container_images(opts)
-
-Retrieve images on running containers
-
-### Examples
-
-```ruby
-require 'time'
-require 'crimson-falcon'
-
-# Setup authorization
-Falcon.configure do |config|
-  config.client_id = "Your_Client_ID"
-  config.client_secret = "Your_Client_Secret"
-  config.cloud = "us-1" # or "us-2", "eu-1", "us-gov1"
-end
-
-api_instance = Falcon::KubernetesProtectionApi.new
-opts = {
-  filter: 'filter_example', # String | Retrieve list of images on running containers using a query in Falcon Query Language (FQL). Supported filters:  cid,hosts,image_digest,image_has_been_assessed,image_id,image_name,image_registry,image_repository,image_tag,last_seen,running_status
-  limit: 56, # Integer | The upper-bound on the number of records to retrieve.
-  offset: 56, # Integer | The offset from where to begin.
-  sort: 'sort_example' # String | Field to sort results by
-}
-
-begin
-  # Retrieve images on running containers
-  result = api_instance.read_running_container_images(opts)
-  p result
-rescue Falcon::ApiError => e
-  puts "Error when calling KubernetesProtectionApi->read_running_container_images: #{e}"
-end
-```
-
-#### Using the read_running_container_images_with_http_info variant
-
-This returns an Array which contains the response data, status code and headers.
-
-> <Array(<ModelsContainerImage>, Integer, Hash)> read_running_container_images_with_http_info(opts)
-
-```ruby
-begin
-  # Retrieve images on running containers
-  data, status_code, headers = api_instance.read_running_container_images_with_http_info(opts)
-  p status_code # => 2xx
-  p headers # => { ... }
-  p data # => <ModelsContainerImage>
-rescue Falcon::ApiError => e
-  puts "Error when calling KubernetesProtectionApi->read_running_container_images_with_http_info: #{e}"
-end
-```
-
-### Parameters
-
-| Name | Type | Description | Notes |
-| ---- | ---- | ----------- | ----- |
-| **filter** | **String** | Retrieve list of images on running containers using a query in Falcon Query Language (FQL). Supported filters:  cid,hosts,image_digest,image_has_been_assessed,image_id,image_name,image_registry,image_repository,image_tag,last_seen,running_status | [optional] |
-| **limit** | **Integer** | The upper-bound on the number of records to retrieve. | [optional] |
-| **offset** | **Integer** | The offset from where to begin. | [optional] |
-| **sort** | **String** | Field to sort results by | [optional] |
-
-### Return type
-
-[**ModelsContainerImage**](ModelsContainerImage.md)
-
-### Authorization
-
-**oauth2**
-
-### HTTP request headers
-
-- **Content-Type**: Not defined
-- **Accept**: application/json
-
-
-## read_vulnerable_container_image_count
-
-> <ModelsAPIFilterResponse> read_vulnerable_container_image_count(opts)
-
-Retrieve count of vulnerable images running on containers
-
-### Examples
-
-```ruby
-require 'time'
-require 'crimson-falcon'
-
-# Setup authorization
-Falcon.configure do |config|
-  config.client_id = "Your_Client_ID"
-  config.client_secret = "Your_Client_Secret"
-  config.cloud = "us-1" # or "us-2", "eu-1", "us-gov1"
-end
-
-api_instance = Falcon::KubernetesProtectionApi.new
-opts = {
-  filter: 'filter_example' # String | Retrieve count of Kubernetes containers that match a query in Falcon Query Language (FQL). Supported filters:  agent_id,agent_type,allow_privilege_escalation,cid,cloud_account_id,cloud_name,cloud_region,cluster_id,cluster_name,container_id,container_name,cve_id,detection_name,first_seen,image_detection_count,image_digest,image_has_been_assessed,image_id,image_registry,image_repository,image_tag,image_vulnerability_count,insecure_mount_source,insecure_mount_type,insecure_propagation_mode,interactive_mode,ipv4,ipv6,labels,last_seen,namespace,node_name,node_uid,package_name_version,pod_id,pod_name,port,privileged,root_write_access,run_as_root_group,run_as_root_user,running_status
-}
-
-begin
-  # Retrieve count of vulnerable images running on containers
-  result = api_instance.read_vulnerable_container_image_count(opts)
-  p result
-rescue Falcon::ApiError => e
-  puts "Error when calling KubernetesProtectionApi->read_vulnerable_container_image_count: #{e}"
-end
-```
-
-#### Using the read_vulnerable_container_image_count_with_http_info variant
-
-This returns an Array which contains the response data, status code and headers.
-
-> <Array(<ModelsAPIFilterResponse>, Integer, Hash)> read_vulnerable_container_image_count_with_http_info(opts)
-
-```ruby
-begin
-  # Retrieve count of vulnerable images running on containers
-  data, status_code, headers = api_instance.read_vulnerable_container_image_count_with_http_info(opts)
-  p status_code # => 2xx
-  p headers # => { ... }
-  p data # => <ModelsAPIFilterResponse>
-rescue Falcon::ApiError => e
-  puts "Error when calling KubernetesProtectionApi->read_vulnerable_container_image_count_with_http_info: #{e}"
-end
-```
-
-### Parameters
-
-| Name | Type | Description | Notes |
-| ---- | ---- | ----------- | ----- |
-| **filter** | **String** | Retrieve count of Kubernetes containers that match a query in Falcon Query Language (FQL). Supported filters:  agent_id,agent_type,allow_privilege_escalation,cid,cloud_account_id,cloud_name,cloud_region,cluster_id,cluster_name,container_id,container_name,cve_id,detection_name,first_seen,image_detection_count,image_digest,image_has_been_assessed,image_id,image_registry,image_repository,image_tag,image_vulnerability_count,insecure_mount_source,insecure_mount_type,insecure_propagation_mode,interactive_mode,ipv4,ipv6,labels,last_seen,namespace,node_name,node_uid,package_name_version,pod_id,pod_name,port,privileged,root_write_access,run_as_root_group,run_as_root_user,running_status | [optional] |
-
-### Return type
-
-[**ModelsAPIFilterResponse**](ModelsAPIFilterResponse.md)
 
 ### Authorization
 
@@ -4042,88 +4187,11 @@ This endpoint does not need any parameter.
 - **Accept**: application/json
 
 
-## search_and_read_kubernetes_iom_entities
+## running_container_images
 
-> <K8siomsKubernetesIOMEntityResponse> search_and_read_kubernetes_iom_entities(opts)
+> <ModelsContainerImage> running_container_images(opts)
 
-Search Kubernetes IOM by the provided search criteria
-
-### Examples
-
-```ruby
-require 'time'
-require 'crimson-falcon'
-
-# Setup authorization
-Falcon.configure do |config|
-  config.client_id = "Your_Client_ID"
-  config.client_secret = "Your_Client_Secret"
-  config.cloud = "us-1" # or "us-2", "eu-1", "us-gov1"
-end
-
-api_instance = Falcon::KubernetesProtectionApi.new
-opts = {
-  filter: 'filter_example', # String | Search Kubernetes IOMs using a query in Falcon Query Language (FQL). Supported filters:  cid,cis_id,cluster_id,cluster_name,containers_impacted_count,containers_impacted_ids,detection_type,name,namespace,resource_id,resource_name,resource_type,severity
-  limit: 56, # Integer | The upper-bound on the number of records to retrieve.
-  offset: 56, # Integer | The offset from where to begin.
-  sort: 'sort_example' # String | The fields to sort the records on.
-}
-
-begin
-  # Search Kubernetes IOM by the provided search criteria
-  result = api_instance.search_and_read_kubernetes_iom_entities(opts)
-  p result
-rescue Falcon::ApiError => e
-  puts "Error when calling KubernetesProtectionApi->search_and_read_kubernetes_iom_entities: #{e}"
-end
-```
-
-#### Using the search_and_read_kubernetes_iom_entities_with_http_info variant
-
-This returns an Array which contains the response data, status code and headers.
-
-> <Array(<K8siomsKubernetesIOMEntityResponse>, Integer, Hash)> search_and_read_kubernetes_iom_entities_with_http_info(opts)
-
-```ruby
-begin
-  # Search Kubernetes IOM by the provided search criteria
-  data, status_code, headers = api_instance.search_and_read_kubernetes_iom_entities_with_http_info(opts)
-  p status_code # => 2xx
-  p headers # => { ... }
-  p data # => <K8siomsKubernetesIOMEntityResponse>
-rescue Falcon::ApiError => e
-  puts "Error when calling KubernetesProtectionApi->search_and_read_kubernetes_iom_entities_with_http_info: #{e}"
-end
-```
-
-### Parameters
-
-| Name | Type | Description | Notes |
-| ---- | ---- | ----------- | ----- |
-| **filter** | **String** | Search Kubernetes IOMs using a query in Falcon Query Language (FQL). Supported filters:  cid,cis_id,cluster_id,cluster_name,containers_impacted_count,containers_impacted_ids,detection_type,name,namespace,resource_id,resource_name,resource_type,severity | [optional] |
-| **limit** | **Integer** | The upper-bound on the number of records to retrieve. | [optional] |
-| **offset** | **Integer** | The offset from where to begin. | [optional] |
-| **sort** | **String** | The fields to sort the records on. | [optional] |
-
-### Return type
-
-[**K8siomsKubernetesIOMEntityResponse**](K8siomsKubernetesIOMEntityResponse.md)
-
-### Authorization
-
-**oauth2**
-
-### HTTP request headers
-
-- **Content-Type**: Not defined
-- **Accept**: application/json
-
-
-## search_kubernetes_ioms
-
-> <CommonGenericEntityResponseString> search_kubernetes_ioms(opts)
-
-Search Kubernetes IOMs by the provided search criteria. this endpoint returns a list of Kubernetes IOM UUIDs matching the query
+Retrieve images on running containers
 
 ### Examples
 
@@ -4140,36 +4208,36 @@ end
 
 api_instance = Falcon::KubernetesProtectionApi.new
 opts = {
-  filter: 'filter_example', # String | Search Kubernetes IOMs using a query in Falcon Query Language (FQL). Supported filters:  cid,cis_id,cluster_id,cluster_name,containers_impacted_count,containers_impacted_ids,detection_type,name,namespace,resource_id,resource_name,resource_type,severity
+  filter: 'filter_example', # String | Retrieve list of images on running containers using a query in Falcon Query Language (FQL). Supported filters:  cid,cluster_id,cluster_name,hosts,image_digest,image_has_been_assessed,image_id,image_name,image_registry,image_repository,image_tag,last_seen,running_status
   limit: 56, # Integer | The upper-bound on the number of records to retrieve.
   offset: 56, # Integer | The offset from where to begin.
-  sort: 'sort_example' # String | The fields to sort the records on.
+  sort: 'sort_example' # String | Field to sort results by
 }
 
 begin
-  # Search Kubernetes IOMs by the provided search criteria. this endpoint returns a list of Kubernetes IOM UUIDs matching the query
-  result = api_instance.search_kubernetes_ioms(opts)
+  # Retrieve images on running containers
+  result = api_instance.running_container_images(opts)
   p result
 rescue Falcon::ApiError => e
-  puts "Error when calling KubernetesProtectionApi->search_kubernetes_ioms: #{e}"
+  puts "Error when calling KubernetesProtectionApi->running_container_images: #{e}"
 end
 ```
 
-#### Using the search_kubernetes_ioms_with_http_info variant
+#### Using the running_container_images_with_http_info variant
 
 This returns an Array which contains the response data, status code and headers.
 
-> <Array(<CommonGenericEntityResponseString>, Integer, Hash)> search_kubernetes_ioms_with_http_info(opts)
+> <Array(<ModelsContainerImage>, Integer, Hash)> running_container_images_with_http_info(opts)
 
 ```ruby
 begin
-  # Search Kubernetes IOMs by the provided search criteria. this endpoint returns a list of Kubernetes IOM UUIDs matching the query
-  data, status_code, headers = api_instance.search_kubernetes_ioms_with_http_info(opts)
+  # Retrieve images on running containers
+  data, status_code, headers = api_instance.running_container_images_with_http_info(opts)
   p status_code # => 2xx
   p headers # => { ... }
-  p data # => <CommonGenericEntityResponseString>
+  p data # => <ModelsContainerImage>
 rescue Falcon::ApiError => e
-  puts "Error when calling KubernetesProtectionApi->search_kubernetes_ioms_with_http_info: #{e}"
+  puts "Error when calling KubernetesProtectionApi->running_container_images_with_http_info: #{e}"
 end
 ```
 
@@ -4177,14 +4245,14 @@ end
 
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
-| **filter** | **String** | Search Kubernetes IOMs using a query in Falcon Query Language (FQL). Supported filters:  cid,cis_id,cluster_id,cluster_name,containers_impacted_count,containers_impacted_ids,detection_type,name,namespace,resource_id,resource_name,resource_type,severity | [optional] |
+| **filter** | **String** | Retrieve list of images on running containers using a query in Falcon Query Language (FQL). Supported filters:  cid,cluster_id,cluster_name,hosts,image_digest,image_has_been_assessed,image_id,image_name,image_registry,image_repository,image_tag,last_seen,running_status | [optional] |
 | **limit** | **Integer** | The upper-bound on the number of records to retrieve. | [optional] |
 | **offset** | **Integer** | The offset from where to begin. | [optional] |
-| **sort** | **String** | The fields to sort the records on. | [optional] |
+| **sort** | **String** | Field to sort results by | [optional] |
 
 ### Return type
 
-[**CommonGenericEntityResponseString**](CommonGenericEntityResponseString.md)
+[**ModelsContainerImage**](ModelsContainerImage.md)
 
 ### Authorization
 
@@ -4327,6 +4395,77 @@ end
 ### Return type
 
 [**MsaBaseEntitiesResponse**](MsaBaseEntitiesResponse.md)
+
+### Authorization
+
+**oauth2**
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+
+## vulnerable_container_image_count
+
+> <ModelsAPIFilterResponse> vulnerable_container_image_count(opts)
+
+Retrieve count of vulnerable images running on containers
+
+### Examples
+
+```ruby
+require 'time'
+require 'crimson-falcon'
+
+# Setup authorization
+Falcon.configure do |config|
+  config.client_id = "Your_Client_ID"
+  config.client_secret = "Your_Client_Secret"
+  config.cloud = "us-1" # or "us-2", "eu-1", "us-gov1"
+end
+
+api_instance = Falcon::KubernetesProtectionApi.new
+opts = {
+  filter: 'filter_example' # String | Retrieve count of Kubernetes containers that match a query in Falcon Query Language (FQL). Supported filters:  agent_id,agent_type,allow_privilege_escalation,cid,cloud_account_id,cloud_name,cloud_region,cloud_service,cluster_id,cluster_name,container_id,container_image_id,container_name,cve_id,detection_name,first_seen,image_detection_count,image_digest,image_has_been_assessed,image_id,image_registry,image_repository,image_tag,image_vulnerability_count,insecure_mount_source,insecure_mount_type,insecure_propagation_mode,interactive_mode,ipv4,ipv6,kac_agent_id,labels,last_seen,namespace,node_name,node_uid,package_name_version,pod_id,pod_name,port,privileged,root_write_access,run_as_root_group,run_as_root_user,running_status
+}
+
+begin
+  # Retrieve count of vulnerable images running on containers
+  result = api_instance.vulnerable_container_image_count(opts)
+  p result
+rescue Falcon::ApiError => e
+  puts "Error when calling KubernetesProtectionApi->vulnerable_container_image_count: #{e}"
+end
+```
+
+#### Using the vulnerable_container_image_count_with_http_info variant
+
+This returns an Array which contains the response data, status code and headers.
+
+> <Array(<ModelsAPIFilterResponse>, Integer, Hash)> vulnerable_container_image_count_with_http_info(opts)
+
+```ruby
+begin
+  # Retrieve count of vulnerable images running on containers
+  data, status_code, headers = api_instance.vulnerable_container_image_count_with_http_info(opts)
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => <ModelsAPIFilterResponse>
+rescue Falcon::ApiError => e
+  puts "Error when calling KubernetesProtectionApi->vulnerable_container_image_count_with_http_info: #{e}"
+end
+```
+
+### Parameters
+
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **filter** | **String** | Retrieve count of Kubernetes containers that match a query in Falcon Query Language (FQL). Supported filters:  agent_id,agent_type,allow_privilege_escalation,cid,cloud_account_id,cloud_name,cloud_region,cloud_service,cluster_id,cluster_name,container_id,container_image_id,container_name,cve_id,detection_name,first_seen,image_detection_count,image_digest,image_has_been_assessed,image_id,image_registry,image_repository,image_tag,image_vulnerability_count,insecure_mount_source,insecure_mount_type,insecure_propagation_mode,interactive_mode,ipv4,ipv6,kac_agent_id,labels,last_seen,namespace,node_name,node_uid,package_name_version,pod_id,pod_name,port,privileged,root_write_access,run_as_root_group,run_as_root_user,running_status | [optional] |
+
+### Return type
+
+[**ModelsAPIFilterResponse**](ModelsAPIFilterResponse.md)
 
 ### Authorization
 

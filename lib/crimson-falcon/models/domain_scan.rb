@@ -70,8 +70,6 @@ module Falcon
 
     attr_accessor :max_duration
 
-    attr_accessor :max_file_size
-
     attr_accessor :metadata
 
     attr_accessor :missing_host_count
@@ -132,7 +130,6 @@ module Falcon
         :'initiated_from' => :'initiated_from',
         :'last_updated' => :'last_updated',
         :'max_duration' => :'max_duration',
-        :'max_file_size' => :'max_file_size',
         :'metadata' => :'metadata',
         :'missing_host_count' => :'missing_host_count',
         :'not_started_host_count' => :'not_started_host_count',
@@ -182,7 +179,6 @@ module Falcon
         :'initiated_from' => :'String',
         :'last_updated' => :'Time',
         :'max_duration' => :'Integer',
-        :'max_file_size' => :'Integer',
         :'metadata' => :'Array<DomainScanMetadata>',
         :'missing_host_count' => :'Integer',
         :'not_started_host_count' => :'Integer',
@@ -306,10 +302,6 @@ module Falcon
 
       if attributes.key?(:'max_duration')
         self.max_duration = attributes[:'max_duration']
-      end
-
-      if attributes.key?(:'max_file_size')
-        self.max_file_size = attributes[:'max_file_size']
       end
 
       if attributes.key?(:'metadata')
@@ -439,7 +431,6 @@ module Falcon
           initiated_from == o.initiated_from &&
           last_updated == o.last_updated &&
           max_duration == o.max_duration &&
-          max_file_size == o.max_file_size &&
           metadata == o.metadata &&
           missing_host_count == o.missing_host_count &&
           not_started_host_count == o.not_started_host_count &&
@@ -470,7 +461,7 @@ module Falcon
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [affected_hosts_count, cid, cloud_ml_level_detection, cloud_ml_level_prevention, completed_host_count, cpu_priority, created_by, created_on, description, endpoint_notification, file_paths, filecount, host_groups, hosts, id, incomplete_host_count, initiated_from, last_updated, max_duration, max_file_size, metadata, missing_host_count, not_started_host_count, pause_duration, policy_setting, preemption_priority, profile_id, quarantine, scan_completed_on, scan_exclusions, scan_inclusions, scan_scheduled_on, scan_started_on, sensor_ml_level_detection, sensor_ml_level_prevention, severity, started_host_count, status, targeted_host_count].hash
+      [affected_hosts_count, cid, cloud_ml_level_detection, cloud_ml_level_prevention, completed_host_count, cpu_priority, created_by, created_on, description, endpoint_notification, file_paths, filecount, host_groups, hosts, id, incomplete_host_count, initiated_from, last_updated, max_duration, metadata, missing_host_count, not_started_host_count, pause_duration, policy_setting, preemption_priority, profile_id, quarantine, scan_completed_on, scan_exclusions, scan_inclusions, scan_scheduled_on, scan_started_on, sensor_ml_level_detection, sensor_ml_level_prevention, severity, started_host_count, status, targeted_host_count].hash
     end
 
     # Builds the object from hash
@@ -591,5 +582,7 @@ module Falcon
         value
       end
     end
+
   end
+
 end

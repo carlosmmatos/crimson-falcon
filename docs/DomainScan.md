@@ -23,7 +23,6 @@
 | **initiated_from** | **String** |  | [optional] |
 | **last_updated** | **Time** |  | [optional] |
 | **max_duration** | **Integer** |  | [optional] |
-| **max_file_size** | **Integer** |  | [optional] |
 | **metadata** | [**Array&lt;DomainScanMetadata&gt;**](DomainScanMetadata.md) |  | [optional] |
 | **missing_host_count** | **Integer** |  | [optional] |
 | **not_started_host_count** | **Integer** |  | [optional] |
@@ -69,7 +68,6 @@ instance = Falcon::DomainScan.new(
   initiated_from: null,
   last_updated: null,
   max_duration: null,
-  max_file_size: null,
   metadata: null,
   missing_host_count: null,
   not_started_host_count: null,

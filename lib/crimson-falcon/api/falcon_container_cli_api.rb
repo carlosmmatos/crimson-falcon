@@ -37,7 +37,7 @@ module Falcon
       @api_client = api_client
     end
     # Retrieve known vulnerabilities for the provided image
-    # @param body [ApiImageLookupRequest]
+    # @param body [ApiImageLookupRequest] 
     # @param [Hash] opts the optional parameters
     # @return [CoreEntitiesResponse]
     def read_image_vulnerabilities(body, opts = {})
@@ -46,7 +46,7 @@ module Falcon
     end
 
     # Retrieve known vulnerabilities for the provided image
-    # @param body [ApiImageLookupRequest]
+    # @param body [ApiImageLookupRequest] 
     # @param [Hash] opts the optional parameters
     # @return [Array<(CoreEntitiesResponse, Integer, Hash)>] CoreEntitiesResponse data, response status code and response headers
     def read_image_vulnerabilities_with_http_info(body, opts = {})
@@ -70,7 +70,7 @@ module Falcon
       # HTTP header 'Content-Type'
       content_type = @api_client.select_header_content_type(['application/json'])
       if !content_type.nil?
-        header_params['Content-Type'] = content_type
+          header_params['Content-Type'] = content_type
       end
 
       # form parameters

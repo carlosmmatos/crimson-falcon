@@ -32,6 +32,8 @@ require 'time'
 
 module Falcon
   class DomainReportParams
+    attr_accessor :columns
+
     attr_accessor :dashboard_id
 
     attr_accessor :dashboard_visibility
@@ -51,6 +53,7 @@ module Falcon
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
+        :'columns' => :'columns',
         :'dashboard_id' => :'dashboard_id',
         :'dashboard_visibility' => :'dashboard_visibility',
         :'filter' => :'filter',
@@ -70,6 +73,7 @@ module Falcon
     # Attribute type mapping.
     def self.openapi_types
       {
+        :'columns' => :'Array<String>',
         :'dashboard_id' => :'String',
         :'dashboard_visibility' => :'String',
         :'filter' => :'String',
@@ -101,6 +105,12 @@ module Falcon
         end
         h[k.to_sym] = v
       }
+
+      if attributes.key?(:'columns')
+        if (value = attributes[:'columns']).is_a?(Array)
+          self.columns = value
+        end
+      end
 
       if attributes.key?(:'dashboard_id')
         self.dashboard_id = attributes[:'dashboard_id']
@@ -141,6 +151,10 @@ module Falcon
     # @return Array for valid properties with the reasons
     def list_invalid_properties
       invalid_properties = Array.new
+      if @columns.nil?
+        invalid_properties.push('invalid value for "columns", columns cannot be nil.')
+      end
+
       if @dashboard_id.nil?
         invalid_properties.push('invalid value for "dashboard_id", dashboard_id cannot be nil.')
       end
@@ -175,6 +189,7 @@ module Falcon
     # Check to see if the all the properties in the model are valid
     # @return true if the model is valid
     def valid?
+      return false if @columns.nil?
       return false if @dashboard_id.nil?
       return false if @dashboard_visibility.nil?
       return false if @filter.nil?
@@ -190,6 +205,7 @@ module Falcon
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
+          columns == o.columns &&
           dashboard_id == o.dashboard_id &&
           dashboard_visibility == o.dashboard_visibility &&
           filter == o.filter &&
@@ -209,7 +225,7 @@ module Falcon
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [dashboard_id, dashboard_visibility, filter, filter_display, filter_ui, format, report_type_options, sort].hash
+      [columns, dashboard_id, dashboard_visibility, filter, filter_display, filter_ui, format, report_type_options, sort].hash
     end
 
     # Builds the object from hash
@@ -330,5 +346,7 @@ module Falcon
         value
       end
     end
+
   end
+
 end

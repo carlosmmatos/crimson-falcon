@@ -32,10 +32,16 @@ require 'time'
 
 module Falcon
   class SadomainRule
+    # Weather to monitor exclusively for breach data. breach_monitoring_enabled also needs to be sent as true for this to be enabled.
+    attr_accessor :breach_monitor_only
+
     # Whether to monitor for breach data. Available only for `Company Domains` and `Email addresses` rule topics. When enabled, ownership of the monitored domains or emails is required
     attr_accessor :breach_monitoring_enabled
 
     attr_accessor :cid
+
+    # The UUID of the user that created a given rule or Crowdstrike if the rule was system generated
+    attr_accessor :created_by
 
     # The creation time for a given rule
     attr_accessor :created_timestamp
@@ -48,6 +54,9 @@ module Falcon
 
     # The name of a given rule
     attr_accessor :name
+
+    # If the rule was generated based on a template, the id of the template
+    attr_accessor :originating_template_id
 
     attr_accessor :ownership_assets
 
@@ -65,6 +74,8 @@ module Falcon
 
     # Whether to monitor for substring matches. Only available for the `Typosquatting` rule topic
     attr_accessor :substring_matching_enabled
+
+    attr_accessor :template_priority
 
     # The topic of a given rule
     attr_accessor :topic
@@ -84,18 +95,22 @@ module Falcon
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
+        :'breach_monitor_only' => :'breach_monitor_only',
         :'breach_monitoring_enabled' => :'breach_monitoring_enabled',
         :'cid' => :'cid',
+        :'created_by' => :'created_by',
         :'created_timestamp' => :'created_timestamp',
         :'filter' => :'filter',
         :'id' => :'id',
         :'name' => :'name',
+        :'originating_template_id' => :'originating_template_id',
         :'ownership_assets' => :'ownership_assets',
         :'permissions' => :'permissions',
         :'priority' => :'priority',
         :'status' => :'status',
         :'status_message' => :'status_message',
         :'substring_matching_enabled' => :'substring_matching_enabled',
+        :'template_priority' => :'template_priority',
         :'topic' => :'topic',
         :'updated_timestamp' => :'updated_timestamp',
         :'user_id' => :'user_id',
@@ -112,18 +127,22 @@ module Falcon
     # Attribute type mapping.
     def self.openapi_types
       {
+        :'breach_monitor_only' => :'Boolean',
         :'breach_monitoring_enabled' => :'Boolean',
         :'cid' => :'String',
+        :'created_by' => :'String',
         :'created_timestamp' => :'Time',
         :'filter' => :'String',
         :'id' => :'String',
         :'name' => :'String',
+        :'originating_template_id' => :'String',
         :'ownership_assets' => :'SadomainCustomerAssets',
         :'permissions' => :'String',
         :'priority' => :'String',
         :'status' => :'String',
         :'status_message' => :'String',
         :'substring_matching_enabled' => :'Boolean',
+        :'template_priority' => :'Integer',
         :'topic' => :'String',
         :'updated_timestamp' => :'Time',
         :'user_id' => :'String',
@@ -153,12 +172,20 @@ module Falcon
         h[k.to_sym] = v
       }
 
+      if attributes.key?(:'breach_monitor_only')
+        self.breach_monitor_only = attributes[:'breach_monitor_only']
+      end
+
       if attributes.key?(:'breach_monitoring_enabled')
         self.breach_monitoring_enabled = attributes[:'breach_monitoring_enabled']
       end
 
       if attributes.key?(:'cid')
         self.cid = attributes[:'cid']
+      end
+
+      if attributes.key?(:'created_by')
+        self.created_by = attributes[:'created_by']
       end
 
       if attributes.key?(:'created_timestamp')
@@ -175,6 +202,10 @@ module Falcon
 
       if attributes.key?(:'name')
         self.name = attributes[:'name']
+      end
+
+      if attributes.key?(:'originating_template_id')
+        self.originating_template_id = attributes[:'originating_template_id']
       end
 
       if attributes.key?(:'ownership_assets')
@@ -199,6 +230,10 @@ module Falcon
 
       if attributes.key?(:'substring_matching_enabled')
         self.substring_matching_enabled = attributes[:'substring_matching_enabled']
+      end
+
+      if attributes.key?(:'template_priority')
+        self.template_priority = attributes[:'template_priority']
       end
 
       if attributes.key?(:'topic')
@@ -226,6 +261,10 @@ module Falcon
     # @return Array for valid properties with the reasons
     def list_invalid_properties
       invalid_properties = Array.new
+      if @breach_monitor_only.nil?
+        invalid_properties.push('invalid value for "breach_monitor_only", breach_monitor_only cannot be nil.')
+      end
+
       if @breach_monitoring_enabled.nil?
         invalid_properties.push('invalid value for "breach_monitoring_enabled", breach_monitoring_enabled cannot be nil.')
       end
@@ -284,6 +323,7 @@ module Falcon
     # Check to see if the all the properties in the model are valid
     # @return true if the model is valid
     def valid?
+      return false if @breach_monitor_only.nil?
       return false if @breach_monitoring_enabled.nil?
       return false if @cid.nil?
       return false if @created_timestamp.nil?
@@ -305,18 +345,22 @@ module Falcon
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
+          breach_monitor_only == o.breach_monitor_only &&
           breach_monitoring_enabled == o.breach_monitoring_enabled &&
           cid == o.cid &&
+          created_by == o.created_by &&
           created_timestamp == o.created_timestamp &&
           filter == o.filter &&
           id == o.id &&
           name == o.name &&
+          originating_template_id == o.originating_template_id &&
           ownership_assets == o.ownership_assets &&
           permissions == o.permissions &&
           priority == o.priority &&
           status == o.status &&
           status_message == o.status_message &&
           substring_matching_enabled == o.substring_matching_enabled &&
+          template_priority == o.template_priority &&
           topic == o.topic &&
           updated_timestamp == o.updated_timestamp &&
           user_id == o.user_id &&
@@ -333,7 +377,7 @@ module Falcon
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [breach_monitoring_enabled, cid, created_timestamp, filter, id, name, ownership_assets, permissions, priority, status, status_message, substring_matching_enabled, topic, updated_timestamp, user_id, user_name, user_uuid].hash
+      [breach_monitor_only, breach_monitoring_enabled, cid, created_by, created_timestamp, filter, id, name, originating_template_id, ownership_assets, permissions, priority, status, status_message, substring_matching_enabled, template_priority, topic, updated_timestamp, user_id, user_name, user_uuid].hash
     end
 
     # Builds the object from hash
@@ -454,5 +498,7 @@ module Falcon
         value
       end
     end
+
   end
+
 end

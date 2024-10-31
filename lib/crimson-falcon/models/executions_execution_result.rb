@@ -53,6 +53,9 @@ module Falcon
     # Details for the results of each loop in the workflow definition.
     attr_accessor :loops
 
+    # Output from this workflow execution
+    attr_accessor :output
+
     # A boolean value indicating whether the failed workflow execution is retryable
     attr_accessor :retryable
 
@@ -74,6 +77,7 @@ module Falcon
         :'end_timestamp' => :'end_timestamp',
         :'execution_id' => :'execution_id',
         :'loops' => :'loops',
+        :'output' => :'output',
         :'retryable' => :'retryable',
         :'start_timestamp' => :'start_timestamp',
         :'status' => :'status',
@@ -96,6 +100,7 @@ module Falcon
         :'end_timestamp' => :'Time',
         :'execution_id' => :'String',
         :'loops' => :'Array<ExecutionsLoopResult>',
+        :'output' => :'Object',
         :'retryable' => :'Boolean',
         :'start_timestamp' => :'Time',
         :'status' => :'String',
@@ -156,6 +161,10 @@ module Falcon
         if (value = attributes[:'loops']).is_a?(Array)
           self.loops = value
         end
+      end
+
+      if attributes.key?(:'output')
+        self.output = attributes[:'output']
       end
 
       if attributes.key?(:'retryable')
@@ -250,6 +259,7 @@ module Falcon
           end_timestamp == o.end_timestamp &&
           execution_id == o.execution_id &&
           loops == o.loops &&
+          output == o.output &&
           retryable == o.retryable &&
           start_timestamp == o.start_timestamp &&
           status == o.status &&
@@ -265,7 +275,7 @@ module Falcon
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [activities, ancestor_executions, definition_id, definition_version, end_timestamp, execution_id, loops, retryable, start_timestamp, status, trigger].hash
+      [activities, ancestor_executions, definition_id, definition_version, end_timestamp, execution_id, loops, output, retryable, start_timestamp, status, trigger].hash
     end
 
     # Builds the object from hash
@@ -386,5 +396,7 @@ module Falcon
         value
       end
     end
+
   end
+
 end

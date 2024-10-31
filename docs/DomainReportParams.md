@@ -4,6 +4,7 @@
 
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
+| **columns** | **Array&lt;String&gt;** |  |  |
 | **dashboard_id** | **String** |  |  |
 | **dashboard_visibility** | **String** |  |  |
 | **filter** | **String** |  |  |
@@ -19,6 +20,7 @@
 require 'crimson-falcon'
 
 instance = Falcon::DomainReportParams.new(
+  columns: null,
   dashboard_id: null,
   dashboard_visibility: null,
   filter: null,

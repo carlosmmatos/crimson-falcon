@@ -4,7 +4,7 @@
 
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
-| **buckets** | [**Array&lt;FwmgrMsaAggregationResultItem&gt;**](FwmgrMsaAggregationResultItem.md) |  |  |
+| **buckets** | [**Array&lt;FwmgrMsaAggregationResultItem&gt;**](FwmgrMsaAggregationResultItem.md) |  | [optional] |
 | **doc_count_error_upper_bound** | **Integer** |  | [optional] |
 | **name** | **String** |  |  |
 | **sum_other_doc_count** | **Integer** |  | [optional] |

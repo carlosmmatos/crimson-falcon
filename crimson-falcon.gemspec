@@ -51,8 +51,8 @@ Gem::Specification.new do |s|
   s.add_runtime_dependency 'jwt', '~> 2.2', '>= 2.2.2'
   s.add_development_dependency 'rspec', '~> 3.6', '>= 3.6.0'
 
-  s.files = %w[README.md LICENSE crimson-falcon.gemspec Rakefile]
-  s.files += Dir.glob("lib/**/*")
+  s.files         = %w[README.md LICENSE crimson-falcon.gemspec Rakefile]
+  s.files         += Dir.glob("lib/**/*")
   s.test_files    = `find spec/*`.split("\n")
   s.require_paths = ["lib"]
 end

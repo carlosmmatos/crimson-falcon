@@ -52,7 +52,7 @@ module Falcon
     # Attribute type mapping.
     def self.openapi_types
       {
-        :'meta_info' => :'MsaspecMetaInfo',
+        :'meta_info' => :'MsaMetaInfo',
         :'pagination' => :'RegistrationMSAPagingExtension'
       }
     end
@@ -244,5 +244,7 @@ module Falcon
         value
       end
     end
+
   end
+
 end

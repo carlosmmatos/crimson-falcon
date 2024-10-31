@@ -12,7 +12,9 @@
 | **multi_instance** | **Boolean** |  | [optional] |
 | **name** | **String** |  |  |
 | **node_registry** | **Hash&lt;String, String&gt;** |  |  |
+| **output_fields** | **Array&lt;String&gt;** |  | [optional] |
 | **parameters** | [**V2Parameters**](V2Parameters.md) |  | [optional] |
+| **parent** | [**V2Model**](V2Model.md) |  |  |
 | **provision_on_install** | **Boolean** |  | [optional] |
 | **trigger** | [**V2Trigger**](V2Trigger.md) |  |  |
 | **type** | **String** |  | [optional] |
@@ -32,7 +34,9 @@ instance = Falcon::V2Definition.new(
   multi_instance: null,
   name: null,
   node_registry: null,
+  output_fields: null,
   parameters: null,
+  parent: null,
   provision_on_install: null,
   trigger: null,
   type: null,

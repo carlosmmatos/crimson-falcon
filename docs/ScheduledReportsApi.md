@@ -1,86 +1,17 @@
 # Falcon::ScheduledReportsApi
 
-All URIs are relative to *https://api.crowdstrike.com*
+All URIs are relative to *https://api.us-2.crowdstrike.com*
 
 | Method | HTTP request | Description |
 | ------ | ------------ | ----------- |
-| [**scheduled_reports_get**](ScheduledReportsApi.md#scheduled_reports_get) | **GET** /reports/entities/scheduled-reports/v1 | Retrieve scheduled reports for the provided report IDs. |
-| [**scheduled_reports_launch**](ScheduledReportsApi.md#scheduled_reports_launch) | **POST** /reports/entities/scheduled-reports/execution/v1 | Launch scheduled reports executions for the provided report IDs. |
-| [**scheduled_reports_query**](ScheduledReportsApi.md#scheduled_reports_query) | **GET** /reports/queries/scheduled-reports/v1 | Find all report IDs matching the query with filter |
+| [**execute_0**](ScheduledReportsApi.md#execute_0) | **POST** /reports/entities/scheduled-reports/execution/v1 | Launch scheduled reports executions for the provided report IDs. |
+| [**query**](ScheduledReportsApi.md#query) | **GET** /reports/queries/scheduled-reports/v1 | Find all report IDs matching the query with filter |
+| [**query_by_id**](ScheduledReportsApi.md#query_by_id) | **GET** /reports/entities/scheduled-reports/v1 | Retrieve scheduled reports for the provided report IDs. |
 
 
-## scheduled_reports_get
+## execute_0
 
-> <DomainScheduledReportsResultV1> scheduled_reports_get(ids)
-
-Retrieve scheduled reports for the provided report IDs.
-
-### Examples
-
-```ruby
-require 'time'
-require 'crimson-falcon'
-
-# Setup authorization
-Falcon.configure do |config|
-  config.client_id = "Your_Client_ID"
-  config.client_secret = "Your_Client_Secret"
-  config.cloud = "us-1" # or "us-2", "eu-1", "us-gov1"
-end
-
-api_instance = Falcon::ScheduledReportsApi.new
-ids = ['inner_example'] # Array<String> | The scheduled_report id to get details about.
-
-begin
-  # Retrieve scheduled reports for the provided report IDs.
-  result = api_instance.scheduled_reports_get(ids)
-  p result
-rescue Falcon::ApiError => e
-  puts "Error when calling ScheduledReportsApi->scheduled_reports_get: #{e}"
-end
-```
-
-#### Using the scheduled_reports_get_with_http_info variant
-
-This returns an Array which contains the response data, status code and headers.
-
-> <Array(<DomainScheduledReportsResultV1>, Integer, Hash)> scheduled_reports_get_with_http_info(ids)
-
-```ruby
-begin
-  # Retrieve scheduled reports for the provided report IDs.
-  data, status_code, headers = api_instance.scheduled_reports_get_with_http_info(ids)
-  p status_code # => 2xx
-  p headers # => { ... }
-  p data # => <DomainScheduledReportsResultV1>
-rescue Falcon::ApiError => e
-  puts "Error when calling ScheduledReportsApi->scheduled_reports_get_with_http_info: #{e}"
-end
-```
-
-### Parameters
-
-| Name | Type | Description | Notes |
-| ---- | ---- | ----------- | ----- |
-| **ids** | [**Array&lt;String&gt;**](String.md) | The scheduled_report id to get details about. |  |
-
-### Return type
-
-[**DomainScheduledReportsResultV1**](DomainScheduledReportsResultV1.md)
-
-### Authorization
-
-**oauth2**
-
-### HTTP request headers
-
-- **Content-Type**: Not defined
-- **Accept**: application/json
-
-
-## scheduled_reports_launch
-
-> <DomainReportExecutionsResponseV1> scheduled_reports_launch(body)
+> <DomainReportExecutionsResponseV1> execute_0(body)
 
 Launch scheduled reports executions for the provided report IDs.
 
@@ -102,28 +33,28 @@ body = [Falcon::DomainReportExecutionLaunchRequestV1.new({id: 'id_example'})] # 
 
 begin
   # Launch scheduled reports executions for the provided report IDs.
-  result = api_instance.scheduled_reports_launch(body)
+  result = api_instance.execute_0(body)
   p result
 rescue Falcon::ApiError => e
-  puts "Error when calling ScheduledReportsApi->scheduled_reports_launch: #{e}"
+  puts "Error when calling ScheduledReportsApi->execute_0: #{e}"
 end
 ```
 
-#### Using the scheduled_reports_launch_with_http_info variant
+#### Using the execute_0_with_http_info variant
 
 This returns an Array which contains the response data, status code and headers.
 
-> <Array(<DomainReportExecutionsResponseV1>, Integer, Hash)> scheduled_reports_launch_with_http_info(body)
+> <Array(<DomainReportExecutionsResponseV1>, Integer, Hash)> execute_0_with_http_info(body)
 
 ```ruby
 begin
   # Launch scheduled reports executions for the provided report IDs.
-  data, status_code, headers = api_instance.scheduled_reports_launch_with_http_info(body)
+  data, status_code, headers = api_instance.execute_0_with_http_info(body)
   p status_code # => 2xx
   p headers # => { ... }
   p data # => <DomainReportExecutionsResponseV1>
 rescue Falcon::ApiError => e
-  puts "Error when calling ScheduledReportsApi->scheduled_reports_launch_with_http_info: #{e}"
+  puts "Error when calling ScheduledReportsApi->execute_0_with_http_info: #{e}"
 end
 ```
 
@@ -147,9 +78,9 @@ end
 - **Accept**: application/json
 
 
-## scheduled_reports_query
+## query
 
-> <MsaQueryResponse> scheduled_reports_query(opts)
+> <MsaQueryResponse> query(opts)
 
 Find all report IDs matching the query with filter
 
@@ -177,28 +108,28 @@ opts = {
 
 begin
   # Find all report IDs matching the query with filter
-  result = api_instance.scheduled_reports_query(opts)
+  result = api_instance.query(opts)
   p result
 rescue Falcon::ApiError => e
-  puts "Error when calling ScheduledReportsApi->scheduled_reports_query: #{e}"
+  puts "Error when calling ScheduledReportsApi->query: #{e}"
 end
 ```
 
-#### Using the scheduled_reports_query_with_http_info variant
+#### Using the query_with_http_info variant
 
 This returns an Array which contains the response data, status code and headers.
 
-> <Array(<MsaQueryResponse>, Integer, Hash)> scheduled_reports_query_with_http_info(opts)
+> <Array(<MsaQueryResponse>, Integer, Hash)> query_with_http_info(opts)
 
 ```ruby
 begin
   # Find all report IDs matching the query with filter
-  data, status_code, headers = api_instance.scheduled_reports_query_with_http_info(opts)
+  data, status_code, headers = api_instance.query_with_http_info(opts)
   p status_code # => 2xx
   p headers # => { ... }
   p data # => <MsaQueryResponse>
 rescue Falcon::ApiError => e
-  puts "Error when calling ScheduledReportsApi->scheduled_reports_query_with_http_info: #{e}"
+  puts "Error when calling ScheduledReportsApi->query_with_http_info: #{e}"
 end
 ```
 
@@ -215,6 +146,75 @@ end
 ### Return type
 
 [**MsaQueryResponse**](MsaQueryResponse.md)
+
+### Authorization
+
+**oauth2**
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+
+## query_by_id
+
+> <DomainScheduledReportsResultV1> query_by_id(ids)
+
+Retrieve scheduled reports for the provided report IDs.
+
+### Examples
+
+```ruby
+require 'time'
+require 'crimson-falcon'
+
+# Setup authorization
+Falcon.configure do |config|
+  config.client_id = "Your_Client_ID"
+  config.client_secret = "Your_Client_Secret"
+  config.cloud = "us-1" # or "us-2", "eu-1", "us-gov1"
+end
+
+api_instance = Falcon::ScheduledReportsApi.new
+ids = ['inner_example'] # Array<String> | The scheduled_report id to get details about.
+
+begin
+  # Retrieve scheduled reports for the provided report IDs.
+  result = api_instance.query_by_id(ids)
+  p result
+rescue Falcon::ApiError => e
+  puts "Error when calling ScheduledReportsApi->query_by_id: #{e}"
+end
+```
+
+#### Using the query_by_id_with_http_info variant
+
+This returns an Array which contains the response data, status code and headers.
+
+> <Array(<DomainScheduledReportsResultV1>, Integer, Hash)> query_by_id_with_http_info(ids)
+
+```ruby
+begin
+  # Retrieve scheduled reports for the provided report IDs.
+  data, status_code, headers = api_instance.query_by_id_with_http_info(ids)
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => <DomainScheduledReportsResultV1>
+rescue Falcon::ApiError => e
+  puts "Error when calling ScheduledReportsApi->query_by_id_with_http_info: #{e}"
+end
+```
+
+### Parameters
+
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **ids** | [**Array&lt;String&gt;**](String.md) | The scheduled_report id to get details about. |  |
+
+### Return type
+
+[**DomainScheduledReportsResultV1**](DomainScheduledReportsResultV1.md)
 
 ### Authorization
 

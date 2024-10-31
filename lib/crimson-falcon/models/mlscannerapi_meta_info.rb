@@ -64,7 +64,7 @@ module Falcon
     # Attribute type mapping.
     def self.openapi_types
       {
-        :'pagination' => :'MsaspecPaging',
+        :'pagination' => :'MsaPaging',
         :'powered_by' => :'String',
         :'query_time' => :'Float',
         :'quota' => :'MlscannerapiQuota',
@@ -285,5 +285,7 @@ module Falcon
         value
       end
     end
+
   end
+
 end

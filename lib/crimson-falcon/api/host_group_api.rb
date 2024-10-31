@@ -37,7 +37,7 @@ module Falcon
       @api_client = api_client
     end
     # Create Host Groups by specifying details about the group to create
-    # @param body [HostGroupsCreateGroupsReqV1]
+    # @param body [HostGroupsCreateGroupsReqV1] 
     # @param [Hash] opts the optional parameters
     # @return [HostGroupsRespV1]
     def create_host_groups(body, opts = {})
@@ -46,7 +46,7 @@ module Falcon
     end
 
     # Create Host Groups by specifying details about the group to create
-    # @param body [HostGroupsCreateGroupsReqV1]
+    # @param body [HostGroupsCreateGroupsReqV1] 
     # @param [Hash] opts the optional parameters
     # @return [Array<(HostGroupsRespV1, Integer, Hash)>] HostGroupsRespV1 data, response status code and response headers
     def create_host_groups_with_http_info(body, opts = {})
@@ -70,7 +70,7 @@ module Falcon
       # HTTP header 'Content-Type'
       content_type = @api_client.select_header_content_type(['application/json'])
       if !content_type.nil?
-        header_params['Content-Type'] = content_type
+          header_params['Content-Type'] = content_type
       end
 
       # form parameters
@@ -228,7 +228,7 @@ module Falcon
 
     # Perform the specified action on the Host Groups specified in the request
     # @param action_name [String] The action to perform
-    # @param body [MsaEntityActionRequestV2]
+    # @param body [MsaEntityActionRequestV2] 
     # @param [Hash] opts the optional parameters
     # @option opts [Boolean] :disable_hostname_check Bool to disable hostname check on add-member (default to false)
     # @return [HostGroupsRespV1]
@@ -239,7 +239,7 @@ module Falcon
 
     # Perform the specified action on the Host Groups specified in the request
     # @param action_name [String] The action to perform
-    # @param body [MsaEntityActionRequestV2]
+    # @param body [MsaEntityActionRequestV2] 
     # @param [Hash] opts the optional parameters
     # @option opts [Boolean] :disable_hostname_check Bool to disable hostname check on add-member (default to false)
     # @return [Array<(HostGroupsRespV1, Integer, Hash)>] HostGroupsRespV1 data, response status code and response headers
@@ -275,7 +275,7 @@ module Falcon
       # HTTP header 'Content-Type'
       content_type = @api_client.select_header_content_type(['application/json'])
       if !content_type.nil?
-        header_params['Content-Type'] = content_type
+          header_params['Content-Type'] = content_type
       end
 
       # form parameters
@@ -638,7 +638,7 @@ module Falcon
     end
 
     # Update Host Groups by specifying the ID of the group and details to update
-    # @param body [HostGroupsUpdateGroupsReqV1]
+    # @param body [HostGroupsUpdateGroupsReqV1] 
     # @param [Hash] opts the optional parameters
     # @return [HostGroupsRespV1]
     def update_host_groups(body, opts = {})
@@ -647,7 +647,7 @@ module Falcon
     end
 
     # Update Host Groups by specifying the ID of the group and details to update
-    # @param body [HostGroupsUpdateGroupsReqV1]
+    # @param body [HostGroupsUpdateGroupsReqV1] 
     # @param [Hash] opts the optional parameters
     # @return [Array<(HostGroupsRespV1, Integer, Hash)>] HostGroupsRespV1 data, response status code and response headers
     def update_host_groups_with_http_info(body, opts = {})
@@ -671,7 +671,7 @@ module Falcon
       # HTTP header 'Content-Type'
       content_type = @api_client.select_header_content_type(['application/json'])
       if !content_type.nil?
-        header_params['Content-Type'] = content_type
+          header_params['Content-Type'] = content_type
       end
 
       # form parameters

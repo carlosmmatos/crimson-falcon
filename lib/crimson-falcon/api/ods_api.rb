@@ -37,7 +37,7 @@ module Falcon
       @api_client = api_client
     end
     # Get aggregates on ODS scan-hosts data.
-    # @param body [Array<MsaAggregateQueryRequest>]
+    # @param body [Array<MsaAggregateQueryRequest>] 
     # @param [Hash] opts the optional parameters
     # @return [MsaAggregatesResponse]
     def aggregate_query_scan_host_metadata(body, opts = {})
@@ -46,7 +46,7 @@ module Falcon
     end
 
     # Get aggregates on ODS scan-hosts data.
-    # @param body [Array<MsaAggregateQueryRequest>]
+    # @param body [Array<MsaAggregateQueryRequest>] 
     # @param [Hash] opts the optional parameters
     # @return [Array<(MsaAggregatesResponse, Integer, Hash)>] MsaAggregatesResponse data, response status code and response headers
     def aggregate_query_scan_host_metadata_with_http_info(body, opts = {})
@@ -70,7 +70,7 @@ module Falcon
       # HTTP header 'Content-Type'
       content_type = @api_client.select_header_content_type(['application/json'])
       if !content_type.nil?
-        header_params['Content-Type'] = content_type
+          header_params['Content-Type'] = content_type
       end
 
       # form parameters
@@ -103,7 +103,7 @@ module Falcon
     end
 
     # Get aggregates on ODS scan data.
-    # @param body [Array<MsaAggregateQueryRequest>]
+    # @param body [Array<MsaAggregateQueryRequest>] 
     # @param [Hash] opts the optional parameters
     # @return [MsaAggregatesResponse]
     def aggregate_scans(body, opts = {})
@@ -112,7 +112,7 @@ module Falcon
     end
 
     # Get aggregates on ODS scan data.
-    # @param body [Array<MsaAggregateQueryRequest>]
+    # @param body [Array<MsaAggregateQueryRequest>] 
     # @param [Hash] opts the optional parameters
     # @return [Array<(MsaAggregatesResponse, Integer, Hash)>] MsaAggregatesResponse data, response status code and response headers
     def aggregate_scans_with_http_info(body, opts = {})
@@ -136,7 +136,7 @@ module Falcon
       # HTTP header 'Content-Type'
       content_type = @api_client.select_header_content_type(['application/json'])
       if !content_type.nil?
-        header_params['Content-Type'] = content_type
+          header_params['Content-Type'] = content_type
       end
 
       # form parameters
@@ -169,7 +169,7 @@ module Falcon
     end
 
     # Get aggregates on ODS scheduled-scan data.
-    # @param body [Array<MsaAggregateQueryRequest>]
+    # @param body [Array<MsaAggregateQueryRequest>] 
     # @param [Hash] opts the optional parameters
     # @return [MsaAggregatesResponse]
     def aggregate_scheduled_scans(body, opts = {})
@@ -178,7 +178,7 @@ module Falcon
     end
 
     # Get aggregates on ODS scheduled-scan data.
-    # @param body [Array<MsaAggregateQueryRequest>]
+    # @param body [Array<MsaAggregateQueryRequest>] 
     # @param [Hash] opts the optional parameters
     # @return [Array<(MsaAggregatesResponse, Integer, Hash)>] MsaAggregatesResponse data, response status code and response headers
     def aggregate_scheduled_scans_with_http_info(body, opts = {})
@@ -202,7 +202,7 @@ module Falcon
       # HTTP header 'Content-Type'
       content_type = @api_client.select_header_content_type(['application/json'])
       if !content_type.nil?
-        header_params['Content-Type'] = content_type
+          header_params['Content-Type'] = content_type
       end
 
       # form parameters
@@ -235,7 +235,7 @@ module Falcon
     end
 
     # Cancel ODS scans for the given scan ids.
-    # @param body [EntitiesODSCancelScanRequest]
+    # @param body [EntitiesODSCancelScanRequest] 
     # @param [Hash] opts the optional parameters
     # @return [MsaspecQueryResponse]
     def cancel_scans(body, opts = {})
@@ -244,7 +244,7 @@ module Falcon
     end
 
     # Cancel ODS scans for the given scan ids.
-    # @param body [EntitiesODSCancelScanRequest]
+    # @param body [EntitiesODSCancelScanRequest] 
     # @param [Hash] opts the optional parameters
     # @return [Array<(MsaspecQueryResponse, Integer, Hash)>] MsaspecQueryResponse data, response status code and response headers
     def cancel_scans_with_http_info(body, opts = {})
@@ -268,7 +268,7 @@ module Falcon
       # HTTP header 'Content-Type'
       content_type = @api_client.select_header_content_type(['application/json'])
       if !content_type.nil?
-        header_params['Content-Type'] = content_type
+          header_params['Content-Type'] = content_type
       end
 
       # form parameters
@@ -301,7 +301,7 @@ module Falcon
     end
 
     # Create ODS scan and start or schedule scan for the given scan request.
-    # @param body [EntitiesODSScanRequest]
+    # @param body [EntitiesODSScanRequest] 
     # @param [Hash] opts the optional parameters
     # @return [EntitiesODSScanResponse]
     def create_scan(body, opts = {})
@@ -310,7 +310,7 @@ module Falcon
     end
 
     # Create ODS scan and start or schedule scan for the given scan request.
-    # @param body [EntitiesODSScanRequest]
+    # @param body [EntitiesODSScanRequest] 
     # @param [Hash] opts the optional parameters
     # @return [Array<(EntitiesODSScanResponse, Integer, Hash)>] EntitiesODSScanResponse data, response status code and response headers
     def create_scan_with_http_info(body, opts = {})
@@ -334,7 +334,7 @@ module Falcon
       # HTTP header 'Content-Type'
       content_type = @api_client.select_header_content_type(['application/json'])
       if !content_type.nil?
-        header_params['Content-Type'] = content_type
+          header_params['Content-Type'] = content_type
       end
 
       # form parameters
@@ -1026,7 +1026,7 @@ module Falcon
     end
 
     # Create ODS scan and start or schedule scan for the given scan request.
-    # @param body [EntitiesODSScheduleScanRequest]
+    # @param body [EntitiesODSScheduleScanRequest] 
     # @param [Hash] opts the optional parameters
     # @return [EntitiesODSScheduleScanResponse]
     def schedule_scan(body, opts = {})
@@ -1035,7 +1035,7 @@ module Falcon
     end
 
     # Create ODS scan and start or schedule scan for the given scan request.
-    # @param body [EntitiesODSScheduleScanRequest]
+    # @param body [EntitiesODSScheduleScanRequest] 
     # @param [Hash] opts the optional parameters
     # @return [Array<(EntitiesODSScheduleScanResponse, Integer, Hash)>] EntitiesODSScheduleScanResponse data, response status code and response headers
     def schedule_scan_with_http_info(body, opts = {})
@@ -1059,7 +1059,7 @@ module Falcon
       # HTTP header 'Content-Type'
       content_type = @api_client.select_header_content_type(['application/json'])
       if !content_type.nil?
-        header_params['Content-Type'] = content_type
+          header_params['Content-Type'] = content_type
       end
 
       # form parameters

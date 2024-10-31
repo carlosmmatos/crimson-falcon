@@ -56,8 +56,8 @@ module Falcon
     def self.openapi_types
       {
         :'enrichment_data' => :'Array<K8sassetsContainerEnrichmentEntry>',
-        :'errors' => :'Array<MsaspecError>',
-        :'meta' => :'MsaspecMetaInfo'
+        :'errors' => :'Array<MsaAPIError>',
+        :'meta' => :'MsaMetaInfo'
       }
     end
 
@@ -262,5 +262,7 @@ module Falcon
         value
       end
     end
+
   end
+
 end

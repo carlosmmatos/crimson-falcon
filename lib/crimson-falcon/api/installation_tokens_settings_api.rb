@@ -37,7 +37,7 @@ module Falcon
       @api_client = api_client
     end
     # Update installation token settings.
-    # @param body [ApiCustomerSettingsPatchRequestV1]
+    # @param body [ApiCustomerSettingsPatchRequestV1] 
     # @param [Hash] opts the optional parameters
     # @return [MsaspecQueryResponse]
     def customer_settings_update(body, opts = {})
@@ -46,7 +46,7 @@ module Falcon
     end
 
     # Update installation token settings.
-    # @param body [ApiCustomerSettingsPatchRequestV1]
+    # @param body [ApiCustomerSettingsPatchRequestV1] 
     # @param [Hash] opts the optional parameters
     # @return [Array<(MsaspecQueryResponse, Integer, Hash)>] MsaspecQueryResponse data, response status code and response headers
     def customer_settings_update_with_http_info(body, opts = {})
@@ -70,7 +70,7 @@ module Falcon
       # HTTP header 'Content-Type'
       content_type = @api_client.select_header_content_type(['application/json'])
       if !content_type.nil?
-        header_params['Content-Type'] = content_type
+          header_params['Content-Type'] = content_type
       end
 
       # form parameters

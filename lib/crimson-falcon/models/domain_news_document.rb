@@ -142,24 +142,24 @@ module Falcon
         :'attachments' => :'Array<DomainFile>',
         :'created_date' => :'Integer',
         :'description' => :'String',
-        :'entitlements' => :'Array<DomainEntity>',
+        :'entitlements' => :'Array<Object>',
         :'id' => :'Integer',
         :'image' => :'DomainImage',
         :'last_modified_date' => :'Integer',
         :'malware' => :'Array<DomainReportMalware>',
-        :'motivations' => :'Array<DomainEntity>',
+        :'motivations' => :'Array<Object>',
         :'name' => :'String',
         :'notify_users' => :'Boolean',
         :'rich_text_description' => :'String',
         :'short_description' => :'String',
         :'slug' => :'String',
-        :'sub_type' => :'DomainEntity',
-        :'tags' => :'Array<DomainEntity>',
-        :'target_countries' => :'Array<DomainEntity>',
-        :'target_industries' => :'Array<DomainEntity>',
+        :'sub_type' => :'Object',
+        :'tags' => :'Array<Object>',
+        :'target_countries' => :'Array<Object>',
+        :'target_industries' => :'Array<Object>',
         :'thumbnail' => :'DomainImage',
-        :'topic' => :'DomainEntity',
-        :'type' => :'DomainEntity',
+        :'topic' => :'Object',
+        :'type' => :'Object',
         :'url' => :'String'
       }
     end
@@ -527,5 +527,7 @@ module Falcon
         value
       end
     end
+
   end
+
 end

@@ -73,6 +73,7 @@ module Falcon
     # List of attributes with nullable: true
     def self.openapi_nullable
       Set.new([
+        :'assignment_rule',
       ])
     end
 
@@ -267,5 +268,7 @@ module Falcon
         value
       end
     end
+
   end
+
 end

@@ -37,7 +37,7 @@ module Falcon
       @api_client = api_client
     end
     # Create a rule within a rule group. Returns the rule.
-    # @param body [ApiRuleCreateV1]
+    # @param body [ApiRuleCreateV1] 
     # @param [Hash] opts the optional parameters
     # @return [ApiRulesResponse]
     def create_rule(body, opts = {})
@@ -46,7 +46,7 @@ module Falcon
     end
 
     # Create a rule within a rule group. Returns the rule.
-    # @param body [ApiRuleCreateV1]
+    # @param body [ApiRuleCreateV1] 
     # @param [Hash] opts the optional parameters
     # @return [Array<(ApiRulesResponse, Integer, Hash)>] ApiRulesResponse data, response status code and response headers
     def create_rule_with_http_info(body, opts = {})
@@ -70,7 +70,7 @@ module Falcon
       # HTTP header 'Content-Type'
       content_type = @api_client.select_header_content_type(['application/json'])
       if !content_type.nil?
-        header_params['Content-Type'] = content_type
+          header_params['Content-Type'] = content_type
       end
 
       # form parameters
@@ -103,7 +103,7 @@ module Falcon
     end
 
     # Create a rule group for a platform with a name and an optional description. Returns the rule group.
-    # @param body [ApiRuleGroupCreateRequestV1]
+    # @param body [ApiRuleGroupCreateRequestV1] 
     # @param [Hash] opts the optional parameters
     # @return [ApiRuleGroupsResponse]
     def create_rule_group_mixin0(body, opts = {})
@@ -112,7 +112,7 @@ module Falcon
     end
 
     # Create a rule group for a platform with a name and an optional description. Returns the rule group.
-    # @param body [ApiRuleGroupCreateRequestV1]
+    # @param body [ApiRuleGroupCreateRequestV1] 
     # @param [Hash] opts the optional parameters
     # @return [Array<(ApiRuleGroupsResponse, Integer, Hash)>] ApiRuleGroupsResponse data, response status code and response headers
     def create_rule_group_mixin0_with_http_info(body, opts = {})
@@ -136,7 +136,7 @@ module Falcon
       # HTTP header 'Content-Type'
       content_type = @api_client.select_header_content_type(['application/json'])
       if !content_type.nil?
-        header_params['Content-Type'] = content_type
+          header_params['Content-Type'] = content_type
       end
 
       # form parameters
@@ -239,8 +239,8 @@ module Falcon
     # @param [Hash] opts the optional parameters
     # @option opts [String] :comment Explains why the entity is being deleted
     # @return [MsaReplyMetaOnly]
-    def delete_rules(rule_group_id, ids, opts = {})
-      data, _status_code, _headers = delete_rules_with_http_info(rule_group_id, ids, opts)
+    def delete_rules_0(rule_group_id, ids, opts = {})
+      data, _status_code, _headers = delete_rules_0_with_http_info(rule_group_id, ids, opts)
       data
     end
 
@@ -250,17 +250,17 @@ module Falcon
     # @param [Hash] opts the optional parameters
     # @option opts [String] :comment Explains why the entity is being deleted
     # @return [Array<(MsaReplyMetaOnly, Integer, Hash)>] MsaReplyMetaOnly data, response status code and response headers
-    def delete_rules_with_http_info(rule_group_id, ids, opts = {})
+    def delete_rules_0_with_http_info(rule_group_id, ids, opts = {})
       if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: CustomIoaApi.delete_rules ...'
+        @api_client.config.logger.debug 'Calling API: CustomIoaApi.delete_rules_0 ...'
       end
       # verify the required parameter 'rule_group_id' is set
       if @api_client.config.client_side_validation && rule_group_id.nil?
-        fail ArgumentError, "Missing the required parameter 'rule_group_id' when calling CustomIoaApi.delete_rules"
+        fail ArgumentError, "Missing the required parameter 'rule_group_id' when calling CustomIoaApi.delete_rules_0"
       end
       # verify the required parameter 'ids' is set
       if @api_client.config.client_side_validation && ids.nil?
-        fail ArgumentError, "Missing the required parameter 'ids' when calling CustomIoaApi.delete_rules"
+        fail ArgumentError, "Missing the required parameter 'ids' when calling CustomIoaApi.delete_rules_0"
       end
       # resource path
       local_var_path = '/ioarules/entities/rules/v1'
@@ -289,7 +289,7 @@ module Falcon
       auth_names = opts[:debug_auth_names] || ['oauth2']
 
       new_options = opts.merge(
-        :operation => :"CustomIoaApi.delete_rules",
+        :operation => :"CustomIoaApi.delete_rules_0",
         :header_params => header_params,
         :query_params => query_params,
         :form_params => form_params,
@@ -300,7 +300,7 @@ module Falcon
 
       data, status_code, headers = @api_client.call_api(:DELETE, local_var_path, new_options)
       if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: CustomIoaApi#delete_rules\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+        @api_client.config.logger.debug "API called: CustomIoaApi#delete_rules_0\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
@@ -587,7 +587,7 @@ module Falcon
       # HTTP header 'Content-Type'
       content_type = @api_client.select_header_content_type(['application/json'])
       if !content_type.nil?
-        header_params['Content-Type'] = content_type
+          header_params['Content-Type'] = content_type
       end
 
       # form parameters
@@ -805,12 +805,12 @@ module Falcon
 
     # Find all rule groups matching the query with optional filter.
     # @param [Hash] opts the optional parameters
-    # @option opts [String] :sort Possible order by fields: {enabled, name, created_by, created_on, modified_by, modified_on}
+    # @option opts [String] :sort Possible order by fields: {created_by, created_on, enabled, modified_by, modified_on, name}
     # @option opts [String] :filter FQL query specifying the filter parameters. Filter term criteria: [enabled platform name description rules.action_label rules.name rules.description rules.pattern_severity rules.ruletype_name rules.enabled]. Filter range criteria: created_on, modified_on; use any common date format, such as &#39;2010-05-15T14:55:21.892315096Z&#39;.
     # @option opts [String] :q Match query criteria, which includes all the filter string fields
     # @option opts [String] :offset Starting index of overall result set from which to return IDs
     # @option opts [Integer] :limit Number of IDs to return
-    # @return [MsaQueryResponse]
+    # @return [ApiRuleGroupsResponse]
     def query_rule_groups_full(opts = {})
       data, _status_code, _headers = query_rule_groups_full_with_http_info(opts)
       data
@@ -818,12 +818,12 @@ module Falcon
 
     # Find all rule groups matching the query with optional filter.
     # @param [Hash] opts the optional parameters
-    # @option opts [String] :sort Possible order by fields: {enabled, name, created_by, created_on, modified_by, modified_on}
+    # @option opts [String] :sort Possible order by fields: {created_by, created_on, enabled, modified_by, modified_on, name}
     # @option opts [String] :filter FQL query specifying the filter parameters. Filter term criteria: [enabled platform name description rules.action_label rules.name rules.description rules.pattern_severity rules.ruletype_name rules.enabled]. Filter range criteria: created_on, modified_on; use any common date format, such as &#39;2010-05-15T14:55:21.892315096Z&#39;.
     # @option opts [String] :q Match query criteria, which includes all the filter string fields
     # @option opts [String] :offset Starting index of overall result set from which to return IDs
     # @option opts [Integer] :limit Number of IDs to return
-    # @return [Array<(MsaQueryResponse, Integer, Hash)>] MsaQueryResponse data, response status code and response headers
+    # @return [Array<(ApiRuleGroupsResponse, Integer, Hash)>] ApiRuleGroupsResponse data, response status code and response headers
     def query_rule_groups_full_with_http_info(opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: CustomIoaApi.query_rule_groups_full ...'
@@ -855,7 +855,7 @@ module Falcon
       post_body = opts[:debug_body]
 
       # return_type
-      return_type = opts[:debug_return_type] || 'MsaQueryResponse'
+      return_type = opts[:debug_return_type] || 'ApiRuleGroupsResponse'
 
       # auth_names
       auth_names = opts[:debug_auth_names] || ['oauth2']
@@ -879,7 +879,7 @@ module Falcon
 
     # Finds all rule group IDs matching the query with optional filter.
     # @param [Hash] opts the optional parameters
-    # @option opts [String] :sort Possible order by fields: {enabled, name, created_by, created_on, modified_by, modified_on}
+    # @option opts [String] :sort Possible order by fields: {created_by, created_on, enabled, modified_by, modified_on, name}
     # @option opts [String] :filter FQL query specifying the filter parameters. Filter term criteria: [enabled platform name description rules.action_label rules.name rules.description rules.pattern_severity rules.ruletype_name rules.enabled]. Filter range criteria: created_on, modified_on; use any common date format, such as &#39;2010-05-15T14:55:21.892315096Z&#39;.
     # @option opts [String] :q Match query criteria, which includes all the filter string fields
     # @option opts [String] :offset Starting index of overall result set from which to return IDs
@@ -892,7 +892,7 @@ module Falcon
 
     # Finds all rule group IDs matching the query with optional filter.
     # @param [Hash] opts the optional parameters
-    # @option opts [String] :sort Possible order by fields: {enabled, name, created_by, created_on, modified_by, modified_on}
+    # @option opts [String] :sort Possible order by fields: {created_by, created_on, enabled, modified_by, modified_on, name}
     # @option opts [String] :filter FQL query specifying the filter parameters. Filter term criteria: [enabled platform name description rules.action_label rules.name rules.description rules.pattern_severity rules.ruletype_name rules.enabled]. Filter range criteria: created_on, modified_on; use any common date format, such as &#39;2010-05-15T14:55:21.892315096Z&#39;.
     # @option opts [String] :q Match query criteria, which includes all the filter string fields
     # @option opts [String] :offset Starting index of overall result set from which to return IDs
@@ -1014,7 +1014,7 @@ module Falcon
 
     # Finds all rule IDs matching the query with optional filter.
     # @param [Hash] opts the optional parameters
-    # @option opts [String] :sort Possible order by fields: {rules.current_version.description, rules.current_version.action_label, rules.current_version.modified_on, rules.created_on, rules.current_version.name, rules.created_by, rules.current_version.pattern_severity, rules.current_version.modified_by, rules.ruletype_name, rules.enabled}
+    # @option opts [String] :sort Possible order by fields: {rules.created_by, rules.created_on, rules.current_version.action_label, rules.current_version.description, rules.current_version.modified_by, rules.current_version.modified_on, rules.current_version.name, rules.current_version.pattern_severity, rules.enabled, rules.ruletype_name}
     # @option opts [String] :filter FQL query specifying the filter parameters. Filter term criteria: [enabled platform name description rules.action_label rules.name rules.description rules.pattern_severity rules.ruletype_name rules.enabled]. Filter range criteria: created_on, modified_on; use any common date format, such as &#39;2010-05-15T14:55:21.892315096Z&#39;.
     # @option opts [String] :q Match query criteria, which includes all the filter string fields
     # @option opts [String] :offset Starting index of overall result set from which to return IDs
@@ -1027,7 +1027,7 @@ module Falcon
 
     # Finds all rule IDs matching the query with optional filter.
     # @param [Hash] opts the optional parameters
-    # @option opts [String] :sort Possible order by fields: {rules.current_version.description, rules.current_version.action_label, rules.current_version.modified_on, rules.created_on, rules.current_version.name, rules.created_by, rules.current_version.pattern_severity, rules.current_version.modified_by, rules.ruletype_name, rules.enabled}
+    # @option opts [String] :sort Possible order by fields: {rules.created_by, rules.created_on, rules.current_version.action_label, rules.current_version.description, rules.current_version.modified_by, rules.current_version.modified_on, rules.current_version.name, rules.current_version.pattern_severity, rules.enabled, rules.ruletype_name}
     # @option opts [String] :filter FQL query specifying the filter parameters. Filter term criteria: [enabled platform name description rules.action_label rules.name rules.description rules.pattern_severity rules.ruletype_name rules.enabled]. Filter range criteria: created_on, modified_on; use any common date format, such as &#39;2010-05-15T14:55:21.892315096Z&#39;.
     # @option opts [String] :q Match query criteria, which includes all the filter string fields
     # @option opts [String] :offset Starting index of overall result set from which to return IDs
@@ -1087,7 +1087,7 @@ module Falcon
     end
 
     # Update a rule group. The following properties can be modified: name, description, enabled.
-    # @param body [ApiRuleGroupModifyRequestV1]
+    # @param body [ApiRuleGroupModifyRequestV1] 
     # @param [Hash] opts the optional parameters
     # @return [ApiRuleGroupsResponse]
     def update_rule_group_mixin0(body, opts = {})
@@ -1096,7 +1096,7 @@ module Falcon
     end
 
     # Update a rule group. The following properties can be modified: name, description, enabled.
-    # @param body [ApiRuleGroupModifyRequestV1]
+    # @param body [ApiRuleGroupModifyRequestV1] 
     # @param [Hash] opts the optional parameters
     # @return [Array<(ApiRuleGroupsResponse, Integer, Hash)>] ApiRuleGroupsResponse data, response status code and response headers
     def update_rule_group_mixin0_with_http_info(body, opts = {})
@@ -1120,7 +1120,7 @@ module Falcon
       # HTTP header 'Content-Type'
       content_type = @api_client.select_header_content_type(['application/json'])
       if !content_type.nil?
-        header_params['Content-Type'] = content_type
+          header_params['Content-Type'] = content_type
       end
 
       # form parameters
@@ -1153,25 +1153,25 @@ module Falcon
     end
 
     # Update rules within a rule group. Return the updated rules.
-    # @param body [ApiRuleUpdatesRequestV1]
+    # @param body [ApiRuleUpdatesRequestV1] 
     # @param [Hash] opts the optional parameters
     # @return [ApiRulesResponse]
-    def update_rules(body, opts = {})
-      data, _status_code, _headers = update_rules_with_http_info(body, opts)
+    def update_rules_0(body, opts = {})
+      data, _status_code, _headers = update_rules_0_with_http_info(body, opts)
       data
     end
 
     # Update rules within a rule group. Return the updated rules.
-    # @param body [ApiRuleUpdatesRequestV1]
+    # @param body [ApiRuleUpdatesRequestV1] 
     # @param [Hash] opts the optional parameters
     # @return [Array<(ApiRulesResponse, Integer, Hash)>] ApiRulesResponse data, response status code and response headers
-    def update_rules_with_http_info(body, opts = {})
+    def update_rules_0_with_http_info(body, opts = {})
       if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: CustomIoaApi.update_rules ...'
+        @api_client.config.logger.debug 'Calling API: CustomIoaApi.update_rules_0 ...'
       end
       # verify the required parameter 'body' is set
       if @api_client.config.client_side_validation && body.nil?
-        fail ArgumentError, "Missing the required parameter 'body' when calling CustomIoaApi.update_rules"
+        fail ArgumentError, "Missing the required parameter 'body' when calling CustomIoaApi.update_rules_0"
       end
       # resource path
       local_var_path = '/ioarules/entities/rules/v1'
@@ -1186,7 +1186,7 @@ module Falcon
       # HTTP header 'Content-Type'
       content_type = @api_client.select_header_content_type(['application/json'])
       if !content_type.nil?
-        header_params['Content-Type'] = content_type
+          header_params['Content-Type'] = content_type
       end
 
       # form parameters
@@ -1202,7 +1202,7 @@ module Falcon
       auth_names = opts[:debug_auth_names] || ['oauth2']
 
       new_options = opts.merge(
-        :operation => :"CustomIoaApi.update_rules",
+        :operation => :"CustomIoaApi.update_rules_0",
         :header_params => header_params,
         :query_params => query_params,
         :form_params => form_params,
@@ -1213,13 +1213,79 @@ module Falcon
 
       data, status_code, headers = @api_client.call_api(:PATCH, local_var_path, new_options)
       if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: CustomIoaApi#update_rules\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+        @api_client.config.logger.debug "API called: CustomIoaApi#update_rules_0\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
+    # Update name, description, enabled or field_values for individual rules within a rule group. The v1 flavor of this call requires the caller to specify the complete state for all the rules in the rule group, instead the v2 flavor will accept the subset of rules in the rule group and apply the attribute updates to the subset of rules in the rule group.Return the updated rules.
+    # @param body [ApiRuleUpdatesRequestV2] 
+    # @param [Hash] opts the optional parameters
+    # @return [ApiRulesResponse]
+    def update_rules_v2(body, opts = {})
+      data, _status_code, _headers = update_rules_v2_with_http_info(body, opts)
+      data
+    end
+
+    # Update name, description, enabled or field_values for individual rules within a rule group. The v1 flavor of this call requires the caller to specify the complete state for all the rules in the rule group, instead the v2 flavor will accept the subset of rules in the rule group and apply the attribute updates to the subset of rules in the rule group.Return the updated rules.
+    # @param body [ApiRuleUpdatesRequestV2] 
+    # @param [Hash] opts the optional parameters
+    # @return [Array<(ApiRulesResponse, Integer, Hash)>] ApiRulesResponse data, response status code and response headers
+    def update_rules_v2_with_http_info(body, opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: CustomIoaApi.update_rules_v2 ...'
+      end
+      # verify the required parameter 'body' is set
+      if @api_client.config.client_side_validation && body.nil?
+        fail ArgumentError, "Missing the required parameter 'body' when calling CustomIoaApi.update_rules_v2"
+      end
+      # resource path
+      local_var_path = '/ioarules/entities/rules/v2'
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+      # HTTP header 'Content-Type'
+      content_type = @api_client.select_header_content_type(['application/json'])
+      if !content_type.nil?
+          header_params['Content-Type'] = content_type
+      end
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body] || @api_client.object_to_http_body(body)
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'ApiRulesResponse'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || ['oauth2']
+
+      new_options = opts.merge(
+        :operation => :"CustomIoaApi.update_rules_v2",
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type
+      )
+
+      data, status_code, headers = @api_client.call_api(:PATCH, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: CustomIoaApi#update_rules_v2\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
 
     # Validates field values and checks for matches if a test string is provided.
-    # @param body [ApiValidationRequestV1]
+    # @param body [ApiValidationRequestV1] 
     # @param [Hash] opts the optional parameters
     # @return [ApiValidationResponseV1]
     def validate(body, opts = {})
@@ -1228,7 +1294,7 @@ module Falcon
     end
 
     # Validates field values and checks for matches if a test string is provided.
-    # @param body [ApiValidationRequestV1]
+    # @param body [ApiValidationRequestV1] 
     # @param [Hash] opts the optional parameters
     # @return [Array<(ApiValidationResponseV1, Integer, Hash)>] ApiValidationResponseV1 data, response status code and response headers
     def validate_with_http_info(body, opts = {})
@@ -1252,7 +1318,7 @@ module Falcon
       # HTTP header 'Content-Type'
       content_type = @api_client.select_header_content_type(['application/json'])
       if !content_type.nil?
-        header_params['Content-Type'] = content_type
+          header_params['Content-Type'] = content_type
       end
 
       # form parameters

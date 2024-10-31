@@ -36,88 +36,26 @@ module Falcon
     def initialize(api_client = ApiClient.default)
       @api_client = api_client
     end
-    # Retrieve scheduled reports for the provided report IDs.
-    # @param ids [Array<String>] The scheduled_report id to get details about.
-    # @param [Hash] opts the optional parameters
-    # @return [DomainScheduledReportsResultV1]
-    def scheduled_reports_get(ids, opts = {})
-      data, _status_code, _headers = scheduled_reports_get_with_http_info(ids, opts)
-      data
-    end
-
-    # Retrieve scheduled reports for the provided report IDs.
-    # @param ids [Array<String>] The scheduled_report id to get details about.
-    # @param [Hash] opts the optional parameters
-    # @return [Array<(DomainScheduledReportsResultV1, Integer, Hash)>] DomainScheduledReportsResultV1 data, response status code and response headers
-    def scheduled_reports_get_with_http_info(ids, opts = {})
-      if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: ScheduledReportsApi.scheduled_reports_get ...'
-      end
-      # verify the required parameter 'ids' is set
-      if @api_client.config.client_side_validation && ids.nil?
-        fail ArgumentError, "Missing the required parameter 'ids' when calling ScheduledReportsApi.scheduled_reports_get"
-      end
-      # resource path
-      local_var_path = '/reports/entities/scheduled-reports/v1'
-
-      # query parameters
-      query_params = opts[:query_params] || {}
-      query_params[:'ids'] = @api_client.build_collection_param(ids, :multi)
-
-      # header parameters
-      header_params = opts[:header_params] || {}
-      # HTTP header 'Accept' (if needed)
-      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
-
-      # form parameters
-      form_params = opts[:form_params] || {}
-
-      # http body (model)
-      post_body = opts[:debug_body]
-
-      # return_type
-      return_type = opts[:debug_return_type] || 'DomainScheduledReportsResultV1'
-
-      # auth_names
-      auth_names = opts[:debug_auth_names] || ['oauth2']
-
-      new_options = opts.merge(
-        :operation => :"ScheduledReportsApi.scheduled_reports_get",
-        :header_params => header_params,
-        :query_params => query_params,
-        :form_params => form_params,
-        :body => post_body,
-        :auth_names => auth_names,
-        :return_type => return_type
-      )
-
-      data, status_code, headers = @api_client.call_api(:GET, local_var_path, new_options)
-      if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: ScheduledReportsApi#scheduled_reports_get\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
-      end
-      return data, status_code, headers
-    end
-
     # Launch scheduled reports executions for the provided report IDs.
-    # @param body [Array<DomainReportExecutionLaunchRequestV1>]
+    # @param body [Array<DomainReportExecutionLaunchRequestV1>] 
     # @param [Hash] opts the optional parameters
     # @return [DomainReportExecutionsResponseV1]
-    def scheduled_reports_launch(body, opts = {})
-      data, _status_code, _headers = scheduled_reports_launch_with_http_info(body, opts)
+    def execute_0(body, opts = {})
+      data, _status_code, _headers = execute_0_with_http_info(body, opts)
       data
     end
 
     # Launch scheduled reports executions for the provided report IDs.
-    # @param body [Array<DomainReportExecutionLaunchRequestV1>]
+    # @param body [Array<DomainReportExecutionLaunchRequestV1>] 
     # @param [Hash] opts the optional parameters
     # @return [Array<(DomainReportExecutionsResponseV1, Integer, Hash)>] DomainReportExecutionsResponseV1 data, response status code and response headers
-    def scheduled_reports_launch_with_http_info(body, opts = {})
+    def execute_0_with_http_info(body, opts = {})
       if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: ScheduledReportsApi.scheduled_reports_launch ...'
+        @api_client.config.logger.debug 'Calling API: ScheduledReportsApi.execute_0 ...'
       end
       # verify the required parameter 'body' is set
       if @api_client.config.client_side_validation && body.nil?
-        fail ArgumentError, "Missing the required parameter 'body' when calling ScheduledReportsApi.scheduled_reports_launch"
+        fail ArgumentError, "Missing the required parameter 'body' when calling ScheduledReportsApi.execute_0"
       end
       # resource path
       local_var_path = '/reports/entities/scheduled-reports/execution/v1'
@@ -132,7 +70,7 @@ module Falcon
       # HTTP header 'Content-Type'
       content_type = @api_client.select_header_content_type(['application/json'])
       if !content_type.nil?
-        header_params['Content-Type'] = content_type
+          header_params['Content-Type'] = content_type
       end
 
       # form parameters
@@ -148,7 +86,7 @@ module Falcon
       auth_names = opts[:debug_auth_names] || ['oauth2']
 
       new_options = opts.merge(
-        :operation => :"ScheduledReportsApi.scheduled_reports_launch",
+        :operation => :"ScheduledReportsApi.execute_0",
         :header_params => header_params,
         :query_params => query_params,
         :form_params => form_params,
@@ -159,7 +97,7 @@ module Falcon
 
       data, status_code, headers = @api_client.call_api(:POST, local_var_path, new_options)
       if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: ScheduledReportsApi#scheduled_reports_launch\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+        @api_client.config.logger.debug "API called: ScheduledReportsApi#execute_0\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
@@ -172,8 +110,8 @@ module Falcon
     # @option opts [String] :offset Starting index of overall result set from which to return ids.
     # @option opts [Integer] :limit Number of ids to return.
     # @return [MsaQueryResponse]
-    def scheduled_reports_query(opts = {})
-      data, _status_code, _headers = scheduled_reports_query_with_http_info(opts)
+    def query(opts = {})
+      data, _status_code, _headers = query_with_http_info(opts)
       data
     end
 
@@ -185,9 +123,9 @@ module Falcon
     # @option opts [String] :offset Starting index of overall result set from which to return ids.
     # @option opts [Integer] :limit Number of ids to return.
     # @return [Array<(MsaQueryResponse, Integer, Hash)>] MsaQueryResponse data, response status code and response headers
-    def scheduled_reports_query_with_http_info(opts = {})
+    def query_with_http_info(opts = {})
       if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: ScheduledReportsApi.scheduled_reports_query ...'
+        @api_client.config.logger.debug 'Calling API: ScheduledReportsApi.query ...'
       end
       # resource path
       local_var_path = '/reports/queries/scheduled-reports/v1'
@@ -218,7 +156,7 @@ module Falcon
       auth_names = opts[:debug_auth_names] || ['oauth2']
 
       new_options = opts.merge(
-        :operation => :"ScheduledReportsApi.scheduled_reports_query",
+        :operation => :"ScheduledReportsApi.query",
         :header_params => header_params,
         :query_params => query_params,
         :form_params => form_params,
@@ -229,7 +167,69 @@ module Falcon
 
       data, status_code, headers = @api_client.call_api(:GET, local_var_path, new_options)
       if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: ScheduledReportsApi#scheduled_reports_query\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+        @api_client.config.logger.debug "API called: ScheduledReportsApi#query\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
+    # Retrieve scheduled reports for the provided report IDs.
+    # @param ids [Array<String>] The scheduled_report id to get details about.
+    # @param [Hash] opts the optional parameters
+    # @return [DomainScheduledReportsResultV1]
+    def query_by_id(ids, opts = {})
+      data, _status_code, _headers = query_by_id_with_http_info(ids, opts)
+      data
+    end
+
+    # Retrieve scheduled reports for the provided report IDs.
+    # @param ids [Array<String>] The scheduled_report id to get details about.
+    # @param [Hash] opts the optional parameters
+    # @return [Array<(DomainScheduledReportsResultV1, Integer, Hash)>] DomainScheduledReportsResultV1 data, response status code and response headers
+    def query_by_id_with_http_info(ids, opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: ScheduledReportsApi.query_by_id ...'
+      end
+      # verify the required parameter 'ids' is set
+      if @api_client.config.client_side_validation && ids.nil?
+        fail ArgumentError, "Missing the required parameter 'ids' when calling ScheduledReportsApi.query_by_id"
+      end
+      # resource path
+      local_var_path = '/reports/entities/scheduled-reports/v1'
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+      query_params[:'ids'] = @api_client.build_collection_param(ids, :multi)
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body]
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'DomainScheduledReportsResultV1'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || ['oauth2']
+
+      new_options = opts.merge(
+        :operation => :"ScheduledReportsApi.query_by_id",
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type
+      )
+
+      data, status_code, headers = @api_client.call_api(:GET, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: ScheduledReportsApi#query_by_id\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end

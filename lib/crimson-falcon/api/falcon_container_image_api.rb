@@ -37,7 +37,7 @@ module Falcon
       @api_client = api_client
     end
     # Create a registry entity using the provided details
-    # @param body [RegistryassessmentExternalRegistryPayload]
+    # @param body [RegistryassessmentExternalRegistryPayload] 
     # @param [Hash] opts the optional parameters
     # @return [DomainExternalRegistryResponse]
     def create_registry_entities(body, opts = {})
@@ -46,7 +46,7 @@ module Falcon
     end
 
     # Create a registry entity using the provided details
-    # @param body [RegistryassessmentExternalRegistryPayload]
+    # @param body [RegistryassessmentExternalRegistryPayload] 
     # @param [Hash] opts the optional parameters
     # @return [Array<(DomainExternalRegistryResponse, Integer, Hash)>] DomainExternalRegistryResponse data, response status code and response headers
     def create_registry_entities_with_http_info(body, opts = {})
@@ -70,7 +70,7 @@ module Falcon
       # HTTP header 'Content-Type'
       content_type = @api_client.select_header_content_type(['application/json'])
       if !content_type.nil?
-        header_params['Content-Type'] = content_type
+          header_params['Content-Type'] = content_type
       end
 
       # form parameters
@@ -292,7 +292,7 @@ module Falcon
 
     # Update the registry entity, as identified by the entity UUID, using the provided details
     # @param id [String] Registry entity UUID
-    # @param body [RegistryassessmentExternalRegistryPatchPayload]
+    # @param body [RegistryassessmentExternalRegistryPatchPayload] 
     # @param [Hash] opts the optional parameters
     # @return [DomainExternalRegistryResponse]
     def update_registry_entities(id, body, opts = {})
@@ -302,7 +302,7 @@ module Falcon
 
     # Update the registry entity, as identified by the entity UUID, using the provided details
     # @param id [String] Registry entity UUID
-    # @param body [RegistryassessmentExternalRegistryPatchPayload]
+    # @param body [RegistryassessmentExternalRegistryPatchPayload] 
     # @param [Hash] opts the optional parameters
     # @return [Array<(DomainExternalRegistryResponse, Integer, Hash)>] DomainExternalRegistryResponse data, response status code and response headers
     def update_registry_entities_with_http_info(id, body, opts = {})
@@ -331,7 +331,7 @@ module Falcon
       # HTTP header 'Content-Type'
       content_type = @api_client.select_header_content_type(['application/json'])
       if !content_type.nil?
-        header_params['Content-Type'] = content_type
+          header_params['Content-Type'] = content_type
       end
 
       # form parameters

@@ -48,7 +48,11 @@ module Falcon
 
     attr_accessor :node_registry
 
+    attr_accessor :output_fields
+
     attr_accessor :parameters
+
+    attr_accessor :parent
 
     attr_accessor :provision_on_install
 
@@ -69,7 +73,9 @@ module Falcon
         :'multi_instance' => :'multi_instance',
         :'name' => :'name',
         :'node_registry' => :'nodeRegistry',
+        :'output_fields' => :'output_fields',
         :'parameters' => :'parameters',
+        :'parent' => :'parent',
         :'provision_on_install' => :'provision_on_install',
         :'trigger' => :'trigger',
         :'type' => :'type',
@@ -93,7 +99,9 @@ module Falcon
         :'multi_instance' => :'Boolean',
         :'name' => :'String',
         :'node_registry' => :'Hash<String, String>',
+        :'output_fields' => :'Array<String>',
         :'parameters' => :'V2Parameters',
+        :'parent' => :'V2Model',
         :'provision_on_install' => :'Boolean',
         :'trigger' => :'V2Trigger',
         :'type' => :'String',
@@ -164,8 +172,18 @@ module Falcon
         end
       end
 
+      if attributes.key?(:'output_fields')
+        if (value = attributes[:'output_fields']).is_a?(Array)
+          self.output_fields = value
+        end
+      end
+
       if attributes.key?(:'parameters')
         self.parameters = attributes[:'parameters']
+      end
+
+      if attributes.key?(:'parent')
+        self.parent = attributes[:'parent']
       end
 
       if attributes.key?(:'provision_on_install')
@@ -199,6 +217,10 @@ module Falcon
         invalid_properties.push('invalid value for "node_registry", node_registry cannot be nil.')
       end
 
+      if @parent.nil?
+        invalid_properties.push('invalid value for "parent", parent cannot be nil.')
+      end
+
       if @trigger.nil?
         invalid_properties.push('invalid value for "trigger", trigger cannot be nil.')
       end
@@ -215,6 +237,7 @@ module Falcon
     def valid?
       return false if @name.nil?
       return false if @node_registry.nil?
+      return false if @parent.nil?
       return false if @trigger.nil?
       return false if @uniq_node_seen.nil?
       true
@@ -233,7 +256,9 @@ module Falcon
           multi_instance == o.multi_instance &&
           name == o.name &&
           node_registry == o.node_registry &&
+          output_fields == o.output_fields &&
           parameters == o.parameters &&
+          parent == o.parent &&
           provision_on_install == o.provision_on_install &&
           trigger == o.trigger &&
           type == o.type &&
@@ -249,7 +274,7 @@ module Falcon
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [actions, conditions, description, labels, loops, multi_instance, name, node_registry, parameters, provision_on_install, trigger, type, uniq_node_seen].hash
+      [actions, conditions, description, labels, loops, multi_instance, name, node_registry, output_fields, parameters, parent, provision_on_install, trigger, type, uniq_node_seen].hash
     end
 
     # Builds the object from hash
@@ -370,5 +395,7 @@ module Falcon
         value
       end
     end
+
   end
+
 end

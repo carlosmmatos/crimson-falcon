@@ -99,7 +99,7 @@ module Falcon
     end
 
     # Get aggregate OverWatch detection event info by providing an aggregate query
-    # @param body [Array<MsaAggregateQueryRequest>]
+    # @param body [Array<MsaAggregateQueryRequest>] 
     # @param [Hash] opts the optional parameters
     # @return [MsaAggregatesResponse]
     def aggregates_events(body, opts = {})
@@ -108,7 +108,7 @@ module Falcon
     end
 
     # Get aggregate OverWatch detection event info by providing an aggregate query
-    # @param body [Array<MsaAggregateQueryRequest>]
+    # @param body [Array<MsaAggregateQueryRequest>] 
     # @param [Hash] opts the optional parameters
     # @return [Array<(MsaAggregatesResponse, Integer, Hash)>] MsaAggregatesResponse data, response status code and response headers
     def aggregates_events_with_http_info(body, opts = {})
@@ -132,7 +132,7 @@ module Falcon
       # HTTP header 'Content-Type'
       content_type = @api_client.select_header_content_type(['application/json'])
       if !content_type.nil?
-        header_params['Content-Type'] = content_type
+          header_params['Content-Type'] = content_type
       end
 
       # form parameters
@@ -165,7 +165,7 @@ module Falcon
     end
 
     # Get OverWatch detection event collection info by providing an aggregate query
-    # @param body [Array<MsaAggregateQueryRequest>]
+    # @param body [Array<MsaAggregateQueryRequest>] 
     # @param [Hash] opts the optional parameters
     # @return [MsaAggregatesResponse]
     def aggregates_events_collections(body, opts = {})
@@ -174,7 +174,7 @@ module Falcon
     end
 
     # Get OverWatch detection event collection info by providing an aggregate query
-    # @param body [Array<MsaAggregateQueryRequest>]
+    # @param body [Array<MsaAggregateQueryRequest>] 
     # @param [Hash] opts the optional parameters
     # @return [Array<(MsaAggregatesResponse, Integer, Hash)>] MsaAggregatesResponse data, response status code and response headers
     def aggregates_events_collections_with_http_info(body, opts = {})
@@ -198,7 +198,7 @@ module Falcon
       # HTTP header 'Content-Type'
       content_type = @api_client.select_header_content_type(['application/json'])
       if !content_type.nil?
-        header_params['Content-Type'] = content_type
+          header_params['Content-Type'] = content_type
       end
 
       # form parameters

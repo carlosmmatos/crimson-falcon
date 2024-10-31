@@ -156,7 +156,7 @@ module Falcon
     end
 
     # Launch an indicators report creation job
-    # @param body [ApiIndicatorsReportRequest]
+    # @param body [ApiIndicatorsReportRequest] 
     # @param [Hash] opts the optional parameters
     # @return [MsaEntitiesResponse]
     def get_indicators_report(body, opts = {})
@@ -165,7 +165,7 @@ module Falcon
     end
 
     # Launch an indicators report creation job
-    # @param body [ApiIndicatorsReportRequest]
+    # @param body [ApiIndicatorsReportRequest] 
     # @param [Hash] opts the optional parameters
     # @return [Array<(MsaEntitiesResponse, Integer, Hash)>] MsaEntitiesResponse data, response status code and response headers
     def get_indicators_report_with_http_info(body, opts = {})
@@ -189,7 +189,7 @@ module Falcon
       # HTTP header 'Content-Type'
       content_type = @api_client.select_header_content_type(['application/json'])
       if !content_type.nil?
-        header_params['Content-Type'] = content_type
+          header_params['Content-Type'] = content_type
       end
 
       # form parameters
@@ -222,7 +222,7 @@ module Falcon
     end
 
     # Get Indicators aggregates as specified via json in the request body.
-    # @param body [MsaAggregateQueryRequest]
+    # @param body [MsaAggregateQueryRequest] 
     # @param [Hash] opts the optional parameters
     # @option opts [String] :filter The filter to narrow down the aggregation data
     # @option opts [Boolean] :from_parent The filter for returning either only indicators for the request customer or its MSSP parents
@@ -233,7 +233,7 @@ module Falcon
     end
 
     # Get Indicators aggregates as specified via json in the request body.
-    # @param body [MsaAggregateQueryRequest]
+    # @param body [MsaAggregateQueryRequest] 
     # @param [Hash] opts the optional parameters
     # @option opts [String] :filter The filter to narrow down the aggregation data
     # @option opts [Boolean] :from_parent The filter for returning either only indicators for the request customer or its MSSP parents
@@ -261,7 +261,7 @@ module Falcon
       # HTTP header 'Content-Type'
       content_type = @api_client.select_header_content_type(['application/json'])
       if !content_type.nil?
-        header_params['Content-Type'] = content_type
+          header_params['Content-Type'] = content_type
       end
 
       # form parameters
@@ -371,7 +371,7 @@ module Falcon
     end
 
     # Create Indicators.
-    # @param body [ApiIndicatorCreateReqsV1]
+    # @param body [ApiIndicatorCreateReqsV1] 
     # @param [Hash] opts the optional parameters
     # @option opts [Boolean] :retrodetects Whether to submit to retrodetects
     # @option opts [Boolean] :ignore_warnings Set to true to ignore warnings and add all IOCs (default to false)
@@ -382,7 +382,7 @@ module Falcon
     end
 
     # Create Indicators.
-    # @param body [ApiIndicatorCreateReqsV1]
+    # @param body [ApiIndicatorCreateReqsV1] 
     # @param [Hash] opts the optional parameters
     # @option opts [Boolean] :retrodetects Whether to submit to retrodetects
     # @option opts [Boolean] :ignore_warnings Set to true to ignore warnings and add all IOCs (default to false)
@@ -410,7 +410,7 @@ module Falcon
       # HTTP header 'Content-Type'
       content_type = @api_client.select_header_content_type(['application/json'])
       if !content_type.nil?
-        header_params['Content-Type'] = content_type
+          header_params['Content-Type'] = content_type
       end
 
       # form parameters
@@ -510,7 +510,7 @@ module Falcon
     end
 
     # Get the number of devices the indicator has run on
-    # @param type [String]  The type of the indicator. Valid types include:  sha256: A hex-encoded sha256 hash string. Length - min: 64, max: 64.  md5: A hex-encoded md5 hash string. Length - min 32, max: 32.  domain: A domain name. Length - min: 1, max: 200.  ipv4: An IPv4 address. Must be a valid IP address.  ipv6: An IPv6 address. Must be a valid IP address.
+    # @param type [String]  The type of the indicator. Valid types include:  sha256: A hex-encoded sha256 hash string. Length - min: 64, max: 64.  md5: A hex-encoded md5 hash string. Length - min 32, max: 32.  domain: A domain name. Length - min: 1, max: 200.  ipv4: An IPv4 address. Must be a valid IP address.  ipv6: An IPv6 address. Must be a valid IP address. 
     # @param value [String] The string representation of the indicator
     # @param [Hash] opts the optional parameters
     # @return [ApiDeviceCountRespV1]
@@ -520,7 +520,7 @@ module Falcon
     end
 
     # Get the number of devices the indicator has run on
-    # @param type [String]  The type of the indicator. Valid types include:  sha256: A hex-encoded sha256 hash string. Length - min: 64, max: 64.  md5: A hex-encoded md5 hash string. Length - min 32, max: 32.  domain: A domain name. Length - min: 1, max: 200.  ipv4: An IPv4 address. Must be a valid IP address.  ipv6: An IPv6 address. Must be a valid IP address.
+    # @param type [String]  The type of the indicator. Valid types include:  sha256: A hex-encoded sha256 hash string. Length - min: 64, max: 64.  md5: A hex-encoded md5 hash string. Length - min 32, max: 32.  domain: A domain name. Length - min: 1, max: 200.  ipv4: An IPv4 address. Must be a valid IP address.  ipv6: An IPv6 address. Must be a valid IP address. 
     # @param value [String] The string representation of the indicator
     # @param [Hash] opts the optional parameters
     # @return [Array<(ApiDeviceCountRespV1, Integer, Hash)>] ApiDeviceCountRespV1 data, response status code and response headers
@@ -579,7 +579,7 @@ module Falcon
     end
 
     # Get the IDs of devices the indicator has run on
-    # @param type [String]  The type of the indicator. Valid types include:  sha256: A hex-encoded sha256 hash string. Length - min: 64, max: 64.  md5: A hex-encoded md5 hash string. Length - min 32, max: 32.  domain: A domain name. Length - min: 1, max: 200.  ipv4: An IPv4 address. Must be a valid IP address.  ipv6: An IPv6 address. Must be a valid IP address.
+    # @param type [String]  The type of the indicator. Valid types include:  sha256: A hex-encoded sha256 hash string. Length - min: 64, max: 64.  md5: A hex-encoded md5 hash string. Length - min 32, max: 32.  domain: A domain name. Length - min: 1, max: 200.  ipv4: An IPv4 address. Must be a valid IP address.  ipv6: An IPv6 address. Must be a valid IP address. 
     # @param value [String] The string representation of the indicator
     # @param [Hash] opts the optional parameters
     # @option opts [String] :limit The maximum number of results to return. Use with the offset parameter to manage pagination of results.
@@ -591,7 +591,7 @@ module Falcon
     end
 
     # Get the IDs of devices the indicator has run on
-    # @param type [String]  The type of the indicator. Valid types include:  sha256: A hex-encoded sha256 hash string. Length - min: 64, max: 64.  md5: A hex-encoded md5 hash string. Length - min 32, max: 32.  domain: A domain name. Length - min: 1, max: 200.  ipv4: An IPv4 address. Must be a valid IP address.  ipv6: An IPv6 address. Must be a valid IP address.
+    # @param type [String]  The type of the indicator. Valid types include:  sha256: A hex-encoded sha256 hash string. Length - min: 64, max: 64.  md5: A hex-encoded md5 hash string. Length - min 32, max: 32.  domain: A domain name. Length - min: 1, max: 200.  ipv4: An IPv4 address. Must be a valid IP address.  ipv6: An IPv6 address. Must be a valid IP address. 
     # @param value [String] The string representation of the indicator
     # @param [Hash] opts the optional parameters
     # @option opts [String] :limit The maximum number of results to return. Use with the offset parameter to manage pagination of results.
@@ -654,7 +654,7 @@ module Falcon
     end
 
     # Get the number of processes the indicator has run on
-    # @param type [String]  The type of the indicator. Valid types include:  sha256: A hex-encoded sha256 hash string. Length - min: 64, max: 64.  md5: A hex-encoded md5 hash string. Length - min 32, max: 32.  domain: A domain name. Length - min: 1, max: 200.  ipv4: An IPv4 address. Must be a valid IP address.  ipv6: An IPv6 address. Must be a valid IP address.
+    # @param type [String]  The type of the indicator. Valid types include:  sha256: A hex-encoded sha256 hash string. Length - min: 64, max: 64.  md5: A hex-encoded md5 hash string. Length - min 32, max: 32.  domain: A domain name. Length - min: 1, max: 200.  ipv4: An IPv4 address. Must be a valid IP address.  ipv6: An IPv6 address. Must be a valid IP address. 
     # @param value [String] The string representation of the indicator
     # @param device_id [String] Specify a host&#39;s ID to return only processes from that host. Get a host&#39;s ID from GET /devices/queries/devices/v1, the Falcon console, or the Streaming API.
     # @param [Hash] opts the optional parameters
@@ -667,7 +667,7 @@ module Falcon
     end
 
     # Get the number of processes the indicator has run on
-    # @param type [String]  The type of the indicator. Valid types include:  sha256: A hex-encoded sha256 hash string. Length - min: 64, max: 64.  md5: A hex-encoded md5 hash string. Length - min 32, max: 32.  domain: A domain name. Length - min: 1, max: 200.  ipv4: An IPv4 address. Must be a valid IP address.  ipv6: An IPv6 address. Must be a valid IP address.
+    # @param type [String]  The type of the indicator. Valid types include:  sha256: A hex-encoded sha256 hash string. Length - min: 64, max: 64.  md5: A hex-encoded md5 hash string. Length - min 32, max: 32.  domain: A domain name. Length - min: 1, max: 200.  ipv4: An IPv4 address. Must be a valid IP address.  ipv6: An IPv6 address. Must be a valid IP address. 
     # @param value [String] The string representation of the indicator
     # @param device_id [String] Specify a host&#39;s ID to return only processes from that host. Get a host&#39;s ID from GET /devices/queries/devices/v1, the Falcon console, or the Streaming API.
     # @param [Hash] opts the optional parameters
@@ -875,7 +875,7 @@ module Falcon
     end
 
     # Update Indicators.
-    # @param body [ApiIndicatorUpdateReqsV1]
+    # @param body [ApiIndicatorUpdateReqsV1] 
     # @param [Hash] opts the optional parameters
     # @option opts [Boolean] :retrodetects Whether to submit to retrodetects
     # @option opts [Boolean] :ignore_warnings Set to true to ignore warnings and add all IOCs (default to false)
@@ -886,7 +886,7 @@ module Falcon
     end
 
     # Update Indicators.
-    # @param body [ApiIndicatorUpdateReqsV1]
+    # @param body [ApiIndicatorUpdateReqsV1] 
     # @param [Hash] opts the optional parameters
     # @option opts [Boolean] :retrodetects Whether to submit to retrodetects
     # @option opts [Boolean] :ignore_warnings Set to true to ignore warnings and add all IOCs (default to false)
@@ -914,7 +914,7 @@ module Falcon
       # HTTP header 'Content-Type'
       content_type = @api_client.select_header_content_type(['application/json'])
       if !content_type.nil?
-        header_params['Content-Type'] = content_type
+          header_params['Content-Type'] = content_type
       end
 
       # form parameters

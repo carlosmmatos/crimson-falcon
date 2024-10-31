@@ -64,7 +64,7 @@ module Falcon
     # Attribute type mapping.
     def self.openapi_types
       {
-        :'entitlements' => :'Array<DomainEntity>',
+        :'entitlements' => :'Array<Object>',
         :'id' => :'Integer',
         :'name' => :'String',
         :'slug' => :'String',
@@ -282,5 +282,7 @@ module Falcon
         value
       end
     end
+
   end
+
 end

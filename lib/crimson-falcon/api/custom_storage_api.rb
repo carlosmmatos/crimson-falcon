@@ -41,9 +41,9 @@ module Falcon
     # @param object_key [String] The object key
     # @param [Hash] opts the optional parameters
     # @option opts [Boolean] :dry_run If false, run the operation as normal.  If true, validate that the request *would* succeed, but don&#39;t execute it.
-    # @return [CustomType3191042536]
-    def delete_object(collection_name, object_key, opts = {})
-      data, _status_code, _headers = delete_object_with_http_info(collection_name, object_key, opts)
+    # @return [CustomStorageResponse]
+    def delete(collection_name, object_key, opts = {})
+      data, _status_code, _headers = delete_with_http_info(collection_name, object_key, opts)
       data
     end
 
@@ -52,33 +52,33 @@ module Falcon
     # @param object_key [String] The object key
     # @param [Hash] opts the optional parameters
     # @option opts [Boolean] :dry_run If false, run the operation as normal.  If true, validate that the request *would* succeed, but don&#39;t execute it.
-    # @return [Array<(CustomType3191042536, Integer, Hash)>] CustomType3191042536 data, response status code and response headers
-    def delete_object_with_http_info(collection_name, object_key, opts = {})
+    # @return [Array<(CustomStorageResponse, Integer, Hash)>] CustomStorageResponse data, response status code and response headers
+    def delete_with_http_info(collection_name, object_key, opts = {})
       if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: CustomStorageApi.delete_object ...'
+        @api_client.config.logger.debug 'Calling API: CustomStorageApi.delete ...'
       end
       # verify the required parameter 'collection_name' is set
       if @api_client.config.client_side_validation && collection_name.nil?
-        fail ArgumentError, "Missing the required parameter 'collection_name' when calling CustomStorageApi.delete_object"
+        fail ArgumentError, "Missing the required parameter 'collection_name' when calling CustomStorageApi.delete"
       end
       if @api_client.config.client_side_validation && collection_name.to_s.length > 255
-        fail ArgumentError, 'invalid value for "collection_name" when calling CustomStorageApi.delete_object, the character length must be smaller than or equal to 255.'
+        fail ArgumentError, 'invalid value for "collection_name" when calling CustomStorageApi.delete, the character length must be smaller than or equal to 255.'
       end
 
       if @api_client.config.client_side_validation && collection_name.to_s.length < 1
-        fail ArgumentError, 'invalid value for "collection_name" when calling CustomStorageApi.delete_object, the character length must be great than or equal to 1.'
+        fail ArgumentError, 'invalid value for "collection_name" when calling CustomStorageApi.delete, the character length must be great than or equal to 1.'
       end
 
       # verify the required parameter 'object_key' is set
       if @api_client.config.client_side_validation && object_key.nil?
-        fail ArgumentError, "Missing the required parameter 'object_key' when calling CustomStorageApi.delete_object"
+        fail ArgumentError, "Missing the required parameter 'object_key' when calling CustomStorageApi.delete"
       end
       if @api_client.config.client_side_validation && object_key.to_s.length > 1000
-        fail ArgumentError, 'invalid value for "object_key" when calling CustomStorageApi.delete_object, the character length must be smaller than or equal to 1000.'
+        fail ArgumentError, 'invalid value for "object_key" when calling CustomStorageApi.delete, the character length must be smaller than or equal to 1000.'
       end
 
       if @api_client.config.client_side_validation && object_key.to_s.length < 1
-        fail ArgumentError, 'invalid value for "object_key" when calling CustomStorageApi.delete_object, the character length must be great than or equal to 1.'
+        fail ArgumentError, 'invalid value for "object_key" when calling CustomStorageApi.delete, the character length must be great than or equal to 1.'
       end
 
       # resource path
@@ -100,13 +100,13 @@ module Falcon
       post_body = opts[:debug_body]
 
       # return_type
-      return_type = opts[:debug_return_type] || 'CustomType3191042536'
+      return_type = opts[:debug_return_type] || 'CustomStorageResponse'
 
       # auth_names
       auth_names = opts[:debug_auth_names] || ['oauth2']
 
       new_options = opts.merge(
-        :operation => :"CustomStorageApi.delete_object",
+        :operation => :"CustomStorageApi.delete",
         :header_params => header_params,
         :query_params => query_params,
         :form_params => form_params,
@@ -117,7 +117,7 @@ module Falcon
 
       data, status_code, headers = @api_client.call_api(:DELETE, local_var_path, new_options)
       if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: CustomStorageApi#delete_object\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+        @api_client.config.logger.debug "API called: CustomStorageApi#delete\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
@@ -127,8 +127,8 @@ module Falcon
     # @param object_key [String] The object key
     # @param [Hash] opts the optional parameters
     # @return [File]
-    def get_object(collection_name, object_key, opts = {})
-      data, _status_code, _headers = get_object_with_http_info(collection_name, object_key, opts)
+    def get(collection_name, object_key, opts = {})
+      data, _status_code, _headers = get_with_http_info(collection_name, object_key, opts)
       data
     end
 
@@ -137,32 +137,32 @@ module Falcon
     # @param object_key [String] The object key
     # @param [Hash] opts the optional parameters
     # @return [Array<(File, Integer, Hash)>] File data, response status code and response headers
-    def get_object_with_http_info(collection_name, object_key, opts = {})
+    def get_with_http_info(collection_name, object_key, opts = {})
       if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: CustomStorageApi.get_object ...'
+        @api_client.config.logger.debug 'Calling API: CustomStorageApi.get ...'
       end
       # verify the required parameter 'collection_name' is set
       if @api_client.config.client_side_validation && collection_name.nil?
-        fail ArgumentError, "Missing the required parameter 'collection_name' when calling CustomStorageApi.get_object"
+        fail ArgumentError, "Missing the required parameter 'collection_name' when calling CustomStorageApi.get"
       end
       if @api_client.config.client_side_validation && collection_name.to_s.length > 255
-        fail ArgumentError, 'invalid value for "collection_name" when calling CustomStorageApi.get_object, the character length must be smaller than or equal to 255.'
+        fail ArgumentError, 'invalid value for "collection_name" when calling CustomStorageApi.get, the character length must be smaller than or equal to 255.'
       end
 
       if @api_client.config.client_side_validation && collection_name.to_s.length < 1
-        fail ArgumentError, 'invalid value for "collection_name" when calling CustomStorageApi.get_object, the character length must be great than or equal to 1.'
+        fail ArgumentError, 'invalid value for "collection_name" when calling CustomStorageApi.get, the character length must be great than or equal to 1.'
       end
 
       # verify the required parameter 'object_key' is set
       if @api_client.config.client_side_validation && object_key.nil?
-        fail ArgumentError, "Missing the required parameter 'object_key' when calling CustomStorageApi.get_object"
+        fail ArgumentError, "Missing the required parameter 'object_key' when calling CustomStorageApi.get"
       end
       if @api_client.config.client_side_validation && object_key.to_s.length > 1000
-        fail ArgumentError, 'invalid value for "object_key" when calling CustomStorageApi.get_object, the character length must be smaller than or equal to 1000.'
+        fail ArgumentError, 'invalid value for "object_key" when calling CustomStorageApi.get, the character length must be smaller than or equal to 1000.'
       end
 
       if @api_client.config.client_side_validation && object_key.to_s.length < 1
-        fail ArgumentError, 'invalid value for "object_key" when calling CustomStorageApi.get_object, the character length must be great than or equal to 1.'
+        fail ArgumentError, 'invalid value for "object_key" when calling CustomStorageApi.get, the character length must be great than or equal to 1.'
       end
 
       # resource path
@@ -189,7 +189,7 @@ module Falcon
       auth_names = opts[:debug_auth_names] || ['oauth2']
 
       new_options = opts.merge(
-        :operation => :"CustomStorageApi.get_object",
+        :operation => :"CustomStorageApi.get",
         :header_params => header_params,
         :query_params => query_params,
         :form_params => form_params,
@@ -200,90 +200,7 @@ module Falcon
 
       data, status_code, headers = @api_client.call_api(:GET, local_var_path, new_options)
       if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: CustomStorageApi#get_object\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
-      end
-      return data, status_code, headers
-    end
-
-    # Get the metadata for the specified object
-    # @param collection_name [String] The name of the collection
-    # @param object_key [String] The object key
-    # @param [Hash] opts the optional parameters
-    # @return [CustomType3191042536]
-    def get_object_metadata(collection_name, object_key, opts = {})
-      data, _status_code, _headers = get_object_metadata_with_http_info(collection_name, object_key, opts)
-      data
-    end
-
-    # Get the metadata for the specified object
-    # @param collection_name [String] The name of the collection
-    # @param object_key [String] The object key
-    # @param [Hash] opts the optional parameters
-    # @return [Array<(CustomType3191042536, Integer, Hash)>] CustomType3191042536 data, response status code and response headers
-    def get_object_metadata_with_http_info(collection_name, object_key, opts = {})
-      if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: CustomStorageApi.get_object_metadata ...'
-      end
-      # verify the required parameter 'collection_name' is set
-      if @api_client.config.client_side_validation && collection_name.nil?
-        fail ArgumentError, "Missing the required parameter 'collection_name' when calling CustomStorageApi.get_object_metadata"
-      end
-      if @api_client.config.client_side_validation && collection_name.to_s.length > 255
-        fail ArgumentError, 'invalid value for "collection_name" when calling CustomStorageApi.get_object_metadata, the character length must be smaller than or equal to 255.'
-      end
-
-      if @api_client.config.client_side_validation && collection_name.to_s.length < 1
-        fail ArgumentError, 'invalid value for "collection_name" when calling CustomStorageApi.get_object_metadata, the character length must be great than or equal to 1.'
-      end
-
-      # verify the required parameter 'object_key' is set
-      if @api_client.config.client_side_validation && object_key.nil?
-        fail ArgumentError, "Missing the required parameter 'object_key' when calling CustomStorageApi.get_object_metadata"
-      end
-      if @api_client.config.client_side_validation && object_key.to_s.length > 1000
-        fail ArgumentError, 'invalid value for "object_key" when calling CustomStorageApi.get_object_metadata, the character length must be smaller than or equal to 1000.'
-      end
-
-      if @api_client.config.client_side_validation && object_key.to_s.length < 1
-        fail ArgumentError, 'invalid value for "object_key" when calling CustomStorageApi.get_object_metadata, the character length must be great than or equal to 1.'
-      end
-
-      # resource path
-      local_var_path = '/customobjects/v1/collections/{collection_name}/objects/{object_key}/metadata'.sub('{' + 'collection_name' + '}', CGI.escape(collection_name.to_s)).sub('{' + 'object_key' + '}', CGI.escape(object_key.to_s))
-
-      # query parameters
-      query_params = opts[:query_params] || {}
-
-      # header parameters
-      header_params = opts[:header_params] || {}
-      # HTTP header 'Accept' (if needed)
-      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
-
-      # form parameters
-      form_params = opts[:form_params] || {}
-
-      # http body (model)
-      post_body = opts[:debug_body]
-
-      # return_type
-      return_type = opts[:debug_return_type] || 'CustomType3191042536'
-
-      # auth_names
-      auth_names = opts[:debug_auth_names] || ['oauth2']
-
-      new_options = opts.merge(
-        :operation => :"CustomStorageApi.get_object_metadata",
-        :header_params => header_params,
-        :query_params => query_params,
-        :form_params => form_params,
-        :body => post_body,
-        :auth_names => auth_names,
-        :return_type => return_type
-      )
-
-      data, status_code, headers = @api_client.call_api(:GET, local_var_path, new_options)
-      if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: CustomStorageApi#get_object_metadata\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+        @api_client.config.logger.debug "API called: CustomStorageApi#get\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
@@ -294,9 +211,9 @@ module Falcon
     # @option opts [String] :_end The end key to end listing to
     # @option opts [Integer] :limit The limit of results to return
     # @option opts [String] :start The start key to start listing from
-    # @return [CustomType1255839303]
-    def list_objects(collection_name, opts = {})
-      data, _status_code, _headers = list_objects_with_http_info(collection_name, opts)
+    # @return [CustomStorageObjectKeys]
+    def list(collection_name, opts = {})
+      data, _status_code, _headers = list_with_http_info(collection_name, opts)
       data
     end
 
@@ -306,37 +223,37 @@ module Falcon
     # @option opts [String] :_end The end key to end listing to
     # @option opts [Integer] :limit The limit of results to return
     # @option opts [String] :start The start key to start listing from
-    # @return [Array<(CustomType1255839303, Integer, Hash)>] CustomType1255839303 data, response status code and response headers
-    def list_objects_with_http_info(collection_name, opts = {})
+    # @return [Array<(CustomStorageObjectKeys, Integer, Hash)>] CustomStorageObjectKeys data, response status code and response headers
+    def list_with_http_info(collection_name, opts = {})
       if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: CustomStorageApi.list_objects ...'
+        @api_client.config.logger.debug 'Calling API: CustomStorageApi.list ...'
       end
       # verify the required parameter 'collection_name' is set
       if @api_client.config.client_side_validation && collection_name.nil?
-        fail ArgumentError, "Missing the required parameter 'collection_name' when calling CustomStorageApi.list_objects"
+        fail ArgumentError, "Missing the required parameter 'collection_name' when calling CustomStorageApi.list"
       end
       if @api_client.config.client_side_validation && collection_name.to_s.length > 255
-        fail ArgumentError, 'invalid value for "collection_name" when calling CustomStorageApi.list_objects, the character length must be smaller than or equal to 255.'
+        fail ArgumentError, 'invalid value for "collection_name" when calling CustomStorageApi.list, the character length must be smaller than or equal to 255.'
       end
 
       if @api_client.config.client_side_validation && collection_name.to_s.length < 1
-        fail ArgumentError, 'invalid value for "collection_name" when calling CustomStorageApi.list_objects, the character length must be great than or equal to 1.'
+        fail ArgumentError, 'invalid value for "collection_name" when calling CustomStorageApi.list, the character length must be great than or equal to 1.'
       end
 
       if @api_client.config.client_side_validation && !opts[:'_end'].nil? && opts[:'_end'].to_s.length > 1000
-        fail ArgumentError, 'invalid value for "opts[:"_end"]" when calling CustomStorageApi.list_objects, the character length must be smaller than or equal to 1000.'
+        fail ArgumentError, 'invalid value for "opts[:"_end"]" when calling CustomStorageApi.list, the character length must be smaller than or equal to 1000.'
       end
 
       if @api_client.config.client_side_validation && !opts[:'_end'].nil? && opts[:'_end'].to_s.length < 1
-        fail ArgumentError, 'invalid value for "opts[:"_end"]" when calling CustomStorageApi.list_objects, the character length must be great than or equal to 1.'
+        fail ArgumentError, 'invalid value for "opts[:"_end"]" when calling CustomStorageApi.list, the character length must be great than or equal to 1.'
       end
 
       if @api_client.config.client_side_validation && !opts[:'start'].nil? && opts[:'start'].to_s.length > 1000
-        fail ArgumentError, 'invalid value for "opts[:"start"]" when calling CustomStorageApi.list_objects, the character length must be smaller than or equal to 1000.'
+        fail ArgumentError, 'invalid value for "opts[:"start"]" when calling CustomStorageApi.list, the character length must be smaller than or equal to 1000.'
       end
 
       if @api_client.config.client_side_validation && !opts[:'start'].nil? && opts[:'start'].to_s.length < 1
-        fail ArgumentError, 'invalid value for "opts[:"start"]" when calling CustomStorageApi.list_objects, the character length must be great than or equal to 1.'
+        fail ArgumentError, 'invalid value for "opts[:"start"]" when calling CustomStorageApi.list, the character length must be great than or equal to 1.'
       end
 
       # resource path
@@ -360,13 +277,13 @@ module Falcon
       post_body = opts[:debug_body]
 
       # return_type
-      return_type = opts[:debug_return_type] || 'CustomType1255839303'
+      return_type = opts[:debug_return_type] || 'CustomStorageObjectKeys'
 
       # auth_names
       auth_names = opts[:debug_auth_names] || ['oauth2']
 
       new_options = opts.merge(
-        :operation => :"CustomStorageApi.list_objects",
+        :operation => :"CustomStorageApi.list",
         :header_params => header_params,
         :query_params => query_params,
         :form_params => form_params,
@@ -377,100 +294,79 @@ module Falcon
 
       data, status_code, headers = @api_client.call_api(:GET, local_var_path, new_options)
       if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: CustomStorageApi#list_objects\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+        @api_client.config.logger.debug "API called: CustomStorageApi#list\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
 
-    # Put the specified new object at the given key or overwrite an existing object at the given key
+    # Get the metadata for the specified object
     # @param collection_name [String] The name of the collection
     # @param object_key [String] The object key
-    # @param body [File]
     # @param [Hash] opts the optional parameters
-    # @option opts [Boolean] :dry_run If false, run the operation as normal.  If true, validate that the request *would* succeed, but don&#39;t execute it.
-    # @option opts [String] :schema_version The version of the collection schema
-    # @return [CustomType3191042536]
-    def put_object(collection_name, object_key, body, opts = {})
-      data, _status_code, _headers = put_object_with_http_info(collection_name, object_key, body, opts)
+    # @return [CustomStorageResponse]
+    def metadata(collection_name, object_key, opts = {})
+      data, _status_code, _headers = metadata_with_http_info(collection_name, object_key, opts)
       data
     end
 
-    # Put the specified new object at the given key or overwrite an existing object at the given key
+    # Get the metadata for the specified object
     # @param collection_name [String] The name of the collection
     # @param object_key [String] The object key
-    # @param body [File]
     # @param [Hash] opts the optional parameters
-    # @option opts [Boolean] :dry_run If false, run the operation as normal.  If true, validate that the request *would* succeed, but don&#39;t execute it.
-    # @option opts [String] :schema_version The version of the collection schema
-    # @return [Array<(CustomType3191042536, Integer, Hash)>] CustomType3191042536 data, response status code and response headers
-    def put_object_with_http_info(collection_name, object_key, body, opts = {})
+    # @return [Array<(CustomStorageResponse, Integer, Hash)>] CustomStorageResponse data, response status code and response headers
+    def metadata_with_http_info(collection_name, object_key, opts = {})
       if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: CustomStorageApi.put_object ...'
+        @api_client.config.logger.debug 'Calling API: CustomStorageApi.metadata ...'
       end
       # verify the required parameter 'collection_name' is set
       if @api_client.config.client_side_validation && collection_name.nil?
-        fail ArgumentError, "Missing the required parameter 'collection_name' when calling CustomStorageApi.put_object"
+        fail ArgumentError, "Missing the required parameter 'collection_name' when calling CustomStorageApi.metadata"
       end
       if @api_client.config.client_side_validation && collection_name.to_s.length > 255
-        fail ArgumentError, 'invalid value for "collection_name" when calling CustomStorageApi.put_object, the character length must be smaller than or equal to 255.'
+        fail ArgumentError, 'invalid value for "collection_name" when calling CustomStorageApi.metadata, the character length must be smaller than or equal to 255.'
       end
 
       if @api_client.config.client_side_validation && collection_name.to_s.length < 1
-        fail ArgumentError, 'invalid value for "collection_name" when calling CustomStorageApi.put_object, the character length must be great than or equal to 1.'
+        fail ArgumentError, 'invalid value for "collection_name" when calling CustomStorageApi.metadata, the character length must be great than or equal to 1.'
       end
 
       # verify the required parameter 'object_key' is set
       if @api_client.config.client_side_validation && object_key.nil?
-        fail ArgumentError, "Missing the required parameter 'object_key' when calling CustomStorageApi.put_object"
+        fail ArgumentError, "Missing the required parameter 'object_key' when calling CustomStorageApi.metadata"
       end
       if @api_client.config.client_side_validation && object_key.to_s.length > 1000
-        fail ArgumentError, 'invalid value for "object_key" when calling CustomStorageApi.put_object, the character length must be smaller than or equal to 1000.'
+        fail ArgumentError, 'invalid value for "object_key" when calling CustomStorageApi.metadata, the character length must be smaller than or equal to 1000.'
       end
 
       if @api_client.config.client_side_validation && object_key.to_s.length < 1
-        fail ArgumentError, 'invalid value for "object_key" when calling CustomStorageApi.put_object, the character length must be great than or equal to 1.'
-      end
-
-      # verify the required parameter 'body' is set
-      if @api_client.config.client_side_validation && body.nil?
-        fail ArgumentError, "Missing the required parameter 'body' when calling CustomStorageApi.put_object"
-      end
-      if @api_client.config.client_side_validation && !opts[:'schema_version'].nil? && opts[:'schema_version'].to_s.length < 1
-        fail ArgumentError, 'invalid value for "opts[:"schema_version"]" when calling CustomStorageApi.put_object, the character length must be great than or equal to 1.'
+        fail ArgumentError, 'invalid value for "object_key" when calling CustomStorageApi.metadata, the character length must be great than or equal to 1.'
       end
 
       # resource path
-      local_var_path = '/customobjects/v1/collections/{collection_name}/objects/{object_key}'.sub('{' + 'collection_name' + '}', CGI.escape(collection_name.to_s)).sub('{' + 'object_key' + '}', CGI.escape(object_key.to_s))
+      local_var_path = '/customobjects/v1/collections/{collection_name}/objects/{object_key}/metadata'.sub('{' + 'collection_name' + '}', CGI.escape(collection_name.to_s)).sub('{' + 'object_key' + '}', CGI.escape(object_key.to_s))
 
       # query parameters
       query_params = opts[:query_params] || {}
-      query_params[:'dry_run'] = opts[:'dry_run'] if !opts[:'dry_run'].nil?
-      query_params[:'schema_version'] = opts[:'schema_version'] if !opts[:'schema_version'].nil?
 
       # header parameters
       header_params = opts[:header_params] || {}
       # HTTP header 'Accept' (if needed)
       header_params['Accept'] = @api_client.select_header_accept(['application/json'])
-      # HTTP header 'Content-Type'
-      content_type = @api_client.select_header_content_type(['application/octet-stream', 'application/json'])
-      if !content_type.nil?
-        header_params['Content-Type'] = content_type
-      end
 
       # form parameters
       form_params = opts[:form_params] || {}
 
       # http body (model)
-      post_body = opts[:debug_body] || @api_client.object_to_http_body(body)
+      post_body = opts[:debug_body]
 
       # return_type
-      return_type = opts[:debug_return_type] || 'CustomType3191042536'
+      return_type = opts[:debug_return_type] || 'CustomStorageResponse'
 
       # auth_names
       auth_names = opts[:debug_auth_names] || ['oauth2']
 
       new_options = opts.merge(
-        :operation => :"CustomStorageApi.put_object",
+        :operation => :"CustomStorageApi.metadata",
         :header_params => header_params,
         :query_params => query_params,
         :form_params => form_params,
@@ -479,9 +375,9 @@ module Falcon
         :return_type => return_type
       )
 
-      data, status_code, headers = @api_client.call_api(:PUT, local_var_path, new_options)
+      data, status_code, headers = @api_client.call_api(:GET, local_var_path, new_options)
       if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: CustomStorageApi#put_object\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+        @api_client.config.logger.debug "API called: CustomStorageApi#metadata\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
@@ -493,9 +389,9 @@ module Falcon
     # @option opts [Integer] :limit The limit of results to return
     # @option opts [Integer] :offset The offset of results to return
     # @option opts [String] :sort The sort order for the returned results.
-    # @return [CustomType3191042536]
-    def search_objects(collection_name, filter, opts = {})
-      data, _status_code, _headers = search_objects_with_http_info(collection_name, filter, opts)
+    # @return [CustomStorageResponse]
+    def search_0(collection_name, filter, opts = {})
+      data, _status_code, _headers = search_0_with_http_info(collection_name, filter, opts)
       data
     end
 
@@ -506,41 +402,41 @@ module Falcon
     # @option opts [Integer] :limit The limit of results to return
     # @option opts [Integer] :offset The offset of results to return
     # @option opts [String] :sort The sort order for the returned results.
-    # @return [Array<(CustomType3191042536, Integer, Hash)>] CustomType3191042536 data, response status code and response headers
-    def search_objects_with_http_info(collection_name, filter, opts = {})
+    # @return [Array<(CustomStorageResponse, Integer, Hash)>] CustomStorageResponse data, response status code and response headers
+    def search_0_with_http_info(collection_name, filter, opts = {})
       if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: CustomStorageApi.search_objects ...'
+        @api_client.config.logger.debug 'Calling API: CustomStorageApi.search_0 ...'
       end
       # verify the required parameter 'collection_name' is set
       if @api_client.config.client_side_validation && collection_name.nil?
-        fail ArgumentError, "Missing the required parameter 'collection_name' when calling CustomStorageApi.search_objects"
+        fail ArgumentError, "Missing the required parameter 'collection_name' when calling CustomStorageApi.search_0"
       end
       if @api_client.config.client_side_validation && collection_name.to_s.length > 255
-        fail ArgumentError, 'invalid value for "collection_name" when calling CustomStorageApi.search_objects, the character length must be smaller than or equal to 255.'
+        fail ArgumentError, 'invalid value for "collection_name" when calling CustomStorageApi.search_0, the character length must be smaller than or equal to 255.'
       end
 
       if @api_client.config.client_side_validation && collection_name.to_s.length < 1
-        fail ArgumentError, 'invalid value for "collection_name" when calling CustomStorageApi.search_objects, the character length must be great than or equal to 1.'
+        fail ArgumentError, 'invalid value for "collection_name" when calling CustomStorageApi.search_0, the character length must be great than or equal to 1.'
       end
 
       # verify the required parameter 'filter' is set
       if @api_client.config.client_side_validation && filter.nil?
-        fail ArgumentError, "Missing the required parameter 'filter' when calling CustomStorageApi.search_objects"
+        fail ArgumentError, "Missing the required parameter 'filter' when calling CustomStorageApi.search_0"
       end
       if @api_client.config.client_side_validation && filter.to_s.length > 255
-        fail ArgumentError, 'invalid value for "filter" when calling CustomStorageApi.search_objects, the character length must be smaller than or equal to 255.'
+        fail ArgumentError, 'invalid value for "filter" when calling CustomStorageApi.search_0, the character length must be smaller than or equal to 255.'
       end
 
       if @api_client.config.client_side_validation && filter.to_s.length < 1
-        fail ArgumentError, 'invalid value for "filter" when calling CustomStorageApi.search_objects, the character length must be great than or equal to 1.'
+        fail ArgumentError, 'invalid value for "filter" when calling CustomStorageApi.search_0, the character length must be great than or equal to 1.'
       end
 
       if @api_client.config.client_side_validation && !opts[:'sort'].nil? && opts[:'sort'].to_s.length > 255
-        fail ArgumentError, 'invalid value for "opts[:"sort"]" when calling CustomStorageApi.search_objects, the character length must be smaller than or equal to 255.'
+        fail ArgumentError, 'invalid value for "opts[:"sort"]" when calling CustomStorageApi.search_0, the character length must be smaller than or equal to 255.'
       end
 
       if @api_client.config.client_side_validation && !opts[:'sort'].nil? && opts[:'sort'].to_s.length < 1
-        fail ArgumentError, 'invalid value for "opts[:"sort"]" when calling CustomStorageApi.search_objects, the character length must be great than or equal to 1.'
+        fail ArgumentError, 'invalid value for "opts[:"sort"]" when calling CustomStorageApi.search_0, the character length must be great than or equal to 1.'
       end
 
       # resource path
@@ -565,13 +461,13 @@ module Falcon
       post_body = opts[:debug_body]
 
       # return_type
-      return_type = opts[:debug_return_type] || 'CustomType3191042536'
+      return_type = opts[:debug_return_type] || 'CustomStorageResponse'
 
       # auth_names
       auth_names = opts[:debug_auth_names] || ['oauth2']
 
       new_options = opts.merge(
-        :operation => :"CustomStorageApi.search_objects",
+        :operation => :"CustomStorageApi.search_0",
         :header_params => header_params,
         :query_params => query_params,
         :form_params => form_params,
@@ -582,7 +478,111 @@ module Falcon
 
       data, status_code, headers = @api_client.call_api(:POST, local_var_path, new_options)
       if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: CustomStorageApi#search_objects\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+        @api_client.config.logger.debug "API called: CustomStorageApi#search_0\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
+    # Put the specified new object at the given key or overwrite an existing object at the given key
+    # @param collection_name [String] The name of the collection
+    # @param object_key [String] The object key
+    # @param body [File] 
+    # @param [Hash] opts the optional parameters
+    # @option opts [Boolean] :dry_run If false, run the operation as normal.  If true, validate that the request *would* succeed, but don&#39;t execute it.
+    # @option opts [String] :schema_version The version of the collection schema
+    # @return [CustomStorageResponse]
+    def upload(collection_name, object_key, body, opts = {})
+      data, _status_code, _headers = upload_with_http_info(collection_name, object_key, body, opts)
+      data
+    end
+
+    # Put the specified new object at the given key or overwrite an existing object at the given key
+    # @param collection_name [String] The name of the collection
+    # @param object_key [String] The object key
+    # @param body [File] 
+    # @param [Hash] opts the optional parameters
+    # @option opts [Boolean] :dry_run If false, run the operation as normal.  If true, validate that the request *would* succeed, but don&#39;t execute it.
+    # @option opts [String] :schema_version The version of the collection schema
+    # @return [Array<(CustomStorageResponse, Integer, Hash)>] CustomStorageResponse data, response status code and response headers
+    def upload_with_http_info(collection_name, object_key, body, opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: CustomStorageApi.upload ...'
+      end
+      # verify the required parameter 'collection_name' is set
+      if @api_client.config.client_side_validation && collection_name.nil?
+        fail ArgumentError, "Missing the required parameter 'collection_name' when calling CustomStorageApi.upload"
+      end
+      if @api_client.config.client_side_validation && collection_name.to_s.length > 255
+        fail ArgumentError, 'invalid value for "collection_name" when calling CustomStorageApi.upload, the character length must be smaller than or equal to 255.'
+      end
+
+      if @api_client.config.client_side_validation && collection_name.to_s.length < 1
+        fail ArgumentError, 'invalid value for "collection_name" when calling CustomStorageApi.upload, the character length must be great than or equal to 1.'
+      end
+
+      # verify the required parameter 'object_key' is set
+      if @api_client.config.client_side_validation && object_key.nil?
+        fail ArgumentError, "Missing the required parameter 'object_key' when calling CustomStorageApi.upload"
+      end
+      if @api_client.config.client_side_validation && object_key.to_s.length > 1000
+        fail ArgumentError, 'invalid value for "object_key" when calling CustomStorageApi.upload, the character length must be smaller than or equal to 1000.'
+      end
+
+      if @api_client.config.client_side_validation && object_key.to_s.length < 1
+        fail ArgumentError, 'invalid value for "object_key" when calling CustomStorageApi.upload, the character length must be great than or equal to 1.'
+      end
+
+      # verify the required parameter 'body' is set
+      if @api_client.config.client_side_validation && body.nil?
+        fail ArgumentError, "Missing the required parameter 'body' when calling CustomStorageApi.upload"
+      end
+      if @api_client.config.client_side_validation && !opts[:'schema_version'].nil? && opts[:'schema_version'].to_s.length < 1
+        fail ArgumentError, 'invalid value for "opts[:"schema_version"]" when calling CustomStorageApi.upload, the character length must be great than or equal to 1.'
+      end
+
+      # resource path
+      local_var_path = '/customobjects/v1/collections/{collection_name}/objects/{object_key}'.sub('{' + 'collection_name' + '}', CGI.escape(collection_name.to_s)).sub('{' + 'object_key' + '}', CGI.escape(object_key.to_s))
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+      query_params[:'dry_run'] = opts[:'dry_run'] if !opts[:'dry_run'].nil?
+      query_params[:'schema_version'] = opts[:'schema_version'] if !opts[:'schema_version'].nil?
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json'])
+      # HTTP header 'Content-Type'
+      content_type = @api_client.select_header_content_type(['application/octet-stream', 'application/json'])
+      if !content_type.nil?
+          header_params['Content-Type'] = content_type
+      end
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body] || @api_client.object_to_http_body(body)
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'CustomStorageResponse'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || ['oauth2']
+
+      new_options = opts.merge(
+        :operation => :"CustomStorageApi.upload",
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type
+      )
+
+      data, status_code, headers = @api_client.call_api(:PUT, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: CustomStorageApi#upload\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end

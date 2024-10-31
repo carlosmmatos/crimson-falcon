@@ -37,7 +37,7 @@ module Falcon
       @api_client = api_client
     end
     # Create the sensor visibility exclusions
-    # @param body [SvExclusionsCreateReqV1]
+    # @param body [SvExclusionsCreateReqV1] 
     # @param [Hash] opts the optional parameters
     # @return [ExclusionsRespV1]
     def create_sv_exclusions_v1(body, opts = {})
@@ -46,7 +46,7 @@ module Falcon
     end
 
     # Create the sensor visibility exclusions
-    # @param body [SvExclusionsCreateReqV1]
+    # @param body [SvExclusionsCreateReqV1] 
     # @param [Hash] opts the optional parameters
     # @return [Array<(ExclusionsRespV1, Integer, Hash)>] ExclusionsRespV1 data, response status code and response headers
     def create_sv_exclusions_v1_with_http_info(body, opts = {})
@@ -70,7 +70,7 @@ module Falcon
       # HTTP header 'Content-Type'
       content_type = @api_client.select_header_content_type(['application/json'])
       if !content_type.nil?
-        header_params['Content-Type'] = content_type
+          header_params['Content-Type'] = content_type
       end
 
       # form parameters
@@ -301,7 +301,7 @@ module Falcon
     end
 
     # Update the sensor visibility exclusions
-    # @param body [SvExclusionsUpdateReqV1]
+    # @param body [SvExclusionsUpdateReqV1] 
     # @param [Hash] opts the optional parameters
     # @return [SvExclusionsRespV1]
     def update_sensor_visibility_exclusions_v1(body, opts = {})
@@ -310,7 +310,7 @@ module Falcon
     end
 
     # Update the sensor visibility exclusions
-    # @param body [SvExclusionsUpdateReqV1]
+    # @param body [SvExclusionsUpdateReqV1] 
     # @param [Hash] opts the optional parameters
     # @return [Array<(SvExclusionsRespV1, Integer, Hash)>] SvExclusionsRespV1 data, response status code and response headers
     def update_sensor_visibility_exclusions_v1_with_http_info(body, opts = {})
@@ -334,7 +334,7 @@ module Falcon
       # HTTP header 'Content-Type'
       content_type = @api_client.select_header_content_type(['application/json'])
       if !content_type.nil?
-        header_params['Content-Type'] = content_type
+          header_params['Content-Type'] = content_type
       end
 
       # form parameters

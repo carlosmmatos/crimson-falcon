@@ -4,9 +4,11 @@
 
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
+| **breach_monitor_only** | **Boolean** | Monitor only for breach data. Must be accompanied by breach_monitoring_enabled:true. |  |
 | **breach_monitoring_enabled** | **Boolean** | Whether to monitor for breach data. Available only for &#x60;Company Domains&#x60; and &#x60;Email addresses&#x60; rule topics. When enabled, ownership of the monitored domains or emails is required |  |
 | **filter** | **String** | The FQL filter to be used for searching |  |
 | **name** | **String** | The name of a given rule |  |
+| **originating_template_id** | **String** | If the rule was generated based on a template, the id of the template |  |
 | **permissions** | **String** | The permissions for a given rule which specifies the rule&#39;s access by other users. Possible values: [&#x60;public&#x60;, &#x60;private&#x60;] |  |
 | **priority** | **String** | The priority for a given rule. Possible values: [&#x60;low&#x60;, &#x60;medium&#x60;, &#x60;high&#x60;] |  |
 | **substring_matching_enabled** | **Boolean** | Whether to monitor for substring matches. Only available for the &#x60;Typosquatting&#x60; topic. |  |
@@ -18,9 +20,11 @@
 require 'crimson-falcon'
 
 instance = Falcon::SadomainCreateRuleRequestV1.new(
+  breach_monitor_only: null,
   breach_monitoring_enabled: null,
   filter: null,
   name: null,
+  originating_template_id: null,
   permissions: null,
   priority: null,
   substring_matching_enabled: null,

@@ -37,7 +37,7 @@ module Falcon
       @api_client = api_client
     end
     # Get notification exposed data record aggregates as specified via JSON in request body. The valid aggregation fields are: [cid notification_id created_date rule.id rule.name rule.topic source_category site author file.name credential_status bot.operating_system.hardware_id bot.bot_id]
-    # @param body [Array<MsaAggregateQueryRequest>]
+    # @param body [Array<MsaAggregateQueryRequest>] 
     # @param [Hash] opts the optional parameters
     # @return [DomainAggregatesResponse]
     def aggregate_notifications_exposed_data_records_v1(body, opts = {})
@@ -46,7 +46,7 @@ module Falcon
     end
 
     # Get notification exposed data record aggregates as specified via JSON in request body. The valid aggregation fields are: [cid notification_id created_date rule.id rule.name rule.topic source_category site author file.name credential_status bot.operating_system.hardware_id bot.bot_id]
-    # @param body [Array<MsaAggregateQueryRequest>]
+    # @param body [Array<MsaAggregateQueryRequest>] 
     # @param [Hash] opts the optional parameters
     # @return [Array<(DomainAggregatesResponse, Integer, Hash)>] DomainAggregatesResponse data, response status code and response headers
     def aggregate_notifications_exposed_data_records_v1_with_http_info(body, opts = {})
@@ -70,7 +70,7 @@ module Falcon
       # HTTP header 'Content-Type'
       content_type = @api_client.select_header_content_type(['application/json'])
       if !content_type.nil?
-        header_params['Content-Type'] = content_type
+          header_params['Content-Type'] = content_type
       end
 
       # form parameters
@@ -103,7 +103,7 @@ module Falcon
     end
 
     # Get notification aggregates as specified via JSON in request body.
-    # @param body [Array<MsaAggregateQueryRequest>]
+    # @param body [Array<MsaAggregateQueryRequest>] 
     # @param [Hash] opts the optional parameters
     # @return [DomainAggregatesResponse]
     def aggregate_notifications_v1(body, opts = {})
@@ -112,7 +112,7 @@ module Falcon
     end
 
     # Get notification aggregates as specified via JSON in request body.
-    # @param body [Array<MsaAggregateQueryRequest>]
+    # @param body [Array<MsaAggregateQueryRequest>] 
     # @param [Hash] opts the optional parameters
     # @return [Array<(DomainAggregatesResponse, Integer, Hash)>] DomainAggregatesResponse data, response status code and response headers
     def aggregate_notifications_v1_with_http_info(body, opts = {})
@@ -136,7 +136,7 @@ module Falcon
       # HTTP header 'Content-Type'
       content_type = @api_client.select_header_content_type(['application/json'])
       if !content_type.nil?
-        header_params['Content-Type'] = content_type
+          header_params['Content-Type'] = content_type
       end
 
       # form parameters
@@ -169,7 +169,7 @@ module Falcon
     end
 
     # Create actions for a monitoring rule. Accepts a list of actions that will be attached to the monitoring rule.
-    # @param body [DomainRegisterActionsRequest]
+    # @param body [DomainRegisterActionsRequest] 
     # @param [Hash] opts the optional parameters
     # @return [DomainActionEntitiesResponseV1]
     def create_actions_v1(body, opts = {})
@@ -178,7 +178,7 @@ module Falcon
     end
 
     # Create actions for a monitoring rule. Accepts a list of actions that will be attached to the monitoring rule.
-    # @param body [DomainRegisterActionsRequest]
+    # @param body [DomainRegisterActionsRequest] 
     # @param [Hash] opts the optional parameters
     # @return [Array<(DomainActionEntitiesResponseV1, Integer, Hash)>] DomainActionEntitiesResponseV1 data, response status code and response headers
     def create_actions_v1_with_http_info(body, opts = {})
@@ -202,7 +202,7 @@ module Falcon
       # HTTP header 'Content-Type'
       content_type = @api_client.select_header_content_type(['application/json'])
       if !content_type.nil?
-        header_params['Content-Type'] = content_type
+          header_params['Content-Type'] = content_type
       end
 
       # form parameters
@@ -235,7 +235,7 @@ module Falcon
     end
 
     # Launch asynchronous export job. Use the job ID to poll the status of the job using GET /entities/exports/v1.
-    # @param body [Array<DomainLaunchExportJobRequestV1>]
+    # @param body [Array<DomainLaunchExportJobRequestV1>] 
     # @param [Hash] opts the optional parameters
     # @return [DomainLaunchExportJobResponseV1]
     def create_export_jobs_v1(body, opts = {})
@@ -244,7 +244,7 @@ module Falcon
     end
 
     # Launch asynchronous export job. Use the job ID to poll the status of the job using GET /entities/exports/v1.
-    # @param body [Array<DomainLaunchExportJobRequestV1>]
+    # @param body [Array<DomainLaunchExportJobRequestV1>] 
     # @param [Hash] opts the optional parameters
     # @return [Array<(DomainLaunchExportJobResponseV1, Integer, Hash)>] DomainLaunchExportJobResponseV1 data, response status code and response headers
     def create_export_jobs_v1_with_http_info(body, opts = {})
@@ -268,7 +268,7 @@ module Falcon
       # HTTP header 'Content-Type'
       content_type = @api_client.select_header_content_type(['application/json'])
       if !content_type.nil?
-        header_params['Content-Type'] = content_type
+          header_params['Content-Type'] = content_type
       end
 
       # form parameters
@@ -301,7 +301,7 @@ module Falcon
     end
 
     # Create monitoring rules.
-    # @param body [Array<SadomainCreateRuleRequestV1>]
+    # @param body [Array<SadomainCreateRuleRequestV1>] 
     # @param [Hash] opts the optional parameters
     # @return [DomainRulesEntitiesResponseV1]
     def create_rules_v1(body, opts = {})
@@ -310,7 +310,7 @@ module Falcon
     end
 
     # Create monitoring rules.
-    # @param body [Array<SadomainCreateRuleRequestV1>]
+    # @param body [Array<SadomainCreateRuleRequestV1>] 
     # @param [Hash] opts the optional parameters
     # @return [Array<(DomainRulesEntitiesResponseV1, Integer, Hash)>] DomainRulesEntitiesResponseV1 data, response status code and response headers
     def create_rules_v1_with_http_info(body, opts = {})
@@ -334,7 +334,7 @@ module Falcon
       # HTTP header 'Content-Type'
       content_type = @api_client.select_header_content_type(['application/json'])
       if !content_type.nil?
-        header_params['Content-Type'] = content_type
+          header_params['Content-Type'] = content_type
       end
 
       # form parameters
@@ -772,7 +772,7 @@ module Falcon
       # header parameters
       header_params = opts[:header_params] || {}
       # HTTP header 'Accept' (if needed)
-      header_params['Accept'] = @api_client.select_header_accept(['application/octet-stream'])
+      header_params['Accept'] = @api_client.select_header_accept(['application/octet-stream', 'application/json'])
 
       # form parameters
       form_params = opts[:form_params] || {}
@@ -803,7 +803,8 @@ module Falcon
       return data, status_code, headers
     end
 
-    # Get detailed notifications based on their IDs. These include the raw intelligence content that generated the match.This endpoint will return translated notification content. The only target language available is English. A single notification can be translated per request
+    # Get detailed notifications based on their IDs. These include the translated raw intelligence content that generated the match or part of it. 
+    # Get detailed notifications based on their IDs. These include the translated raw intelligence content that generated the match or part of it. This API endpoint will return translated notification content. The only target language available is English. A single notification can be translated per request. In case the item's content is only partial, a URL is provided under the resource's 'details.full_content_url' path, but the content available at this URL will be the original one. 
     # @param ids [Array<String>] Notification IDs.
     # @param [Hash] opts the optional parameters
     # @return [DomainNotificationDetailsResponseV1]
@@ -812,7 +813,8 @@ module Falcon
       data
     end
 
-    # Get detailed notifications based on their IDs. These include the raw intelligence content that generated the match.This endpoint will return translated notification content. The only target language available is English. A single notification can be translated per request
+    # Get detailed notifications based on their IDs. These include the translated raw intelligence content that generated the match or part of it. 
+    # Get detailed notifications based on their IDs. These include the translated raw intelligence content that generated the match or part of it. This API endpoint will return translated notification content. The only target language available is English. A single notification can be translated per request. In case the item&#39;s content is only partial, a URL is provided under the resource&#39;s &#39;details.full_content_url&#39; path, but the content available at this URL will be the original one. 
     # @param ids [Array<String>] Notification IDs.
     # @param [Hash] opts the optional parameters
     # @return [Array<(DomainNotificationDetailsResponseV1, Integer, Hash)>] DomainNotificationDetailsResponseV1 data, response status code and response headers
@@ -865,7 +867,8 @@ module Falcon
       return data, status_code, headers
     end
 
-    # Get detailed notifications based on their IDs. These include the raw intelligence content that generated the match.
+    # Get detailed notifications based on their IDs. These include the raw intelligence content that generated the match or part of it. 
+    # Get detailed notifications based on their IDs. These include the raw intelligence content that generated the match or part of it. In case the content is only partial, a URL is provided under the resource's 'details.full_content_url' path. When present, use this URL to retrieve the full raw text content of the item. Please note this URL has a limited TTL. To get a fresh valid one, perform a new call to this API endpoint. 
     # @param ids [Array<String>] Notification IDs.
     # @param [Hash] opts the optional parameters
     # @return [DomainNotificationDetailsResponseV1]
@@ -874,7 +877,8 @@ module Falcon
       data
     end
 
-    # Get detailed notifications based on their IDs. These include the raw intelligence content that generated the match.
+    # Get detailed notifications based on their IDs. These include the raw intelligence content that generated the match or part of it. 
+    # Get detailed notifications based on their IDs. These include the raw intelligence content that generated the match or part of it. In case the content is only partial, a URL is provided under the resource&#39;s &#39;details.full_content_url&#39; path. When present, use this URL to retrieve the full raw text content of the item. Please note this URL has a limited TTL. To get a fresh valid one, perform a new call to this API endpoint. 
     # @param ids [Array<String>] Notification IDs.
     # @param [Hash] opts the optional parameters
     # @return [Array<(DomainNotificationDetailsResponseV1, Integer, Hash)>] DomainNotificationDetailsResponseV1 data, response status code and response headers
@@ -1176,7 +1180,7 @@ module Falcon
     end
 
     # Preview rules notification count and distribution. This will return aggregations on: channel, count, site.
-    # @param body [DomainRulePreviewRequest]
+    # @param body [DomainRulePreviewRequest] 
     # @param [Hash] opts the optional parameters
     # @return [DomainAggregatesResponse]
     def preview_rule_v1(body, opts = {})
@@ -1185,7 +1189,7 @@ module Falcon
     end
 
     # Preview rules notification count and distribution. This will return aggregations on: channel, count, site.
-    # @param body [DomainRulePreviewRequest]
+    # @param body [DomainRulePreviewRequest] 
     # @param [Hash] opts the optional parameters
     # @return [Array<(DomainAggregatesResponse, Integer, Hash)>] DomainAggregatesResponse data, response status code and response headers
     def preview_rule_v1_with_http_info(body, opts = {})
@@ -1209,7 +1213,7 @@ module Falcon
       # HTTP header 'Content-Type'
       content_type = @api_client.select_header_content_type(['application/json'])
       if !content_type.nil?
-        header_params['Content-Type'] = content_type
+          header_params['Content-Type'] = content_type
       end
 
       # form parameters
@@ -1482,6 +1486,7 @@ module Falcon
     # @option opts [String] :sort Possible order by fields: created_timestamp, last_updated_timestamp. Ex: &#x60;last_updated_timestamp|desc&#x60;.
     # @option opts [String] :filter FQL query to filter rules by. Possible filter properties are: [id cid user_uuid topic priority permissions status filter breach_monitoring_enabled substring_matching_enabled created_timestamp last_updated_timestamp].
     # @option opts [String] :q Free text search across all indexed fields.
+    # @option opts [String] :secondary_sort Possible order by fields: created_timestamp, last_updated_timestamp. Ex: &#x60;last_updated_timestamp|desc&#x60;.
     # @return [DomainRuleQueryResponseV1]
     def query_rules_v1(opts = {})
       data, _status_code, _headers = query_rules_v1_with_http_info(opts)
@@ -1495,6 +1500,7 @@ module Falcon
     # @option opts [String] :sort Possible order by fields: created_timestamp, last_updated_timestamp. Ex: &#x60;last_updated_timestamp|desc&#x60;.
     # @option opts [String] :filter FQL query to filter rules by. Possible filter properties are: [id cid user_uuid topic priority permissions status filter breach_monitoring_enabled substring_matching_enabled created_timestamp last_updated_timestamp].
     # @option opts [String] :q Free text search across all indexed fields.
+    # @option opts [String] :secondary_sort Possible order by fields: created_timestamp, last_updated_timestamp. Ex: &#x60;last_updated_timestamp|desc&#x60;.
     # @return [Array<(DomainRuleQueryResponseV1, Integer, Hash)>] DomainRuleQueryResponseV1 data, response status code and response headers
     def query_rules_v1_with_http_info(opts = {})
       if @api_client.config.debugging
@@ -1518,6 +1524,7 @@ module Falcon
       query_params[:'sort'] = opts[:'sort'] if !opts[:'sort'].nil?
       query_params[:'filter'] = opts[:'filter'] if !opts[:'filter'].nil?
       query_params[:'q'] = opts[:'q'] if !opts[:'q'].nil?
+      query_params[:'secondarySort'] = opts[:'secondary_sort'] if !opts[:'secondary_sort'].nil?
 
       # header parameters
       header_params = opts[:header_params] || {}
@@ -1554,7 +1561,7 @@ module Falcon
     end
 
     # Update an action for a monitoring rule.
-    # @param body [DomainUpdateActionRequest]
+    # @param body [DomainUpdateActionRequest] 
     # @param [Hash] opts the optional parameters
     # @return [DomainActionEntitiesResponseV1]
     def update_action_v1(body, opts = {})
@@ -1563,7 +1570,7 @@ module Falcon
     end
 
     # Update an action for a monitoring rule.
-    # @param body [DomainUpdateActionRequest]
+    # @param body [DomainUpdateActionRequest] 
     # @param [Hash] opts the optional parameters
     # @return [Array<(DomainActionEntitiesResponseV1, Integer, Hash)>] DomainActionEntitiesResponseV1 data, response status code and response headers
     def update_action_v1_with_http_info(body, opts = {})
@@ -1587,7 +1594,7 @@ module Falcon
       # HTTP header 'Content-Type'
       content_type = @api_client.select_header_content_type(['application/json'])
       if !content_type.nil?
-        header_params['Content-Type'] = content_type
+          header_params['Content-Type'] = content_type
       end
 
       # form parameters
@@ -1620,7 +1627,7 @@ module Falcon
     end
 
     # Update notification status or assignee. Accepts bulk requests
-    # @param body [Array<DomainUpdateNotificationRequestV1>]
+    # @param body [Array<DomainUpdateNotificationRequestV1>] 
     # @param [Hash] opts the optional parameters
     # @return [DomainNotificationEntitiesResponseV1]
     def update_notifications_v1(body, opts = {})
@@ -1629,7 +1636,7 @@ module Falcon
     end
 
     # Update notification status or assignee. Accepts bulk requests
-    # @param body [Array<DomainUpdateNotificationRequestV1>]
+    # @param body [Array<DomainUpdateNotificationRequestV1>] 
     # @param [Hash] opts the optional parameters
     # @return [Array<(DomainNotificationEntitiesResponseV1, Integer, Hash)>] DomainNotificationEntitiesResponseV1 data, response status code and response headers
     def update_notifications_v1_with_http_info(body, opts = {})
@@ -1653,7 +1660,7 @@ module Falcon
       # HTTP header 'Content-Type'
       content_type = @api_client.select_header_content_type(['application/json'])
       if !content_type.nil?
-        header_params['Content-Type'] = content_type
+          header_params['Content-Type'] = content_type
       end
 
       # form parameters
@@ -1686,7 +1693,7 @@ module Falcon
     end
 
     # Update monitoring rules.
-    # @param body [Array<DomainUpdateRuleRequestV1>]
+    # @param body [Array<DomainUpdateRuleRequestV1>] 
     # @param [Hash] opts the optional parameters
     # @return [DomainRulesEntitiesResponseV1]
     def update_rules_v1(body, opts = {})
@@ -1695,7 +1702,7 @@ module Falcon
     end
 
     # Update monitoring rules.
-    # @param body [Array<DomainUpdateRuleRequestV1>]
+    # @param body [Array<DomainUpdateRuleRequestV1>] 
     # @param [Hash] opts the optional parameters
     # @return [Array<(DomainRulesEntitiesResponseV1, Integer, Hash)>] DomainRulesEntitiesResponseV1 data, response status code and response headers
     def update_rules_v1_with_http_info(body, opts = {})
@@ -1719,7 +1726,7 @@ module Falcon
       # HTTP header 'Content-Type'
       content_type = @api_client.select_header_content_type(['application/json'])
       if !content_type.nil?
-        header_params['Content-Type'] = content_type
+          header_params['Content-Type'] = content_type
       end
 
       # form parameters

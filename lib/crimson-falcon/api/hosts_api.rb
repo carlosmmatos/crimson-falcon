@@ -39,7 +39,7 @@ module Falcon
     # Performs the specified action on the provided group IDs.
     # @param ids [Array<String>] The group ids to act on
     # @param action_name [String] The action to perform.
-    # @param body [MsaEntityActionRequest]
+    # @param body [MsaEntityActionRequest] 
     # @param [Hash] opts the optional parameters
     # @option opts [Boolean] :disable_hostname_check Bool to disable hostname check on add-member (default to false)
     # @return [DeviceapiGroupsResponseV1]
@@ -51,7 +51,7 @@ module Falcon
     # Performs the specified action on the provided group IDs.
     # @param ids [Array<String>] The group ids to act on
     # @param action_name [String] The action to perform.
-    # @param body [MsaEntityActionRequest]
+    # @param body [MsaEntityActionRequest] 
     # @param [Hash] opts the optional parameters
     # @option opts [Boolean] :disable_hostname_check Bool to disable hostname check on add-member (default to false)
     # @return [Array<(DeviceapiGroupsResponseV1, Integer, Hash)>] DeviceapiGroupsResponseV1 data, response status code and response headers
@@ -92,7 +92,7 @@ module Falcon
       # HTTP header 'Content-Type'
       content_type = @api_client.select_header_content_type(['application/json'])
       if !content_type.nil?
-        header_params['Content-Type'] = content_type
+          header_params['Content-Type'] = content_type
       end
 
       # form parameters
@@ -293,7 +293,7 @@ module Falcon
       # HTTP header 'Content-Type'
       content_type = @api_client.select_header_content_type(['application/json'])
       if !content_type.nil?
-        header_params['Content-Type'] = content_type
+          header_params['Content-Type'] = content_type
       end
 
       # form parameters
@@ -326,7 +326,7 @@ module Falcon
     end
 
     # Get details on one or more hosts by providing host IDs in a POST body.  Supports up to a maximum 5000 IDs.
-    # @param body [MsaIdsRequest]
+    # @param body [MsaIdsRequest] 
     # @param [Hash] opts the optional parameters
     # @return [DeviceapiDeviceDetailsResponseSwagger]
     def post_device_details_v2(body, opts = {})
@@ -335,7 +335,7 @@ module Falcon
     end
 
     # Get details on one or more hosts by providing host IDs in a POST body.  Supports up to a maximum 5000 IDs.
-    # @param body [MsaIdsRequest]
+    # @param body [MsaIdsRequest] 
     # @param [Hash] opts the optional parameters
     # @return [Array<(DeviceapiDeviceDetailsResponseSwagger, Integer, Hash)>] DeviceapiDeviceDetailsResponseSwagger data, response status code and response headers
     def post_device_details_v2_with_http_info(body, opts = {})
@@ -359,7 +359,7 @@ module Falcon
       # HTTP header 'Content-Type'
       content_type = @api_client.select_header_content_type(['application/json'])
       if !content_type.nil?
-        header_params['Content-Type'] = content_type
+          header_params['Content-Type'] = content_type
       end
 
       # form parameters
@@ -392,7 +392,7 @@ module Falcon
     end
 
     # Retrieve details about recent login sessions for a set of devices.
-    # @param body [MsaIdsRequest]
+    # @param body [MsaIdsRequest] 
     # @param [Hash] opts the optional parameters
     # @return [DeviceapiLoginHistoryResponseV1]
     def query_device_login_history(body, opts = {})
@@ -401,7 +401,7 @@ module Falcon
     end
 
     # Retrieve details about recent login sessions for a set of devices.
-    # @param body [MsaIdsRequest]
+    # @param body [MsaIdsRequest] 
     # @param [Hash] opts the optional parameters
     # @return [Array<(DeviceapiLoginHistoryResponseV1, Integer, Hash)>] DeviceapiLoginHistoryResponseV1 data, response status code and response headers
     def query_device_login_history_with_http_info(body, opts = {})
@@ -425,7 +425,7 @@ module Falcon
       # HTTP header 'Content-Type'
       content_type = @api_client.select_header_content_type(['application/json'])
       if !content_type.nil?
-        header_params['Content-Type'] = content_type
+          header_params['Content-Type'] = content_type
       end
 
       # form parameters
@@ -458,7 +458,7 @@ module Falcon
     end
 
     # Retrieve details about recent interactive login sessions for a set of devices powered by the Host Timeline. A max of 10 device ids can be specified
-    # @param body [MsaIdsRequest]
+    # @param body [MsaIdsRequest] 
     # @param [Hash] opts the optional parameters
     # @return [DeviceapiLoginHistoryResponseV1]
     def query_device_login_history_v2(body, opts = {})
@@ -467,7 +467,7 @@ module Falcon
     end
 
     # Retrieve details about recent interactive login sessions for a set of devices powered by the Host Timeline. A max of 10 device ids can be specified
-    # @param body [MsaIdsRequest]
+    # @param body [MsaIdsRequest] 
     # @param [Hash] opts the optional parameters
     # @return [Array<(DeviceapiLoginHistoryResponseV1, Integer, Hash)>] DeviceapiLoginHistoryResponseV1 data, response status code and response headers
     def query_device_login_history_v2_with_http_info(body, opts = {})
@@ -491,7 +491,7 @@ module Falcon
       # HTTP header 'Content-Type'
       content_type = @api_client.select_header_content_type(['application/json'])
       if !content_type.nil?
-        header_params['Content-Type'] = content_type
+          header_params['Content-Type'] = content_type
       end
 
       # form parameters
@@ -592,8 +592,8 @@ module Falcon
 
     # Search for hosts in your environment by platform, hostname, IP, and other criteria with continuous pagination capability (based on offset pointer which expires after 2 minutes with no maximum limit)
     # @param [Hash] opts the optional parameters
-    # @option opts [String] :offset The offset to page from, for the next result set
-    # @option opts [Integer] :limit The maximum records to return. [1-5000]
+    # @option opts [String] :offset The offset to page from, provided from the previous scroll call, for the next result set. For the first call, do not supply an offset.
+    # @option opts [Integer] :limit The maximum records to return. [1-10000]
     # @option opts [String] :sort The property to sort by (e.g. status.desc or hostname.asc)
     # @option opts [String] :filter The filter expression that should be used to limit the results
     # @return [DeviceapiDeviceResponse]
@@ -604,8 +604,8 @@ module Falcon
 
     # Search for hosts in your environment by platform, hostname, IP, and other criteria with continuous pagination capability (based on offset pointer which expires after 2 minutes with no maximum limit)
     # @param [Hash] opts the optional parameters
-    # @option opts [String] :offset The offset to page from, for the next result set
-    # @option opts [Integer] :limit The maximum records to return. [1-5000]
+    # @option opts [String] :offset The offset to page from, provided from the previous scroll call, for the next result set. For the first call, do not supply an offset.
+    # @option opts [Integer] :limit The maximum records to return. [1-10000]
     # @option opts [String] :sort The property to sort by (e.g. status.desc or hostname.asc)
     # @option opts [String] :filter The filter expression that should be used to limit the results
     # @return [Array<(DeviceapiDeviceResponse, Integer, Hash)>] DeviceapiDeviceResponse data, response status code and response headers
@@ -658,7 +658,7 @@ module Falcon
     end
 
     # Retrieve history of IP and MAC addresses of devices.
-    # @param body [MsaIdsRequest]
+    # @param body [MsaIdsRequest] 
     # @param [Hash] opts the optional parameters
     # @return [DeviceapiNetworkAddressHistoryResponseV1]
     def query_get_network_address_history_v1(body, opts = {})
@@ -667,7 +667,7 @@ module Falcon
     end
 
     # Retrieve history of IP and MAC addresses of devices.
-    # @param body [MsaIdsRequest]
+    # @param body [MsaIdsRequest] 
     # @param [Hash] opts the optional parameters
     # @return [Array<(DeviceapiNetworkAddressHistoryResponseV1, Integer, Hash)>] DeviceapiNetworkAddressHistoryResponseV1 data, response status code and response headers
     def query_get_network_address_history_v1_with_http_info(body, opts = {})
@@ -691,7 +691,7 @@ module Falcon
       # HTTP header 'Content-Type'
       content_type = @api_client.select_header_content_type(['application/json'])
       if !content_type.nil?
-        header_params['Content-Type'] = content_type
+          header_params['Content-Type'] = content_type
       end
 
       # form parameters
@@ -791,7 +791,7 @@ module Falcon
     end
 
     # Append or remove one or more Falcon Grouping Tags on one or more hosts.  Tags must be of the form FalconGroupingTags/
-    # @param body [DeviceapiUpdateDeviceTagsRequestV1]
+    # @param body [DeviceapiUpdateDeviceTagsRequestV1] 
     # @param [Hash] opts the optional parameters
     # @return [DeviceapiUpdateDeviceTagsSwaggerV1]
     def update_device_tags(body, opts = {})
@@ -800,7 +800,7 @@ module Falcon
     end
 
     # Append or remove one or more Falcon Grouping Tags on one or more hosts.  Tags must be of the form FalconGroupingTags/
-    # @param body [DeviceapiUpdateDeviceTagsRequestV1]
+    # @param body [DeviceapiUpdateDeviceTagsRequestV1] 
     # @param [Hash] opts the optional parameters
     # @return [Array<(DeviceapiUpdateDeviceTagsSwaggerV1, Integer, Hash)>] DeviceapiUpdateDeviceTagsSwaggerV1 data, response status code and response headers
     def update_device_tags_with_http_info(body, opts = {})
@@ -824,7 +824,7 @@ module Falcon
       # HTTP header 'Content-Type'
       content_type = @api_client.select_header_content_type(['application/json'])
       if !content_type.nil?
-        header_params['Content-Type'] = content_type
+          header_params['Content-Type'] = content_type
       end
 
       # form parameters

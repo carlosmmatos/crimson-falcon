@@ -99,7 +99,7 @@ module Falcon
     end
 
     # Get quarantine file aggregates as specified via json in request body.
-    # @param body [MsaAggregateQueryRequest]
+    # @param body [MsaAggregateQueryRequest] 
     # @param [Hash] opts the optional parameters
     # @return [MsaAggregatesResponse]
     def get_aggregate_files(body, opts = {})
@@ -108,7 +108,7 @@ module Falcon
     end
 
     # Get quarantine file aggregates as specified via json in request body.
-    # @param body [MsaAggregateQueryRequest]
+    # @param body [MsaAggregateQueryRequest] 
     # @param [Hash] opts the optional parameters
     # @return [Array<(MsaAggregatesResponse, Integer, Hash)>] MsaAggregatesResponse data, response status code and response headers
     def get_aggregate_files_with_http_info(body, opts = {})
@@ -132,7 +132,7 @@ module Falcon
       # HTTP header 'Content-Type'
       content_type = @api_client.select_header_content_type(['application/json'])
       if !content_type.nil?
-        header_params['Content-Type'] = content_type
+          header_params['Content-Type'] = content_type
       end
 
       # form parameters
@@ -165,7 +165,7 @@ module Falcon
     end
 
     # Get quarantine file metadata for specified ids.
-    # @param body [MsaIdsRequest]
+    # @param body [MsaIdsRequest] 
     # @param [Hash] opts the optional parameters
     # @return [DomainMsaQfResponse]
     def get_quarantine_files(body, opts = {})
@@ -174,7 +174,7 @@ module Falcon
     end
 
     # Get quarantine file metadata for specified ids.
-    # @param body [MsaIdsRequest]
+    # @param body [MsaIdsRequest] 
     # @param [Hash] opts the optional parameters
     # @return [Array<(DomainMsaQfResponse, Integer, Hash)>] DomainMsaQfResponse data, response status code and response headers
     def get_quarantine_files_with_http_info(body, opts = {})
@@ -198,7 +198,7 @@ module Falcon
       # HTTP header 'Content-Type'
       content_type = @api_client.select_header_content_type(['application/json'])
       if !content_type.nil?
-        header_params['Content-Type'] = content_type
+          header_params['Content-Type'] = content_type
       end
 
       # form parameters
@@ -301,7 +301,7 @@ module Falcon
     end
 
     # Apply quarantine file actions by query.
-    # @param body [DomainQueriesPatchRequest]
+    # @param body [DomainQueriesPatchRequest] 
     # @param [Hash] opts the optional parameters
     # @return [MsaReplyMetaOnly]
     def update_qf_by_query(body, opts = {})
@@ -310,7 +310,7 @@ module Falcon
     end
 
     # Apply quarantine file actions by query.
-    # @param body [DomainQueriesPatchRequest]
+    # @param body [DomainQueriesPatchRequest] 
     # @param [Hash] opts the optional parameters
     # @return [Array<(MsaReplyMetaOnly, Integer, Hash)>] MsaReplyMetaOnly data, response status code and response headers
     def update_qf_by_query_with_http_info(body, opts = {})
@@ -334,7 +334,7 @@ module Falcon
       # HTTP header 'Content-Type'
       content_type = @api_client.select_header_content_type(['application/json'])
       if !content_type.nil?
-        header_params['Content-Type'] = content_type
+          header_params['Content-Type'] = content_type
       end
 
       # form parameters
@@ -367,7 +367,7 @@ module Falcon
     end
 
     # Apply action by quarantine file ids
-    # @param body [DomainEntitiesPatchRequest]
+    # @param body [DomainEntitiesPatchRequest] 
     # @param [Hash] opts the optional parameters
     # @return [MsaReplyMetaOnly]
     def update_quarantined_detects_by_ids(body, opts = {})
@@ -376,7 +376,7 @@ module Falcon
     end
 
     # Apply action by quarantine file ids
-    # @param body [DomainEntitiesPatchRequest]
+    # @param body [DomainEntitiesPatchRequest] 
     # @param [Hash] opts the optional parameters
     # @return [Array<(MsaReplyMetaOnly, Integer, Hash)>] MsaReplyMetaOnly data, response status code and response headers
     def update_quarantined_detects_by_ids_with_http_info(body, opts = {})
@@ -400,7 +400,7 @@ module Falcon
       # HTTP header 'Content-Type'
       content_type = @api_client.select_header_content_type(['application/json'])
       if !content_type.nil?
-        header_params['Content-Type'] = content_type
+          header_params['Content-Type'] = content_type
       end
 
       # form parameters

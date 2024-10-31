@@ -1,22 +1,23 @@
 # Falcon::FoundryLogscaleApi
 
-All URIs are relative to *https://api.crowdstrike.com*
+All URIs are relative to *https://api.us-2.crowdstrike.com*
 
 | Method | HTTP request | Description |
 | ------ | ------------ | ----------- |
 | [**create_saved_searches_dynamic_execute_alt_v1**](FoundryLogscaleApi.md#create_saved_searches_dynamic_execute_alt_v1) | **POST** /loggingapi/entities/saved-searches-dynamic-execute/v1 | Execute a dynamic saved search |
-| [**create_saved_searches_dynamic_execute_v1**](FoundryLogscaleApi.md#create_saved_searches_dynamic_execute_v1) | **POST** /loggingapi/entities/saved-searches/execute-dynamic/v1 | Execute a dynamic saved search |
 | [**create_saved_searches_execute_alt_v1**](FoundryLogscaleApi.md#create_saved_searches_execute_alt_v1) | **POST** /loggingapi/entities/saved-searches-execute/v1 | Execute a saved search |
-| [**create_saved_searches_execute_v1**](FoundryLogscaleApi.md#create_saved_searches_execute_v1) | **POST** /loggingapi/entities/saved-searches/execute/v1 | Execute a saved search |
 | [**create_saved_searches_ingest_alt_v1**](FoundryLogscaleApi.md#create_saved_searches_ingest_alt_v1) | **POST** /loggingapi/entities/saved-searches-ingest/v1 | Populate a saved search |
-| [**create_saved_searches_ingest_v1**](FoundryLogscaleApi.md#create_saved_searches_ingest_v1) | **POST** /loggingapi/entities/saved-searches/ingest/v1 | Populate a saved search |
+| [**download_results**](FoundryLogscaleApi.md#download_results) | **GET** /loggingapi/entities/saved-searches/job-results-download/v1 | Get the results of a saved search as a file |
+| [**execute**](FoundryLogscaleApi.md#execute) | **POST** /loggingapi/entities/saved-searches/execute/v1 | Execute a saved search |
+| [**execute_dynamic**](FoundryLogscaleApi.md#execute_dynamic) | **POST** /loggingapi/entities/saved-searches/execute-dynamic/v1 | Execute a dynamic saved search |
 | [**get_saved_searches_execute_alt_v1**](FoundryLogscaleApi.md#get_saved_searches_execute_alt_v1) | **GET** /loggingapi/entities/saved-searches-execute/v1 | Get the results of a saved search |
-| [**get_saved_searches_execute_v1**](FoundryLogscaleApi.md#get_saved_searches_execute_v1) | **GET** /loggingapi/entities/saved-searches/execute/v1 | Get the results of a saved search |
 | [**get_saved_searches_job_results_download_alt_v1**](FoundryLogscaleApi.md#get_saved_searches_job_results_download_alt_v1) | **GET** /loggingapi/entities/saved-searches-job-results-download/v1 | Get the results of a saved search as a file |
-| [**get_saved_searches_job_results_download_v1**](FoundryLogscaleApi.md#get_saved_searches_job_results_download_v1) | **GET** /loggingapi/entities/saved-searches/job-results-download/v1 | Get the results of a saved search as a file |
-| [**ingest_data_v1**](FoundryLogscaleApi.md#ingest_data_v1) | **POST** /loggingapi/entities/data-ingestion/ingest/v1 | Ingest data into the application repository |
-| [**list_repos_v1**](FoundryLogscaleApi.md#list_repos_v1) | **GET** /loggingapi/combined/repos/v1 | Lists available repositories and views |
-| [**list_view_v1**](FoundryLogscaleApi.md#list_view_v1) | **GET** /loggingapi/entities/views/v1 | List views |
+| [**get_search_results**](FoundryLogscaleApi.md#get_search_results) | **GET** /loggingapi/entities/saved-searches/execute/v1 | Get the results of a saved search |
+| [**ingest_data**](FoundryLogscaleApi.md#ingest_data) | **POST** /loggingapi/entities/data-ingestion/ingest/v1 | Synchronously ingest data into the application repository |
+| [**ingest_data_async_v1**](FoundryLogscaleApi.md#ingest_data_async_v1) | **POST** /loggingapi/entities/data-ingestion/ingest-async/v1 | Asynchronously ingest data into the application repository |
+| [**list_repos**](FoundryLogscaleApi.md#list_repos) | **GET** /loggingapi/combined/repos/v1 | Lists available repositories and views |
+| [**list_views**](FoundryLogscaleApi.md#list_views) | **GET** /loggingapi/entities/views/v1 | List views |
+| [**populate**](FoundryLogscaleApi.md#populate) | **POST** /loggingapi/entities/saved-searches/ingest/v1 | Populate a saved search |
 
 
 ## create_saved_searches_dynamic_execute_alt_v1
@@ -44,6 +45,8 @@ opts = {
   app_id: 'app_id_example', # String | Application ID.
   include_schema_generation: true, # Boolean | Include generated schemas in the response
   include_test_data: true, # Boolean | Include test data when executing searches
+  infer_json_types: true, # Boolean | Whether to try to infer data types in json event response instead of returning map[string]string
+  match_response_schema: true, # Boolean | Whether to validate search results against their schema
   metadata: true, # Boolean | Whether to include metadata in the response
   mode: 'sync' # String | Mode to execute the query under.
 }
@@ -83,87 +86,8 @@ end
 | **app_id** | **String** | Application ID. | [optional] |
 | **include_schema_generation** | **Boolean** | Include generated schemas in the response | [optional][default to false] |
 | **include_test_data** | **Boolean** | Include test data when executing searches | [optional][default to false] |
-| **metadata** | **Boolean** | Whether to include metadata in the response | [optional][default to false] |
-| **mode** | **String** | Mode to execute the query under. | [optional] |
-
-### Return type
-
-[**ApidomainQueryResponseWrapperV1**](ApidomainQueryResponseWrapperV1.md)
-
-### Authorization
-
-**oauth2**
-
-### HTTP request headers
-
-- **Content-Type**: application/json
-- **Accept**: application/json
-
-
-## create_saved_searches_dynamic_execute_v1
-
-> <ApidomainQueryResponseWrapperV1> create_saved_searches_dynamic_execute_v1(body, opts)
-
-Execute a dynamic saved search
-
-### Examples
-
-```ruby
-require 'time'
-require 'crimson-falcon'
-
-# Setup authorization
-Falcon.configure do |config|
-  config.client_id = "Your_Client_ID"
-  config.client_secret = "Your_Client_Secret"
-  config.cloud = "us-1" # or "us-2", "eu-1", "us-gov1"
-end
-
-api_instance = Falcon::FoundryLogscaleApi.new
-body = Falcon::ApidomainDynamicExecuteSearchRequestV1.new({repo_or_view: 'repo_or_view_example', search_query: 'search_query_example', search_query_args: 3.56}) # ApidomainDynamicExecuteSearchRequestV1 | 
-opts = {
-  app_id: 'app_id_example', # String | Application ID.
-  include_schema_generation: true, # Boolean | Include generated schemas in the response
-  include_test_data: true, # Boolean | Include test data when executing searches
-  metadata: true, # Boolean | Whether to include metadata in the response
-  mode: 'sync' # String | Mode to execute the query under.
-}
-
-begin
-  # Execute a dynamic saved search
-  result = api_instance.create_saved_searches_dynamic_execute_v1(body, opts)
-  p result
-rescue Falcon::ApiError => e
-  puts "Error when calling FoundryLogscaleApi->create_saved_searches_dynamic_execute_v1: #{e}"
-end
-```
-
-#### Using the create_saved_searches_dynamic_execute_v1_with_http_info variant
-
-This returns an Array which contains the response data, status code and headers.
-
-> <Array(<ApidomainQueryResponseWrapperV1>, Integer, Hash)> create_saved_searches_dynamic_execute_v1_with_http_info(body, opts)
-
-```ruby
-begin
-  # Execute a dynamic saved search
-  data, status_code, headers = api_instance.create_saved_searches_dynamic_execute_v1_with_http_info(body, opts)
-  p status_code # => 2xx
-  p headers # => { ... }
-  p data # => <ApidomainQueryResponseWrapperV1>
-rescue Falcon::ApiError => e
-  puts "Error when calling FoundryLogscaleApi->create_saved_searches_dynamic_execute_v1_with_http_info: #{e}"
-end
-```
-
-### Parameters
-
-| Name | Type | Description | Notes |
-| ---- | ---- | ----------- | ----- |
-| **body** | [**ApidomainDynamicExecuteSearchRequestV1**](ApidomainDynamicExecuteSearchRequestV1.md) |  |  |
-| **app_id** | **String** | Application ID. | [optional] |
-| **include_schema_generation** | **Boolean** | Include generated schemas in the response | [optional][default to false] |
-| **include_test_data** | **Boolean** | Include test data when executing searches | [optional][default to false] |
+| **infer_json_types** | **Boolean** | Whether to try to infer data types in json event response instead of returning map[string]string | [optional][default to false] |
+| **match_response_schema** | **Boolean** | Whether to validate search results against their schema | [optional][default to false] |
 | **metadata** | **Boolean** | Whether to include metadata in the response | [optional][default to false] |
 | **mode** | **String** | Mode to execute the query under. | [optional] |
 
@@ -201,11 +125,13 @@ Falcon.configure do |config|
 end
 
 api_instance = Falcon::FoundryLogscaleApi.new
-body = Falcon::ApidomainSavedSearchExecuteRequestV1.new # ApidomainSavedSearchExecuteRequestV1 | 
+body = Falcon::ApidomainSavedSearchExecuteRequestV1.new({extra_rename: 'extra_rename_example', extra_search: 'extra_search_example', extra_sort: 'extra_sort_example', extra_where: 'extra_where_example', parameters: { key: 'inner_example'}, fql_statements: { key: Falcon::ClientFQLStatement.new({op: 'op_example', prop: 'prop_example', value: 3.56})}}) # ApidomainSavedSearchExecuteRequestV1 | 
 opts = {
   app_id: 'app_id_example', # String | Application ID.
   detailed: true, # Boolean | Whether to include search field details
   include_test_data: true, # Boolean | Include test data when executing searches
+  infer_json_types: true, # Boolean | Whether to try to infer data types in json event response instead of returning map[string]string
+  match_response_schema: true, # Boolean | Whether to validate search results against their schema
   metadata: true # Boolean | Whether to include metadata in the response
 }
 
@@ -244,85 +170,8 @@ end
 | **app_id** | **String** | Application ID. | [optional] |
 | **detailed** | **Boolean** | Whether to include search field details | [optional][default to false] |
 | **include_test_data** | **Boolean** | Include test data when executing searches | [optional][default to false] |
-| **metadata** | **Boolean** | Whether to include metadata in the response | [optional][default to false] |
-
-### Return type
-
-[**ApidomainQueryResponseWrapperV1**](ApidomainQueryResponseWrapperV1.md)
-
-### Authorization
-
-**oauth2**
-
-### HTTP request headers
-
-- **Content-Type**: application/json
-- **Accept**: application/json
-
-
-## create_saved_searches_execute_v1
-
-> <ApidomainQueryResponseWrapperV1> create_saved_searches_execute_v1(body, opts)
-
-Execute a saved search
-
-### Examples
-
-```ruby
-require 'time'
-require 'crimson-falcon'
-
-# Setup authorization
-Falcon.configure do |config|
-  config.client_id = "Your_Client_ID"
-  config.client_secret = "Your_Client_Secret"
-  config.cloud = "us-1" # or "us-2", "eu-1", "us-gov1"
-end
-
-api_instance = Falcon::FoundryLogscaleApi.new
-body = Falcon::ApidomainSavedSearchExecuteRequestV1.new # ApidomainSavedSearchExecuteRequestV1 | 
-opts = {
-  app_id: 'app_id_example', # String | Application ID.
-  detailed: true, # Boolean | Whether to include search field details
-  include_test_data: true, # Boolean | Include test data when executing searches
-  metadata: true # Boolean | Whether to include metadata in the response
-}
-
-begin
-  # Execute a saved search
-  result = api_instance.create_saved_searches_execute_v1(body, opts)
-  p result
-rescue Falcon::ApiError => e
-  puts "Error when calling FoundryLogscaleApi->create_saved_searches_execute_v1: #{e}"
-end
-```
-
-#### Using the create_saved_searches_execute_v1_with_http_info variant
-
-This returns an Array which contains the response data, status code and headers.
-
-> <Array(<ApidomainQueryResponseWrapperV1>, Integer, Hash)> create_saved_searches_execute_v1_with_http_info(body, opts)
-
-```ruby
-begin
-  # Execute a saved search
-  data, status_code, headers = api_instance.create_saved_searches_execute_v1_with_http_info(body, opts)
-  p status_code # => 2xx
-  p headers # => { ... }
-  p data # => <ApidomainQueryResponseWrapperV1>
-rescue Falcon::ApiError => e
-  puts "Error when calling FoundryLogscaleApi->create_saved_searches_execute_v1_with_http_info: #{e}"
-end
-```
-
-### Parameters
-
-| Name | Type | Description | Notes |
-| ---- | ---- | ----------- | ----- |
-| **body** | [**ApidomainSavedSearchExecuteRequestV1**](ApidomainSavedSearchExecuteRequestV1.md) |  |  |
-| **app_id** | **String** | Application ID. | [optional] |
-| **detailed** | **Boolean** | Whether to include search field details | [optional][default to false] |
-| **include_test_data** | **Boolean** | Include test data when executing searches | [optional][default to false] |
+| **infer_json_types** | **Boolean** | Whether to try to infer data types in json event response instead of returning map[string]string | [optional][default to false] |
+| **match_response_schema** | **Boolean** | Whether to validate search results against their schema | [optional][default to false] |
 | **metadata** | **Boolean** | Whether to include metadata in the response | [optional][default to false] |
 
 ### Return type
@@ -410,11 +259,11 @@ end
 - **Accept**: application/json
 
 
-## create_saved_searches_ingest_v1
+## download_results
 
-> <ClientDataIngestResponseWrapperV1> create_saved_searches_ingest_v1(opts)
+> File download_results(job_id, opts)
 
-Populate a saved search
+Get the results of a saved search as a file
 
 ### Examples
 
@@ -430,34 +279,36 @@ Falcon.configure do |config|
 end
 
 api_instance = Falcon::FoundryLogscaleApi.new
+job_id = 'job_id_example' # String | Job ID for a previously executed async query
 opts = {
-  app_id: 'app_id_example' # String | Application ID.
+  infer_json_types: true, # Boolean | Whether to try to infer data types in json event response instead of returning map[string]string
+  result_format: 'json' # String | Result Format
 }
 
 begin
-  # Populate a saved search
-  result = api_instance.create_saved_searches_ingest_v1(opts)
+  # Get the results of a saved search as a file
+  result = api_instance.download_results(job_id, opts)
   p result
 rescue Falcon::ApiError => e
-  puts "Error when calling FoundryLogscaleApi->create_saved_searches_ingest_v1: #{e}"
+  puts "Error when calling FoundryLogscaleApi->download_results: #{e}"
 end
 ```
 
-#### Using the create_saved_searches_ingest_v1_with_http_info variant
+#### Using the download_results_with_http_info variant
 
 This returns an Array which contains the response data, status code and headers.
 
-> <Array(<ClientDataIngestResponseWrapperV1>, Integer, Hash)> create_saved_searches_ingest_v1_with_http_info(opts)
+> <Array(File, Integer, Hash)> download_results_with_http_info(job_id, opts)
 
 ```ruby
 begin
-  # Populate a saved search
-  data, status_code, headers = api_instance.create_saved_searches_ingest_v1_with_http_info(opts)
+  # Get the results of a saved search as a file
+  data, status_code, headers = api_instance.download_results_with_http_info(job_id, opts)
   p status_code # => 2xx
   p headers # => { ... }
-  p data # => <ClientDataIngestResponseWrapperV1>
+  p data # => File
 rescue Falcon::ApiError => e
-  puts "Error when calling FoundryLogscaleApi->create_saved_searches_ingest_v1_with_http_info: #{e}"
+  puts "Error when calling FoundryLogscaleApi->download_results_with_http_info: #{e}"
 end
 ```
 
@@ -465,11 +316,13 @@ end
 
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
-| **app_id** | **String** | Application ID. | [optional] |
+| **job_id** | **String** | Job ID for a previously executed async query |  |
+| **infer_json_types** | **Boolean** | Whether to try to infer data types in json event response instead of returning map[string]string | [optional][default to false] |
+| **result_format** | **String** | Result Format | [optional] |
 
 ### Return type
 
-[**ClientDataIngestResponseWrapperV1**](ClientDataIngestResponseWrapperV1.md)
+**File**
 
 ### Authorization
 
@@ -478,6 +331,174 @@ end
 ### HTTP request headers
 
 - **Content-Type**: Not defined
+- **Accept**: application/octet-stream, text/csv, application/json
+
+
+## execute
+
+> <ApidomainQueryResponseWrapperV1> execute(body, opts)
+
+Execute a saved search
+
+### Examples
+
+```ruby
+require 'time'
+require 'crimson-falcon'
+
+# Setup authorization
+Falcon.configure do |config|
+  config.client_id = "Your_Client_ID"
+  config.client_secret = "Your_Client_Secret"
+  config.cloud = "us-1" # or "us-2", "eu-1", "us-gov1"
+end
+
+api_instance = Falcon::FoundryLogscaleApi.new
+body = Falcon::ApidomainSavedSearchExecuteRequestV1.new({extra_rename: 'extra_rename_example', extra_search: 'extra_search_example', extra_sort: 'extra_sort_example', extra_where: 'extra_where_example', parameters: { key: 'inner_example'}, fql_statements: { key: Falcon::ClientFQLStatement.new({op: 'op_example', prop: 'prop_example', value: 3.56})}}) # ApidomainSavedSearchExecuteRequestV1 | 
+opts = {
+  app_id: 'app_id_example', # String | Application ID.
+  detailed: true, # Boolean | Whether to include search field details
+  include_test_data: true, # Boolean | Include test data when executing searches
+  infer_json_types: true, # Boolean | Whether to try to infer data types in json event response instead of returning map[string]string
+  match_response_schema: true, # Boolean | Whether to validate search results against their schema
+  metadata: true # Boolean | Whether to include metadata in the response
+}
+
+begin
+  # Execute a saved search
+  result = api_instance.execute(body, opts)
+  p result
+rescue Falcon::ApiError => e
+  puts "Error when calling FoundryLogscaleApi->execute: #{e}"
+end
+```
+
+#### Using the execute_with_http_info variant
+
+This returns an Array which contains the response data, status code and headers.
+
+> <Array(<ApidomainQueryResponseWrapperV1>, Integer, Hash)> execute_with_http_info(body, opts)
+
+```ruby
+begin
+  # Execute a saved search
+  data, status_code, headers = api_instance.execute_with_http_info(body, opts)
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => <ApidomainQueryResponseWrapperV1>
+rescue Falcon::ApiError => e
+  puts "Error when calling FoundryLogscaleApi->execute_with_http_info: #{e}"
+end
+```
+
+### Parameters
+
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **body** | [**ApidomainSavedSearchExecuteRequestV1**](ApidomainSavedSearchExecuteRequestV1.md) |  |  |
+| **app_id** | **String** | Application ID. | [optional] |
+| **detailed** | **Boolean** | Whether to include search field details | [optional][default to false] |
+| **include_test_data** | **Boolean** | Include test data when executing searches | [optional][default to false] |
+| **infer_json_types** | **Boolean** | Whether to try to infer data types in json event response instead of returning map[string]string | [optional][default to false] |
+| **match_response_schema** | **Boolean** | Whether to validate search results against their schema | [optional][default to false] |
+| **metadata** | **Boolean** | Whether to include metadata in the response | [optional][default to false] |
+
+### Return type
+
+[**ApidomainQueryResponseWrapperV1**](ApidomainQueryResponseWrapperV1.md)
+
+### Authorization
+
+**oauth2**
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: application/json
+
+
+## execute_dynamic
+
+> <ApidomainQueryResponseWrapperV1> execute_dynamic(body, opts)
+
+Execute a dynamic saved search
+
+### Examples
+
+```ruby
+require 'time'
+require 'crimson-falcon'
+
+# Setup authorization
+Falcon.configure do |config|
+  config.client_id = "Your_Client_ID"
+  config.client_secret = "Your_Client_Secret"
+  config.cloud = "us-1" # or "us-2", "eu-1", "us-gov1"
+end
+
+api_instance = Falcon::FoundryLogscaleApi.new
+body = Falcon::ApidomainDynamicExecuteSearchRequestV1.new({repo_or_view: 'repo_or_view_example', search_query: 'search_query_example', search_query_args: 3.56}) # ApidomainDynamicExecuteSearchRequestV1 | 
+opts = {
+  app_id: 'app_id_example', # String | Application ID.
+  include_schema_generation: true, # Boolean | Include generated schemas in the response
+  include_test_data: true, # Boolean | Include test data when executing searches
+  infer_json_types: true, # Boolean | Whether to try to infer data types in json event response instead of returning map[string]string
+  match_response_schema: true, # Boolean | Whether to validate search results against their schema
+  metadata: true, # Boolean | Whether to include metadata in the response
+  mode: 'sync' # String | Mode to execute the query under.
+}
+
+begin
+  # Execute a dynamic saved search
+  result = api_instance.execute_dynamic(body, opts)
+  p result
+rescue Falcon::ApiError => e
+  puts "Error when calling FoundryLogscaleApi->execute_dynamic: #{e}"
+end
+```
+
+#### Using the execute_dynamic_with_http_info variant
+
+This returns an Array which contains the response data, status code and headers.
+
+> <Array(<ApidomainQueryResponseWrapperV1>, Integer, Hash)> execute_dynamic_with_http_info(body, opts)
+
+```ruby
+begin
+  # Execute a dynamic saved search
+  data, status_code, headers = api_instance.execute_dynamic_with_http_info(body, opts)
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => <ApidomainQueryResponseWrapperV1>
+rescue Falcon::ApiError => e
+  puts "Error when calling FoundryLogscaleApi->execute_dynamic_with_http_info: #{e}"
+end
+```
+
+### Parameters
+
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **body** | [**ApidomainDynamicExecuteSearchRequestV1**](ApidomainDynamicExecuteSearchRequestV1.md) |  |  |
+| **app_id** | **String** | Application ID. | [optional] |
+| **include_schema_generation** | **Boolean** | Include generated schemas in the response | [optional][default to false] |
+| **include_test_data** | **Boolean** | Include test data when executing searches | [optional][default to false] |
+| **infer_json_types** | **Boolean** | Whether to try to infer data types in json event response instead of returning map[string]string | [optional][default to false] |
+| **match_response_schema** | **Boolean** | Whether to validate search results against their schema | [optional][default to false] |
+| **metadata** | **Boolean** | Whether to include metadata in the response | [optional][default to false] |
+| **mode** | **String** | Mode to execute the query under. | [optional] |
+
+### Return type
+
+[**ApidomainQueryResponseWrapperV1**](ApidomainQueryResponseWrapperV1.md)
+
+### Authorization
+
+**oauth2**
+
+### HTTP request headers
+
+- **Content-Type**: application/json
 - **Accept**: application/json
 
 
@@ -504,7 +525,10 @@ api_instance = Falcon::FoundryLogscaleApi.new
 job_id = 'job_id_example' # String | Job ID for a previously executed async query
 opts = {
   app_id: 'app_id_example', # String | Application ID.
+  infer_json_types: true, # Boolean | Whether to try to infer data types in json event response instead of returning map[string]string
+  job_status_only: true, # Boolean | If set to true, result rows are dropped from the response and only the job status is returned
   limit: 'limit_example', # String | Maximum number of records to return.
+  match_response_schema: true, # Boolean | Whether to validate search results against their schema
   metadata: true, # Boolean | Whether to include metadata in the response
   offset: 'offset_example' # String | Starting pagination offset of records to return.
 }
@@ -542,86 +566,10 @@ end
 | ---- | ---- | ----------- | ----- |
 | **job_id** | **String** | Job ID for a previously executed async query |  |
 | **app_id** | **String** | Application ID. | [optional] |
+| **infer_json_types** | **Boolean** | Whether to try to infer data types in json event response instead of returning map[string]string | [optional][default to false] |
+| **job_status_only** | **Boolean** | If set to true, result rows are dropped from the response and only the job status is returned | [optional][default to false] |
 | **limit** | **String** | Maximum number of records to return. | [optional] |
-| **metadata** | **Boolean** | Whether to include metadata in the response | [optional][default to false] |
-| **offset** | **String** | Starting pagination offset of records to return. | [optional] |
-
-### Return type
-
-[**ApidomainQueryResponseWrapperV1**](ApidomainQueryResponseWrapperV1.md)
-
-### Authorization
-
-**oauth2**
-
-### HTTP request headers
-
-- **Content-Type**: Not defined
-- **Accept**: application/json
-
-
-## get_saved_searches_execute_v1
-
-> <ApidomainQueryResponseWrapperV1> get_saved_searches_execute_v1(job_id, opts)
-
-Get the results of a saved search
-
-### Examples
-
-```ruby
-require 'time'
-require 'crimson-falcon'
-
-# Setup authorization
-Falcon.configure do |config|
-  config.client_id = "Your_Client_ID"
-  config.client_secret = "Your_Client_Secret"
-  config.cloud = "us-1" # or "us-2", "eu-1", "us-gov1"
-end
-
-api_instance = Falcon::FoundryLogscaleApi.new
-job_id = 'job_id_example' # String | Job ID for a previously executed async query
-opts = {
-  app_id: 'app_id_example', # String | Application ID.
-  limit: 'limit_example', # String | Maximum number of records to return.
-  metadata: true, # Boolean | Whether to include metadata in the response
-  offset: 'offset_example' # String | Starting pagination offset of records to return.
-}
-
-begin
-  # Get the results of a saved search
-  result = api_instance.get_saved_searches_execute_v1(job_id, opts)
-  p result
-rescue Falcon::ApiError => e
-  puts "Error when calling FoundryLogscaleApi->get_saved_searches_execute_v1: #{e}"
-end
-```
-
-#### Using the get_saved_searches_execute_v1_with_http_info variant
-
-This returns an Array which contains the response data, status code and headers.
-
-> <Array(<ApidomainQueryResponseWrapperV1>, Integer, Hash)> get_saved_searches_execute_v1_with_http_info(job_id, opts)
-
-```ruby
-begin
-  # Get the results of a saved search
-  data, status_code, headers = api_instance.get_saved_searches_execute_v1_with_http_info(job_id, opts)
-  p status_code # => 2xx
-  p headers # => { ... }
-  p data # => <ApidomainQueryResponseWrapperV1>
-rescue Falcon::ApiError => e
-  puts "Error when calling FoundryLogscaleApi->get_saved_searches_execute_v1_with_http_info: #{e}"
-end
-```
-
-### Parameters
-
-| Name | Type | Description | Notes |
-| ---- | ---- | ----------- | ----- |
-| **job_id** | **String** | Job ID for a previously executed async query |  |
-| **app_id** | **String** | Application ID. | [optional] |
-| **limit** | **String** | Maximum number of records to return. | [optional] |
+| **match_response_schema** | **Boolean** | Whether to validate search results against their schema | [optional][default to false] |
 | **metadata** | **Boolean** | Whether to include metadata in the response | [optional][default to false] |
 | **offset** | **String** | Starting pagination offset of records to return. | [optional] |
 
@@ -661,6 +609,7 @@ end
 api_instance = Falcon::FoundryLogscaleApi.new
 job_id = 'job_id_example' # String | Job ID for a previously executed async query
 opts = {
+  infer_json_types: true, # Boolean | Whether to try to infer data types in json event response instead of returning map[string]string
   result_format: 'json' # String | Result Format
 }
 
@@ -696,6 +645,7 @@ end
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
 | **job_id** | **String** | Job ID for a previously executed async query |  |
+| **infer_json_types** | **Boolean** | Whether to try to infer data types in json event response instead of returning map[string]string | [optional][default to false] |
 | **result_format** | **String** | Result Format | [optional] |
 
 ### Return type
@@ -709,14 +659,14 @@ end
 ### HTTP request headers
 
 - **Content-Type**: Not defined
-- **Accept**: application/octet-stream
+- **Accept**: application/octet-stream, text/csv, application/json
 
 
-## get_saved_searches_job_results_download_v1
+## get_search_results
 
-> File get_saved_searches_job_results_download_v1(job_id, opts)
+> <ApidomainQueryResponseWrapperV1> get_search_results(job_id, opts)
 
-Get the results of a saved search as a file
+Get the results of a saved search
 
 ### Examples
 
@@ -734,33 +684,39 @@ end
 api_instance = Falcon::FoundryLogscaleApi.new
 job_id = 'job_id_example' # String | Job ID for a previously executed async query
 opts = {
-  result_format: 'json' # String | Result Format
+  app_id: 'app_id_example', # String | Application ID.
+  infer_json_types: true, # Boolean | Whether to try to infer data types in json event response instead of returning map[string]string
+  job_status_only: true, # Boolean | If set to true, result rows are dropped from the response and only the job status is returned
+  limit: 'limit_example', # String | Maximum number of records to return.
+  match_response_schema: true, # Boolean | Whether to validate search results against their schema
+  metadata: true, # Boolean | Whether to include metadata in the response
+  offset: 'offset_example' # String | Starting pagination offset of records to return.
 }
 
 begin
-  # Get the results of a saved search as a file
-  result = api_instance.get_saved_searches_job_results_download_v1(job_id, opts)
+  # Get the results of a saved search
+  result = api_instance.get_search_results(job_id, opts)
   p result
 rescue Falcon::ApiError => e
-  puts "Error when calling FoundryLogscaleApi->get_saved_searches_job_results_download_v1: #{e}"
+  puts "Error when calling FoundryLogscaleApi->get_search_results: #{e}"
 end
 ```
 
-#### Using the get_saved_searches_job_results_download_v1_with_http_info variant
+#### Using the get_search_results_with_http_info variant
 
 This returns an Array which contains the response data, status code and headers.
 
-> <Array(File, Integer, Hash)> get_saved_searches_job_results_download_v1_with_http_info(job_id, opts)
+> <Array(<ApidomainQueryResponseWrapperV1>, Integer, Hash)> get_search_results_with_http_info(job_id, opts)
 
 ```ruby
 begin
-  # Get the results of a saved search as a file
-  data, status_code, headers = api_instance.get_saved_searches_job_results_download_v1_with_http_info(job_id, opts)
+  # Get the results of a saved search
+  data, status_code, headers = api_instance.get_search_results_with_http_info(job_id, opts)
   p status_code # => 2xx
   p headers # => { ... }
-  p data # => File
+  p data # => <ApidomainQueryResponseWrapperV1>
 rescue Falcon::ApiError => e
-  puts "Error when calling FoundryLogscaleApi->get_saved_searches_job_results_download_v1_with_http_info: #{e}"
+  puts "Error when calling FoundryLogscaleApi->get_search_results_with_http_info: #{e}"
 end
 ```
 
@@ -769,11 +725,17 @@ end
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
 | **job_id** | **String** | Job ID for a previously executed async query |  |
-| **result_format** | **String** | Result Format | [optional] |
+| **app_id** | **String** | Application ID. | [optional] |
+| **infer_json_types** | **Boolean** | Whether to try to infer data types in json event response instead of returning map[string]string | [optional][default to false] |
+| **job_status_only** | **Boolean** | If set to true, result rows are dropped from the response and only the job status is returned | [optional][default to false] |
+| **limit** | **String** | Maximum number of records to return. | [optional] |
+| **match_response_schema** | **Boolean** | Whether to validate search results against their schema | [optional][default to false] |
+| **metadata** | **Boolean** | Whether to include metadata in the response | [optional][default to false] |
+| **offset** | **String** | Starting pagination offset of records to return. | [optional] |
 
 ### Return type
 
-**File**
+[**ApidomainQueryResponseWrapperV1**](ApidomainQueryResponseWrapperV1.md)
 
 ### Authorization
 
@@ -782,14 +744,14 @@ end
 ### HTTP request headers
 
 - **Content-Type**: Not defined
-- **Accept**: application/octet-stream
+- **Accept**: application/json
 
 
-## ingest_data_v1
+## ingest_data
 
-> <ClientDataIngestResponseWrapperV1> ingest_data_v1(data_file, opts)
+> <ClientDataIngestResponseWrapperV1> ingest_data(opts)
 
-Ingest data into the application repository
+Synchronously ingest data into the application repository
 
 ### Examples
 
@@ -805,37 +767,38 @@ Falcon.configure do |config|
 end
 
 api_instance = Falcon::FoundryLogscaleApi.new
-data_file = File.new('/path/to/some/file') # File | Data file to ingest
 opts = {
+  data_content: 'data_content_example', # String | JSON data to ingest
+  data_file: File.new('/path/to/some/file'), # File | Data file to ingest
   tag: ['inner_example'], # Array<String> | Custom tag for ingested data in the form tag:value
   tag_source: 'tag_source_example', # String | Tag the data with the specified source
   test_data: true # Boolean | Tag the data with test-ingest
 }
 
 begin
-  # Ingest data into the application repository
-  result = api_instance.ingest_data_v1(data_file, opts)
+  # Synchronously ingest data into the application repository
+  result = api_instance.ingest_data(opts)
   p result
 rescue Falcon::ApiError => e
-  puts "Error when calling FoundryLogscaleApi->ingest_data_v1: #{e}"
+  puts "Error when calling FoundryLogscaleApi->ingest_data: #{e}"
 end
 ```
 
-#### Using the ingest_data_v1_with_http_info variant
+#### Using the ingest_data_with_http_info variant
 
 This returns an Array which contains the response data, status code and headers.
 
-> <Array(<ClientDataIngestResponseWrapperV1>, Integer, Hash)> ingest_data_v1_with_http_info(data_file, opts)
+> <Array(<ClientDataIngestResponseWrapperV1>, Integer, Hash)> ingest_data_with_http_info(opts)
 
 ```ruby
 begin
-  # Ingest data into the application repository
-  data, status_code, headers = api_instance.ingest_data_v1_with_http_info(data_file, opts)
+  # Synchronously ingest data into the application repository
+  data, status_code, headers = api_instance.ingest_data_with_http_info(opts)
   p status_code # => 2xx
   p headers # => { ... }
   p data # => <ClientDataIngestResponseWrapperV1>
 rescue Falcon::ApiError => e
-  puts "Error when calling FoundryLogscaleApi->ingest_data_v1_with_http_info: #{e}"
+  puts "Error when calling FoundryLogscaleApi->ingest_data_with_http_info: #{e}"
 end
 ```
 
@@ -843,7 +806,8 @@ end
 
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
-| **data_file** | **File** | Data file to ingest |  |
+| **data_content** | **String** | JSON data to ingest | [optional] |
+| **data_file** | **File** | Data file to ingest | [optional] |
 | **tag** | [**Array&lt;String&gt;**](String.md) | Custom tag for ingested data in the form tag:value | [optional] |
 | **tag_source** | **String** | Tag the data with the specified source | [optional] |
 | **test_data** | **Boolean** | Tag the data with test-ingest | [optional][default to false] |
@@ -862,9 +826,90 @@ end
 - **Accept**: application/json
 
 
-## list_repos_v1
+## ingest_data_async_v1
 
-> <ApidomainRepoViewListItemWrapperV1> list_repos_v1(opts)
+> <ClientDataIngestResponseWrapperV1> ingest_data_async_v1(opts)
+
+Asynchronously ingest data into the application repository
+
+### Examples
+
+```ruby
+require 'time'
+require 'crimson-falcon'
+
+# Setup authorization
+Falcon.configure do |config|
+  config.client_id = "Your_Client_ID"
+  config.client_secret = "Your_Client_Secret"
+  config.cloud = "us-1" # or "us-2", "eu-1", "us-gov1"
+end
+
+api_instance = Falcon::FoundryLogscaleApi.new
+opts = {
+  data_content: 'data_content_example', # String | JSON data to ingest
+  data_file: File.new('/path/to/some/file'), # File | Data file to ingest
+  repo: 'repo_example', # String | Repository name if not part of a foundry app
+  tag: ['inner_example'], # Array<String> | Custom tag for ingested data in the form tag:value
+  tag_source: 'tag_source_example', # String | Tag the data with the specified source
+  test_data: true # Boolean | Tag the data with test-ingest
+}
+
+begin
+  # Asynchronously ingest data into the application repository
+  result = api_instance.ingest_data_async_v1(opts)
+  p result
+rescue Falcon::ApiError => e
+  puts "Error when calling FoundryLogscaleApi->ingest_data_async_v1: #{e}"
+end
+```
+
+#### Using the ingest_data_async_v1_with_http_info variant
+
+This returns an Array which contains the response data, status code and headers.
+
+> <Array(<ClientDataIngestResponseWrapperV1>, Integer, Hash)> ingest_data_async_v1_with_http_info(opts)
+
+```ruby
+begin
+  # Asynchronously ingest data into the application repository
+  data, status_code, headers = api_instance.ingest_data_async_v1_with_http_info(opts)
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => <ClientDataIngestResponseWrapperV1>
+rescue Falcon::ApiError => e
+  puts "Error when calling FoundryLogscaleApi->ingest_data_async_v1_with_http_info: #{e}"
+end
+```
+
+### Parameters
+
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **data_content** | **String** | JSON data to ingest | [optional] |
+| **data_file** | **File** | Data file to ingest | [optional] |
+| **repo** | **String** | Repository name if not part of a foundry app | [optional] |
+| **tag** | [**Array&lt;String&gt;**](String.md) | Custom tag for ingested data in the form tag:value | [optional] |
+| **tag_source** | **String** | Tag the data with the specified source | [optional] |
+| **test_data** | **Boolean** | Tag the data with test-ingest | [optional][default to false] |
+
+### Return type
+
+[**ClientDataIngestResponseWrapperV1**](ClientDataIngestResponseWrapperV1.md)
+
+### Authorization
+
+**oauth2**
+
+### HTTP request headers
+
+- **Content-Type**: multipart/form-data
+- **Accept**: application/json
+
+
+## list_repos
+
+> <ApidomainRepoViewListItemWrapperV1> list_repos(opts)
 
 Lists available repositories and views
 
@@ -888,28 +933,28 @@ opts = {
 
 begin
   # Lists available repositories and views
-  result = api_instance.list_repos_v1(opts)
+  result = api_instance.list_repos(opts)
   p result
 rescue Falcon::ApiError => e
-  puts "Error when calling FoundryLogscaleApi->list_repos_v1: #{e}"
+  puts "Error when calling FoundryLogscaleApi->list_repos: #{e}"
 end
 ```
 
-#### Using the list_repos_v1_with_http_info variant
+#### Using the list_repos_with_http_info variant
 
 This returns an Array which contains the response data, status code and headers.
 
-> <Array(<ApidomainRepoViewListItemWrapperV1>, Integer, Hash)> list_repos_v1_with_http_info(opts)
+> <Array(<ApidomainRepoViewListItemWrapperV1>, Integer, Hash)> list_repos_with_http_info(opts)
 
 ```ruby
 begin
   # Lists available repositories and views
-  data, status_code, headers = api_instance.list_repos_v1_with_http_info(opts)
+  data, status_code, headers = api_instance.list_repos_with_http_info(opts)
   p status_code # => 2xx
   p headers # => { ... }
   p data # => <ApidomainRepoViewListItemWrapperV1>
 rescue Falcon::ApiError => e
-  puts "Error when calling FoundryLogscaleApi->list_repos_v1_with_http_info: #{e}"
+  puts "Error when calling FoundryLogscaleApi->list_repos_with_http_info: #{e}"
 end
 ```
 
@@ -933,9 +978,9 @@ end
 - **Accept**: application/json
 
 
-## list_view_v1
+## list_views
 
-> <ApidomainRepoViewListItemWrapperV1> list_view_v1(opts)
+> <ApidomainRepoViewListItemWrapperV1> list_views(opts)
 
 List views
 
@@ -959,28 +1004,28 @@ opts = {
 
 begin
   # List views
-  result = api_instance.list_view_v1(opts)
+  result = api_instance.list_views(opts)
   p result
 rescue Falcon::ApiError => e
-  puts "Error when calling FoundryLogscaleApi->list_view_v1: #{e}"
+  puts "Error when calling FoundryLogscaleApi->list_views: #{e}"
 end
 ```
 
-#### Using the list_view_v1_with_http_info variant
+#### Using the list_views_with_http_info variant
 
 This returns an Array which contains the response data, status code and headers.
 
-> <Array(<ApidomainRepoViewListItemWrapperV1>, Integer, Hash)> list_view_v1_with_http_info(opts)
+> <Array(<ApidomainRepoViewListItemWrapperV1>, Integer, Hash)> list_views_with_http_info(opts)
 
 ```ruby
 begin
   # List views
-  data, status_code, headers = api_instance.list_view_v1_with_http_info(opts)
+  data, status_code, headers = api_instance.list_views_with_http_info(opts)
   p status_code # => 2xx
   p headers # => { ... }
   p data # => <ApidomainRepoViewListItemWrapperV1>
 rescue Falcon::ApiError => e
-  puts "Error when calling FoundryLogscaleApi->list_view_v1_with_http_info: #{e}"
+  puts "Error when calling FoundryLogscaleApi->list_views_with_http_info: #{e}"
 end
 ```
 
@@ -993,6 +1038,77 @@ end
 ### Return type
 
 [**ApidomainRepoViewListItemWrapperV1**](ApidomainRepoViewListItemWrapperV1.md)
+
+### Authorization
+
+**oauth2**
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+
+## populate
+
+> <ClientDataIngestResponseWrapperV1> populate(opts)
+
+Populate a saved search
+
+### Examples
+
+```ruby
+require 'time'
+require 'crimson-falcon'
+
+# Setup authorization
+Falcon.configure do |config|
+  config.client_id = "Your_Client_ID"
+  config.client_secret = "Your_Client_Secret"
+  config.cloud = "us-1" # or "us-2", "eu-1", "us-gov1"
+end
+
+api_instance = Falcon::FoundryLogscaleApi.new
+opts = {
+  app_id: 'app_id_example' # String | Application ID.
+}
+
+begin
+  # Populate a saved search
+  result = api_instance.populate(opts)
+  p result
+rescue Falcon::ApiError => e
+  puts "Error when calling FoundryLogscaleApi->populate: #{e}"
+end
+```
+
+#### Using the populate_with_http_info variant
+
+This returns an Array which contains the response data, status code and headers.
+
+> <Array(<ClientDataIngestResponseWrapperV1>, Integer, Hash)> populate_with_http_info(opts)
+
+```ruby
+begin
+  # Populate a saved search
+  data, status_code, headers = api_instance.populate_with_http_info(opts)
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => <ClientDataIngestResponseWrapperV1>
+rescue Falcon::ApiError => e
+  puts "Error when calling FoundryLogscaleApi->populate_with_http_info: #{e}"
+end
+```
+
+### Parameters
+
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **app_id** | **String** | Application ID. | [optional] |
+
+### Return type
+
+[**ClientDataIngestResponseWrapperV1**](ClientDataIngestResponseWrapperV1.md)
 
 ### Authorization
 

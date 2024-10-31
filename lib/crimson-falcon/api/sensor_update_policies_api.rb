@@ -37,7 +37,7 @@ module Falcon
       @api_client = api_client
     end
     # Create Sensor Update Policies by specifying details about the policy to create
-    # @param body [SensorUpdateCreatePoliciesReqV1]
+    # @param body [SensorUpdateCreatePoliciesReqV1] 
     # @param [Hash] opts the optional parameters
     # @return [SensorUpdateRespV1]
     def create_sensor_update_policies(body, opts = {})
@@ -46,7 +46,7 @@ module Falcon
     end
 
     # Create Sensor Update Policies by specifying details about the policy to create
-    # @param body [SensorUpdateCreatePoliciesReqV1]
+    # @param body [SensorUpdateCreatePoliciesReqV1] 
     # @param [Hash] opts the optional parameters
     # @return [Array<(SensorUpdateRespV1, Integer, Hash)>] SensorUpdateRespV1 data, response status code and response headers
     def create_sensor_update_policies_with_http_info(body, opts = {})
@@ -70,7 +70,7 @@ module Falcon
       # HTTP header 'Content-Type'
       content_type = @api_client.select_header_content_type(['application/json'])
       if !content_type.nil?
-        header_params['Content-Type'] = content_type
+          header_params['Content-Type'] = content_type
       end
 
       # form parameters
@@ -103,7 +103,7 @@ module Falcon
     end
 
     # Create Sensor Update Policies by specifying details about the policy to create with additional support for uninstall protection
-    # @param body [SensorUpdateCreatePoliciesReqV2]
+    # @param body [SensorUpdateCreatePoliciesReqV2] 
     # @param [Hash] opts the optional parameters
     # @return [SensorUpdateRespV2]
     def create_sensor_update_policies_v2(body, opts = {})
@@ -112,7 +112,7 @@ module Falcon
     end
 
     # Create Sensor Update Policies by specifying details about the policy to create with additional support for uninstall protection
-    # @param body [SensorUpdateCreatePoliciesReqV2]
+    # @param body [SensorUpdateCreatePoliciesReqV2] 
     # @param [Hash] opts the optional parameters
     # @return [Array<(SensorUpdateRespV2, Integer, Hash)>] SensorUpdateRespV2 data, response status code and response headers
     def create_sensor_update_policies_v2_with_http_info(body, opts = {})
@@ -136,7 +136,7 @@ module Falcon
       # HTTP header 'Content-Type'
       content_type = @api_client.select_header_content_type(['application/json'])
       if !content_type.nil?
-        header_params['Content-Type'] = content_type
+          header_params['Content-Type'] = content_type
       end
 
       # form parameters
@@ -356,7 +356,7 @@ module Falcon
 
     # Perform the specified action on the Sensor Update Policies specified in the request
     # @param action_name [String] The action to perform
-    # @param body [MsaEntityActionRequestV2]
+    # @param body [MsaEntityActionRequestV2] 
     # @param [Hash] opts the optional parameters
     # @return [SensorUpdateRespV1]
     def perform_sensor_update_policies_action(action_name, body, opts = {})
@@ -366,7 +366,7 @@ module Falcon
 
     # Perform the specified action on the Sensor Update Policies specified in the request
     # @param action_name [String] The action to perform
-    # @param body [MsaEntityActionRequestV2]
+    # @param body [MsaEntityActionRequestV2] 
     # @param [Hash] opts the optional parameters
     # @return [Array<(SensorUpdateRespV1, Integer, Hash)>] SensorUpdateRespV1 data, response status code and response headers
     def perform_sensor_update_policies_action_with_http_info(action_name, body, opts = {})
@@ -400,7 +400,7 @@ module Falcon
       # HTTP header 'Content-Type'
       content_type = @api_client.select_header_content_type(['application/json'])
       if !content_type.nil?
-        header_params['Content-Type'] = content_type
+          header_params['Content-Type'] = content_type
       end
 
       # form parameters
@@ -865,7 +865,7 @@ module Falcon
       end
 
       # resource path
-      local_var_path = '/policy/queries/sensor-update-kernels/{distinct-field}/v1'.sub('{' + 'distinct-field' + '}', CGI.escape(distinct_field.to_s))
+      local_var_path = '/policy/queries/sensor-update-kernels/{distinct_field}/v1'.sub('{' + 'distinct_field' + '}', CGI.escape(distinct_field.to_s))
 
       # query parameters
       query_params = opts[:query_params] || {}
@@ -1073,7 +1073,7 @@ module Falcon
     end
 
     # Reveals an uninstall token for a specific device. To retrieve the bulk maintenance token pass the value 'MAINTENANCE' as the value for 'device_id'
-    # @param body [UninstallTokenRevealUninstallTokenReqV1]
+    # @param body [UninstallTokenRevealUninstallTokenReqV1] 
     # @param [Hash] opts the optional parameters
     # @return [UninstallTokenRespV1]
     def reveal_uninstall_token(body, opts = {})
@@ -1082,7 +1082,7 @@ module Falcon
     end
 
     # Reveals an uninstall token for a specific device. To retrieve the bulk maintenance token pass the value &#39;MAINTENANCE&#39; as the value for &#39;device_id&#39;
-    # @param body [UninstallTokenRevealUninstallTokenReqV1]
+    # @param body [UninstallTokenRevealUninstallTokenReqV1] 
     # @param [Hash] opts the optional parameters
     # @return [Array<(UninstallTokenRespV1, Integer, Hash)>] UninstallTokenRespV1 data, response status code and response headers
     def reveal_uninstall_token_with_http_info(body, opts = {})
@@ -1106,7 +1106,7 @@ module Falcon
       # HTTP header 'Content-Type'
       content_type = @api_client.select_header_content_type(['application/json'])
       if !content_type.nil?
-        header_params['Content-Type'] = content_type
+          header_params['Content-Type'] = content_type
       end
 
       # form parameters
@@ -1139,7 +1139,7 @@ module Falcon
     end
 
     # Sets the precedence of Sensor Update Policies based on the order of IDs specified in the request. The first ID specified will have the highest precedence and the last ID specified will have the lowest. You must specify all non-Default Policies for a platform when updating precedence
-    # @param body [BaseSetPolicyPrecedenceReqV1]
+    # @param body [BaseSetPolicyPrecedenceReqV1] 
     # @param [Hash] opts the optional parameters
     # @return [MsaQueryResponse]
     def set_sensor_update_policies_precedence(body, opts = {})
@@ -1148,7 +1148,7 @@ module Falcon
     end
 
     # Sets the precedence of Sensor Update Policies based on the order of IDs specified in the request. The first ID specified will have the highest precedence and the last ID specified will have the lowest. You must specify all non-Default Policies for a platform when updating precedence
-    # @param body [BaseSetPolicyPrecedenceReqV1]
+    # @param body [BaseSetPolicyPrecedenceReqV1] 
     # @param [Hash] opts the optional parameters
     # @return [Array<(MsaQueryResponse, Integer, Hash)>] MsaQueryResponse data, response status code and response headers
     def set_sensor_update_policies_precedence_with_http_info(body, opts = {})
@@ -1172,7 +1172,7 @@ module Falcon
       # HTTP header 'Content-Type'
       content_type = @api_client.select_header_content_type(['application/json'])
       if !content_type.nil?
-        header_params['Content-Type'] = content_type
+          header_params['Content-Type'] = content_type
       end
 
       # form parameters
@@ -1205,7 +1205,7 @@ module Falcon
     end
 
     # Update Sensor Update Policies by specifying the ID of the policy and details to update
-    # @param body [SensorUpdateUpdatePoliciesReqV1]
+    # @param body [SensorUpdateUpdatePoliciesReqV1] 
     # @param [Hash] opts the optional parameters
     # @return [SensorUpdateRespV1]
     def update_sensor_update_policies(body, opts = {})
@@ -1214,7 +1214,7 @@ module Falcon
     end
 
     # Update Sensor Update Policies by specifying the ID of the policy and details to update
-    # @param body [SensorUpdateUpdatePoliciesReqV1]
+    # @param body [SensorUpdateUpdatePoliciesReqV1] 
     # @param [Hash] opts the optional parameters
     # @return [Array<(SensorUpdateRespV1, Integer, Hash)>] SensorUpdateRespV1 data, response status code and response headers
     def update_sensor_update_policies_with_http_info(body, opts = {})
@@ -1238,7 +1238,7 @@ module Falcon
       # HTTP header 'Content-Type'
       content_type = @api_client.select_header_content_type(['application/json'])
       if !content_type.nil?
-        header_params['Content-Type'] = content_type
+          header_params['Content-Type'] = content_type
       end
 
       # form parameters
@@ -1271,7 +1271,7 @@ module Falcon
     end
 
     # Update Sensor Update Policies by specifying the ID of the policy and details to update with additional support for uninstall protection
-    # @param body [SensorUpdateUpdatePoliciesReqV2]
+    # @param body [SensorUpdateUpdatePoliciesReqV2] 
     # @param [Hash] opts the optional parameters
     # @return [SensorUpdateRespV2]
     def update_sensor_update_policies_v2(body, opts = {})
@@ -1280,7 +1280,7 @@ module Falcon
     end
 
     # Update Sensor Update Policies by specifying the ID of the policy and details to update with additional support for uninstall protection
-    # @param body [SensorUpdateUpdatePoliciesReqV2]
+    # @param body [SensorUpdateUpdatePoliciesReqV2] 
     # @param [Hash] opts the optional parameters
     # @return [Array<(SensorUpdateRespV2, Integer, Hash)>] SensorUpdateRespV2 data, response status code and response headers
     def update_sensor_update_policies_v2_with_http_info(body, opts = {})
@@ -1304,7 +1304,7 @@ module Falcon
       # HTTP header 'Content-Type'
       content_type = @api_client.select_header_content_type(['application/json'])
       if !content_type.nil?
-        header_params['Content-Type'] = content_type
+          header_params['Content-Type'] = content_type
       end
 
       # form parameters
