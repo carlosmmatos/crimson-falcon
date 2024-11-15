@@ -47,7 +47,7 @@ rebuild: uninstall build install clean
 
 build-sdk:
 	@echo "Generating SDK..."
-	@openapi-generator generate -i .openapi-generator/swagger-patched.json -g ruby -c .openapi-generator/config.yml -t .openapi-generator/templates --skip-validate-spec
+	@openapi-generator generate -i .openapi-generator/swagger-patched.json -g ruby -c .openapi-generator/config.yml -t .openapi-generator/templates
 
 fix-regex:
 	@echo "Fixing regex..."

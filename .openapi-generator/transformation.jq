@@ -95,8 +95,6 @@
   | if .paths."/customobjects/v1/collections/{collection_name}/objects/{object_key}/metadata".get.responses."200".schema."$ref" = "#/definitions/CustomType_3191042536" then
       .paths."/customobjects/v1/collections/{collection_name}/objects/{object_key}/metadata".get.responses."200".schema = {"$ref": "#/definitions/CustomStorageResponse"}  else . end
 
-
-
   # # Better operationId for workflows collection
   # | .paths."/workflows/entities/execute/v1".post.operationId = "Execute"
   # | .paths."/workflows/entities/execution-actions/v1".post.operationId = "ExecutionAction"
@@ -181,23 +179,44 @@
   # | .paths."/container-security/combined/kubernetes-ioms/v1".get.operationId = "KubernetesIomEntitiesCombined"
   # | .paths."/container-security/queries/kubernetes-ioms/v1".get.operationId = "QueryKubernetesIoms"
 
-# Allow an empty string be passed to assignment_rule
+  # Allow an empty string be passed to assignment_rule
   | .definitions."host_groups.UpdateGroupReqV1".properties.assignment_rule += {"x-nullable": true}
 
- # Allow expiration to be nullable
+  # Allow expiration to be nullable
   | .definitions."api.IndicatorCreateReqV1".properties.expiration += {"x-nullable": true}
 
- # 202 is a valid response for /real-time-response/entities/scripts/v1 patch
+  # 202 is a valid response for /real-time-response/entities/scripts/v1 patch
   | .paths."/real-time-response/entities/scripts/v1".patch.responses."202" = .paths."/real-time-response/entities/scripts/v1".patch.responses."200"
   | del(.paths."/real-time-response/entities/scripts/v1".patch.responses."200")
 
-# 200 is a valid response from /real-time-response/entities/queued-sessions/command/v1
+  # 200 is a valid response from /real-time-response/entities/queued-sessions/command/v1
   | .paths."/real-time-response/entities/queued-sessions/command/v1".delete.responses."200" = .paths."/real-time-response/entities/put-files/v1".delete.responses."200"
 
-# last_seen and first_seen should be a string
+  # last_seen and first_seen should be a string
   | .definitions."models.Container".properties.first_seen.type = "string"
   | .definitions."models.Container".properties.last_seen.type = "string"
 
-# device_control.USBClassExceptionsResponse and device_control.USBClassExceptionsReqV1 enum should have BLOCK_EXECUTE in it
+  # device_control.USBClassExceptionsResponse and device_control.USBClassExceptionsReqV1 enum should have BLOCK_EXECUTE in it
   | .definitions."device_control.USBClassExceptionsResponse".properties.action.enum += ["BLOCK_EXECUTE"]
   | .definitions."device_control.USBClassExceptionsReqV1".properties.action.enum += ["BLOCK_EXECUTE"]
+
+  # apidomain.SavedSearchExecuteRequestV1 has parameters listed twice
+  | del(.definitions."apidomain.SavedSearchExecuteRequestV1".properties.parameters)
+
+  # add text/csv to produces for /reports/entities/report-executions-download/v1
+  | .paths."/reports/entities/report-executions-download/v1".get.produces += ["text/csv"]
+
+  # Update the summary and description for /reports/entities/report-executions-download/v1
+  | .paths."/reports/entities/report-executions-download/v1".get.summary = "Get report entity download. Returns either a JSON object or a CSV string."
+
+  # Update /reports/entities/report-executions-download/v1 to be of type Object for now. In the future it will get changed
+  # to a binary download, so we can treat it the same as sensor download. See below:
+    # JIRA: https://jira.cs.sys/browse/PLATFORMPG-787321
+    # | .paths."/reports/entities/report-executions-download/v1".get.responses."200".schema = {
+    #   "$ref": "#/definitions/domain.DownloadItem"
+    # }
+  | .paths."/reports/entities/report-executions-download/v1".get.responses."200".schema = {
+      "type": "object",
+      "description": "The response can be either a JSON object or a string containing CSV data. When the response is JSON, it will be a structured object. When the response is CSV, it will be returned as a raw string."
+    }
+
